@@ -42,7 +42,7 @@ repo_trophies:
 # will use title and url fields
 # Take a look to https://github.com/jekyll/jekyll-feed for more customization
 
-rss_icon: true
+rss_icon: false
 
 # -----------------------------------------------------------------------------
 # Layout
@@ -103,8 +103,6 @@ youtube_id: connectwithprakash # your youtube channel id (youtube.com/@<youtube_
 discord_id: connectwithprakash # your discord id (18-digit unique numerical identifier)
 
 contact_note: Best way to reach ot to me are via email or linkedin.
-  >
-  You can even add a little note about which of these is the best way to reach you.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -156,9 +154,9 @@ disqus_shortname: connectwithprakash # put your disqus shortname
 # External sources.
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
-external_sources:
-  # - name: medium.com
-  #   rss_url: https://medium.com/@connectwithprakash/feed
+# external_sources:
+# - name: medium.com
+#   rss_url: https://medium.com/@connectwithprakash/feed
 # -----------------------------------------------------------------------------
 # Collections
 # -----------------------------------------------------------------------------
