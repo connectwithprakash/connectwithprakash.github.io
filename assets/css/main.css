@@ -13,11 +13,14 @@
   --global-theme-color: #B509AC;
   --global-hover-color: #B509AC;
   --global-hover-text-color: #ffffff;
+  --global-navbar-bg-color: #1C1C1D;
+  --global-navbar-text-color: #e8e8e8;
+  --global-navbar-link-color: #ffffff;
   --global-footer-bg-color: #1C1C1D;
   --global-footer-text-color: #e8e8e8;
   --global-footer-link-color: #ffffff;
   --global-distill-app-color: #828282;
-  --global-divider-color: rgba(0,0,0,.1);
+  --global-divider-color: rgba(0, 0, 0, .1);
   --global-card-bg-color: #ffffff;
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -55,6 +58,9 @@ html[data-theme=dark] {
   --global-theme-color: #2698BA;
   --global-hover-color: #2698BA;
   --global-hover-text-color: #ffffff;
+  --global-navbar-bg-color: #e8e8e8;
+  --global-navbar-text-color: #1C1C1D;
+  --global-navbar-link-color: #000000;
   --global-footer-bg-color: #e8e8e8;
   --global-footer-text-color: #1C1C1D;
   --global-footer-link-color: #000000;
@@ -138,7 +144,7 @@ div,
 li,
 span,
 strong {
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 }
 
 hr {
@@ -263,16 +269,16 @@ blockquote {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
+  background-color: var(--global-navbar-bg-color);
   opacity: 0.95;
 }
 
 .navbar .dropdown-menu {
-  background-color: var(--global-bg-color);
+  background-color: var(--global-navbar-bg-color);
   border: 1px solid var(--global-divider-color);
 }
 .navbar .dropdown-menu a:not(.active) {
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 }
 .navbar .dropdown-menu a:hover {
   color: var(--global-hover-color);
@@ -282,21 +288,21 @@ blockquote {
 }
 
 .dropdown-item {
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 }
 .dropdown-item:hover {
   color: var(--global-hover-color);
-  background-color: var(--global-bg-color);
+  background-color: var(--global-navbar-bg-color);
 }
 
 .navbar.navbar-light a:hover {
   text-decoration: none;
 }
 .navbar.navbar-light .navbar-brand {
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 }
 .navbar.navbar-light .navbar-nav .nav-item .nav-link {
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 }
 .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
   color: var(--global-hover-color);
@@ -315,7 +321,7 @@ blockquote {
   font-size: 1.7rem;
 }
 .navbar.navbar-light .navbar-brand.social a i::before {
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
   transition-property: all 0.2s ease-in-out;
 }
 .navbar.navbar-light .navbar-brand.social a:hover i::before {
@@ -326,7 +332,7 @@ blockquote {
   display: block;
   width: 22px;
   height: 2px;
-  background-color: var(--global-text-color);
+  background-color: var(--global-navbar-text-color);
   border-radius: 1px;
   margin-bottom: 4px;
   transition: all 0.2s;
@@ -357,7 +363,7 @@ blockquote {
   padding: 0;
   border: 0;
   background-color: inherit;
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 }
 #light-toggle:hover {
   color: var(--global-hover-color);
@@ -839,11 +845,13 @@ progress::-moz-progress-bar {
 .btn-group.dropdown .dropdown-item:hover {
   color: var(--global-hover-color);
 }
-.btn-group.dropdown .dropdown-item.active, .btn-group.dropdown .dropdown-item:active {
+.btn-group.dropdown .dropdown-item.active,
+.btn-group.dropdown .dropdown-item:active {
   background-color: var(--global-hover-color);
   color: var(--global-hover-text-color) !important;
 }
-.btn-group.dropdown .dropdown-item.active:hover, .btn-group.dropdown .dropdown-item:active:hover {
+.btn-group.dropdown .dropdown-item.active:hover,
+.btn-group.dropdown .dropdown-item:active:hover {
   color: var(--global-hover-text-color);
 }
 
@@ -889,7 +897,12 @@ nav[data-toggle=toc] .nav-link.active:hover {
 .post .post-content blockquote.block-tip p {
   color: var(--global-tip-block-text);
 }
-.post .post-content blockquote.block-tip h1, .post .post-content blockquote.block-tip h2, .post .post-content blockquote.block-tip h3, .post .post-content blockquote.block-tip h4, .post .post-content blockquote.block-tip h5, .post .post-content blockquote.block-tip h6 {
+.post .post-content blockquote.block-tip h1,
+.post .post-content blockquote.block-tip h2,
+.post .post-content blockquote.block-tip h3,
+.post .post-content blockquote.block-tip h4,
+.post .post-content blockquote.block-tip h5,
+.post .post-content blockquote.block-tip h6 {
   color: var(--global-tip-block-title);
 }
 .post .post-content blockquote.block-warning {
@@ -899,7 +912,12 @@ nav[data-toggle=toc] .nav-link.active:hover {
 .post .post-content blockquote.block-warning p {
   color: var(--global-warning-block-text);
 }
-.post .post-content blockquote.block-warning h1, .post .post-content blockquote.block-warning h2, .post .post-content blockquote.block-warning h3, .post .post-content blockquote.block-warning h4, .post .post-content blockquote.block-warning h5, .post .post-content blockquote.block-warning h6 {
+.post .post-content blockquote.block-warning h1,
+.post .post-content blockquote.block-warning h2,
+.post .post-content blockquote.block-warning h3,
+.post .post-content blockquote.block-warning h4,
+.post .post-content blockquote.block-warning h5,
+.post .post-content blockquote.block-warning h6 {
   color: var(--global-warning-block-title);
 }
 .post .post-content blockquote.block-danger {
@@ -909,7 +927,12 @@ nav[data-toggle=toc] .nav-link.active:hover {
 .post .post-content blockquote.block-danger p {
   color: var(--global-danger-block-text);
 }
-.post .post-content blockquote.block-danger h1, .post .post-content blockquote.block-danger h2, .post .post-content blockquote.block-danger h3, .post .post-content blockquote.block-danger h4, .post .post-content blockquote.block-danger h5, .post .post-content blockquote.block-danger h6 {
+.post .post-content blockquote.block-danger h1,
+.post .post-content blockquote.block-danger h2,
+.post .post-content blockquote.block-danger h3,
+.post .post-content blockquote.block-danger h4,
+.post .post-content blockquote.block-danger h5,
+.post .post-content blockquote.block-danger h6 {
   color: var(--global-danger-block-title);
 }
 
