@@ -16,7 +16,7 @@ div,
 li,
 span,
 strong {
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 }
 
 hr {
@@ -24,6 +24,7 @@ hr {
 }
 
 table {
+
   td,
   th {
     font-size: 1rem;
@@ -169,16 +170,16 @@ blockquote {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
+  background-color: var(--global-navbar-bg-color);
   opacity: 0.95;
 }
 
 .navbar .dropdown-menu {
-  background-color: var(--global-bg-color);
+  background-color: var(--global-navbar-bg-color);
   border: 1px solid var(--global-divider-color);
 
   a:not(.active) {
-    color: var(--global-text-color);
+    color: var(--global-navbar-text-color);
   }
 
   a:hover {
@@ -191,11 +192,11 @@ blockquote {
 }
 
 .dropdown-item {
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 
   &:hover {
     color: var(--global-hover-color);
-    background-color: var(--global-bg-color);
+    background-color: var(--global-navbar-bg-color);
   }
 }
 
@@ -207,11 +208,11 @@ blockquote {
   }
 
   .navbar-brand {
-    color: var(--global-text-color);
+    color: var(--global-navbar-text-color);
   }
 
   .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
+    color: var(--global-navbar-text-color);
 
     &:hover {
       color: var(--global-hover-color);
@@ -235,7 +236,7 @@ blockquote {
 
     a {
       i::before {
-        color: var(--global-text-color);
+        color: var(--global-navbar-text-color);
         transition-property: all 0.2s ease-in-out;
       }
 
@@ -253,7 +254,7 @@ blockquote {
     display: block;
     width: 22px;
     height: 2px;
-    background-color: var(--global-text-color);
+    background-color: var(--global-navbar-text-color);
     border-radius: 1px;
     margin-bottom: 4px;
     transition: all 0.2s;
@@ -292,7 +293,7 @@ blockquote {
   padding: 0;
   border: 0;
   background-color: inherit;
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 
   &:hover {
     color: var(--global-hover-color);
@@ -659,6 +660,7 @@ footer.sticky-bottom {
 
       .badges {
         padding-bottom: 0.5rem;
+
         span {
           display: inline-block;
           color: $black-color;
@@ -905,7 +907,8 @@ progress::-moz-progress-bar {
     }
   }
 
-  .dropdown-item.active, .dropdown-item:active {
+  .dropdown-item.active,
+  .dropdown-item:active {
     background-color: var(--global-hover-color);
     color: var(--global-hover-text-color) !important;
 
@@ -947,6 +950,7 @@ nav[data-toggle="toc"] {
 
 /* small screens */
 @media (max-width: 576px) {
+
   /* override stickyness so that the navigation does not follow scrolling */
   nav[data-toggle="toc"] {
     visibility: hidden;
@@ -965,7 +969,12 @@ nav[data-toggle="toc"] {
       color: var(--global-tip-block-text);
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: var(--global-tip-block-title);
     }
   }
@@ -978,7 +987,12 @@ nav[data-toggle="toc"] {
       color: var(--global-warning-block-text);
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: var(--global-warning-block-title);
     }
   }
@@ -991,7 +1005,12 @@ nav[data-toggle="toc"] {
       color: var(--global-danger-block-text);
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: var(--global-danger-block-title);
     }
   }
