@@ -50,14 +50,12 @@ nav_order: 3
     <!-- Loading stuff -->
     Loading the data just for you.
 </div>
-
-<br>
-
 <script>
     GitHubCalendar(".calendar", "connectwithprakash");
     // or enable responsive functionality
     GitHubCalendar(".calendar", "connectwithprakash", { responsive: true });
 </script>
+The above chart is courtesy of [Bloggify](https://github.com/Bloggify/github-calendar).
 
 ---
 
