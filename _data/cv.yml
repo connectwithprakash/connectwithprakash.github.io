@@ -11,22 +11,52 @@
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: Master of Science in Computer Science
+      institution: University of Alabama in Huntsville
+      address: Huntsville, AL, USA
+      year: Now
+      preview: https://media.licdn.com/dms/image/C510BAQEYJxf9Oz_d9Q/company-logo_200_200/0/1519856464318?e=1692835200&v=beta&t=73JVwSLwHw6wX4Xxp2YJgYjUD1n-JXeZaWWXNiDBTOY
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - Thesis-based master's with Data Science concentration
+        # - title: Coursework
+        #   contents:
+        #     - CS 588 - Intro to Big Data Computing
+        #     - CS 530 - Survey Artificial Intelligence
+        #     - CS 617 - Design and Analysis of Algorithm
+        #     - CS 637 - Deep Learning
+        #     - CS 640 - Machine Learning
+    - title: MicroMasters Program in Statistics and Data Science
+      institution: MITx
+      address: Online - edX
+      year: 2021
+      preview: https://media.licdn.com/dms/image/C4E0BAQF-4M1SD4Ea6w/company-logo_200_200/0/1519876617404?e=1692835200&v=beta&t=k6vpRoHUla9jNqWffW3F6klSZNIVreMjpFgZol_rbVI
       description:
-        - Description 1.
-        - Description 2.
+        - Completed 4 courses that are equivalent to graduate level courses in Statistics and Data Science at the MIT.
+        # - title: Coursework
+        #   contents:
+        #     - "6.431x - Probability: The Science of Uncertainty and Data"
+        #     - "6.419x - Data Analysis: Statistical Modeling and Computation in Applications"
+        #     - "6.86x - Machine Learning with Python: From Linear Models to Deep Learning"
+        #     - 18.6501x - Fundamentals of Statistics
+        #     - DS.CFx - Capstone Exam for Statistics and Data Science
+    - title: Bachelor of Engineering in Electronics and Communication
+      institution: Tribhuvan University, IOE, Pulchowk Campus
+      address: Lalitpur, Bagmati, Nepal
+      year: 2019
+      preview: https://media.licdn.com/dms/image/C560BAQFkRiv8jDcNpA/company-logo_200_200/0/1590867014871?e=1692835200&v=beta&t=mUq00kOi7XzawtqCJ0ogdi0K4wWPqhF53EDGkPOG7XM
+      description:
+        - Team member of an annual asia-pacific robotics competition.
+        - ABU Robocon 2017 (Japan), ABU Robocon 2018 (Vietnam) and ABU Robocon 2019 (Mongolia).
+        # - Class Representative during freshman and sophomore year.
+        # - title: Robotics Club
+        #   contents:
+        #     - Team member for an annual asia-pacific robotics competition.
+        #     - Participated in ABU Robocon 2017 (Japan), ABU Robocon 2018 (Vietnam) and ABU Robocon 2019 (Mongolia).
+        # - title: Electives
+        #   contents:
+        #     - CT 725-02 - Data Mining
+        #     - EX 765-06 - Database Management System
+        #     - CT 785-06 - Artificial Intelligence
 
 - title: Experience
   type: time_table
