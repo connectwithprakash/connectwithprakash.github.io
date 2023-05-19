@@ -1,12 +1,10 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - connectwithprakash
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - connectwithprakash/Leet-Code
+  - connectwithprakash/pibrary
+  - connectwithprakash/datascience_cookiecutter
+  - connectwithprakash/norch
+  - connectwithprakash/ABU-Robocon-2018
+  - connectwithprakash/connectwithprakash.github.io

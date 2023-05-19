@@ -1,14 +1,13 @@
 ---
 layout: page
 permalink: /repositories/
-title: repositories
-description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
+title: Repositories
+description:
 nav: true
 nav_order: 3
 ---
 
-## GitHub users
-
+## GitHub Stats
 {% if site.data.repositories.github_users %}
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
   {% for user in site.data.repositories.github_users %}
@@ -27,11 +26,40 @@ nav_order: 3
   {% include repository/repo_trophies.html username=user %}
   </div>
 
-  ---
+---
 
 {% endfor %}
 {% endif %}
 {% endif %}
+
+--- 
+## GitHub Calendar
+<!-- Include the library. -->
+<script
+  src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"
+></script>
+
+<!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+<link
+   rel="stylesheet"
+   href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+/>
+
+<!-- Prepare a container for your calendar. -->
+<div class="calendar">
+    <!-- Loading stuff -->
+    Loading the data just for you.
+</div>
+
+<br>
+
+<script>
+    GitHubCalendar(".calendar", "connectwithprakash");
+    // or enable responsive functionality
+    GitHubCalendar(".calendar", "connectwithprakash", { responsive: true });
+</script>
+
+---
 
 ## GitHub Repositories
 
