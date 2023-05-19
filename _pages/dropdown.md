@@ -1,8 +1,8 @@
 ---
 layout: page
-title: submenus
+title: Submenus
 nav: true
-nav_order: 6
+nav_order: 7
 dropdown: true
 children:
     - title: Quotations
