@@ -58,22 +58,33 @@
         #     - EX 765-06 - Database Management System
         #     - CT 785-06 - Artificial Intelligence
 
-- title: Experience
+- title: Academic Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Graduate Research Assistant
+      institution: University of Alabama in Huntsville
+      address: Huntsville, AL, USA
+      year: 2022 - Now
+      preview: https://media.licdn.com/dms/image/C510BAQEYJxf9Oz_d9Q/company-logo_200_200/0/1519856464318?e=1692835200&v=beta&t=73JVwSLwHw6wX4Xxp2YJgYjUD1n-JXeZaWWXNiDBTOY
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Lecturer of Computer Vision course for AI Fellowship 2022.
+
+    - title: Lecturer
+      institution: Fusemachines
+      address: Kathmandu, Bagmati, Nepal
+      year: 2023
+      preview: https://media.licdn.com/dms/image/D560BAQFpBPKrtFEh_A/company-logo_200_200/0/1682490055572?e=1692835200&v=beta&t=FniMhTfCxkZUJliW3aDcTZvPosVE0pDXxBpAGlpn3zI
+      description:
+        - Lecturer of Computer Vision course for AI Fellowship 2022.
+
+    - title: Teaching Assistant
+      institution: Fusemachines
+      address: Kathmandu, Bagmati, Nepal
+      year: 2022 - 2023
+      preview: https://media.licdn.com/dms/image/D560BAQFpBPKrtFEh_A/company-logo_200_200/0/1682490055572?e=1692835200&v=beta&t=FniMhTfCxkZUJliW3aDcTZvPosVE0pDXxBpAGlpn3zI
+      description:
+        - Conducted in recitation, lab and paper reading sessions for the Machine Learning and Deep Learning courses for AI Fellowship 2022.
+
       description:
         - Description 1.
         - Description 2.
