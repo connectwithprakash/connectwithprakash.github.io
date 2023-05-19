@@ -9,9 +9,12 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>+1-256-468-1243</p>
-    <p>1010 Henderson Rd. NW</p>
-    <p>Huntsville, AL 35816</p>
+    <p style="text-align: center;">
+    +1-256-468-1243<br>
+    1010 Henderson Rd. NW<br>
+    Huntsville, AL 35816
+    </p>
+
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
