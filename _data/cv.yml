@@ -129,13 +129,16 @@
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
-      items: 
-        - Nobel Prize in Physics 
-        - Matteucci Medal
-    - year: 2029
-      items: 
-        - Max Planck Medal
+    - year: 2019
+      items:
+        - Best Project Poster Award for the senior year project.
+    - year: 2018
+      items:
+        - Best Shuttlecock Award for the best transfer mechanism between two robots in ABU Robocon 2018.
+        - Instrumentation II Award for the IOT-based Home Automation System project.
+    - year: 2016
+      items:
+        - Engineering Scholarship for good ranking in bachelor's entrance among Government Employee's children.
 
 - title: Academic Interests
   type: nested_list
