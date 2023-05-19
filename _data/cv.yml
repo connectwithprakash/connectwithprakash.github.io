@@ -116,9 +116,15 @@
 - title: Open Source Projects
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: <a href="https://github.com/connectwithprakash/pibrary">Pibrary</a>
+      year: 2023 - Now
+      description: A package of reusable code for ML projects. <a href="https://pypi.org/project/pibrary/">PyPI</a>
+    - title: <a href="https://github.com/connectwithprakash/norch">Norch</a>
+      year: 2023
+      description: An numpy-based implementation of pytorch like library.
+    - title: <a href="https://github.com/connectwithprakash/datascience_cookiecutter">Data Science Cookiecutter</a>
+      year: 2021
+      description: A template to structure data science projects.
 
 - title: Honors and Awards
   type: time_table
