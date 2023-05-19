@@ -2,11 +2,11 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
+      value: Prakash Chaudhary
     - name: Date of Birth
-      value: 14th March 1879
+      value: 23rd September 1995
     - name: Languages
-      value: English, German
+      value: English, Nepali, Hindi, Maithili
 
 - title: Education
   type: time_table
