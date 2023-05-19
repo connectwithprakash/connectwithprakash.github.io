@@ -143,16 +143,20 @@
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
-      items: 
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+    - title: Machine Learning
       items:
-        - Description 1.
-        - Description 2.
+        - Computer Vision
+        - Deep Learning
+        - Natural Language Processing
+        - Recommendation System
+        - Time Series Forecasting
+    - title: Statistical Modeling
+      items:
+        - Regression analysis
+        - Time Series Analysis
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - Psychology, Philosophy, Effective Communication
+    - Cooking, Playing Games, Listening to Podcasts
