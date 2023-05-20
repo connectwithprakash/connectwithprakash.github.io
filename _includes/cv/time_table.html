@@ -15,7 +15,7 @@
           <img class="preview z-depth-1 rounded" src="{{ content.preview }}">
           {% else %}
           {% assign entry_path = content.preview | prepend:
-          '/assets/img/publication_preview/' %}
+          '/assets/img/' %}
           {% include figure.html
           path=entry_path
           class="preview z-depth-1 rounded"
