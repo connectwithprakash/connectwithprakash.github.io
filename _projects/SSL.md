@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: Sound Source Localization
+description: 
+img: assets/img/projects/SSL.jpg
 importance: 1
-category: work
+category: academic
 ---
 
 Every project has a beautiful feature showcase page.
