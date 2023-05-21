@@ -3,7 +3,7 @@ layout: page
 permalink: /quotes/
 title: Quotations
 description: Some of my quotes that I have thought of or have modified from other sources.
-nav: false
+nav: true
 nav_order: 6
 ---
 
