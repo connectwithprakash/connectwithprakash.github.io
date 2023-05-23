@@ -28,3 +28,17 @@ The theme of ABU Robocon 2018 was "Ném còn" (Throwing shuttlecock), a traditio
     </div>
 </div>
 
+## Key Features
+- Manual robot
+- Automatic robot
+- Throwing shuttlecocks through rings
+- Omnidirectional drive vehicle
+
+## Technologies
+
+**Hardware:** AVR, Omnidirectional Drive Vehicle, Servo Motors, DC Motors, IR Sensors, Accelerometer, Gyrometer, Compass
+
+**Software:** C, AVR Studio
+
+## Source Code:
+- [ABU Robocon 2018](https://github.com/connectwithprakash/ABU-Robocon-2018)
