@@ -42,33 +42,36 @@ The system is also capable of using the deep learning based denoise algorithm to
 <br>
 
 
+## Key Features
+- Sound source localization
+- Deep learning based denoise algorithm
+- Omnidirectional drive vehicle
+
+## Technologies
+
+**Hardware:** Raspberry Pi, AVR, Microphone Array, Omnidirectional Drive Vehicle  
+**Software:** Python, C, Keras
+
+## Source Code:
+- [Sound Source Localization](https://github.com/subash-timilsina/Sound-Source-Localization)
+- [Denoise Algorithm](https://github.com/connectwithprakash/Speech-Denoising-using-CED)
+
+## Screenshots
+<!-- Add multiple images -->
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-6 mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/projects/sound_source_localization/microphone_cube.png" title="Cubical Microphone Array" class="img-fluid rounded z-depth-1" %}
+        <div class="caption">
+            Cubical microphone array.
+        </div>
     </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-6 mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/projects/sound_source_localization/grid_search.png" title="Grid Search" class="img-fluid rounded z-depth-1" %}
+        <div class="caption">
+            Grid search method for sound source localization.
+        </div>
     </div>
 </div>
-```
-{% endraw %}
+
+## Challenges & Solutions
+The denoising algorithm was computationally expensive for the Raspberry Pi. So, we needed to optimize the algorithm to run on the Raspberry Pi in real-time. Optimization process would involve using a smaller neural network, and using lower precision floating point numbers.
