@@ -2,7 +2,7 @@
 layout: page
 title: Sound Source Localization
 description: 
-img: assets/img/projects/SSL.jpg
+img: assets/img/projects/sound_source_localization/SSL.jpg
 importance: 1
 category: academic
 ---
