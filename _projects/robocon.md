@@ -7,3 +7,7 @@ img: assets/img/projects/abu_robocon_2018.png
 importance: 1
 category: academic
 ---
+
+## Overview
+The theme of ABU Robocon 2018 was "Ném còn" (Throwing shuttlecock), a traditional game in ethnic region of Vietnam. The goal of the game was to throw the shuttlecocks through the ring at height. In Vietnamese culture, the game is about celebration and making friendship. In the game, each team are given a few shuttlecocks and needs to design two robots, one manual and one automatic robot. The manual robot needs to hand the shuttlecocks to the automatic robot, which attempts to throw the shuttlecocks through the rings (unlike the traditional game, there are three rings at various heights in this game). The winner can be achieved by points, or by immediate KO if the robots successfully throw the shuttlecocks through three rings, and for the highest ring, the shuttlecock lands on a golden disk on the opposite side.
+
