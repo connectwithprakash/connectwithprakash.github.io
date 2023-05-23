@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sound Source Localization
-description: 
+description: A system for locating disaster victims by sound source.
 img: assets/img/projects/sound_source_localization/SSL.jpg
 importance: 1
 category: academic
