@@ -25,18 +25,21 @@ The system was evaluated in a simulated disaster environment and was able to suc
 
 The system is also capable of using the deep learning based denoise algorithm to remove background noise and improve the accuracy of the sound source localization.
 
+## Algorithm
+<!-- Add an image -->
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/projects/sound_source_localization/algorithm.png" title="Algorithm image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Process flow diagram of the algorithm.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
+## Demo
+<!-- embed a youtube video -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y1u37uJwSeI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br>
 
 
 <div class="row justify-content-sm-center">
