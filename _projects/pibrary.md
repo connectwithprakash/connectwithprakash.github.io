@@ -28,3 +28,19 @@ Pibrary is a package of reusable code for ML projects. It is a collection of uti
     </a>
 </p>
 
+## Installation
+```bash
+pip install pibrary
+```
+
+## Features
+- **File**: File related utilities.
+- **logger**: Logging utilities.
+- **String**: String manipulation utilities.
+
+## Documentation
+
+The full documentation of Pibrary is available at [Read The Docs](https://pibrary.readthedocs.io/en/latest/).
+
+## Source Code
+The source code of Pibrary is available at [GitHub](https://github.com/connectwithprakash/pibrary)
