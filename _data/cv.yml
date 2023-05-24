@@ -62,12 +62,12 @@
   type: time_table
   contents:
     - title: Graduate Research Assistant
-      institution: University of Alabama in Huntsville
+      institution: NASA-IMPACT, UAH
       address: Huntsville, AL, USA
       year: 2022 - Now
-      preview: https://media.licdn.com/dms/image/C510BAQEYJxf9Oz_d9Q/company-logo_200_200/0/1519856464318?e=1692835200&v=beta&t=73JVwSLwHw6wX4Xxp2YJgYjUD1n-JXeZaWWXNiDBTOY
+      preview: https://media.licdn.com/dms/image/C4E0BAQGzNnWnoTb2tQ/company-logo_200_200/0/1628851088062?e=1692835200&v=beta&t=wIdcrOEWp1vTCmH33xH7FWBJdPs17aykhSEPkic91Io
       description:
-        - Lecturer of Computer Vision course for AI Fellowship 2022.
+        - GRA working with Earth Science Data.
 
     - title: Lecturer
       institution: Fusemachines
