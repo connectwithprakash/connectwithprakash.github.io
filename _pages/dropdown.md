@@ -2,7 +2,7 @@
 layout: page
 title: More
 nav: true
-nav_order: 7
+nav_order: 8
 dropdown: true
 children:
     - title: Repositories
@@ -10,4 +10,7 @@ children:
     - title: divider
     - title: Quotations
       permalink: /quotes/
+    - title: divider
+    - title: Bodhi
+      permalink: /bodhi/
 ---
