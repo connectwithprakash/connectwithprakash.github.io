@@ -8,9 +8,6 @@ children:
     - title: Repositories
       permalink: /repositories/
     - title: divider
-    - title: Quotations
-      permalink: /quotes/
-    - title: divider
     - title: Bodhi
       permalink: /bodhi/
 ---
