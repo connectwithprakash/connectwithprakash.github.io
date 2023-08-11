@@ -177,16 +177,6 @@
 
 <script>
     GitHubCalendar(".calendar", "connectwithprakash");
-
-    // or enable responsive functionality:
-    GitHubCalendar(".calendar", "connectwithprakash", { responsive: true });
-
-    // Use a proxy
-    GitHubCalendar(".calendar", "connectwithprakash", {
-       proxy (username) {
-         return fetch(`https://your-proxy.com/github?user=${username}`)
-       }
-    }).then(r => r.text())
 </script>
 
 <p>The above chart is courtesy of <a href="https://github.com/Bloggify/github-calendar" rel="external nofollow noopener" target="_blank">Bloggify</a>.</p>
