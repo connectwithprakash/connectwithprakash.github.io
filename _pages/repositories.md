@@ -53,16 +53,6 @@ nav_order: 3
 
 <script>
     GitHubCalendar(".calendar", "connectwithprakash");
-
-    // or enable responsive functionality:
-    GitHubCalendar(".calendar", "connectwithprakash", { responsive: true });
-
-    // Use a proxy
-    GitHubCalendar(".calendar", "connectwithprakash", {
-       proxy (username) {
-         return fetch(`https://your-proxy.com/github?user=${username}`)
-       }
-    }).then(r => r.text())
 </script>
 The above chart is courtesy of [Bloggify](https://github.com/Bloggify/github-calendar).
 
