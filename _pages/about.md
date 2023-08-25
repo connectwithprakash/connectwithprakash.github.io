@@ -10,9 +10,9 @@ profile:
   image_circular: false # crops the image to make it circular
   address: >
     <p style="text-align: center;">
-    +1-256-468-1243<br>
+    # +1-256-468-1243<br>
     1010 Henderson Rd. NW<br>
-    Huntsville, AL 35816
+    Huntsville, AL
     </p>
 
 
