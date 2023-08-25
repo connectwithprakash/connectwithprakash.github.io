@@ -3,8 +3,8 @@
   contents:
     - name: Full Name
       value: Prakash Chaudhary
-    - name: Date of Birth
-      value: 23rd September 1995
+    # - name: Date of Birth
+      # value: 23rd September 1995
     - name: Languages
       value: English, Nepali, Hindi, Maithili
 
