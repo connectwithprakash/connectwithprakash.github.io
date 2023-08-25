@@ -15,7 +15,7 @@
       institution: University of Alabama in Huntsville
       address: Huntsville, AL, USA
       year: Now
-      preview: https://media.licdn.com/dms/image/C510BAQEYJxf9Oz_d9Q/company-logo_200_200/0/1519856464318?e=1692835200&v=beta&t=73JVwSLwHw6wX4Xxp2YJgYjUD1n-JXeZaWWXNiDBTOY
+      preview: institutions/uah.jpeg
       description:
         - Thesis-based master's with Data Science concentration
         # - title: Coursework
@@ -29,7 +29,7 @@
       institution: MITx
       address: Online - edX
       year: 2021
-      preview: https://media.licdn.com/dms/image/C4E0BAQF-4M1SD4Ea6w/company-logo_200_200/0/1519876617404?e=1692835200&v=beta&t=k6vpRoHUla9jNqWffW3F6klSZNIVreMjpFgZol_rbVI
+      preview: institutions/mitx.jpeg
       description:
         - Completed 4 courses that are equivalent to graduate level courses in Statistics and Data Science at the MIT.
         # - title: Coursework
@@ -43,7 +43,7 @@
       institution: Tribhuvan University, IOE, Pulchowk Campus
       address: Lalitpur, Bagmati, Nepal
       year: 2019
-      preview: https://media.licdn.com/dms/image/C560BAQFkRiv8jDcNpA/company-logo_200_200/0/1590867014871?e=1692835200&v=beta&t=mUq00kOi7XzawtqCJ0ogdi0K4wWPqhF53EDGkPOG7XM
+      preview: institutions/ioe.jpeg
       description:
         - Team member of an annual asia-pacific robotics competition.
         - ABU Robocon 2017 (Japan), ABU Robocon 2018 (Vietnam) and ABU Robocon 2019 (Mongolia).
@@ -65,7 +65,7 @@
       institution: NASA-IMPACT, UAH
       address: Huntsville, AL, USA
       year: 2022 - Now
-      preview: https://media.licdn.com/dms/image/C4E0BAQGzNnWnoTb2tQ/company-logo_200_200/0/1628851088062?e=1692835200&v=beta&t=wIdcrOEWp1vTCmH33xH7FWBJdPs17aykhSEPkic91Io
+      preview: institutions/impact.jpeg
       description:
         - GRA working with Earth Science Data.
 
@@ -73,7 +73,7 @@
       institution: Fusemachines
       address: Kathmandu, Bagmati, Nepal
       year: 2023
-      preview: https://media.licdn.com/dms/image/D560BAQFpBPKrtFEh_A/company-logo_200_200/0/1682490055572?e=1692835200&v=beta&t=FniMhTfCxkZUJliW3aDcTZvPosVE0pDXxBpAGlpn3zI
+      preview: institutions/fusemachines.jpeg
       description:
         - Lecturer of Computer Vision course for AI Fellowship 2022.
 
@@ -81,7 +81,7 @@
       institution: Fusemachines
       address: Kathmandu, Bagmati, Nepal
       year: 2022 - 2023
-      preview: https://media.licdn.com/dms/image/D560BAQFpBPKrtFEh_A/company-logo_200_200/0/1682490055572?e=1692835200&v=beta&t=FniMhTfCxkZUJliW3aDcTZvPosVE0pDXxBpAGlpn3zI
+      preview: institutions/fusemachines.jpeg
       description:
         - Conducted in recitation, lab and paper reading sessions for the Machine Learning and Deep Learning courses for AI Fellowship 2022.
 
@@ -92,7 +92,7 @@
       institution: Styldod Inc.
       address: Kent, DL, USA
       year: 2022
-      preview: https://media.licdn.com/dms/image/C560BAQEUFzx79F8esw/company-logo_200_200/0/1599019201801?e=1692835200&v=beta&t=-Pr7eBePxd22EYF3bS_k4SdKyZIdxINHTL70KPpYVuw
+      preview: institutions/styldod.jpeg
       description:
         - Researcher on GAN models for virtual staging in real state industry.
 
@@ -100,7 +100,7 @@
       institution: Fusemachines Inc.
       address: New York, NY, USA
       year: 2020 - 2022
-      preview: https://media.licdn.com/dms/image/D560BAQFpBPKrtFEh_A/company-logo_200_200/0/1682490055572?e=1692835200&v=beta&t=FniMhTfCxkZUJliW3aDcTZvPosVE0pDXxBpAGlpn3zI
+      preview: institutions/fusemachines.jpeg
       description:
         - ML developer for a client in the fashion industry.
         - Worked under Dr. Bulent Uyaniker on Time Series Forecasting, Dr. Ariel Elbaz on Recommendation System, and Dr. Pradip Mainali on Computer Vision.
@@ -109,7 +109,7 @@
       institution: Betterhalf.ai
       address: Bengaluru, KA, India
       year: 2022
-      preview: https://media.licdn.com/dms/image/C560BAQHwNuAMQLYByQ/company-logo_200_200/0/1648469656863?e=1692835200&v=beta&t=Bg5MfGEGpwzK__prTvfPVkqvKioSMHziAHFAseumpoA
+      preview: institutions/betterhalf.jpeg
       description:
         - ML developer for an online matchmaking app.
 
