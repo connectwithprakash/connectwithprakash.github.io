@@ -61,6 +61,14 @@
 - title: Academic Experience
   type: time_table
   contents:
+    - title: Teaching Assistant
+      institution: Fusemachines
+      address: New York City, New York, USA
+      year: 2023
+      preview: institutions/fusemachines.jpeg
+      description:
+        - TA for the AI Fellowship Program for Data Science in Latin America.
+    
     - title: Graduate Research Assistant
       institution: NASA-IMPACT, UAH
       address: Huntsville, AL, USA
@@ -84,6 +92,14 @@
       preview: institutions/fusemachines.jpeg
       description:
         - Conducted in recitation, lab and paper reading sessions for the Machine Learning and Deep Learning courses for AI Fellowship 2022.
+    
+    - title: Robotics Engineer
+      institution: Robotics Club, Pulchowk Campus, Tribhuvan University
+      address: Lalitpur, Bagmati, Nepal
+      year: 2016 - 2019
+      preview: institutions/ioe.jpeg
+      description:
+        - Build robots and participated in ABU Robocon 2017 (Japan), ABU Robocon 2018 (Vietnam) and ABU Robocon 2019 (Mongolia).
 
 - title: Industry Experience
   type: time_table
