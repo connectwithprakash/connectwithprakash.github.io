@@ -130,7 +130,7 @@
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-6 mt-3 mt-md-0">
-        This project presents a system for locating disaster victims by sound source localization. The system uses a cubical microphone array to detect sound waves and a grid search method to determine the location of the sound source in 3D space. The system is mounted on an omnidirectional drive vehicle, which allows it to navigate to the location of the sound source.
+        We developed a 3D sound source localization system using an 8-microphone cubical mesh. The primary goal of this system was to accurately determine the azimuth (horizontal angle) and elevation (vertical angle) of an incoming sound source. The system uses a cubical microphone array to detect sound waves and a grid search method to determine the location of the sound source in 3D space. The system is mounted on an omnidirectional drive vehicle, which allows it to navigate to the location of the sound source.
     </div>
     <div class="col-sm-6 mt-3 mt-md-0">
         <figure>
@@ -158,6 +158,16 @@
 <p>The system was evaluated in a simulated disaster environment and was able to successfully locate the sound source. The system is a promising new technology that could be used to help rescue victims of disasters.</p>
 
 <p>The system is also capable of using the deep learning based denoise algorithm to remove background noise and improve the accuracy of the sound source localization.</p>
+
+<h2 id="methodology">Methodology</h2>
+<p>Here’s a breakdown of the project:</p>
+
+<p><strong>1. Hardware Setup</strong>: We created a cubical mesh configuration with eight microphones, ensuring that the microphones were evenly distributed for optimal coverage.<br>
+<strong>2. Sound Localization Algorithm</strong>: We implemented the GCC-PHAT (Generalized Cross-Correlation with Phase Transform) algorithm. This algorithm is widely used for sound source localization and is known for its accuracy in determining the time delay of arrival (TDOA) between microphone pairs.<br>
+<strong>3. Data Acquisition</strong>: The system recorded sound data from the eight microphones. By analyzing the TDOAs between microphone pairs, we calculated the azimuth and elevation angles of the sound source.<br>
+<strong>4. Signal Denoising</strong>: To improve the accuracy of the localization system, we integrated a Convolutional Neural Network (CNN) for speech denoising. This CNN was trained to remove noise from the recorded audio signals.<br>
+<strong>5. Result</strong>t: After extensive testing and training, the system reached an impressive 95% accuracy in 3D localization within a range of 1.5 meters. This level of accuracy was achieved through the combination of the precise GCC-PHAT algorithm and the denoising capabilities of the CNN.<br>
+<strong>6. Conclusion</strong>: This project is a significant achievement as it demonstrates the successful integration of signal processing techniques, machine learning, and hardware design to create a 3D sound source localization system with high accuracy. It has various potential applications in fields such as robotics, audio surveillance, and augmented reality.</p>
 
 <h2 id="algorithm">Algorithm</h2>
 <!-- Add an image -->
