@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Spectral Unmixing using Machine Learning
+title: Spectral Unmixing
 description: Deciphering Earth's and Lunar materials with advanced machine learning.
-img: assets/img/projects/spectral_unmixing/logo.jpg
+img: assets/img/projects/spectral_unmixing/logo.png
 importance: 1
 category: academic
 ---
