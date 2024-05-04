@@ -25,6 +25,6 @@ Hey, thanks for reaching my personal webpage! I'm a passionate and accomplished 
 
 I am domain agnostic when it comes to machine learning and deep learning. I have worked on a variety of problems in the fields of CV, NLP, and Time Series Forecasting and Recommendation Systems. I am interested in solving interesting machine learning problems and applying them to real-world applications.
 
-I am currently pursuing my Master's in Computer Science at the [University of Alabama in Huntsville](https://www.uah.edu). I am also working as a Graduate Research Assistant at the [NASA Interagency Implementation and Advanced Concepts Team](https://impact.earthdata.nasa.gov) under the guidance of [Dr. Tathagata Mukherjee](https://www.uah.edu/science/faculty-staff/tathagata-mukherjee). I am also working as a Lecturer for Computer Vision at [Fusemachines](https://fusemachines.com).
+I am currently pursuing my Master's in Computer Science at the [University of Alabama in Huntsville](https://www.uah.edu). I am also working as a Graduate Research Assistant at the [NASA Interagency Implementation and Advanced Concepts Team](https://impact.earthdata.nasa.gov) under the guidance of [Dr. Tathagata Mukherjee](https://www.uah.edu/science/faculty-staff/tathagata-mukherjee). 
 
 I am actively looking for full-time opportunities in the field of Data Science and Machine Learning. If you have any opportunities, please feel free to reach out to me.
