@@ -112,6 +112,12 @@
   background: rgba(79, 172, 254, 0.1);
 }
 
+.publication-type .preprint {
+  color: var(--neon-green);
+  border-color: var(--neon-green);
+  background: rgba(84, 255, 159, 0.1);
+}
+
 .publication-title {
   font-size: 1.35rem;
   color: var(--text-primary);
