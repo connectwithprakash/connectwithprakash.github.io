@@ -1,0 +1,146 @@
+.news {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.news-timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--glass-border) 10%,
+    var(--glass-border) 90%,
+    transparent
+  );
+}
+
+.news-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.news-item::before {
+  content: '';
+  position: absolute;
+  left: -2.25rem;
+  top: 2rem;
+  width: 12px;
+  height: 12px;
+  background: var(--neon-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 20px currentColor;
+  z-index: 1;
+}
+
+.news-card {
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateX(10px);
+  border-color: var(--glass-border);
+}
+
+.news-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  opacity: 0;
+  filter: blur(40px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.news-card:hover .news-glow {
+  opacity: 0.1;
+}
+
+.news-icon-wrapper {
+  flex-shrink: 0;
+}
+
+.news-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.news-content {
+  flex: 1;
+}
+
+.news-date {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--neon-blue);
+  background: var(--glass-bg);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--glass-border);
+}
+
+.news-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.news-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .news-timeline {
+    padding-left: 2rem;
+  }
+
+  .timeline-line {
+    left: 0.5rem;
+  }
+
+  .news-item::before {
+    left: -1.25rem;
+  }
+
+  .news-card {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .news-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,239 @@
+.publications {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.publications-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.stat-card {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-tertiary);
+  border-radius: 16px;
+  font-size: 1.75rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(79, 172, 254, 0.3);
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.publications-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.publication-card {
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.publication-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--gradient-tertiary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.publication-card:hover::before {
+  opacity: 1;
+}
+
+.publication-type {
+  margin-bottom: 1rem;
+}
+
+.publication-type span {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 50px;
+  border: 1px solid;
+}
+
+.publication-type .conference {
+  color: var(--neon-purple);
+  border-color: var(--neon-purple);
+  background: rgba(167, 139, 250, 0.1);
+}
+
+.publication-type .journal {
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+  background: rgba(79, 172, 254, 0.1);
+}
+
+.publication-title {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.publication-meta {
+  margin-bottom: 1.5rem;
+}
+
+.publication-authors {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.publication-venue {
+  font-size: 0.95rem;
+  color: var(--text-tertiary);
+}
+
+.publication-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.publication-citations {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.publication-citations svg {
+  font-size: 0.75rem;
+  color: var(--neon-yellow);
+}
+
+.publication-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.pub-link-btn {
+  padding: 0.5rem 1rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-primary);
+}
+
+.pub-link-btn:hover {
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  background: rgba(79, 172, 254, 0.1);
+}
+
+.publications-cta {
+  text-align: center;
+  padding: 3rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.publications-cta p {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.publications-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.publications-cta .btn svg {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .publications-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .publication-card {
+    padding: 1.5rem;
+  }
+
+  .publication-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .publication-links {
+    width: 100%;
+  }
+
+  .pub-link-btn {
+    flex: 1;
+  }
+}
