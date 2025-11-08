@@ -3,7 +3,8 @@ import matter from 'gray-matter';
 // Import all markdown files from the blog directory
 const modules = import.meta.glob('../content/blog/*.md', {
   eager: true,
-  as: 'raw'
+  query: '?raw',
+  import: 'default'
 });
 
 // Process markdown files into blog post objects
