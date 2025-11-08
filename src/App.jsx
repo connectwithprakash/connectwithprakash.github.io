@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import About from './components/About';
-import News from './components/News';
-import Projects from './components/Projects';
-import Publications from './components/Publications';
-import Contact from './components/Contact';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Particles from './components/Particles';
 import Loader from './components/Loader';
 
@@ -21,17 +19,18 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      {isLoading && <Loader />}
-      <Particles />
-      <Navigation />
-      <Hero />
-      <About />
-      <News />
-      <Projects />
-      <Publications />
-      <Contact />
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        {isLoading && <Loader />}
+        <Particles />
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

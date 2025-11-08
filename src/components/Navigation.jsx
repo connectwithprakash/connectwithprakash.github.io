@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navigation.css';
@@ -7,6 +8,9 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,11 +34,21 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
+    if (!isHomePage) {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    setMobileMenuOpen(false);
   };
 
   const navItems = [
@@ -72,11 +86,11 @@ const Navigation = () => {
               transition={{ delay: index * 0.1 }}
             >
               <button
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                className={`nav-link ${activeSection === item.id && isHomePage ? 'active' : ''}`}
                 onClick={() => scrollToSection(item.id)}
               >
                 {item.label}
-                {activeSection === item.id && (
+                {activeSection === item.id && isHomePage && (
                   <motion.div
                     className="active-indicator"
                     layoutId="activeIndicator"
@@ -85,6 +99,24 @@ const Navigation = () => {
               </button>
             </motion.li>
           ))}
+          <motion.li
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: navItems.length * 0.1 }}
+          >
+            <Link
+              to="/blog"
+              className={`nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
+            >
+              Blog
+              {location.pathname.startsWith('/blog') && (
+                <motion.div
+                  className="active-indicator"
+                  layoutId="activeIndicator"
+                />
+              )}
+            </Link>
+          </motion.li>
         </ul>
 
         <motion.a
@@ -127,13 +159,26 @@ const Navigation = () => {
                   transition={{ delay: index * 0.05 }}
                 >
                   <button
-                    className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+                    className={`mobile-nav-link ${activeSection === item.id && isHomePage ? 'active' : ''}`}
                     onClick={() => scrollToSection(item.id)}
                   >
                     {item.label}
                   </button>
                 </motion.li>
               ))}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navItems.length * 0.05 }}
+              >
+                <Link
+                  to="/blog"
+                  className={`mobile-nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+              </motion.li>
             </ul>
           </motion.div>
         )}
