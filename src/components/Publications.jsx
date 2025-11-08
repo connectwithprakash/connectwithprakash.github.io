@@ -12,44 +12,13 @@ const Publications = () => {
 
   const publications = [
     {
-      title: 'Advanced Machine Learning Techniques for Satellite Imagery Analysis',
-      authors: 'Prakash Chaudhary, et al.',
-      venue: 'IEEE Conference on Computer Vision and Pattern Recognition',
-      year: '2024',
-      type: 'Conference',
-      citations: 42,
-    },
-    {
-      title: 'Neural Networks for Time Series Forecasting in Climate Data',
-      authors: 'Prakash Chaudhary, T. Mukherjee',
-      venue: 'Journal of Machine Learning Research',
-      year: '2024',
-      type: 'Journal',
-      citations: 28,
-    },
-    {
-      title: 'Hybrid Recommendation Systems: A Comprehensive Survey',
-      authors: 'Prakash Chaudhary, et al.',
-      venue: 'ACM Computing Surveys',
-      year: '2023',
-      type: 'Journal',
-      citations: 67,
-    },
-    {
-      title: 'Real-time Object Detection for Autonomous Systems',
-      authors: 'Prakash Chaudhary',
-      venue: 'International Conference on Robotics and Automation',
-      year: '2023',
-      type: 'Conference',
-      citations: 35,
-    },
-    {
-      title: 'Transfer Learning in Medical Image Analysis',
-      authors: 'Prakash Chaudhary, et al.',
-      venue: 'Medical Image Analysis Journal',
-      year: '2023',
-      type: 'Journal',
-      citations: 51,
+      title: 'Search disaster victims using sound source localization',
+      authors: 'A Khanal, D Chand, P Chaudhary, S Timilsina, SP Panday, A Shakya, et al.',
+      venue: 'arXiv preprint arXiv:2103.06049',
+      year: '2021',
+      type: 'Preprint',
+      citations: 7,
+      url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zYlOgbgAAAAJ&citation_for_view=zYlOgbgAAAAJ:u5HHmVD_uO8C',
     },
   ];
 
@@ -94,7 +63,7 @@ const Publications = () => {
                 <FaFileAlt />
               </div>
               <div className="stat-content">
-                <div className="stat-number gradient-text">15+</div>
+                <div className="stat-number gradient-text">1</div>
                 <div className="stat-label">Publications</div>
               </div>
             </div>
@@ -104,7 +73,7 @@ const Publications = () => {
                 <FaQuoteLeft />
               </div>
               <div className="stat-content">
-                <div className="stat-number gradient-text">200+</div>
+                <div className="stat-number gradient-text">7</div>
                 <div className="stat-label">Citations</div>
               </div>
             </div>
@@ -114,7 +83,7 @@ const Publications = () => {
                 <SiGooglescholar />
               </div>
               <div className="stat-content">
-                <div className="stat-number gradient-text">12</div>
+                <div className="stat-number gradient-text">1</div>
                 <div className="stat-label">h-index</div>
               </div>
             </div>
@@ -149,17 +118,7 @@ const Publications = () => {
 
                   <div className="publication-links">
                     <motion.a
-                      href={`https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pub-link-btn"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Search
-                    </motion.a>
-                    <motion.a
-                      href={`https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`}
+                      href={pub.url || `https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="pub-link-btn"
@@ -167,6 +126,16 @@ const Publications = () => {
                       whileTap={{ scale: 0.95 }}
                     >
                       View
+                    </motion.a>
+                    <motion.a
+                      href={`https://arxiv.org/abs/2103.06049`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pub-link-btn"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      arXiv
                     </motion.a>
                   </div>
                 </div>
