@@ -117,6 +117,24 @@ const Navigation = () => {
               )}
             </Link>
           </motion.li>
+          <motion.li
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: (navItems.length + 1) * 0.1 }}
+          >
+            <Link
+              to="/resume"
+              className={`nav-link ${location.pathname === '/resume' ? 'active' : ''}`}
+            >
+              Resume
+              {location.pathname === '/resume' && (
+                <motion.div
+                  className="active-indicator"
+                  layoutId="activeIndicator"
+                />
+              )}
+            </Link>
+          </motion.li>
         </ul>
 
         <motion.a
@@ -177,6 +195,19 @@ const Navigation = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Blog
+                </Link>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (navItems.length + 1) * 0.05 }}
+              >
+                <Link
+                  to="/resume"
+                  className={`mobile-nav-link ${location.pathname === '/resume' ? 'active' : ''}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Resume
                 </Link>
               </motion.li>
             </ul>
