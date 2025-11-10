@@ -175,29 +175,39 @@
 @media print {
   .resume-page {
     padding: 0;
-    background: white;
+    background: white !important;
   }
 
+  /* Hide header with title and action buttons */
   .resume-header {
-    display: none;
+    display: none !important;
   }
 
+  /* Clean content styling for print */
   .resume-content {
     max-width: 100%;
-    padding: 1rem;
-    background: white;
-    box-shadow: none;
-    border: none;
+    padding: 0.5in;
+    background: white !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
   }
 
+  /* Reset all colors to black for print */
   .resume-content h1,
   .resume-content h2,
   .resume-content h3,
   .resume-content p,
   .resume-content li,
   .resume-content strong,
-  .resume-content a {
+  .resume-content a,
+  .resume-content em {
     color: black !important;
+  }
+
+  /* Remove decorative elements */
+  .resume-content h1 {
+    border-bottom: 2px solid black;
   }
 
   .resume-content h2::before {
@@ -206,6 +216,22 @@
 
   .resume-content ul li::before {
     color: black;
+  }
+
+  /* Ensure links are underlined for print */
+  .resume-content a {
+    text-decoration: underline;
+  }
+
+  /* Page break control */
+  .resume-content h2,
+  .resume-content h3 {
+    page-break-after: avoid;
+  }
+
+  .resume-content ul,
+  .resume-content p {
+    page-break-inside: avoid;
   }
 }
 

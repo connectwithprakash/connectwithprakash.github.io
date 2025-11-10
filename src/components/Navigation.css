@@ -181,3 +181,10 @@
     font-size: 1rem;
   }
 }
+
+/* Print Styles - Hide navigation when printing */
+@media print {
+  .navigation {
+    display: none !important;
+  }
+}
