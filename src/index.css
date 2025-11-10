@@ -1,6 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
+  /* Shared Variables */
+  /* Fonts */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Dark Theme (Default) */
+:root.dark {
   /* Colors - Dark & Futuristic */
   --bg-primary: #0a0a0f;
   --bg-secondary: #111118;
@@ -29,28 +55,38 @@
   --text-primary: #ffffff;
   --text-secondary: #a0a0b0;
   --text-tertiary: #6b6b7b;
+}
 
-  /* Fonts */
-  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+/* Light Theme */
+:root.light {
+  /* Colors - Light & Clean */
+  --bg-primary: #fafafa;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e8e8e8;
 
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-  --spacing-xl: 6rem;
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
 
-  /* Border Radius */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  /* Bold & Colorful Gradients (slightly adjusted for light mode) */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-quaternary: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  --gradient-cosmic: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
 
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  /* Accent Colors (darker for better contrast on light background) */
+  --neon-blue: #0ea5e9;
+  --neon-purple: #8b5cf6;
+  --neon-pink: #ec4899;
+  --neon-green: #10b981;
+  --neon-yellow: #f59e0b;
+
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-tertiary: #6b6b6b;
 }
 
 * {
@@ -62,6 +98,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -75,10 +112,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Animated Background */
-body::before {
+/* Animated Background - Dark Theme */
+:root.dark body::before {
   content: '';
   position: fixed;
   top: 0;
@@ -89,6 +127,22 @@ body::before {
     radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 40% 80%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+  z-index: -1;
+  animation: bgShift 20s ease infinite;
+}
+
+/* Animated Background - Light Theme */
+:root.light body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(79, 172, 254, 0.05) 0%, transparent 50%);
   z-index: -1;
   animation: bgShift 20s ease infinite;
 }

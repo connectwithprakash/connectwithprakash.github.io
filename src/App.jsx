@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
@@ -20,19 +21,21 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className="app">
-        {isLoading && <Loader />}
-        <Particles />
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/resume" element={<Resume />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <div className="app">
+          {isLoading && <Loader />}
+          <Particles />
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/resume" element={<Resume />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import ThemeToggle from './ThemeToggle';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -137,6 +138,8 @@ const Navigation = () => {
           </motion.li>
         </ul>
 
+        <ThemeToggle />
+
         <motion.a
           href="#contact"
           className="btn btn-primary nav-cta"
@@ -209,6 +212,14 @@ const Navigation = () => {
                 >
                   Resume
                 </Link>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (navItems.length + 2) * 0.05 }}
+                style={{ display: 'flex', justifyContent: 'center', padding: '1rem 0' }}
+              >
+                <ThemeToggle />
               </motion.li>
             </ul>
           </motion.div>
