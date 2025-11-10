@@ -1,15 +1,39 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import { FaCalendar, FaTag, FaArrowRight } from 'react-icons/fa';
+import { FaCalendar, FaTag, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { blogPosts } from '../data/blogPosts';
+import { getMediumPosts } from '../services/mediumService';
 import './Blog.css';
 
 const Blog = () => {
+  const [allPosts, setAllPosts] = useState(blogPosts);
+  const [loading, setLoading] = useState(true);
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Fetch Medium posts and merge with local posts
+  useEffect(() => {
+    const loadMediumPosts = async () => {
+      try {
+        const mediumPosts = await getMediumPosts();
+        const mergedPosts = [...blogPosts, ...mediumPosts];
+        setAllPosts(mergedPosts);
+      } catch (error) {
+        console.error('Error loading Medium posts:', error);
+        // Keep only local posts if Medium fetch fails
+        setAllPosts(blogPosts);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadMediumPosts();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,7 +55,7 @@ const Blog = () => {
   };
 
   // Sort posts by date (newest first)
-  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const sortedPosts = [...allPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -70,44 +94,70 @@ const Blog = () => {
             variants={containerVariants}
             className="blog-posts-grid"
           >
-            {sortedPosts.map((post, index) => (
-              <motion.article
-                key={post.id}
-                className="blog-card glass-card"
-                variants={itemVariants}
-                whileHover={{ y: -8 }}
-              >
-                <div className="blog-card-header">
-                  <div className="blog-card-meta">
-                    <span className="blog-card-date">
-                      <FaCalendar />
-                      {formatDate(post.date)}
-                    </span>
-                    <span className="blog-card-category">{post.category}</span>
+            {sortedPosts.map((post, index) => {
+              const isMediumPost = post.source === 'medium';
+              const linkProps = isMediumPost
+                ? { as: 'a', href: post.url, target: '_blank', rel: 'noopener noreferrer' }
+                : { to: `/blog/${post.id}` };
+
+              return (
+                <motion.article
+                  key={post.id}
+                  className="blog-card glass-card"
+                  variants={itemVariants}
+                  whileHover={{ y: -8 }}
+                >
+                  <div className="blog-card-header">
+                    <div className="blog-card-meta">
+                      <span className="blog-card-date">
+                        <FaCalendar />
+                        {formatDate(post.date)}
+                      </span>
+                      <span className="blog-card-category">{post.category}</span>
+                    </div>
+                    {isMediumPost && (
+                      <span className="blog-source-badge medium">
+                        Medium
+                        <FaExternalLinkAlt />
+                      </span>
+                    )}
                   </div>
-                </div>
 
-                <h2 className="blog-card-title">
-                  <Link to={`/blog/${post.id}`}>{post.title}</Link>
-                </h2>
+                  <h2 className="blog-card-title">
+                    {isMediumPost ? (
+                      <a href={post.url} target="_blank" rel="noopener noreferrer">
+                        {post.title}
+                      </a>
+                    ) : (
+                      <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                    )}
+                  </h2>
 
-                <p className="blog-card-description">{post.description}</p>
+                  <p className="blog-card-description">{post.description}</p>
 
-                <div className="blog-card-tags">
-                  {post.tags.map((tag, i) => (
-                    <span key={i} className="blog-tag">
-                      <FaTag />
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                  <div className="blog-card-tags">
+                    {post.tags.slice(0, 3).map((tag, i) => (
+                      <span key={i} className="blog-tag">
+                        <FaTag />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                <Link to={`/blog/${post.id}`} className="blog-card-link">
-                  Read More
-                  <FaArrowRight />
-                </Link>
-              </motion.article>
-            ))}
+                  {isMediumPost ? (
+                    <a href={post.url} target="_blank" rel="noopener noreferrer" className="blog-card-link">
+                      Read on Medium
+                      <FaExternalLinkAlt />
+                    </a>
+                  ) : (
+                    <Link to={`/blog/${post.id}`} className="blog-card-link">
+                      Read More
+                      <FaArrowRight />
+                    </Link>
+                  )}
+                </motion.article>
+              );
+            })}
           </motion.div>
 
           {sortedPosts.length === 0 && (
