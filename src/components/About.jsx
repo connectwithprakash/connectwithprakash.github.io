@@ -67,7 +67,7 @@ const About = () => {
           <motion.div className="section-header" variants={itemVariants}>
             <h2 className="section-title">About Me</h2>
             <p className="section-subtitle">
-              Passionate Machine Learning Engineer with a mission to innovate
+              Machine Learning Engineer building production AI systems
             </p>
           </motion.div>
 
@@ -75,7 +75,7 @@ const About = () => {
             <motion.div className="about-text" variants={itemVariants}>
               <div className="glass-card about-card">
                 <h3 className="gradient-text">
-                  Building the Future with AI
+                  What I Do
                 </h3>
                 <p>
                   I'm a <strong>Machine Learning Engineer</strong> at{' '}
