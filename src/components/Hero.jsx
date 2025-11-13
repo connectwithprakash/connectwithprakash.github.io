@@ -143,13 +143,13 @@ const Hero = () => {
             <div className="code-snippet">
               <div className="code-line">
                 <span className="code-keyword">const</span>{' '}
-                <span className="code-variable">passion</span> ={' '}
-                <span className="code-string">"Machine Learning"</span>;
+                <span className="code-variable">focus</span> ={' '}
+                <span className="code-string">"Multi-Agent Systems"</span>;
               </div>
               <div className="code-line">
                 <span className="code-keyword">const</span>{' '}
                 <span className="code-variable">mission</span> ={' '}
-                <span className="code-string">"Innovate & Impact"</span>;
+                <span className="code-string">"Build things that work"</span>;
               </div>
               <div className="code-line">
                 <span className="code-keyword">while</span> (
@@ -162,7 +162,7 @@ const Hero = () => {
                 <span className="code-function">build</span>();
               </div>
               <div className="code-line code-indent">
-                <span className="code-function">inspire</span>();
+                <span className="code-function">repeat</span>();
               </div>
               <div className="code-line">{'}'}</div>
             </div>
