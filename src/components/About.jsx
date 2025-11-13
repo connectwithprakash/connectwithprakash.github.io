@@ -78,10 +78,9 @@ const About = () => {
                   What I Do
                 </h3>
                 <p>
-                  I'm a <strong>Machine Learning Engineer</strong> at{' '}
-                  <strong>Fetch Rewards</strong> in Seattle, WA, with over 5 years of experience
-                  delivering customized AI solutions. I build production systems focused on{' '}
-                  <strong>Self-Supervised Learning</strong> and <strong>Multi-Agent Systems</strong>.
+                  I build production AI systems focused on{' '}
+                  <strong>Self-Supervised Learning</strong> and <strong>Multi-Agent Systems</strong>,
+                  with over 5 years of experience delivering customized solutions.
                 </p>
                 <p>
                   Previously, I was a <strong>Graduate Research Assistant</strong> at{' '}
