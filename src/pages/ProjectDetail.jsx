@@ -117,9 +117,11 @@ const ProjectDetail = () => {
             {/* Main Content from Markdown */}
             {project.content && (
               <motion.section className="project-section glass-card" variants={itemVariants}>
-                <ReactMarkdown className="project-markdown">
-                  {project.content}
-                </ReactMarkdown>
+                <div className="project-markdown">
+                  <ReactMarkdown>
+                    {project.content}
+                  </ReactMarkdown>
+                </div>
               </motion.section>
             )}
 
