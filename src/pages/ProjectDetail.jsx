@@ -1,7 +1,8 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaArrowLeft, FaYoutube } from 'react-icons/fa';
-import { getProjectById } from '../data/projectsData';
+import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
+import { getProjectById } from '../data/projectLoader';
+import ReactMarkdown from 'react-markdown';
 import './ProjectDetail.css';
 
 const ProjectDetail = () => {
@@ -113,11 +114,12 @@ const ProjectDetail = () => {
 
           {/* Project Content */}
           <div className="project-content">
-            {/* Overview */}
-            {project.overview && (
+            {/* Main Content from Markdown */}
+            {project.content && (
               <motion.section className="project-section glass-card" variants={itemVariants}>
-                <h2 className="gradient-text">Overview</h2>
-                <div className="project-text" dangerouslySetInnerHTML={{ __html: project.overview.replace(/\n\n/g, '</p><p>').replace(/^/, '<p>').replace(/$/, '</p>') }} />
+                <ReactMarkdown className="project-markdown">
+                  {project.content}
+                </ReactMarkdown>
               </motion.section>
             )}
 
@@ -130,7 +132,7 @@ const ProjectDetail = () => {
                     width="100%"
                     height="500"
                     src={project.demo}
-                    frameBorder="0"
+                    style={{ border: 0 }}
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     title={`${project.title} Demo`}
@@ -151,7 +153,7 @@ const ProjectDetail = () => {
                           width="100%"
                           height="315"
                           src={video.url}
-                          frameBorder="0"
+                          style={{ border: 0 }}
                           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                           title={video.caption}
@@ -164,94 +166,6 @@ const ProjectDetail = () => {
               </motion.section>
             )}
 
-            {/* Methodology */}
-            {project.methodology && (
-              <motion.section className="project-section glass-card" variants={itemVariants}>
-                <h2 className="gradient-text">Methodology</h2>
-                <div className="project-text" dangerouslySetInnerHTML={{ __html: project.methodology.replace(/\n\n/g, '</p><p>').replace(/^/, '<p>').replace(/$/, '</p>') }} />
-              </motion.section>
-            )}
-
-            {/* Features */}
-            {project.features && project.features.length > 0 && (
-              <motion.section className="project-section glass-card" variants={itemVariants}>
-                <h2 className="gradient-text">Key Features</h2>
-                <ul className="project-features-list">
-                  {project.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-              </motion.section>
-            )}
-
-            {/* Technologies */}
-            {project.technologies && (
-              <motion.section className="project-section glass-card" variants={itemVariants}>
-                <h2 className="gradient-text">Technologies</h2>
-                <div className="technologies-grid">
-                  {project.technologies.languages && (
-                    <div className="tech-category">
-                      <h3>Languages</h3>
-                      <div className="tech-items">
-                        {project.technologies.languages.map((tech, i) => (
-                          <span key={i} className="tech-item">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  {project.technologies.frameworks && (
-                    <div className="tech-category">
-                      <h3>Frameworks</h3>
-                      <div className="tech-items">
-                        {project.technologies.frameworks.map((tech, i) => (
-                          <span key={i} className="tech-item">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  {project.technologies.databases && (
-                    <div className="tech-category">
-                      <h3>Databases</h3>
-                      <div className="tech-items">
-                        {project.technologies.databases.map((tech, i) => (
-                          <span key={i} className="tech-item">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  {project.technologies.tools && (
-                    <div className="tech-category">
-                      <h3>Tools</h3>
-                      <div className="tech-items">
-                        {project.technologies.tools.map((tech, i) => (
-                          <span key={i} className="tech-item">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  {project.technologies.hardware && (
-                    <div className="tech-category">
-                      <h3>Hardware</h3>
-                      <div className="tech-items">
-                        {project.technologies.hardware.map((tech, i) => (
-                          <span key={i} className="tech-item">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  {project.technologies.algorithms && (
-                    <div className="tech-category">
-                      <h3>Algorithms</h3>
-                      <div className="tech-items">
-                        {project.technologies.algorithms.map((tech, i) => (
-                          <span key={i} className="tech-item">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </motion.section>
-            )}
 
             {/* Screenshots/Images */}
             {project.images && project.images.length > 0 && (
@@ -265,22 +179,6 @@ const ProjectDetail = () => {
                     </div>
                   ))}
                 </div>
-              </motion.section>
-            )}
-
-            {/* Challenges */}
-            {project.challenges && (
-              <motion.section className="project-section glass-card" variants={itemVariants}>
-                <h2 className="gradient-text">Challenges & Solutions</h2>
-                <p className="project-text">{project.challenges}</p>
-              </motion.section>
-            )}
-
-            {/* Future Directions */}
-            {project.futureDirections && (
-              <motion.section className="project-section glass-card" variants={itemVariants}>
-                <h2 className="gradient-text">Future Directions</h2>
-                <p className="project-text">{project.futureDirections}</p>
               </motion.section>
             )}
 

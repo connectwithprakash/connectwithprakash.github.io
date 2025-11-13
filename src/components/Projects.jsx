@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { projectsData } from '../data/projectsData';
+import { projectsData } from '../data/projectLoader';
 import './Projects.css';
 
 const Projects = () => {
