@@ -11,4 +11,9 @@ export default defineConfig({
       protocolImports: true,
     }),
   ],
+  base: '/', // GitHub Pages user site (connectwithprakash.github.io)
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  },
 })
