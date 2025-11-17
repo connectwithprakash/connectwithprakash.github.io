@@ -197,7 +197,7 @@ const Contact = () => {
           </div>
 
           <motion.div className="footer" variants={itemVariants}>
-            <p>&copy; 2024 Prakash Chaudhary. Built with React + Vite.</p>
+            <p>&copy; 2024 Prakash Chaudhary. Built with React + Vite and Claude Code.</p>
             <div className="footer-links">
               <a href="#home">Back to Top ↑</a>
             </div>
