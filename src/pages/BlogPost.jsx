@@ -217,10 +217,10 @@ const BlogPost = () => {
           <div className="post-comments">
             <h3 className="comments-title">Comments</h3>
             <Giscus
-              repo="connectwithprakash/bodhi"
-              repoId="R_kgDOMtb04w"
+              repo="connectwithprakash/connectwithprakash.github.io"
+              repoId="R_kgDOQW_beQ"
               category="General"
-              categoryId="DIC_kwDOMtb0484CjDIZ"
+              categoryId="DIC_kwDOQW_bec4Cx3h3"
               mapping="pathname"
               strict="0"
               reactionsEnabled="1"
