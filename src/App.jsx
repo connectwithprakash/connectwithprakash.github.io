@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Navigation from './components/Navigation';
@@ -11,21 +10,11 @@ import Particles from './components/Particles';
 import Loader from './components/Loader';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <ThemeProvider>
       <BrowserRouter>
         <div className="app">
-          {isLoading && <Loader />}
+          <Loader />
           <Particles />
           <Navigation />
           <Routes>
