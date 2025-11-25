@@ -11,6 +11,27 @@ const News = () => {
 
   const newsItems = [
     {
+      date: 'August 2024',
+      icon: <FaRocket />,
+      title: 'Joined Fetch Rewards AI Labs',
+      description: 'Became part of AI Labs tiger team, leading AI innovation, automation, and LLM enablement initiatives across the organization.',
+      color: 'var(--neon-blue)',
+    },
+    {
+      date: 'May 2024',
+      icon: <FaRocket />,
+      title: 'Joined Fetch Rewards',
+      description: 'Started as Machine Learning Engineer in Seattle, WA, building production AI systems and multi-agent workflows.',
+      color: 'var(--neon-purple)',
+    },
+    {
+      date: 'May 2024',
+      icon: <FaGraduationCap />,
+      title: 'MS Computer Science (4.0 GPA) & Phi Kappa Phi',
+      description: 'Graduated from University of Alabama in Huntsville with perfect 4.0 GPA and inducted into Phi Kappa Phi Honor Society.',
+      color: 'var(--neon-green)',
+    },
+    {
       date: 'April 2024',
       icon: <FaTrophy />,
       title: 'Third Place in Graduate Poster Session',
@@ -21,22 +42,15 @@ const News = () => {
       date: 'September 2023',
       icon: <FaChalkboardTeacher />,
       title: 'Teaching Assistant - AI Fellowship',
-      description: 'Appointed as Teaching Assistant for the AI Fellowship program in Latin America, mentoring the next generation of AI engineers.',
+      description: 'Appointed as Teaching Assistant for the AI Fellowship program in Latin America, mentoring 50+ students in Data Science.',
       color: 'var(--neon-purple)',
     },
     {
-      date: 'August 2023',
+      date: 'August 2022',
       icon: <FaRocket />,
       title: 'Joined NASA-IMPACT Lab',
       description: 'Started position as Graduate Research Assistant at NASA\'s Interagency Implementation and Advanced Concepts Team.',
       color: 'var(--neon-blue)',
-    },
-    {
-      date: 'January 2023',
-      icon: <FaGraduationCap />,
-      title: 'Computer Vision Lecturer',
-      description: 'Delivered comprehensive Computer Vision course curriculum for Fusemachines AI Fellowship program.',
-      color: 'var(--neon-green)',
     },
   ];
 
