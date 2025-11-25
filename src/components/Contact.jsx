@@ -7,11 +7,9 @@ import {
   FaMedium,
   FaYoutube,
   FaDiscord,
-  FaTelegram,
   FaWhatsapp,
-  FaMapMarkerAlt,
 } from 'react-icons/fa';
-import { SiGooglescholar, SiQuora } from 'react-icons/si';
+import { SiGooglescholar } from 'react-icons/si';
 import './Contact.css';
 
 const Contact = () => {
@@ -64,32 +62,11 @@ const Contact = () => {
       color: '#ff0000',
     },
     {
-      name: 'Quora',
-      icon: <SiQuora />,
-      url: 'https://www.quora.com/profile/connectwithprakash',
-      username: 'View Profile',
-      color: '#b92b27',
-    },
-    {
       name: 'Discord',
       icon: <FaDiscord />,
       url: 'https://discord.com/users/connectwithprakash',
       username: 'connectwithprakash',
       color: '#5865f2',
-    },
-    {
-      name: 'Telegram',
-      icon: <FaTelegram />,
-      url: 'https://t.me/connectwithprakash',
-      username: '@connectwithprakash',
-      color: '#0088cc',
-    },
-    {
-      name: 'Website',
-      icon: <FaMapMarkerAlt />,
-      url: 'https://www.connectwithprakash.com',
-      username: 'connectwithprakash.com',
-      color: 'var(--neon-green)',
     },
   ];
 
