@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaBrain, FaRobot, FaChartLine, FaStar } from 'react-icons/fa';
+import { FaBrain, FaRobot, FaRocket, FaEye } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
@@ -12,26 +12,26 @@ const About = () => {
   const skills = [
     {
       icon: <FaBrain />,
-      title: 'Machine Learning',
-      description: 'Deep learning frameworks, neural networks, and production AI systems',
+      title: 'LLM & Generative AI',
+      description: 'Production LLM systems with RAG pipelines, fine-tuning (LoRA), prompt engineering, and embeddings. Building multimodal agents for real-world applications.',
       gradient: 'var(--gradient-primary)',
     },
     {
       icon: <FaRobot />,
-      title: 'Robotics',
-      description: 'Autonomous systems, control algorithms, and embedded programming',
+      title: 'AI Agents & Automation',
+      description: 'Multi-agent workflows using LangGraph, human-in-the-loop systems, LLM-as-a-Judge evaluation, and autonomous decision-making agents driving business impact.',
       gradient: 'var(--gradient-secondary)',
     },
     {
-      icon: <FaChartLine />,
-      title: 'Electronics',
-      description: 'Circuit design, microcontrollers, and hardware-software integration',
+      icon: <FaRocket />,
+      title: 'ML Engineering & MLOps',
+      description: 'End-to-end ML pipelines from research to production. Model deployment on AWS (ECS/Fargate), monitoring, optimization, and scaling ML systems for millions of users.',
       gradient: 'var(--gradient-tertiary)',
     },
     {
-      icon: <FaStar />,
-      title: 'Mathematics',
-      description: 'Applied mathematics, optimization, and algorithmic problem solving',
+      icon: <FaEye />,
+      title: 'Computer Vision & NLP',
+      description: 'Deep learning for vision tasks, NLP, hierarchical classification, and multimodal contrastive learning combining images and time-series data.',
       gradient: 'var(--gradient-quaternary)',
     },
   ];
