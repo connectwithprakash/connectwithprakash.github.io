@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaBrain, FaRobot, FaRocket, FaEye } from 'react-icons/fa';
+import { FaBrain, FaRobot, FaRocket, FaEye, FaCog } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
@@ -33,6 +33,12 @@ const About = () => {
       title: 'Computer Vision & NLP',
       description: 'Deep learning for vision tasks, NLP, hierarchical classification, and multimodal contrastive learning combining images and time-series data.',
       gradient: 'var(--gradient-quaternary)',
+    },
+    {
+      icon: <FaCog />,
+      title: 'Robotics & Autonomous Systems',
+      description: 'Control systems, kinematics, and navigation algorithms for autonomous robots. Embedded programming with ARM microcontrollers and hardware-software integration.',
+      gradient: 'var(--gradient-primary)',
     },
   ];
 
