@@ -192,7 +192,7 @@ const About = () => {
                 <h4>Robotics Team Member</h4>
                 <p className="timeline-org">Robotics Club, Pulchowk Campus - Tribhuvan University</p>
                 <p className="timeline-desc">
-                  Mentored junior members and competed in ABU Robocon, Asia-Pacific's premier international robotics competition (12-14 countries). Won ROHM Award (2019 Mongolia) for innovative four-legged robot design and Best Shuttlecock Award (2018 Vietnam). Developed control systems, kinematics, and navigation algorithms using ARM microcontrollers.
+                  Mentored junior members and competed in ABU Robocon, Asia-Pacific's premier international robotics competition (12-14 countries). Won ROHM Award (2019 Mongolia) for innovative four-legged robot design and Best Shuttlecock Award (2018 Vietnam). Developed control algorithms including double differential drive system for stable high-speed movement, kinematics, and navigation using ARM microcontrollers.
                 </p>
               </div>
             </div>
