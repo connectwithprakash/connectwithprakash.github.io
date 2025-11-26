@@ -137,38 +137,38 @@ const About = () => {
             <h3 className="subsection-title gradient-text">Career Journey</h3>
             <div className="timeline">
               <div className="timeline-item glass-card">
-                <div className="timeline-date">Present</div>
-                <h4>Machine Learning Engineer</h4>
+                <div className="timeline-date">2024 - Present</div>
+                <h4>Machine Learning Engineer - AI Labs</h4>
                 <p className="timeline-org">Fetch Rewards - Seattle, WA</p>
                 <p className="timeline-desc">
-                  Building production ML systems with focus on Self-Supervised Learning and Multi-Agent Systems. 5+ years of delivering customized AI solutions.
+                  Leading AI innovation, automation, and LLM enablement initiatives. Building production multi-agent systems and ML solutions driving measurable business impact.
                 </p>
               </div>
 
               <div className="timeline-item glass-card">
-                <div className="timeline-date">2023</div>
-                <h4>Graduate Research Assistant</h4>
-                <p className="timeline-org">NASA-IMPACT, UAH</p>
-                <p className="timeline-desc">
-                  Research in Machine Learning and Representation Learning at NASA's Interagency Implementation and Advanced Concepts Team
-                </p>
-              </div>
-
-              <div className="timeline-item glass-card">
-                <div className="timeline-date">2023</div>
+                <div className="timeline-date">2022 - 2024</div>
                 <h4>MS in Computer Science</h4>
                 <p className="timeline-org">University of Alabama in Huntsville</p>
                 <p className="timeline-desc">
-                  Advanced studies in Machine Learning, focusing on representation learning and AI systems
+                  Graduated with 4.0 GPA. Advanced studies in Deep Learning, AI, and Algorithm Design. Inducted into Phi Kappa Phi Honor Society.
                 </p>
               </div>
 
               <div className="timeline-item glass-card">
-                <div className="timeline-date">2018</div>
-                <h4>ABU Robocon 2018</h4>
-                <p className="timeline-org">International Robotics Competition</p>
+                <div className="timeline-date">2022 - 2024</div>
+                <h4>Graduate Research Assistant</h4>
+                <p className="timeline-org">NASA-IMPACT</p>
                 <p className="timeline-desc">
-                  Designed and built autonomous robots for ABU Robocon 2018 (Vietnam - Throwing Shuttlecock theme)
+                  Research in Machine Learning and Natural Language Processing at NASA's Interagency Implementation and Advanced Concepts Team.
+                </p>
+              </div>
+
+              <div className="timeline-item glass-card">
+                <div className="timeline-date">2020 - 2022</div>
+                <h4>Machine Learning Engineer</h4>
+                <p className="timeline-org">Fusemachines Inc. - New York City, NY</p>
+                <p className="timeline-desc">
+                  Developed production ML systems for fashion retail, including sales forecasting, recommendation systems, and computer vision solutions.
                 </p>
               </div>
             </div>
