@@ -52,6 +52,13 @@ const News = () => {
       description: 'Started position as Graduate Research Assistant at NASA\'s Interagency Implementation and Advanced Concepts Team.',
       color: 'var(--neon-blue)',
     },
+    {
+      date: 'February 2020',
+      icon: <FaRocket />,
+      title: 'Joined Fusemachines as ML Engineer',
+      description: 'Started as Machine Learning Engineer in New York City, developing production ML systems for fashion retail, including sales forecasting, recommendation systems, and computer vision solutions.',
+      color: 'var(--neon-purple)',
+    },
   ];
 
   const containerVariants = {
