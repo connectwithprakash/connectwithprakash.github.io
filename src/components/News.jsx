@@ -27,7 +27,7 @@ const News = () => {
     {
       date: 'May 2024',
       icon: <FaGraduationCap />,
-      title: 'MS Computer Science (4.0 GPA) & Phi Kappa Phi',
+      title: 'Graduated with MS in Computer Science',
       description: 'Graduated from University of Alabama in Huntsville with perfect 4.0 GPA and inducted into Phi Kappa Phi Honor Society.',
       color: 'var(--neon-green)',
     },
