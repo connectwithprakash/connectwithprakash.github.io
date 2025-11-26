@@ -171,6 +171,15 @@ const About = () => {
                   Developed production ML systems for fashion retail, including sales forecasting, recommendation systems, and computer vision solutions.
                 </p>
               </div>
+
+              <div className="timeline-item glass-card">
+                <div className="timeline-date">2019 - 2020</div>
+                <h4>Machine Learning Engineer</h4>
+                <p className="timeline-org">Betterhalf.ai - Bangalore, India</p>
+                <p className="timeline-desc">
+                  Built LSTM-based NLP models for automated user profile generation, improving sign-up efficiency by 40%. Developed NSFW detection system for content moderation.
+                </p>
+              </div>
             </div>
           </motion.div>
         </motion.div>
