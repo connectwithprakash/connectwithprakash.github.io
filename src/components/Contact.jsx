@@ -8,6 +8,7 @@ import {
   FaYoutube,
   FaDiscord,
   FaWhatsapp,
+  FaMapMarkerAlt,
 } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
 import './Contact.css';
