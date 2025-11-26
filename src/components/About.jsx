@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useState, useEffect } from 'react';
 import { FaBrain, FaRobot, FaRocket, FaEye, FaCog } from 'react-icons/fa';
 import './About.css';
 
@@ -8,6 +9,39 @@ const About = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [githubStats, setGithubStats] = useState({
+    repos: 55,
+    stars: 27,
+    followers: 38,
+  });
+
+  useEffect(() => {
+    const fetchGithubStats = async () => {
+      try {
+        // Fetch user data
+        const userResponse = await fetch('https://api.github.com/users/connectwithprakash');
+        const userData = await userResponse.json();
+
+        // Fetch repos to calculate total stars
+        const reposResponse = await fetch('https://api.github.com/users/connectwithprakash/repos?per_page=100');
+        const reposData = await reposResponse.json();
+
+        const totalStars = reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+
+        setGithubStats({
+          repos: userData.public_repos,
+          stars: totalStars,
+          followers: userData.followers,
+        });
+      } catch (error) {
+        console.error('Error fetching GitHub stats:', error);
+        // Keep default values if fetch fails
+      }
+    };
+
+    fetchGithubStats();
+  }, []);
 
   const skills = [
     {
@@ -103,15 +137,15 @@ const About = () => {
 
                 <div className="about-highlights">
                   <div className="highlight-item">
-                    <span className="highlight-number gradient-text">55+</span>
+                    <span className="highlight-number gradient-text">{githubStats.repos}</span>
                     <span className="highlight-label">GitHub Repositories</span>
                   </div>
                   <div className="highlight-item">
-                    <span className="highlight-number gradient-text">27</span>
+                    <span className="highlight-number gradient-text">{githubStats.stars}</span>
                     <span className="highlight-label">GitHub Stars</span>
                   </div>
                   <div className="highlight-item">
-                    <span className="highlight-number gradient-text">38</span>
+                    <span className="highlight-number gradient-text">{githubStats.followers}</span>
                     <span className="highlight-label">GitHub Followers</span>
                   </div>
                 </div>
