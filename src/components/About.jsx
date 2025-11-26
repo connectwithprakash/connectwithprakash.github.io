@@ -183,10 +183,10 @@ const About = () => {
 
               <div className="timeline-item glass-card">
                 <div className="timeline-date">2016 - 2019</div>
-                <h4>Robotics Engineer & Team Lead</h4>
+                <h4>Robotics Team Member</h4>
                 <p className="timeline-org">Robotics Club, Pulchowk Campus - Tribhuvan University</p>
                 <p className="timeline-desc">
-                  Led teams in ABU Robocon, Asia-Pacific's premier international robotics competition (12-14 countries). Won ROHM Award (2019 Mongolia) for innovative four-legged robot design and Best Shuttlecock Award (2018 Vietnam). Developed control systems, kinematics, and navigation algorithms using ARM microcontrollers.
+                  Mentored junior members and competed in ABU Robocon, Asia-Pacific's premier international robotics competition (12-14 countries). Won ROHM Award (2019 Mongolia) for innovative four-legged robot design and Best Shuttlecock Award (2018 Vietnam). Developed control systems, kinematics, and navigation algorithms using ARM microcontrollers.
                 </p>
               </div>
             </div>
