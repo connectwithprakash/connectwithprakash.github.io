@@ -18,6 +18,13 @@ const News = () => {
       color: 'var(--neon-green)',
     },
     {
+      date: 'October 2024',
+      icon: <FaRocket />,
+      title: 'Launched Multi-Agent Product Matching System',
+      description: 'Deployed async matching framework with LLM-as-a-Judge achieving 15% full automation, improving match rates by 3.1-3.3 percentage points and unlocking $165M in GMV.',
+      color: 'var(--neon-purple)',
+    },
+    {
       date: 'August 2024',
       icon: <FaRocket />,
       title: 'Joined Fetch Rewards AI Labs',
