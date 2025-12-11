@@ -119,8 +119,9 @@ const About = () => {
                 </h3>
                 <p>
                   I build production AI systems focused on{' '}
-                  <strong>Self-Supervised Learning</strong> and <strong>Multi-Agent Systems</strong>,
-                  with over 5 years of experience delivering customized solutions.
+                  <strong>LLMs</strong> and <strong>Multi-Agent Systems</strong>.
+                  Recently shipped an <strong>AI Shopping Assistant</strong> to 10,000 users,
+                  with over 5 years of experience delivering ML solutions that drive business impact.
                 </p>
                 <p>
                   Previously, I was a <strong>Graduate Research Assistant</strong> at{' '}

@@ -20,7 +20,7 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 ### Fetch Rewards | Seattle, WA
 **Machine Learning Engineer - AI Labs** | May 2024 - Present
 
-- Developed and released internal alpha of **multimodal shopping agent** that answers shopping questions, plans personalized shopping lists, and maximizes offer value
+- Shipped **multimodal AI Shopping Assistant** to **10,000 external users** (iOS/Android), enabling natural language product discovery and purchase optimization through production multi-agent system
 - Launched **multi-agentic workflow** for product matching, improving match rates by **3.1-3.3 percentage points** (73.8%→76.9%) and unlocking **$165M in GMV**; achieved **15% full automation** with **LLM-as-a-Judge guardrails** at **97% accuracy**, automating **50+ hours of manual operations to 2 minutes**
 - Developed **3-agent annotation workflow** using **LangGraph** to replace double-annotation with **human-LLM agreement system**, reducing 2nd annotator workload by **60%** while maintaining dataset quality through human tie-breaking on disagreement cases for product matching models
 - **Fully automated RAG pipeline** to flag incorrect product matches at **95% recall**, protecting **~$800K in GMV annually**; replaced manual workflow, reducing daily effort from **8 hours to 15 minutes** and **saving 40 hours weekly**
