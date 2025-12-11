@@ -11,6 +11,13 @@ const News = () => {
 
   const newsItems = [
     {
+      date: 'December 2025',
+      icon: <FaRocket />,
+      title: 'Launched AI Shopping Assistant Alpha',
+      description: 'Shipped multimodal AI Shopping Assistant to 10,000 external users (iOS/Android), enabling natural language product discovery and purchase optimization through production multi-agent system.',
+      color: 'var(--neon-green)',
+    },
+    {
       date: 'August 2024',
       icon: <FaRocket />,
       title: 'Joined Fetch Rewards AI Labs',

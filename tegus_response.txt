@@ -1,0 +1,20 @@
+Hi Adriannia,
+
+Thanks for reaching out! Apologies for the delayed response - I've been heads down on a major release at work.
+
+I appreciate your patience with the follow-ups. I want to be upfront: my experience with hyperspectral imaging is primarily on the data analysis and machine learning side, rather than camera hardware design/manufacturing.
+
+My relevant background:
+- MS thesis on spectral deconvolution using machine learning
+- Built ML pipelines for material characterization from spectral signatures
+- Experience with signal processing and feature engineering for spectral data
+
+If your client is interested in the application side of HSI (how to extract insights from hyperspectral data using ML, what requirements ML engineers have for HSI systems), I'd be happy to chat. Otherwise, I may not be the right fit for hardware-focused questions.
+
+Happy to have a brief call to see if there's alignment.
+
+Best,
+Prakash Chaudhary
+ML Engineer - AI Labs @ Fetch Rewards
+
+connectwithprakash.com | linkedin.com/in/connectwithprakash
