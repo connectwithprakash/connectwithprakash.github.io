@@ -13,14 +13,14 @@ const News = () => {
     {
       date: 'December 2025',
       icon: <FaRocket />,
-      title: 'Launched AI Shopping Assistant Alpha',
+      title: 'Shipped AI Shopping Assistant Alpha',
       description: 'Shipped multimodal AI Shopping Assistant to 10,000 external users (iOS/Android), enabling natural language product discovery and purchase optimization through production multi-agent system.',
       color: 'var(--neon-green)',
     },
     {
       date: 'October 2024',
       icon: <FaRocket />,
-      title: 'Launched Multi-Agent Product Matching System',
+      title: 'Deployed Multi-Agent Product Matching System',
       description: 'Deployed async matching framework with LLM-as-a-Judge achieving 15% full automation, improving match rates by 3.1-3.3 percentage points and unlocking $165M in GMV.',
       color: 'var(--neon-purple)',
     },
