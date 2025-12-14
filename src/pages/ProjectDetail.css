@@ -65,12 +65,19 @@
 }
 
 .project-header-content {
-  padding: 2rem;
+  padding: 2rem 4rem;
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
+}
+
+.project-badges {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .project-category-badge {
@@ -81,7 +88,24 @@
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: capitalize;
-  margin-bottom: 1rem;
+}
+
+.project-status-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.project-status-badge.status-in-progress {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+}
+
+.project-status-badge.status-completed {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
 }
 
 .project-title {
@@ -136,14 +160,15 @@
   gap: 0.5rem;
 }
 
-.project-content {
+.project-detail-page .project-content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding: 0;
 }
 
-.project-section {
-  padding: 2rem;
+.project-detail-page .project-section {
+  padding: 2.5rem 4rem;
 }
 
 .project-section h2 {
@@ -370,9 +395,16 @@
 
 /* Markdown rendering styles */
 .project-markdown {
-  color: var(--text-secondary);
   line-height: 1.8;
   font-size: 1.0625rem;
+}
+
+/* Text color for markdown content - but NOT for Mermaid diagrams */
+.project-markdown > p,
+.project-markdown > ul,
+.project-markdown > ol,
+.project-markdown > blockquote {
+  color: var(--text-secondary);
 }
 
 .project-markdown h2 {
@@ -408,6 +440,41 @@
 .project-markdown li {
   margin-bottom: 0.5rem;
   line-height: 1.7;
+}
+
+/* Table styles for markdown content */
+.project-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.project-markdown th,
+.project-markdown td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.project-markdown th {
+  background: var(--glass-bg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.project-markdown td {
+  color: var(--text-secondary);
+}
+
+.project-markdown tr:hover td {
+  background: var(--glass-bg);
+}
+
+.project-markdown tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .project-markdown strong {

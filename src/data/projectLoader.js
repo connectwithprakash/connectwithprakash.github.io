@@ -17,6 +17,7 @@ export const projectsData = Object.entries(modules).map(([path, content]) => {
     title: data.title,
     shortDescription: data.shortDescription,
     category: data.category,
+    status: data.status,
     importance: data.importance,
     featured: data.featured,
     tags: data.tags || [],

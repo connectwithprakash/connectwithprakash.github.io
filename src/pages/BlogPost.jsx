@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import MermaidDiagram from '../components/MermaidDiagram';
 import Giscus from '@giscus/react';
 import {
   FaArrowLeft,
@@ -201,7 +202,25 @@ const BlogPost = () => {
           </div>
 
           <div className="post-content glass-card">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                code: ({ node, inline, className, children, ...props }) => {
+                  const match = /language-(\w+)/.exec(className || '');
+                  const language = match ? match[1] : '';
+
+                  if (!inline && language === 'mermaid') {
+                    return <MermaidDiagram chart={String(children).replace(/\n$/, '')} />;
+                  }
+
+                  return (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                }
+              }}
+            >
               {post.content}
             </ReactMarkdown>
           </div>

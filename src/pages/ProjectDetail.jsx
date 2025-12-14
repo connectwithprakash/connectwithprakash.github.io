@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
 import { getProjectById } from '../data/projectLoader';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import MermaidDiagram from '../components/MermaidDiagram';
 import './ProjectDetail.css';
 
 const ProjectDetail = () => {
@@ -71,7 +73,14 @@ const ProjectDetail = () => {
               </div>
             )}
             <div className="project-header-content">
-              <div className="project-category-badge">{project.category}</div>
+              <div className="project-badges">
+                <div className="project-category-badge">{project.category}</div>
+                {project.status && (
+                  <div className={`project-status-badge status-${project.status}`}>
+                    {project.status === 'in-progress' ? 'In Progress' : 'Completed'}
+                  </div>
+                )}
+              </div>
               <h1 className="project-title">{project.title}</h1>
               <p className="project-short-desc">{project.shortDescription}</p>
 
@@ -118,7 +127,25 @@ const ProjectDetail = () => {
             {project.content && (
               <motion.section className="project-section glass-card" variants={itemVariants}>
                 <div className="project-markdown">
-                  <ReactMarkdown>
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      code: ({ node, inline, className, children, ...props }) => {
+                        const match = /language-(\w+)/.exec(className || '');
+                        const language = match ? match[1] : '';
+
+                        if (!inline && language === 'mermaid') {
+                          return <MermaidDiagram chart={String(children).replace(/\n$/, '')} />;
+                        }
+
+                        return (
+                          <code className={className} {...props}>
+                            {children}
+                          </code>
+                        );
+                      }
+                    }}
+                  >
                     {project.content}
                   </ReactMarkdown>
                 </div>
