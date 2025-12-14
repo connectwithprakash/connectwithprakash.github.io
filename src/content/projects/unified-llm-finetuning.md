@@ -36,43 +36,43 @@ Designed a layered architecture with automatic backend selection and comprehensi
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': 'transparent', 'primaryTextColor': '#a78bfa', 'primaryBorderColor': '#8b5cf6', 'lineColor': '#8b5cf6', 'secondaryColor': 'transparent', 'tertiaryColor': 'transparent', 'mainBkg': 'transparent', 'nodeBorder': '#8b5cf6', 'clusterBkg': 'transparent', 'clusterBorder': '#6366f1', 'titleColor': '#a78bfa'}}}%%
-flowchart TB
-    subgraph CLI["CLI Layer"]
+flowchart LR
+    subgraph CLI["CLI Commands"]
         Train[train]
         Eval[evaluate]
         Export[export]
+        SM[sagemaker]
     end
 
     subgraph Config["Config Layer"]
-        Hydra[Hydra]
-        Pydantic[Pydantic Schemas]
+        YAML[YAML Configs]
+        Hydra[Hydra Compose]
+        Schema[Pydantic Schema]
     end
 
-    subgraph Backends["Backend Layer"]
-        Auto[Auto-Select]
-        Unsloth[Unsloth]
-        TRL[TRL/PEFT]
+    subgraph Backends["Backend Selection"]
+        Auto{Auto-Select}
+        Unsloth[Unsloth<br/>Single GPU]
+        TRL[TRL/PEFT<br/>Multi-GPU]
     end
 
-    subgraph Cloud["Cloud Layer"]
-        SM[SageMaker]
-        Spot[Spot Instances]
+    subgraph Infra["Infrastructure"]
+        Local[Local Training]
+        Cloud[AWS SageMaker]
+        DDP[PyTorch DDP]
         DS[DeepSpeed ZeRO]
     end
 
-    subgraph EvalLayer["Evaluation Layer"]
-        vLLM[vLLM Backend]
-        HF[HuggingFace Backend]
-    end
-
-    Train --> Config
-    Eval --> Config
-    Export --> Config
-    Config --> Backends
-    Auto --> Unsloth
-    Auto --> TRL
-    Backends --> Cloud
-    Eval --> EvalLayer
+    CLI --> YAML
+    YAML --> Hydra
+    Hydra --> Schema
+    Schema --> Auto
+    Auto -->|CUDA| Unsloth
+    Auto -->|DDP| TRL
+    Unsloth --> Local
+    TRL --> DDP
+    TRL --> DS
+    SM --> Cloud
 ```
 
 **Core Architecture:**
