@@ -7,7 +7,7 @@ status: completed
 startDate: 2025-03
 endDate: 2025-06
 importance: 2
-featured: true
+featured: false
 tags: [Agentic AI, LLM, Quality Assurance, Streamlit, Production ML, Python, Fetch]
 gradient: var(--gradient-secondary)
 thumbnail: /assets/img/projects/false-positive-auditor/thumbnail.svg

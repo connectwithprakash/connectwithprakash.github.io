@@ -7,7 +7,7 @@ status: completed
 startDate: 2021-06
 endDate: 2022-02
 importance: 2
-featured: true
+featured: false
 tags: [Computer Vision, Multimodal Learning, Contrastive Learning, Deep Learning, PyTorch, Sales Forecasting, Fusemachines]
 gradient: var(--gradient-primary)
 thumbnail: /assets/img/projects/multimodal-contrastive-learning/thumbnail.svg
