@@ -79,10 +79,14 @@
 }
 
 .project-card-badges {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .featured-badge span {
@@ -97,7 +101,7 @@
   border-radius: 50px;
 }
 
-.project-card-status {
+.featured-badge {
   margin-left: auto;
 }
 
