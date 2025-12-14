@@ -9,13 +9,13 @@ importance: 1
 featured: true
 tags: [Agentic AI, LLM, Multimodal AI, ReAct Pattern, MCP, Production ML, E-commerce, Shopping Assistant]
 gradient: var(--gradient-primary)
-thumbnail: /assets/img/projects/ai_shopping_assistant/calvin_thumbnail.png
+thumbnail: /assets/img/projects/ai_shopping_assistant/thumbnail.png
 images:
-  - path: /assets/img/projects/ai_shopping_assistant/calvin_01_welcome.png
+  - path: /assets/img/projects/ai_shopping_assistant/01_welcome.png
     caption: Welcome screen with intelligent prompt suggestions for shopping queries
-  - path: /assets/img/projects/ai_shopping_assistant/calvin_02_list_generation.png
+  - path: /assets/img/projects/ai_shopping_assistant/02_list_generation.png
     caption: AI-generated $50 pantry stock-up list with 14 personalized items
-  - path: /assets/img/projects/ai_shopping_assistant/calvin_03_offers.png
+  - path: /assets/img/projects/ai_shopping_assistant/03_offers.png
     caption: Product offer cards with Fetch points, pricing, and visual recommendations
 github: null
 demo: null
