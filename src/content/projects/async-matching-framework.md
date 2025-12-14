@@ -187,7 +187,7 @@ Hallucination prevention through grounded validation. When agents predict a cate
 
 ## Technologies
 
-**AI/ML:** LangChain, LangGraph, OpenAI, Anthropic Claude, Google GenAI
+**AI/ML:** LangChain, LangGraph, OpenAI models, Gemini models
 
 **ML Infrastructure:** Sentence Transformers, FuzzyWuzzy, FAISS
 
