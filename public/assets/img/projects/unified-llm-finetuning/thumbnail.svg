@@ -30,7 +30,7 @@
     <tspan fill="#27ca3f">$</tspan>
     <tspan fill="#e0e0e0"> calvin </tspan>
     <tspan fill="#a78bfa">train</tspan>
-    <tspan fill="#e0e0e0"> configs/llama-7b.yaml</tspan>
+    <tspan fill="#e0e0e0"> model=llama-7b lora.r=16</tspan>
   </text>
 
   <!-- Output 1 -->
@@ -46,12 +46,14 @@
     <tspan fill="#27ca3f">$</tspan>
     <tspan fill="#e0e0e0"> calvin </tspan>
     <tspan fill="#a78bfa">evaluate</tspan>
-    <tspan fill="#e0e0e0"> ./output/model</tspan>
+    <tspan fill="#e0e0e0"> ./output/model </tspan>
+    <tspan fill="#fbbf24">-d</tspan>
+    <tspan fill="#e0e0e0"> wikitext</tspan>
   </text>
 
   <!-- Output 2 -->
   <text x="60" y="233" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
-    <tspan>Perplexity: 4.21 | Accuracy: 87.3%</tspan>
+    <tspan>Perplexity: 4.21 | Loss: 1.44</tspan>
   </text>
 
   <!-- Command 3: sagemaker -->
@@ -80,8 +82,10 @@
     <tspan fill="#e0e0e0"> calvin </tspan>
     <tspan fill="#a78bfa">export</tspan>
     <tspan fill="#e0e0e0"> ./output/model </tspan>
-    <tspan fill="#fbbf24">--format</tspan>
-    <tspan fill="#e0e0e0"> gguf</tspan>
+    <tspan fill="#fbbf24">-f</tspan>
+    <tspan fill="#e0e0e0"> gguf </tspan>
+    <tspan fill="#fbbf24">-q</tspan>
+    <tspan fill="#e0e0e0"> q4_k_m</tspan>
   </text>
 
   <!-- Output 4 -->
