@@ -92,11 +92,6 @@ const ProjectDetail = () => {
 
           {/* Project Header */}
           <motion.div className="project-header" variants={itemVariants}>
-            {project.thumbnail && (
-              <div className="project-hero-image">
-                <img src={project.thumbnail} alt={project.title} />
-              </div>
-            )}
             <div className="project-header-content">
               <div className="project-badges">
                 <div className="project-category-badge">{formatCategory(project.category)}</div>
@@ -149,6 +144,11 @@ const ProjectDetail = () => {
                 )}
               </div>
             </div>
+            {project.thumbnail && (
+              <div className="project-hero-image">
+                <img src={project.thumbnail} alt={project.title} />
+              </div>
+            )}
           </motion.div>
 
           {/* Project Content */}

@@ -43,13 +43,13 @@
 }
 
 .project-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .project-hero-image {
   width: 100%;
   border-radius: var(--radius-lg);
-  margin-bottom: 2rem;
+  margin-top: 2rem;
   background: var(--bg-primary);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
