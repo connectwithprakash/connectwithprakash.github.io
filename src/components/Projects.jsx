@@ -1,9 +1,23 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { projectsData } from '../data/projectLoader';
 import './Projects.css';
+
+const getStatusOrDate = (project) => {
+  if (project.status === 'in-progress') {
+    return { text: 'In Progress', type: 'in-progress' };
+  }
+  if (project.endDate) {
+    const date = new Date(project.endDate);
+    return { text: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), type: 'date' };
+  }
+  if (project.status === 'completed') {
+    return { text: 'Completed', type: 'completed' };
+  }
+  return null;
+};
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -58,11 +72,18 @@ const Projects = () => {
                 whileHover={{ y: -8 }}
               >
                 <Link to={`/project/${project.id}`} className="project-card-link">
-                  {project.featured && (
-                    <div className="featured-badge">
-                      <span>Featured</span>
-                    </div>
-                  )}
+                  <div className="project-card-badges">
+                    {project.featured && (
+                      <div className="featured-badge">
+                        <span>Featured</span>
+                      </div>
+                    )}
+                    {getStatusOrDate(project) && (
+                      <div className={`project-card-status status-${getStatusOrDate(project).type}`}>
+                        <span>{getStatusOrDate(project).text}</span>
+                      </div>
+                    )}
+                  </div>
                   {project.thumbnail && (
                     <div className="project-thumbnail">
                       <img src={project.thumbnail} alt={project.title} />
