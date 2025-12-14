@@ -10,7 +10,7 @@ importance: 1
 featured: true
 tags: [Agentic AI, LLM, RAG, Entity Resolution, NLP, Multi-Agent Systems, LangGraph, Python, Internal]
 gradient: var(--gradient-tertiary)
-thumbnail: null
+thumbnail: /assets/img/projects/async-matching-framework/thumbnail.svg
 github: null
 demo: null
 ---
@@ -49,7 +49,7 @@ flowchart LR
     end
 
     subgraph RAG["Retrieval Layer"]
-        Ret[5 Retrievers<br/>88K+ mappings]
+        Ret[Retrievers<br/>88K+ mappings]
         Web[Web Search]
     end
 
@@ -68,12 +68,12 @@ flowchart LR
 - **CategoryAgent** - Assigns hierarchical category with hallucination detection
 - **WorkflowGuardrailAgent** - Validates outputs and catches errors
 
-**Retrieval System (5 specialized retrievers):**
-- Abbreviation mappings (24K+ entries)
+**Retrieval System:**
+- Abbreviation mappings
 - Brand knowledge base
 - Category taxonomy navigation
 - Error history for learning from past mistakes
-- Semantic and lexical search components
+- Web search for ambiguous products
 
 **Web Search Integration:**
 - Gemini 2.5 Flash with Google Search for ambiguous products
