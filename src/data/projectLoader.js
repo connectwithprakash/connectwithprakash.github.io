@@ -35,11 +35,12 @@ const unsortedProjects = Object.entries(modules).map(([path, content]) => {
   };
 });
 
-// Sort projects by date (most recent first)
-// Uses startDate for sorting, falls back to endDate, then importance
+// Sort projects by end date (most recent first)
+// In-progress projects (no endDate) sort to top using future date
 export const projectsData = unsortedProjects.sort((a, b) => {
-  const dateA = a.startDate || a.endDate || '1900-01';
-  const dateB = b.startDate || b.endDate || '1900-01';
+  // Use endDate, or '9999-12' for in-progress (puts them at top), or startDate as fallback
+  const dateA = a.endDate || (a.status === 'in-progress' ? '9999-12' : a.startDate) || '1900-01';
+  const dateB = b.endDate || (b.status === 'in-progress' ? '9999-12' : b.startDate) || '1900-01';
 
   // Sort by date descending (most recent first)
   if (dateA !== dateB) {
