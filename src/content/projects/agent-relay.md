@@ -6,7 +6,7 @@ category: agentic-ai
 status: in-progress
 startDate: 2024-12
 importance: 1
-featured: true
+featured: false
 tags: [Agentic AI, Multi-Agent Systems, FastAPI, React 19, WebSocket, Real-Time Communication, TailwindCSS, CI/CD]
 gradient: var(--gradient-quaternary)
 thumbnail: /assets/img/projects/agent-relay/thumbnail.svg

@@ -1,16 +1,16 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { projectsData } from '../data/projectLoader';
-import './Projects.css';
+import './ProjectsPage.css';
 
 const getStatusOrDate = (project) => {
   if (project.status === 'in-progress') {
     return { text: 'In Progress', type: 'in-progress' };
   }
   if (project.endDate) {
-    // Handle YYYY-MM format
     const dateStr = project.endDate.length === 7 ? `${project.endDate}-01` : project.endDate;
     const date = new Date(dateStr);
     return { text: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), type: 'date' };
@@ -21,15 +21,30 @@ const getStatusOrDate = (project) => {
   return null;
 };
 
-const Projects = () => {
+const categories = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'featured', label: 'Featured' },
+  { id: 'agentic-ai', label: 'Agentic AI' },
+  { id: 'mlops', label: 'MLOps' },
+  { id: 'computer-vision', label: 'Computer Vision' },
+  { id: 'robotics', label: 'Robotics' },
+  { id: 'security', label: 'Security' },
+];
+
+const ProjectsPage = () => {
+  const [activeCategory, setActiveCategory] = useState('all');
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  // Show only featured projects, sorted by importance
-  const projects = projectsData
-    .filter(p => p.id !== 'personal-website' && p.featured === true)
+  const filteredProjects = projectsData
+    .filter(p => p.id !== 'personal-website')
+    .filter(p => {
+      if (activeCategory === 'all') return true;
+      if (activeCategory === 'featured') return p.featured === true;
+      return p.category === activeCategory;
+    })
     .sort((a, b) => a.importance - b.importance);
 
   const containerVariants = {
@@ -37,7 +52,7 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -52,7 +67,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section projects">
+    <div className="projects-page">
       <div className="container">
         <motion.div
           ref={ref}
@@ -60,19 +75,34 @@ const Projects = () => {
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
         >
-          <motion.div className="section-header" variants={itemVariants}>
-            <h2 className="section-title">Featured Projects</h2>
-            <p className="section-subtitle">
-              Things I've built - from robotics competitions to production AI systems
+          <motion.div className="projects-page-header" variants={itemVariants}>
+            <h1 className="projects-page-title">All Projects</h1>
+            <p className="projects-page-subtitle">
+              Explore my complete portfolio - from production AI systems to open-source tools
             </p>
           </motion.div>
 
+          <motion.div className="category-filters" variants={itemVariants}>
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                className={`category-filter ${activeCategory === category.id ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category.id)}
+              >
+                {category.label}
+              </button>
+            ))}
+          </motion.div>
+
+          <motion.div className="projects-count" variants={itemVariants}>
+            <p>Showing {filteredProjects.length} {activeCategory === 'all' ? 'projects' : activeCategory === 'featured' ? 'featured projects' : `${categories.find(c => c.id === activeCategory)?.label.toLowerCase()} projects`}</p>
+          </motion.div>
+
           <div className="projects-grid">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
-                key={index}
+                key={project.id}
                 className={`project-card glass-card ${project.featured ? 'featured' : ''}`}
-                variants={itemVariants}
                 whileHover={{ y: -8 }}
               >
                 <Link to={`/project/${project.id}`} className="project-card-link">
@@ -130,35 +160,10 @@ const Projects = () => {
               </motion.div>
             ))}
           </div>
-
-          <motion.div className="projects-cta" variants={itemVariants}>
-            <p>Want to see more?</p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link to="/projects">
-                <motion.button
-                  className="btn btn-primary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View All Projects
-                </motion.button>
-              </Link>
-              <motion.a
-                href="https://github.com/connectwithprakash?tab=repositories"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-glass"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                GitHub (55+ repos)
-              </motion.a>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Projects;
+export default ProjectsPage;

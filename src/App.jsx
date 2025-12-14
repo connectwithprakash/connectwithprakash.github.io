@@ -3,6 +3,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import Navigation from './components/Navigation';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
+import ProjectsPage from './pages/ProjectsPage';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Resume from './pages/Resume';
@@ -21,6 +22,7 @@ function App() {
           <Navigation />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/resume" element={<Resume />} />
