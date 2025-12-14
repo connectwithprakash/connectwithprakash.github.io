@@ -16,12 +16,12 @@ demo: null
 
 ## Overview
 
-An MLOps framework that provides a unified CLI for fine-tuning open-source LLMs. It abstracts away the complexity of multiple fine-tuning ecosystems (Unsloth, TRL/PEFT, Axolotl) with automatic backend selection, comprehensive AWS SageMaker integration, and best practices built-in for both local and cloud training workflows.
+An MLOps framework that provides a unified CLI for fine-tuning open-source LLMs. It abstracts away the complexity of multiple fine-tuning ecosystems (Unsloth, TRL/PEFT) with automatic backend selection, comprehensive AWS SageMaker integration, and best practices built-in for both local and cloud training workflows.
 
 ## Problem Statement
 
 Fine-tuning open-source LLMs presents significant operational challenges:
-- **Ecosystem fragmentation** - Engineers must learn multiple tools (Unsloth, Axolotl, TRL/PEFT) with different APIs
+- **Ecosystem fragmentation** - Engineers must learn multiple tools (Unsloth, TRL/PEFT) with different APIs
 - **Configuration complexity** - Manual setup of distributed training (DDP, DeepSpeed), version compatibility nightmares
 - **Cloud training barriers** - AWS SageMaker requires complex setup for multi-node training and spot instance handling
 - **No unified interface** - Developers waste time stitching together tools and debugging integration issues
@@ -40,6 +40,7 @@ flowchart LR
     subgraph CLI["CLI Commands"]
         Train[train]
         Eval[evaluate]
+        Launch[launch]
         Export[export]
         SM[sagemaker]
     end
@@ -52,8 +53,8 @@ flowchart LR
 
     subgraph Backends["Backend Selection"]
         Auto{Auto-Select}
-        Unsloth[Unsloth<br/>Single GPU]
-        TRL[TRL/PEFT<br/>Multi-GPU]
+        Unsloth[Unsloth<br/>Optimized]
+        TRL[TRL/PEFT<br/>Fallback]
     end
 
     subgraph Infra["Infrastructure"]
@@ -61,24 +62,32 @@ flowchart LR
         Cloud[AWS SageMaker]
         DDP[PyTorch DDP]
         DS[DeepSpeed ZeRO]
+        Models[Model Artifacts]
     end
 
     CLI --> YAML
     YAML --> Hydra
     Hydra --> Schema
     Schema --> Auto
-    Auto -->|CUDA| Unsloth
-    Auto -->|DDP| TRL
+    Auto -->|CUDA available| Unsloth
+    Auto -->|No CUDA| TRL
     Unsloth --> Local
-    TRL --> DDP
+    Unsloth --> Cloud
+    TRL --> Local
+    TRL --> Cloud
+    Launch --> DDP
     TRL --> DS
     SM --> Cloud
+    Local --> Models
+    Cloud --> Models
+    Eval --> Models
+    Export --> Models
 ```
 
 **Core Architecture:**
 - **Unified CLI Interface** - Single command-line tool with consistent API across all backends
 - **Hydra + Pydantic Stack** - Type-safe configuration management with validation
-- **Automatic Backend Selection** - Single GPU → Unsloth (speed), Multi-GPU → TRL/DDP (scale)
+- **Automatic Backend Selection** - CUDA available → Unsloth (optimized), CPU fallback → TRL
 - **Protocol-Based Evaluation** - Pluggable evaluation framework supporting multiple backends (vLLM, HuggingFace)
 
 **AWS SageMaker Integration:**
@@ -97,12 +106,12 @@ flowchart LR
 ## My Role
 
 Served as sole architect and developer with complete ownership:
-- Designed abstraction layer unifying 3 major fine-tuning ecosystems
+- Designed abstraction layer unifying 2 major fine-tuning ecosystems
 - Implemented Hydra+Pydantic configuration system with type safety
 - Built AWS SageMaker integration from scratch (multi-node, spot instances)
 - Created distributed training support (DDP, DeepSpeed ZeRO)
 - Developed protocol-based evaluation framework
-- Wrote 131+ tests for production reliability
+- Wrote 129+ tests for production reliability
 - Documented best practices and created sample configurations
 
 ## Key Achievements
@@ -110,14 +119,14 @@ Served as sole architect and developer with complete ownership:
 - **44 samples/sec** - Achieved high throughput on 4x A10G GPUs with 4-bit quantization
 - **70-90% cost reduction** - AWS SageMaker spot instances vs on-demand pricing
 - **10.5% loss improvement** - Validated multi-GPU DDP training (1.43 → 1.28) over 3 epochs
-- **3 ecosystem unification** - Single interface for Unsloth, TRL/PEFT, and Axolotl
-- **131+ test suite** - Comprehensive testing for production reliability
+- **2 ecosystem unification** - Single interface for Unsloth and TRL/PEFT backends
+- **129+ test suite** - Comprehensive testing for production reliability
 - **Zero-config operation** - Automatic backend selection based on available hardware
 - **1B-70B+ model support** - Memory optimization enables training large models on consumer hardware
 
 ## Technologies
 
-**ML Stack:** PyTorch, Transformers, Unsloth, TRL/PEFT, Axolotl
+**ML Stack:** PyTorch, Transformers, Unsloth, TRL/PEFT
 
 **Optimization:** LoRA/QLoRA, DeepSpeed ZeRO, 4-bit quantization, Gradient checkpointing
 
@@ -133,8 +142,14 @@ Intelligent hardware detection that automatically chooses the optimal fine-tunin
 - Multi-GPU → TRL with DDP for distributed training
 - No manual configuration required
 
-### 2. DDP Device Map Fix
-Solved critical conflict between `device_map="auto"` and DDP training that causes cryptic errors. Implemented automatic disabling of device_map when DDP is detected, enabling seamless multi-GPU training.
+### 2. DDP Data Sharding Fix
+Solved critical issues preventing proper data sharding across multiple GPUs in distributed training:
+- Proper `torch.distributed` initialization with NCCL backend
+- Automatic disabling of 4-bit quantization in DDP mode (incompatible with model wrapping)
+- Correct device setup order required by NCCL
+- Dynamic SFTConfig parameters for DistributedSampler integration
+
+This fix enables true 4x speedup with 4 GPUs instead of redundant computation.
 
 ### 3. Protocol-Based Evaluation
 Designed pluggable evaluation architecture supporting multiple backends (vLLM for fast batch inference, HuggingFace for flexibility) with custom metric implementations.
