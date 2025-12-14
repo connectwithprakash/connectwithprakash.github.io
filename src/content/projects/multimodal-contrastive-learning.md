@@ -11,6 +11,7 @@ featured: true
 tags: [Computer Vision, Multimodal Learning, Contrastive Learning, Deep Learning, PyTorch, Sales Forecasting, Fusemachines]
 gradient: var(--gradient-primary)
 thumbnail: /assets/img/projects/multimodal-contrastive-learning/thumbnail.svg
+showThumbnailInDetail: false
 github: null
 demo: null
 ---
