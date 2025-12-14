@@ -1,7 +1,7 @@
 ---
 id: async-matching-framework
 title: Async Matching Framework
-shortDescription: Multi-agent system for predicting brands and categories from ambiguous product descriptions, mapping 15K+ unmapped products with 88% accuracy using LangGraph orchestration.
+shortDescription: Multi-agent system for predicting brands and categories from ambiguous product descriptions. Mapped 15K+ products with 88% accuracy and became the foundational framework adopted for other catalog automation projects.
 category: agentic-ai
 status: completed
 startDate: 2025-03
