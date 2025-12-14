@@ -7,6 +7,20 @@ import remarkGfm from 'remark-gfm';
 import MermaidDiagram from '../components/MermaidDiagram';
 import './ProjectDetail.css';
 
+const formatProjectDate = (startDate, endDate, status) => {
+  if (!startDate) return null;
+
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  };
+
+  const start = formatDate(startDate);
+  const end = endDate ? formatDate(endDate) : (status === 'in-progress' ? 'Present' : null);
+
+  return end ? `${start} - ${end}` : start;
+};
+
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -78,6 +92,11 @@ const ProjectDetail = () => {
                 {project.status && (
                   <div className={`project-status-badge status-${project.status}`}>
                     {project.status === 'in-progress' ? 'In Progress' : 'Completed'}
+                  </div>
+                )}
+                {formatProjectDate(project.startDate, project.endDate, project.status) && (
+                  <div className="project-date-badge">
+                    {formatProjectDate(project.startDate, project.endDate, project.status)}
                   </div>
                 )}
               </div>
