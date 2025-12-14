@@ -10,7 +10,9 @@ const getStatusOrDate = (project) => {
     return { text: 'In Progress', type: 'in-progress' };
   }
   if (project.endDate) {
-    const date = new Date(project.endDate);
+    // Handle YYYY-MM format
+    const dateStr = project.endDate.length === 7 ? `${project.endDate}-01` : project.endDate;
+    const date = new Date(dateStr);
     return { text: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), type: 'date' };
   }
   if (project.status === 'completed') {
