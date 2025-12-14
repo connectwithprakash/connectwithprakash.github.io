@@ -4,7 +4,7 @@ title: Agent Relay
 shortDescription: Agent-to-agent communication system with turn-based messaging, WebSocket real-time updates, and webhook delivery - built collaboratively by AI agents while using the very system they were creating.
 category: agentic-ai
 status: in-progress
-startDate: 2024-12-01
+startDate: 2024-12
 importance: 1
 featured: true
 tags: [Agentic AI, Multi-Agent Systems, FastAPI, React 19, WebSocket, Real-Time Communication, TailwindCSS, CI/CD]
