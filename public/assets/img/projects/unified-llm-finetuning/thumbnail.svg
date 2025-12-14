@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="terminalBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d2d44;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3d3d5c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Terminal window -->
+  <rect x="40" y="30" width="720" height="440" rx="12" ry="12" fill="url(#terminalBg)" stroke="#8b5cf6" stroke-width="2"/>
+
+  <!-- Terminal header -->
+  <rect x="40" y="30" width="720" height="40" rx="12" ry="12" fill="url(#headerBg)"/>
+  <rect x="40" y="58" width="720" height="12" fill="url(#headerBg)"/>
+
+  <!-- Window buttons -->
+  <circle cx="70" cy="50" r="7" fill="#ff5f56"/>
+  <circle cx="95" cy="50" r="7" fill="#ffbd2e"/>
+  <circle cx="120" cy="50" r="7" fill="#27ca3f"/>
+
+  <!-- Terminal title -->
+  <text x="400" y="55" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#a0a0a0" text-anchor="middle">unified-llm-finetuning</text>
+
+  <!-- Command 1: train -->
+  <text x="60" y="110" font-family="SF Mono, Monaco, Consolas, monospace" font-size="16">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#e0e0e0"> calvin </tspan>
+    <tspan fill="#a78bfa">train</tspan>
+    <tspan fill="#e0e0e0"> configs/llama-7b.yaml</tspan>
+  </text>
+
+  <!-- Output 1 -->
+  <text x="60" y="138" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
+    <tspan>Backend: Unsloth (auto-detected CUDA)</tspan>
+  </text>
+  <text x="60" y="160" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
+    <tspan>Training... [========] 100% | Loss: 1.28</tspan>
+  </text>
+
+  <!-- Command 2: evaluate -->
+  <text x="60" y="205" font-family="SF Mono, Monaco, Consolas, monospace" font-size="16">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#e0e0e0"> calvin </tspan>
+    <tspan fill="#a78bfa">evaluate</tspan>
+    <tspan fill="#e0e0e0"> ./output/model</tspan>
+  </text>
+
+  <!-- Output 2 -->
+  <text x="60" y="233" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
+    <tspan>Perplexity: 4.21 | Accuracy: 87.3%</tspan>
+  </text>
+
+  <!-- Command 3: sagemaker -->
+  <text x="60" y="278" font-family="SF Mono, Monaco, Consolas, monospace" font-size="16">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#e0e0e0"> calvin </tspan>
+    <tspan fill="#a78bfa">sagemaker</tspan>
+    <tspan fill="#e0e0e0"> train </tspan>
+    <tspan fill="#fbbf24">--spot</tspan>
+    <tspan fill="#e0e0e0"> </tspan>
+    <tspan fill="#fbbf24">--instance</tspan>
+    <tspan fill="#e0e0e0"> ml.g5.12xlarge</tspan>
+  </text>
+
+  <!-- Output 3 -->
+  <text x="60" y="306" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
+    <tspan>Launching SageMaker job: 4x A10G GPUs</tspan>
+  </text>
+  <text x="60" y="328" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#27ca3f">
+    <tspan>Cost savings: 78% (spot instance)</tspan>
+  </text>
+
+  <!-- Command 4: export -->
+  <text x="60" y="373" font-family="SF Mono, Monaco, Consolas, monospace" font-size="16">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#e0e0e0"> calvin </tspan>
+    <tspan fill="#a78bfa">export</tspan>
+    <tspan fill="#e0e0e0"> ./output/model </tspan>
+    <tspan fill="#fbbf24">--format</tspan>
+    <tspan fill="#e0e0e0"> gguf</tspan>
+  </text>
+
+  <!-- Output 4 -->
+  <text x="60" y="401" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
+    <tspan>Exported: llama-7b-finetuned-Q4_K_M.gguf</tspan>
+  </text>
+
+  <!-- Cursor -->
+  <text x="60" y="446" font-family="SF Mono, Monaco, Consolas, monospace" font-size="16">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#a78bfa">_</tspan>
+  </text>
+</svg>
