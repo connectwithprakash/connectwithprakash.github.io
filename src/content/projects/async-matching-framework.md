@@ -8,7 +8,7 @@ startDate: 2025-03
 endDate: 2025-11
 importance: 1
 featured: true
-tags: [Agentic AI, LLM, RAG, Entity Resolution, NLP, Multi-Agent Systems, LangGraph, Python, Internal]
+tags: [Agentic AI, LLM, RAG, Entity Resolution, NLP, Multi-Agent Systems, LangGraph, Python, Fetch]
 gradient: var(--gradient-tertiary)
 thumbnail: /assets/img/projects/async-matching-framework/thumbnail.svg
 github: null
