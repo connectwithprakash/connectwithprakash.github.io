@@ -32,6 +32,49 @@ The ML engineering community needed a unified framework that provides production
 
 Designed a layered architecture with automatic backend selection and comprehensive configuration management:
 
+### System Architecture
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': 'transparent', 'primaryTextColor': '#a78bfa', 'primaryBorderColor': '#8b5cf6', 'lineColor': '#8b5cf6', 'secondaryColor': 'transparent', 'tertiaryColor': 'transparent', 'mainBkg': 'transparent', 'nodeBorder': '#8b5cf6', 'clusterBkg': 'transparent', 'clusterBorder': '#6366f1', 'titleColor': '#a78bfa'}}}%%
+flowchart TB
+    subgraph CLI["CLI Layer"]
+        Train[train]
+        Eval[evaluate]
+        Export[export]
+    end
+
+    subgraph Config["Config Layer"]
+        Hydra[Hydra]
+        Pydantic[Pydantic Schemas]
+    end
+
+    subgraph Backends["Backend Layer"]
+        Auto[Auto-Select]
+        Unsloth[Unsloth]
+        TRL[TRL/PEFT]
+    end
+
+    subgraph Cloud["Cloud Layer"]
+        SM[SageMaker]
+        Spot[Spot Instances]
+        DS[DeepSpeed ZeRO]
+    end
+
+    subgraph EvalLayer["Evaluation Layer"]
+        vLLM[vLLM Backend]
+        HF[HuggingFace Backend]
+    end
+
+    Train --> Config
+    Eval --> Config
+    Export --> Config
+    Config --> Backends
+    Auto --> Unsloth
+    Auto --> TRL
+    Backends --> Cloud
+    Eval --> EvalLayer
+```
+
 **Core Architecture:**
 - **Unified CLI Interface** - Single command-line tool with consistent API across all backends
 - **Hydra + Pydantic Stack** - Type-safe configuration management with validation
