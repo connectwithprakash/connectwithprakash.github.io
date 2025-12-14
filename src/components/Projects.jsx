@@ -27,8 +27,10 @@ const Projects = () => {
     threshold: 0.1,
   });
 
-  // Filter out the old personal website project, use data from projectsData
-  const projects = projectsData.filter(p => p.id !== 'personal-website');
+  // Show only featured projects, sorted by importance
+  const projects = projectsData
+    .filter(p => p.id !== 'personal-website' && p.featured === true)
+    .sort((a, b) => a.importance - b.importance);
 
   const containerVariants = {
     hidden: { opacity: 0 },
