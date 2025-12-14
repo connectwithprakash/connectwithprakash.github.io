@@ -2,7 +2,7 @@
 id: pibrary
 title: Pibrary
 shortDescription: Collection of reusable Python scripts and modules. Contains utilities and helper functions useful across multiple projects.
-category: fun
+category: tools
 importance: 3
 featured: false
 tags: [Python, Library, Utilities, Tools]

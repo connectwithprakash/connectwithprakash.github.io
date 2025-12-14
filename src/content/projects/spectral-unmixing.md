@@ -2,7 +2,7 @@
 id: spectral-unmixing
 title: Spectral Unmixing
 shortDescription: Deciphering Earth's and Lunar materials with advanced machine learning. Uses deep learning and feature engineering for analyzing spectral signatures.
-category: academic
+category: computer-vision
 importance: 1
 featured: false
 tags: [Python, PyTorch, Machine Learning, NASA]

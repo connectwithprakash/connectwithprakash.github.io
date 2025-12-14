@@ -2,7 +2,7 @@
 id: data-science-cookiecutter
 title: Data Science Cookiecutter
 shortDescription: Boilerplate project setup for data science projects. Provides structured template for reproducible research and standardized workflows.
-category: fun
+category: tools
 importance: 3
 featured: false
 tags: [Python, Data Science, Template, Best Practices]
