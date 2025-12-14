@@ -183,7 +183,7 @@ Hallucination prevention through grounded validation. When agents predict a cate
 - **88% brand accuracy** - High precision on brand prediction task
 - **85% category accuracy** - Reliable hierarchical classification
 - **50+ hours → 2 minutes** - Automated manual mapping operations
-- **Framework reuse** - Agentic pattern adopted by other Fetch teams
+- **Framework reuse** - Core agents adopted for CatOps catalog cleanup system
 
 ## Technologies
 
@@ -197,4 +197,6 @@ Hallucination prevention through grounded validation. When agents predict a cate
 
 ## Impact
 
-This system unlocked value from thousands of previously unmapped products, enabling more accurate offer targeting and improved user experience. The error-learning mechanism created a virtuous cycle where the system continuously improved from production feedback. The multi-agent framework became a reusable pattern across the organization.
+This system unlocked value from thousands of previously unmapped products, enabling more accurate offer targeting and improved user experience. The error-learning mechanism created a virtuous cycle where the system continuously improved from production feedback.
+
+**Framework Adoption:** The multi-agent architecture became a foundational pattern for the organization. Another engineer on the team leveraged the core agents (Canonical Brand, Fetch Brand, Category) and retriever infrastructure to build CatOps Automation - a larger system for Receipt Quality catalog data cleanup. By reusing the proven agent patterns, retrievers, and category navigation tools, the CatOps project accelerated development significantly rather than building from scratch.
