@@ -58,6 +58,11 @@ const Projects = () => {
                 whileHover={{ y: -8 }}
               >
                 <Link to={`/project/${project.id}`} className="project-card-link">
+                  {project.featured && (
+                    <div className="featured-badge">
+                      <span>Featured</span>
+                    </div>
+                  )}
                   {project.thumbnail && (
                     <div className="project-thumbnail">
                       <img src={project.thumbnail} alt={project.title} />
@@ -68,12 +73,6 @@ const Projects = () => {
                   )}
 
                   <div className="project-content">
-                    {project.featured && (
-                      <div className="featured-badge">
-                        <span>Featured</span>
-                      </div>
-                    )}
-
                     <h3 className="project-title">{project.title}</h3>
                     <p className="project-description">{project.shortDescription}</p>
 
