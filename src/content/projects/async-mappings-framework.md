@@ -3,8 +3,9 @@ id: async-mappings-framework
 title: Async Mappings Framework
 shortDescription: Multi-agent system for predicting brands and categories from ambiguous product descriptions, mapping 15K+ unmapped products with 88% accuracy using LangGraph orchestration.
 category: agentic-ai
-status: in-progress
+status: completed
 startDate: 2025-03
+endDate: 2025-11
 importance: 1
 featured: true
 tags: [Agentic AI, LLM, RAG, Entity Resolution, NLP, Multi-Agent Systems, LangGraph, Python, Internal]
