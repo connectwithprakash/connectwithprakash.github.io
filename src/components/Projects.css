@@ -73,21 +73,16 @@
   position: relative;
   z-index: 1;
   padding: 2rem;
-  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .project-card-badges {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  right: 1rem;
-  z-index: 10;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .featured-badge span {
