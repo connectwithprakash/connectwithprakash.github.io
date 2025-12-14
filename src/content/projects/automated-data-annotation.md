@@ -8,7 +8,7 @@ startDate: 2024-10
 endDate: 2025-02
 importance: 1
 featured: true
-tags: [Agentic AI, LLM, LangGraph, Data Annotation, Human-in-the-Loop, Production ML, Python, Internal]
+tags: [Agentic AI, LLM, LangGraph, Data Annotation, Human-in-the-Loop, Production ML, Python, Fetch]
 gradient: var(--gradient-secondary)
 thumbnail: /assets/img/projects/automated-data-annotation/thumbnail.svg
 github: null
@@ -105,6 +105,7 @@ Designed and built the complete 3-agent annotation system:
 - Built the human-LLM agreement comparison system
 - Created structured outputs with explainability metadata
 - Integrated with existing annotation tools and workflows
+- Built internal LLM framework library with reusable agents and workflow orchestration; published to JFrog for organization-wide reuse
 
 ## Key Achievements
 
@@ -112,7 +113,7 @@ Designed and built the complete 3-agent annotation system:
 - **40% total workload reduction** - From 2 annotators to 1 + LLM (human reviews only 20% disagreements)
 - **Quality maintained** - Human oversight on edge cases preserves dataset quality
 - **Explainable outputs** - Decision tree traces and justifications for every prediction
-- **Reusable architecture** - Same workflow repurposed for False Positive Auditor production system
+- **Reusable framework** - Internal LLM library (agents, workflows) adopted by False Positive Auditor and other projects
 
 ## Technologies
 
@@ -120,10 +121,12 @@ Designed and built the complete 3-agent annotation system:
 
 **Framework:** Python, Pydantic
 
+**Infrastructure:** JFrog (internal package registry)
+
 **Data:** Structured outputs, decision tree reasoning
 
 ## Impact
 
 This workflow transformed the annotation process from requiring two humans per example to a human-LLM collaboration, cutting total annotation workload by 40%. The high-quality training data directly improves the PAM-ML product matching model, which drives offer attribution accuracy.
 
-The 3-agent architecture proved robust and reusable - it was later repurposed for the False Positive Auditor system to flag incorrect matches in production.
+**Framework Adoption:** Beyond the annotation workflow, this project produced an internal LLM framework library containing reusable agent abstractions and workflow orchestration. Published to JFrog, the library is imported by the False Positive Auditor and other production systems, demonstrating the value of building modular AI infrastructure.
