@@ -72,6 +72,18 @@ const Projects = () => {
                 whileHover={{ y: -8 }}
               >
                 <Link to={`/project/${project.id}`} className="project-card-link">
+                  <div className="project-card-badges">
+                    {getStatusOrDate(project) && (
+                      <div className={`project-card-status status-${getStatusOrDate(project).type}`}>
+                        <span>{getStatusOrDate(project).text}</span>
+                      </div>
+                    )}
+                    {project.featured && (
+                      <div className="featured-badge">
+                        <span>Featured</span>
+                      </div>
+                    )}
+                  </div>
                   {project.thumbnail && (
                     <div className="project-thumbnail">
                       <img src={project.thumbnail} alt={project.title} />
@@ -82,18 +94,6 @@ const Projects = () => {
                   )}
 
                   <div className="project-content">
-                    <div className="project-card-badges">
-                      {project.featured && (
-                        <div className="featured-badge">
-                          <span>Featured</span>
-                        </div>
-                      )}
-                      {getStatusOrDate(project) && (
-                        <div className={`project-card-status status-${getStatusOrDate(project).type}`}>
-                          <span>{getStatusOrDate(project).text}</span>
-                        </div>
-                      )}
-                    </div>
                     <h3 className="project-title">{project.title}</h3>
                     <p className="project-description">{project.shortDescription}</p>
 
