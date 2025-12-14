@@ -110,12 +110,12 @@ const ProjectsPage = () => {
                     <div className="project-card-badges">
                       {getStatusOrDate(project) && (
                         <div className={`project-card-status status-${getStatusOrDate(project).type}`}>
-                          <span>{getStatusOrDate(project).text}</span>
+                          {getStatusOrDate(project).text}
                         </div>
                       )}
                       {project.featured && (
                         <div className="featured-badge">
-                          <span>Featured</span>
+                          Featured
                         </div>
                       )}
                     </div>
