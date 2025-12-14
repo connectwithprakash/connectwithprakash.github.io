@@ -7,6 +7,15 @@ import remarkGfm from 'remark-gfm';
 import MermaidDiagram from '../components/MermaidDiagram';
 import './ProjectDetail.css';
 
+const formatCategory = (category) => {
+  if (!category) return '';
+  // Convert slug to title case: "agentic-ai" -> "Agentic AI"
+  return category
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
 const formatProjectDate = (startDate, endDate, status) => {
   if (!startDate) return null;
 
@@ -74,7 +83,7 @@ const ProjectDetail = () => {
           <motion.button
             className="back-button"
             variants={itemVariants}
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/#projects')}
             whileHover={{ x: -5 }}
           >
             <FaArrowLeft />
@@ -90,7 +99,7 @@ const ProjectDetail = () => {
             )}
             <div className="project-header-content">
               <div className="project-badges">
-                <div className="project-category-badge">{project.category}</div>
+                <div className="project-category-badge">{formatCategory(project.category)}</div>
                 {project.status && (
                   <div className={`project-status-badge status-${project.status}`}>
                     {project.status === 'in-progress' ? 'In Progress' : 'Completed'}
