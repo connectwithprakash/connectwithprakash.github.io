@@ -48,12 +48,6 @@
   grid-column: span 1;
 }
 
-@media (min-width: 968px) {
-  .project-card.featured:first-child {
-    grid-column: span 2;
-  }
-}
-
 .project-gradient {
   position: absolute;
   top: 0;
