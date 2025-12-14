@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#0f172a"/>
+
+  <!-- Left: Product Image Icon -->
+  <g id="product-image">
+    <rect x="30" y="120" width="120" height="160" fill="#1e293b" stroke="#8b5cf6" stroke-width="3" rx="8"/>
+    <rect x="50" y="145" width="80" height="60" fill="#6366f1" opacity="0.6" rx="4"/>
+    <rect x="50" y="220" width="35" height="35" fill="#8b5cf6" opacity="0.4" rx="4"/>
+    <rect x="95" y="220" width="35" height="35" fill="#a78bfa" opacity="0.4" rx="4"/>
+    <text x="90" y="310" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Image</text>
+  </g>
+
+  <!-- Right: Time Series Icon -->
+  <g id="time-series">
+    <rect x="250" y="120" width="120" height="160" fill="#1e293b" stroke="#8b5cf6" stroke-width="3" rx="8"/>
+    <!-- Time series line chart -->
+    <polyline
+      points="265,240 275,220 285,230 295,200 305,210 315,190 325,195 335,180 345,185 355,170"
+      stroke="#10b981"
+      stroke-width="3"
+      fill="none"/>
+    <polyline
+      points="265,260 275,245 285,255 295,235 305,240 315,225 325,230 335,215 345,220 355,205"
+      stroke="#6ee7b7"
+      stroke-width="2.5"
+      fill="none"
+      opacity="0.6"/>
+    <!-- Axis lines -->
+    <line x1="265" y1="265" x2="355" y2="265" stroke="#475569" stroke-width="1.5"/>
+    <line x1="265" y1="160" x2="265" y2="265" stroke="#475569" stroke-width="1.5"/>
+    <text x="310" y="310" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Sales</text>
+  </g>
+
+  <!-- Center: Similarity Connection -->
+  <g id="similarity">
+    <!-- Connection lines with gradient -->
+    <defs>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+        <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.8" />
+      </linearGradient>
+    </defs>
+
+    <!-- Curved connection lines -->
+    <path d="M 150 180 Q 200 140 250 180" stroke="url(#grad1)" stroke-width="2.5" fill="none" opacity="0.7"/>
+    <path d="M 150 200 Q 200 200 250 200" stroke="url(#grad1)" stroke-width="3" fill="none"/>
+    <path d="M 150 220 Q 200 260 250 220" stroke="url(#grad1)" stroke-width="2.5" fill="none" opacity="0.7"/>
+
+    <!-- Central embedding space visualization -->
+    <circle cx="200" cy="200" r="25" fill="#1e293b" stroke="#a78bfa" stroke-width="2.5"/>
+    <text x="200" y="205" font-family="monospace" font-size="14" font-weight="bold" fill="#a78bfa" text-anchor="middle">512d</text>
+  </g>
+
+  <!-- Title -->
+  <text x="200" y="50" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#a78bfa" text-anchor="middle">Multimodal Contrastive Learning</text>
+
+  <!-- Bottom label -->
+  <text x="200" y="370" font-family="Arial, sans-serif" font-size="13" fill="#6366f1" text-anchor="middle">Visual Design ⟷ Sales Patterns</text>
+</svg>
