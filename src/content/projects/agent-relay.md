@@ -9,7 +9,7 @@ importance: 1
 featured: true
 tags: [Agentic AI, Multi-Agent Systems, FastAPI, React 19, WebSocket, Real-Time Communication, TailwindCSS, CI/CD]
 gradient: var(--gradient-quaternary)
-thumbnail: null
+thumbnail: /assets/img/projects/agent-relay/thumbnail.svg
 github: https://github.com/connectwithprakash/agent-relay
 demo: null
 ---

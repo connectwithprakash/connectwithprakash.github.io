@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="terminalBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d2d44;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3d3d5c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Terminal window -->
+  <rect x="40" y="30" width="720" height="440" rx="12" ry="12" fill="url(#terminalBg)" stroke="#8b5cf6" stroke-width="2"/>
+
+  <!-- Terminal header -->
+  <rect x="40" y="30" width="720" height="40" rx="12" ry="12" fill="url(#headerBg)"/>
+  <rect x="40" y="58" width="720" height="12" fill="url(#headerBg)"/>
+
+  <!-- Window buttons -->
+  <circle cx="70" cy="50" r="7" fill="#ff5f56"/>
+  <circle cx="95" cy="50" r="7" fill="#ffbd2e"/>
+  <circle cx="120" cy="50" r="7" fill="#27ca3f"/>
+
+  <!-- Terminal title -->
+  <text x="400" y="55" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#a0a0a0" text-anchor="middle">agent-relay</text>
+
+  <!-- Command 1: Create relay -->
+  <text x="60" y="100" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
+    <tspan fill="#6b7280"># Create a relay for two agents</tspan>
+  </text>
+  <text x="60" y="125" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#e0e0e0"> curl </tspan>
+    <tspan fill="#fbbf24">-X POST</tspan>
+    <tspan fill="#e0e0e0"> localhost:8000/relays </tspan>
+    <tspan fill="#fbbf24">-d</tspan>
+    <tspan fill="#a78bfa"> '{"agent_names": ["A", "B"]}'</tspan>
+  </text>
+
+  <!-- Response 1 -->
+  <text x="60" y="155" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
+    <tspan>{"relay_id": "relay-abc123", "current_turn": "A"}</tspan>
+  </text>
+
+  <!-- Command 2: Send message -->
+  <text x="60" y="195" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
+    <tspan fill="#6b7280"># Agent A sends a message</tspan>
+  </text>
+  <text x="60" y="220" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#e0e0e0"> curl </tspan>
+    <tspan fill="#fbbf24">-X POST</tspan>
+    <tspan fill="#e0e0e0"> localhost:8000/relays/abc123/messages</tspan>
+  </text>
+  <text x="60" y="245" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
+    <tspan fill="#e0e0e0">  </tspan>
+    <tspan fill="#fbbf24">-d</tspan>
+    <tspan fill="#a78bfa"> '{"sender": "A", "content": "Ready to build?"}'</tspan>
+  </text>
+
+  <!-- Response 2 -->
+  <text x="60" y="275" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
+    <tspan>{"id": 1, "sender": "A", "current_turn": "B"}</tspan>
+  </text>
+
+  <!-- Command 3: WebSocket -->
+  <text x="60" y="315" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
+    <tspan fill="#6b7280"># Real-time WebSocket updates</tspan>
+  </text>
+  <text x="60" y="340" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#e0e0e0"> wscat </tspan>
+    <tspan fill="#fbbf24">-c</tspan>
+    <tspan fill="#e0e0e0"> ws://localhost:8000/relays/abc123/ws</tspan>
+  </text>
+
+  <!-- WebSocket output -->
+  <text x="60" y="370" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#27ca3f">
+    <tspan>Connected to relay abc123</tspan>
+  </text>
+  <text x="60" y="392" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
+    <tspan>&lt; {"type": "message", "sender": "B", "content": "Yes!"}</tspan>
+  </text>
+
+  <!-- Status indicator -->
+  <text x="60" y="430" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14">
+    <tspan fill="#27ca3f">Turn:</tspan>
+    <tspan fill="#fbbf24"> Agent A</tspan>
+    <tspan fill="#6b7280"> | </tspan>
+    <tspan fill="#27ca3f">Messages:</tspan>
+    <tspan fill="#fbbf24"> 59</tspan>
+    <tspan fill="#6b7280"> | </tspan>
+    <tspan fill="#27ca3f">Collisions:</tspan>
+    <tspan fill="#fbbf24"> 0</tspan>
+  </text>
+
+  <!-- Cursor -->
+  <text x="60" y="458" font-family="SF Mono, Monaco, Consolas, monospace" font-size="16">
+    <tspan fill="#27ca3f">$</tspan>
+    <tspan fill="#a78bfa">_</tspan>
+  </text>
+</svg>
