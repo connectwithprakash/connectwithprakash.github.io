@@ -2,7 +2,7 @@
 id: abu-robocon-2018
 title: ABU Robocon 2018
 shortDescription: Autonomous robots designed and built for the ABU Robocon 2018 international competition. Features advanced control systems and embedded programming.
-category: academic
+category: robotics
 importance: 1
 featured: false
 tags: [C++, Robotics, Embedded, Competition]

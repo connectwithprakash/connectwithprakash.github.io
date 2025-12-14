@@ -2,7 +2,7 @@
 id: memory-optimized-agent
 title: Memory-Optimized Agent
 shortDescription: Production-ready AI context management using semantic similarity - 42% cost reduction with <12ms filtering. Features LangGraph workflows, FastAPI, PostgreSQL with pgvector.
-category: work
+category: agentic-ai
 importance: 1
 featured: true
 tags: [Python, LangGraph, FastAPI, PostgreSQL, AI]

@@ -2,7 +2,7 @@
 id: norch
 title: Norch
 shortDescription: A simple PyTorch-like deep learning library built entirely with NumPy. Implements neural network layers, activation functions, loss functions, and optimizers for educational purposes.
-category: fun
+category: tools
 importance: 2
 featured: true
 tags: [Python, NumPy, Deep Learning, Jupyter]

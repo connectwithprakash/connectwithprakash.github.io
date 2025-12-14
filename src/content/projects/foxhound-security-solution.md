@@ -2,7 +2,7 @@
 id: foxhound-security-solution
 title: Foxhound Security Solution
 shortDescription: A security solution for anomalous activity detection in a network.
-category: work
+category: security
 importance: 2
 featured: false
 tags: [Security, Network, Anomaly Detection]
