@@ -144,7 +144,7 @@ const ProjectDetail = () => {
                 )}
               </div>
             </div>
-            {project.thumbnail && (
+            {project.thumbnail && project.showThumbnailInDetail !== false && (
               <div className="project-hero-image">
                 <img src={project.thumbnail} alt={project.title} />
               </div>
