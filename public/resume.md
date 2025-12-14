@@ -24,7 +24,6 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 - Deployed **Multi-Agent Matching Framework** for product matching, improving match rates by **3.1-3.3 percentage points** (73.8%→76.9%) and unlocking **$165M in GMV**; achieved **15% full automation** with **LLM-as-a-Judge guardrails** at **97% accuracy**, automating **50+ hours of manual operations to 2 minutes**
 - Developed **3-agent annotation workflow** using **LangGraph** with **LLM annotation** at **80%+ accuracy** to reduce double-annotation to single annotator, cutting total annotation workload by **40%** while maintaining dataset quality through human tie-breaking on disagreements
 - **Fully automated RAG pipeline** to flag incorrect product matches at **95% recall**, protecting **~$800K in GMV annually**; replaced manual workflow, reducing daily effort from **8 hours to 15 minutes** and **saving 40 hours weekly**
-- Led deployment of **MCP Operator platform** on **AWS ECS/Fargate** enabling **centralized AI tool discovery** and **self-service registration** for organization-wide AI enablement
 
 ### Fusemachines Inc. | New York City, NY
 **Machine Learning Engineer** | Feb 2020 - May 2022
