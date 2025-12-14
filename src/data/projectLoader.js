@@ -18,6 +18,8 @@ export const projectsData = Object.entries(modules).map(([path, content]) => {
     shortDescription: data.shortDescription,
     category: data.category,
     status: data.status,
+    startDate: data.startDate,
+    endDate: data.endDate,
     importance: data.importance,
     featured: data.featured,
     tags: data.tags || [],
