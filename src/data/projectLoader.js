@@ -8,7 +8,7 @@ const modules = import.meta.glob('../content/projects/*.md', {
 });
 
 // Process markdown files into project objects
-export const projectsData = Object.entries(modules).map(([path, content]) => {
+const unsortedProjects = Object.entries(modules).map(([path, content]) => {
   // Parse frontmatter and content using gray-matter
   const { data, content: markdownContent } = matter(content);
 
@@ -33,6 +33,21 @@ export const projectsData = Object.entries(modules).map(([path, content]) => {
     installation: data.installation,
     content: markdownContent,
   };
+});
+
+// Sort projects by date (most recent first)
+// Uses startDate for sorting, falls back to endDate, then importance
+export const projectsData = unsortedProjects.sort((a, b) => {
+  const dateA = a.startDate || a.endDate || '1900-01';
+  const dateB = b.startDate || b.endDate || '1900-01';
+
+  // Sort by date descending (most recent first)
+  if (dateA !== dateB) {
+    return dateB.localeCompare(dateA);
+  }
+
+  // If same date, sort by importance (lower number = higher priority)
+  return (a.importance || 99) - (b.importance || 99);
 });
 
 // Helper functions
