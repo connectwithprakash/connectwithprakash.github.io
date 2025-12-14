@@ -9,7 +9,7 @@ importance: 1
 featured: true
 tags: [LLM Fine-Tuning, MLOps, Distributed Training, AWS SageMaker, LoRA, DeepSpeed, Multi-GPU, CLI Tools, Internal]
 gradient: var(--gradient-tertiary)
-thumbnail: null
+thumbnail: /assets/img/projects/unified-llm-finetuning/thumbnail.svg
 github: null
 demo: null
 ---
