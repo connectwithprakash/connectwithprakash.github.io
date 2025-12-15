@@ -144,9 +144,9 @@ const ProjectDetail = () => {
                 )}
               </div>
             </div>
-            {project.thumbnail && project.showThumbnailInDetail !== false && (
+            {(project.heroImage || project.thumbnail) && project.showThumbnailInDetail !== false && (
               <div className="project-hero-image">
-                <img src={project.thumbnail} alt={project.title} />
+                <img src={project.heroImage || project.thumbnail} alt={project.title} />
               </div>
             )}
           </motion.div>

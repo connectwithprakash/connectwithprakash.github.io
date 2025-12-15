@@ -9,7 +9,8 @@ importance: 1
 featured: true
 tags: [Agentic AI, LLM, Multimodal AI, ReAct Pattern, MCP, Production ML, E-commerce, Shopping Assistant]
 gradient: var(--gradient-primary)
-thumbnail: /assets/img/projects/ai_shopping_assistant/thumbnail.png
+thumbnail: /assets/img/projects/ai_shopping_assistant/thumbnail.svg
+heroImage: /assets/img/projects/ai_shopping_assistant/architecture.svg
 images:
   - path: /assets/img/projects/ai_shopping_assistant/01_welcome.png
     caption: Welcome screen with intelligent prompt suggestions for shopping queries
