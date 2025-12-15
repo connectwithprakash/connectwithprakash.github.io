@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Link } from 'react-router-dom';
 import { FaTrophy, FaChalkboardTeacher, FaRocket, FaGraduationCap } from 'react-icons/fa';
 import { newsItems } from '../data/newsData';
-import './News.css';
+import './NewsPage.css';
 
 const iconMap = {
   rocket: <FaRocket />,
@@ -12,54 +10,31 @@ const iconMap = {
   graduation: <FaGraduationCap />,
 };
 
-const News = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { x: -20, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-  };
-
+const NewsPage = () => {
   return (
-    <section id="news" className="section news">
+    <div className="news-page">
       <div className="container">
         <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <motion.div className="section-header" variants={itemVariants}>
-            <h2 className="section-title">Latest News</h2>
-            <p className="section-subtitle">
-              Recent achievements and milestones in my journey
+          <div className="news-page-header">
+            <h1 className="news-page-title">All News</h1>
+            <p className="news-page-subtitle">
+              My complete journey - achievements, milestones, and career highlights
             </p>
-          </motion.div>
+          </div>
 
           <div className="news-timeline">
             <div className="timeline-line" />
-            {newsItems.slice(0, 5).map((item, index) => (
+            {newsItems.map((item, index) => (
               <motion.div
                 key={index}
                 className="news-item"
-                variants={itemVariants}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ x: 10 }}
               >
                 <div className="news-card glass-card">
@@ -85,22 +60,10 @@ const News = () => {
               </motion.div>
             ))}
           </div>
-
-          <motion.div className="news-cta" variants={itemVariants}>
-            <Link to="/news">
-              <motion.button
-                className="btn btn-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View All News
-              </motion.button>
-            </Link>
-          </motion.div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default News;
+export default NewsPage;
