@@ -25,6 +25,7 @@ const unsortedProjects = Object.entries(modules).map(([path, content]) => {
     tags: data.tags || [],
     gradient: data.gradient,
     thumbnail: data.thumbnail,
+    heroImage: data.heroImage,
     showThumbnailInDetail: data.showThumbnailInDetail,
     github: data.github,
     demo: data.demo,
