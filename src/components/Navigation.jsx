@@ -113,7 +113,9 @@ const Navigation = () => {
               {location.pathname.startsWith('/blog') && (
                 <motion.div
                   className="active-indicator"
-                  layoutId="activeIndicator"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
                 />
               )}
             </Link>
@@ -131,7 +133,9 @@ const Navigation = () => {
               {location.pathname === '/resume' && (
                 <motion.div
                   className="active-indicator"
-                  layoutId="activeIndicator"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
                 />
               )}
             </Link>
