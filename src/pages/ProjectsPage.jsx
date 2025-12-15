@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { projectsData } from '../data/projectLoader';
@@ -33,10 +32,6 @@ const categories = [
 
 const ProjectsPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const filteredProjects = projectsData
     .filter(p => p.id !== 'personal-website')
@@ -47,64 +42,39 @@ const ProjectsPage = () => {
     })
     .sort((a, b) => a.importance - b.importance);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
     <div className="projects-page">
       <div className="container">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          <motion.div className="projects-page-header" variants={itemVariants}>
-            <h1 className="projects-page-title">All Projects</h1>
-            <p className="projects-page-subtitle">
-              Explore my complete portfolio - from production AI systems to open-source tools
-            </p>
-          </motion.div>
+        <div className="projects-page-header">
+          <h1 className="projects-page-title">All Projects</h1>
+          <p className="projects-page-subtitle">
+            Explore my complete portfolio - from production AI systems to open-source tools
+          </p>
+        </div>
 
-          <motion.div className="category-filters" variants={itemVariants}>
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                className={`category-filter ${activeCategory === category.id ? 'active' : ''}`}
-                onClick={() => setActiveCategory(category.id)}
-              >
-                {category.label}
-              </button>
-            ))}
-          </motion.div>
+        <div className="category-filters">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              className={`category-filter ${activeCategory === category.id ? 'active' : ''}`}
+              onClick={() => setActiveCategory(category.id)}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
 
-          <motion.div className="projects-count" variants={itemVariants}>
-            <p>Showing {filteredProjects.length} {activeCategory === 'all' ? 'projects' : activeCategory === 'featured' ? 'featured projects' : `${categories.find(c => c.id === activeCategory)?.label.toLowerCase()} projects`}</p>
-          </motion.div>
+        <div className="projects-count">
+          <p>Showing {filteredProjects.length} {activeCategory === 'all' ? 'projects' : activeCategory === 'featured' ? 'featured projects' : `${categories.find(c => c.id === activeCategory)?.label.toLowerCase()} projects`}</p>
+        </div>
 
-          <div className="projects-grid">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className={`project-card glass-card ${project.featured ? 'featured' : ''}`}
-                whileHover={{ y: -8 }}
-              >
+        <div className="projects-grid">
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              className={`project-card glass-card ${project.featured ? 'featured' : ''}`}
+              whileHover={{ y: -8 }}
+            >
                 <Link to={`/project/${project.id}`} className="project-card-link">
                   <div className="project-card-header">
                     <div className="project-card-badges">
@@ -160,7 +130,6 @@ const ProjectsPage = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
       </div>
     </div>
   );

@@ -48,7 +48,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
   height: 100%;
 }
@@ -127,7 +127,6 @@
 .blog-card-title a {
   color: var(--text-primary);
   text-decoration: none;
-  transition: all 0.2s ease;
   background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -166,7 +165,7 @@
   border-radius: 50px;
   font-size: 0.85rem;
   color: var(--text-secondary);
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .blog-tag svg {
@@ -185,7 +184,7 @@
   color: var(--neon-blue);
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: gap 0.2s ease, color 0.2s ease;
 }
 
 .blog-card-link:hover {

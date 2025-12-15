@@ -14,7 +14,7 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card-link {
@@ -68,7 +68,7 @@
 .project-card:hover .project-gradient {
   height: 100%;
   opacity: 0.05;
-  transition: all 0.3s ease;
+  transition: height 0.3s ease, opacity 0.3s ease;
 }
 
 .project-card-header {
@@ -166,7 +166,7 @@
   font-size: 0.85rem;
   color: var(--text-secondary);
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .project-card:hover .project-tag {
@@ -193,7 +193,7 @@
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   font-family: var(--font-primary);
 }
 
