@@ -1,6 +1,40 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import Sitemap from 'vite-plugin-sitemap'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+
+// Generate dynamic routes from content files
+function getDynamicRoutes() {
+  const routes = []
+
+  // Get project routes
+  const projectsDir = './src/content/projects'
+  if (fs.existsSync(projectsDir)) {
+    const projectFiles = fs.readdirSync(projectsDir).filter(f => f.endsWith('.md'))
+    for (const file of projectFiles) {
+      const content = fs.readFileSync(path.join(projectsDir, file), 'utf-8')
+      const { data } = matter(content)
+      if (data.id) {
+        routes.push(`/project/${data.id}`)
+      }
+    }
+  }
+
+  // Get blog routes
+  const blogDir = './src/content/blog'
+  if (fs.existsSync(blogDir)) {
+    const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.md'))
+    for (const file of blogFiles) {
+      const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace('.md', '')
+      routes.push(`/blog/${slug}`)
+    }
+  }
+
+  return routes
+}
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,6 +43,25 @@ export default defineConfig({
     nodePolyfills({
       // Whether to polyfill `node:` protocol imports.
       protocolImports: true,
+    }),
+    Sitemap({
+      hostname: 'https://www.connectwithprakash.com',
+      dynamicRoutes: [
+        '/projects',
+        '/news',
+        '/blog',
+        '/resume',
+        ...getDynamicRoutes()
+      ],
+      exclude: ['/404', '/google1b40ab9e59fe683c'],
+      outDir: 'dist',
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date(),
+      generateRobotsTxt: true,
+      robots: [
+        { userAgent: '*', allow: '/' }
+      ],
     }),
   ],
   base: '/', // GitHub Pages user site (connectwithprakash.github.io)
