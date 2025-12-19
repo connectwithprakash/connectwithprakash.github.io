@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import MermaidDiagram from '../components/MermaidDiagram';
 import Giscus from '@giscus/react';
+
+// Lazy load MermaidDiagram to avoid loading mermaid library upfront
+const MermaidDiagram = lazy(() => import('../components/MermaidDiagram'));
 import {
   FaArrowLeft,
   FaCalendar,
@@ -238,7 +240,11 @@ const BlogPost = () => {
                   const language = match ? match[1] : '';
 
                   if (!inline && language === 'mermaid') {
-                    return <MermaidDiagram chart={String(children).replace(/\n$/, '')} />;
+                    return (
+                      <Suspense fallback={<div className="mermaid-loading">Loading diagram...</div>}>
+                        <MermaidDiagram chart={String(children).replace(/\n$/, '')} />
+                      </Suspense>
+                    );
                   }
 
                   return (

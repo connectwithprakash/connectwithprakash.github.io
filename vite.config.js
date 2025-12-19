@@ -68,5 +68,21 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Core React - loaded on every page
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          // UI animations - loaded on every page but can be cached separately
+          'vendor-motion': ['framer-motion'],
+          // Markdown rendering - only needed for blog/project pages
+          'vendor-markdown': ['react-markdown', 'remark-gfm', 'rehype-highlight', 'rehype-raw'],
+          // Mermaid diagrams - only loaded when needed (lazy)
+          'vendor-mermaid': ['mermaid'],
+          // Comments - only on blog posts
+          'vendor-giscus': ['@giscus/react'],
+        },
+      },
+    },
   },
 })
