@@ -5,6 +5,7 @@ import { getProjectById } from '../data/projectLoader';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import MermaidDiagram from '../components/MermaidDiagram';
+import SEO from '../components/SEO';
 import './ProjectDetail.css';
 
 const formatCategory = (category) => {
@@ -72,6 +73,14 @@ const ProjectDetail = () => {
 
   return (
     <div className="project-detail-page">
+      <SEO
+        title={project.title}
+        description={project.shortDescription}
+        keywords={project.tags?.join(', ')}
+        image={project.thumbnail || project.heroImage}
+        url={`/project/${project.id}`}
+        type="article"
+      />
       <div className="container">
         <motion.div
           className="project-detail"

@@ -18,6 +18,7 @@ import {
   FaLink,
 } from 'react-icons/fa';
 import { blogPosts } from '../data/blogPosts';
+import SEO from '../components/SEO';
 import './BlogPost.css';
 
 const BlogPost = () => {
@@ -118,6 +119,17 @@ const BlogPost = () => {
 
   return (
     <div className="blog-post-page">
+      <SEO
+        title={post.title}
+        description={post.description}
+        keywords={post.tags?.join(', ')}
+        url={`/blog/${post.id}`}
+        type="article"
+        article={{
+          publishedTime: post.date,
+          author: 'Prakash Chaudhary',
+        }}
+      />
       <div className="container">
         <motion.article
           className="blog-post"

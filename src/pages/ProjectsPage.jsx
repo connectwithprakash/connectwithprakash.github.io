@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { projectsData } from '../data/projectLoader';
+import SEO from '../components/SEO';
 import './ProjectsPage.css';
 
 const getStatusOrDate = (project) => {
@@ -44,6 +45,12 @@ const ProjectsPage = () => {
 
   return (
     <div className="projects-page">
+      <SEO
+        title="Projects"
+        description="Explore my portfolio of AI and ML projects - from production systems to open-source tools in Agentic AI, MLOps, and Computer Vision."
+        keywords="AI Projects, Machine Learning Portfolio, MLOps, Computer Vision Projects, Agentic AI"
+        url="/projects"
+      />
       <div className="container">
         <div className="projects-page-header">
           <h1 className="projects-page-title">All Projects</h1>
