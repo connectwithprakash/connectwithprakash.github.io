@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaTrophy, FaChalkboardTeacher, FaRocket, FaGraduationCap } from 'react-icons/fa';
 import { newsItems } from '../data/newsData';
+import SEO from '../components/SEO';
 import './NewsPage.css';
 
 const iconMap = {
@@ -13,6 +14,12 @@ const iconMap = {
 const NewsPage = () => {
   return (
     <div className="news-page">
+      <SEO
+        title="News"
+        description="Career timeline - achievements, milestones, and highlights from my journey in AI and Machine Learning."
+        keywords="Career News, Achievements, ML Engineer Journey, AI Milestones"
+        url="/news"
+      />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

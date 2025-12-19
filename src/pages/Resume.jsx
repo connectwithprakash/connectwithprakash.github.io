@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import { FaDownload, FaPrint } from 'react-icons/fa';
+import SEO from '../components/SEO';
 import './Resume.css';
 
 const Resume = () => {
@@ -27,6 +28,12 @@ const Resume = () => {
 
   return (
     <div className="resume-page">
+      <SEO
+        title="Resume"
+        description="ML Engineer with expertise in Agentic AI, MLOps, and Computer Vision. View my professional experience, skills, and education."
+        keywords="Resume, ML Engineer, Machine Learning, AI Engineer, CV, Professional Experience"
+        url="/resume"
+      />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

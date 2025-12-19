@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { FaCalendar, FaTag, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { blogPosts } from '../data/blogPosts';
 import { getMediumPosts } from '../services/mediumService';
+import SEO from '../components/SEO';
 import './Blog.css';
 
 const Blog = () => {
@@ -64,6 +65,12 @@ const Blog = () => {
 
   return (
     <div className="blog-page">
+      <SEO
+        title="Bodhi - Blog"
+        description="Personal thoughts, ideas, and introspections on life, consciousness, and the journey of self-discovery."
+        keywords="Blog, Personal Growth, Self Discovery, Consciousness, Life Philosophy"
+        url="/blog"
+      />
       <section className="blog-hero">
         <div className="container">
           <motion.div
