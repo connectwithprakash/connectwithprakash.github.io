@@ -1,13 +1,16 @@
+import { lazy, Suspense } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
 import { getProjectById } from '../data/projectLoader';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import MermaidDiagram from '../components/MermaidDiagram';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
 import './ProjectDetail.css';
+
+// Lazy load MermaidDiagram to avoid loading mermaid library upfront
+const MermaidDiagram = lazy(() => import('../components/MermaidDiagram'));
 
 const formatCategory = (category) => {
   if (!category) return '';
@@ -182,7 +185,11 @@ const ProjectDetail = () => {
                         const language = match ? match[1] : '';
 
                         if (!inline && language === 'mermaid') {
-                          return <MermaidDiagram chart={String(children).replace(/\n$/, '')} />;
+                          return (
+                            <Suspense fallback={<div className="mermaid-loading">Loading diagram...</div>}>
+                              <MermaidDiagram chart={String(children).replace(/\n$/, '')} />
+                            </Suspense>
+                          );
                         }
 
                         return (
