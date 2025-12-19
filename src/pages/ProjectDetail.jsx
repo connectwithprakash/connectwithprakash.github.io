@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
-import { getProjectById } from '../data/projectLoader';
+import { getProjectById, getRelatedProjects } from '../data/projectLoader';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import SEO from '../components/SEO';
@@ -41,6 +41,7 @@ const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = getProjectById(id);
+  const relatedProjects = project ? getRelatedProjects(id, project.category) : [];
 
   if (!project) {
     return (
@@ -290,6 +291,35 @@ const ProjectDetail = () => {
               <motion.section className="project-section glass-card" variants={itemVariants}>
                 <h2 className="gradient-text">Installation</h2>
                 <pre className="installation-code"><code>{project.installation}</code></pre>
+              </motion.section>
+            )}
+
+            {/* Related Projects */}
+            {relatedProjects.length > 0 && (
+              <motion.section className="project-section" variants={itemVariants}>
+                <h2 className="gradient-text">Related Projects</h2>
+                <div className="related-projects-grid">
+                  {relatedProjects.map((relatedProject) => (
+                    <Link
+                      key={relatedProject.id}
+                      to={`/project/${relatedProject.id}`}
+                      className="related-project-card glass-card"
+                    >
+                      {relatedProject.thumbnail && (
+                        <div className="related-project-thumbnail">
+                          <img src={relatedProject.thumbnail} alt={relatedProject.title} />
+                        </div>
+                      )}
+                      {!relatedProject.thumbnail && relatedProject.gradient && (
+                        <div className="related-project-gradient" style={{ background: relatedProject.gradient }} />
+                      )}
+                      <div className="related-project-content">
+                        <h3>{relatedProject.title}</h3>
+                        <p>{relatedProject.shortDescription}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </motion.section>
             )}
           </div>
