@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FaTrophy, FaChalkboardTeacher, FaRocket, FaGraduationCap } from 'react-icons/fa';
 import { newsItems } from '../data/newsData';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 import './NewsPage.css';
 
 const iconMap = {
@@ -19,6 +20,12 @@ const NewsPage = () => {
         description="Career timeline - achievements, milestones, and highlights from my journey in AI and Machine Learning."
         keywords="Career News, Achievements, ML Engineer Journey, AI Milestones"
         url="/news"
+      />
+      <StructuredData
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'News' },
+        ]}
       />
       <div className="container">
         <motion.div

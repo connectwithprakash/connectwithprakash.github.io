@@ -19,6 +19,7 @@ import {
 } from 'react-icons/fa';
 import { blogPosts } from '../data/blogPosts';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 import './BlogPost.css';
 
 const BlogPost = () => {
@@ -129,6 +130,21 @@ const BlogPost = () => {
           publishedTime: post.date,
           author: 'Prakash Chaudhary',
         }}
+      />
+      <StructuredData
+        type="article"
+        article={{
+          title: post.title,
+          description: post.description,
+          url: `/blog/${post.id}`,
+          datePublished: post.date,
+          dateModified: post.dateModified || post.date,
+        }}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Blog', url: '/blog' },
+          { name: post.title },
+        ]}
       />
       <div className="container">
         <motion.article

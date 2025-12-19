@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import { FaDownload, FaPrint } from 'react-icons/fa';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 import './Resume.css';
 
 const Resume = () => {
@@ -33,6 +34,12 @@ const Resume = () => {
         description="ML Engineer with expertise in Agentic AI, MLOps, and Computer Vision. View my professional experience, skills, and education."
         keywords="Resume, ML Engineer, Machine Learning, AI Engineer, CV, Professional Experience"
         url="/resume"
+      />
+      <StructuredData
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Resume' },
+        ]}
       />
       <div className="container">
         <motion.div

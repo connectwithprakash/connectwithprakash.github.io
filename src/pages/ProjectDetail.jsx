@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import MermaidDiagram from '../components/MermaidDiagram';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 import './ProjectDetail.css';
 
 const formatCategory = (category) => {
@@ -80,6 +81,13 @@ const ProjectDetail = () => {
         image={project.thumbnail || project.heroImage}
         url={`/project/${project.id}`}
         type="article"
+      />
+      <StructuredData
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Projects', url: '/projects' },
+          { name: project.title },
+        ]}
       />
       <div className="container">
         <motion.div

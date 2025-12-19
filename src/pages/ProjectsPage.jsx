@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { projectsData } from '../data/projectLoader';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 import './ProjectsPage.css';
 
 const getStatusOrDate = (project) => {
@@ -50,6 +51,12 @@ const ProjectsPage = () => {
         description="Explore my portfolio of AI and ML projects - from production systems to open-source tools in Agentic AI, MLOps, and Computer Vision."
         keywords="AI Projects, Machine Learning Portfolio, MLOps, Computer Vision Projects, Agentic AI"
         url="/projects"
+      />
+      <StructuredData
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Projects' },
+        ]}
       />
       <div className="container">
         <div className="projects-page-header">
