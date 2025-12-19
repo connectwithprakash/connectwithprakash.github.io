@@ -271,15 +271,15 @@ const BlogPost = () => {
             <h3 className="comments-title">Comments</h3>
             <Giscus
               repo="connectwithprakash/connectwithprakash.github.io"
-              repoId="R_kgDOQW_beQ"
-              category="General"
-              categoryId="DIC_kwDOQW_bec4Cx3h3"
+              repoId="R_kgDOQrguQQ"
+              category="Announcements"
+              categoryId="DIC_kwDOQrguQc4Cz_4u"
               mapping="pathname"
               strict="0"
               reactionsEnabled="1"
               emitMetadata="0"
-              inputPosition="top"
-              theme="dark"
+              inputPosition="bottom"
+              theme="preferred_color_scheme"
               lang="en"
               loading="lazy"
             />
