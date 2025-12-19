@@ -119,7 +119,6 @@ const Projects = () => {
                         className="project-link-btn primary"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={(e) => e.preventDefault()}
                       >
                         <span>View Details</span>
                         <FaExternalLinkAlt />
