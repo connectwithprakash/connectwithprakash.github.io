@@ -65,3 +65,9 @@ export const getFeaturedProjects = () => {
 export const getProjectsByCategory = (category) => {
   return projectsData.filter(project => project.category === category);
 };
+
+export const getRelatedProjects = (currentId, category, limit = 3) => {
+  return projectsData
+    .filter(project => project.id !== currentId && project.category === category)
+    .slice(0, limit);
+};
