@@ -6,6 +6,7 @@ import { FaCalendar, FaTag, FaArrowRight, FaExternalLinkAlt } from 'react-icons/
 import { blogPosts } from '../data/blogPosts';
 import { getMediumPosts } from '../services/mediumService';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 import './Blog.css';
 
 const Blog = () => {
@@ -70,6 +71,12 @@ const Blog = () => {
         description="Personal thoughts, ideas, and introspections on life, consciousness, and the journey of self-discovery."
         keywords="Blog, Personal Growth, Self Discovery, Consciousness, Life Philosophy"
         url="/blog"
+      />
+      <StructuredData
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Blog' },
+        ]}
       />
       <section className="blog-hero">
         <div className="container">

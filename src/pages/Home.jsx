@@ -6,6 +6,7 @@ import Projects from '../components/Projects';
 import Publications from '../components/Publications';
 import Contact from '../components/Contact';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         keywords="ML Engineer, Machine Learning, AI, Agentic AI, MLOps, Computer Vision, Deep Learning"
         url="/"
       />
+      <StructuredData type="home" />
       <Hero />
       <About />
       <Education />
