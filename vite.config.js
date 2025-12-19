@@ -45,7 +45,7 @@ export default defineConfig({
       protocolImports: true,
     }),
     Sitemap({
-      hostname: 'https://www.connectwithprakash.com',
+      hostname: 'https://connectwithprakash.com',
       dynamicRoutes: [
         '/projects',
         '/news',
