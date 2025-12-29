@@ -59,7 +59,7 @@ const Blog = () => {
 
   // Filter and sort posts by date (newest first)
   const filteredPosts = showPersonal
-    ? allPosts
+    ? allPosts.filter(post => post.category === 'personal')
     : allPosts.filter(post => post.category !== 'personal');
   const sortedPosts = [...filteredPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
   const hasPersonalPosts = allPosts.some(post => post.category === 'personal');
