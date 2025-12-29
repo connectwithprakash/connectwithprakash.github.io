@@ -9,6 +9,7 @@ import {
   FaDiscord,
   FaWhatsapp,
   FaMapMarkerAlt,
+  FaCalendarAlt,
 } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
 import './Contact.css';
@@ -68,6 +69,13 @@ const Contact = () => {
       url: 'https://discord.com/users/connectwithprakash',
       username: 'connectwithprakash',
       color: '#5865f2',
+    },
+    {
+      name: 'Topmate',
+      icon: <FaCalendarAlt />,
+      url: 'https://topmate.io/connectwithprakash',
+      username: 'Book a Call',
+      color: '#6366f1',
     },
   ];
 
