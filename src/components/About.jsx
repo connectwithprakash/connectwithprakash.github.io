@@ -161,7 +161,7 @@ const About = () => {
           </div>
 
           <motion.div className="education-section" variants={itemVariants}>
-            <h3 className="subsection-title gradient-text">Career Journey</h3>
+            <h3 className="subsection-title gradient-text">Work Experience</h3>
             <div className="timeline">
               <div className="timeline-item glass-card">
                 <div className="timeline-date">2024 - Present</div>
@@ -169,15 +169,6 @@ const About = () => {
                 <p className="timeline-org">Fetch Rewards - Seattle, WA</p>
                 <p className="timeline-desc">
                   Leading AI innovation, automation, and LLM enablement initiatives. Building production multi-agent systems and ML solutions driving measurable business impact.
-                </p>
-              </div>
-
-              <div className="timeline-item glass-card">
-                <div className="timeline-date">2022 - 2024</div>
-                <h4>MS in Computer Science</h4>
-                <p className="timeline-org">University of Alabama in Huntsville</p>
-                <p className="timeline-desc">
-                  Graduated with 4.0 GPA. Advanced studies in Deep Learning, AI, and Algorithm Design. Inducted into Phi Kappa Phi Honor Society.
                 </p>
               </div>
 
