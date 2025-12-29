@@ -221,9 +221,15 @@ const Navigation = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navItems.length + 2) * 0.05 }}
-                style={{ display: 'flex', justifyContent: 'center', padding: '1rem 0' }}
+                style={{ padding: '1rem 2rem' }}
               >
-                <ThemeToggle />
+                <button
+                  className="btn btn-primary mobile-cta"
+                  onClick={() => scrollToSection('contact')}
+                  style={{ width: '100%' }}
+                >
+                  Get in Touch
+                </button>
               </motion.li>
             </ul>
           </motion.div>
