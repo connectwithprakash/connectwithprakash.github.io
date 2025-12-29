@@ -12,6 +12,7 @@ import './Blog.css';
 const Blog = () => {
   const [allPosts, setAllPosts] = useState(blogPosts);
   const [loading, setLoading] = useState(true);
+  const [showPersonal, setShowPersonal] = useState(false);
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -56,8 +57,12 @@ const Blog = () => {
     },
   };
 
-  // Sort posts by date (newest first)
-  const sortedPosts = [...allPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  // Filter and sort posts by date (newest first)
+  const filteredPosts = showPersonal
+    ? allPosts
+    : allPosts.filter(post => post.category !== 'personal');
+  const sortedPosts = [...filteredPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const hasPersonalPosts = allPosts.some(post => post.category === 'personal');
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -67,9 +72,9 @@ const Blog = () => {
   return (
     <div className="blog-page">
       <SEO
-        title="Bodhi - Blog"
-        description="Personal thoughts, ideas, and introspections on life, consciousness, and the journey of self-discovery."
-        keywords="Blog, Personal Growth, Self Discovery, Consciousness, Life Philosophy"
+        title="Blog"
+        description="Technical writing on Machine Learning, LLMs, AI Agents, and building production ML systems."
+        keywords="Machine Learning, LLM, AI Agents, MLOps, Technical Blog, Deep Learning"
         url="/blog"
       />
       <StructuredData
@@ -87,13 +92,10 @@ const Blog = () => {
             className="blog-hero-content"
           >
             <h1 className="blog-hero-title">
-              <span className="gradient-text">Bodhi</span>
+              <span className="gradient-text">Blog</span>
             </h1>
             <p className="blog-hero-subtitle">
-              A space for my personal thoughts, ideas, and introspections
-            </p>
-            <p className="blog-hero-description">
-              Exploring life, consciousness, and the journey of self-discovery through words.
+              Technical writing on ML, LLMs, and AI systems
             </p>
           </motion.div>
         </div>
@@ -174,13 +176,39 @@ const Blog = () => {
             })}
           </motion.div>
 
-          {sortedPosts.length === 0 && (
+          {sortedPosts.length === 0 && !showPersonal && hasPersonalPosts && (
+            <motion.div
+              className="no-posts"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <p>No technical posts yet. Check back soon!</p>
+            </motion.div>
+          )}
+
+          {sortedPosts.length === 0 && (showPersonal || !hasPersonalPosts) && (
             <motion.div
               className="no-posts"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
               <p>No blog posts yet. Stay tuned!</p>
+            </motion.div>
+          )}
+
+          {hasPersonalPosts && (
+            <motion.div
+              className="personal-toggle"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <button
+                className="personal-toggle-btn"
+                onClick={() => setShowPersonal(!showPersonal)}
+              >
+                {showPersonal ? '← Back to technical posts' : 'Show personal thoughts →'}
+              </button>
             </motion.div>
           )}
         </div>
