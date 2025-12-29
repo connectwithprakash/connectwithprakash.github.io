@@ -97,7 +97,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.p className="hero-description" variants={itemVariants}>
-            Based in Seattle. I build production multi-agent systems and self-supervised learning pipelines.
+            Based in San Francisco. I build production multi-agent systems and self-supervised learning pipelines.
             Previously did ML research at NASA-IMPACT, working on representation learning. Also into{' '}
             <span className="highlight">robotics, electronics, and the math that makes it all work</span>.
           </motion.p>
