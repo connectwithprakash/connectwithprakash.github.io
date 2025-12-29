@@ -1,7 +1,6 @@
 # Prakash Chaudhary
 
-**Location:** Seattle, WA
-**Phone:** +1-256-468-1243
+**Location:** San Francisco, CA
 **Email:** connectwithprakash@gmail.com
 **Website:** [connectwithprakash.com](https://connectwithprakash.com)
 **LinkedIn:** [linkedin.com/in/connectwithprakash](https://www.linkedin.com/in/connectwithprakash/)
@@ -17,7 +16,7 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 
 ## Industry Experience
 
-### Fetch Rewards | Seattle, WA
+### Fetch Rewards | Remote
 **Machine Learning Engineer - AI Labs** | May 2024 - Present
 
 - Shipped **multimodal AI Shopping Assistant** to **25,000+ external users** (iOS/Android), enabling natural language product discovery and purchase optimization through production multi-agent system

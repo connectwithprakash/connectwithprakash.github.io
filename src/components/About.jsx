@@ -166,7 +166,7 @@ const About = () => {
               <div className="timeline-item glass-card">
                 <div className="timeline-date">2024 - Present</div>
                 <h4>Machine Learning Engineer - AI Labs</h4>
-                <p className="timeline-org">Fetch Rewards - Seattle, WA</p>
+                <p className="timeline-org">Fetch Rewards - Remote</p>
                 <p className="timeline-desc">
                   Leading AI innovation, automation, and LLM enablement initiatives. Building production multi-agent systems and ML solutions driving measurable business impact.
                 </p>
