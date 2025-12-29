@@ -82,12 +82,16 @@ flowchart LR
 
 ## My Role
 
-Architected and implemented the complete multi-agent system:
-- Designed the agent workflow and interaction patterns
-- Created retriever architecture with semantic + lexical search
+**Tech Lead** for a cross-functional team of 4 engineers (analytics engineer, MLE apprentice, backend engineer, and team lead). Owned architecture decisions and drove technical direction:
+
+- Led end-to-end system design from requirements to production deployment
+- Architected the multi-agent workflow and agent interaction patterns
+- Mentored MLE apprentice on LLM agent development and best practices
+- Coordinated with analytics engineer on evaluation metrics and data pipelines
+- Created retriever architecture with semantic + lexical hybrid search
 - Built guardrail system to prevent hallucinations
 - Integrated multiple LLM providers (OpenAI, Anthropic, Google)
-- Established category tree navigation tools
+- Established category tree navigation tools with beam search
 - Deployed on production infrastructure for real-time inference
 
 ## Technical Innovations
