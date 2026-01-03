@@ -1,13 +1,42 @@
 /**
- * SEO Component using React 19's native document metadata support
+ * SEO Component for managing page metadata
  *
- * React 19 automatically hoists <title>, <meta>, and <link> tags to <head>
+ * Uses useEffect to ensure document.title is replaced (not duplicated)
+ * and manages meta tags dynamically for each page.
  */
+
+import { useEffect } from 'react';
 
 const SITE_URL = 'https://connectwithprakash.com';
 const DEFAULT_IMAGE = `${SITE_URL}/assets/og-image.png`;
 const SITE_NAME = 'Prakash Chaudhary';
 const TWITTER_HANDLE = '@connectwprakash';
+
+/**
+ * Helper to update or create a meta tag
+ */
+const updateMetaTag = (attribute, value, content) => {
+  let element = document.querySelector(`meta[${attribute}="${value}"]`);
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, value);
+    document.head.appendChild(element);
+  }
+  element.setAttribute('content', content);
+};
+
+/**
+ * Helper to update or create a link tag
+ */
+const updateLinkTag = (rel, href) => {
+  let element = document.querySelector(`link[rel="${rel}"]`);
+  if (!element) {
+    element = document.createElement('link');
+    element.setAttribute('rel', rel);
+    document.head.appendChild(element);
+  }
+  element.setAttribute('href', href);
+};
 
 const SEO = ({
   title,
@@ -21,38 +50,46 @@ const SEO = ({
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
   const canonicalUrl = url ? `${SITE_URL}${url}` : SITE_URL;
 
-  return (
-    <>
-      {/* Primary Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={canonicalUrl} />
+  useEffect(() => {
+    // Update document title (replaces, doesn't duplicate)
+    document.title = fullTitle;
 
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:site_name" content={SITE_NAME} />
+    // Primary Meta Tags
+    updateMetaTag('name', 'description', description);
+    updateMetaTag('name', 'title', fullTitle);
+    if (keywords) {
+      updateMetaTag('name', 'keywords', keywords);
+    }
 
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={TWITTER_HANDLE} />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+    // Canonical URL
+    updateLinkTag('canonical', canonicalUrl);
 
-      {/* Article-specific tags (for blog posts) */}
-      {article && (
-        <>
-          <meta property="article:published_time" content={article.publishedTime} />
-          {article.author && <meta property="article:author" content={article.author} />}
-        </>
-      )}
-    </>
-  );
+    // Open Graph / Facebook
+    updateMetaTag('property', 'og:type', type);
+    updateMetaTag('property', 'og:url', canonicalUrl);
+    updateMetaTag('property', 'og:title', fullTitle);
+    updateMetaTag('property', 'og:description', description);
+    updateMetaTag('property', 'og:image', image);
+    updateMetaTag('property', 'og:site_name', SITE_NAME);
+
+    // Twitter Card
+    updateMetaTag('name', 'twitter:card', 'summary_large_image');
+    updateMetaTag('name', 'twitter:site', TWITTER_HANDLE);
+    updateMetaTag('name', 'twitter:title', fullTitle);
+    updateMetaTag('name', 'twitter:description', description);
+    updateMetaTag('name', 'twitter:image', image);
+
+    // Article-specific tags (for blog posts)
+    if (article) {
+      updateMetaTag('property', 'article:published_time', article.publishedTime);
+      if (article.author) {
+        updateMetaTag('property', 'article:author', article.author);
+      }
+    }
+  }, [fullTitle, description, keywords, canonicalUrl, type, image, article]);
+
+  // Return null - all updates happen via useEffect
+  return null;
 };
 
 export default SEO;

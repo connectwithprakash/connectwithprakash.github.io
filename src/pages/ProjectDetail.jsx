@@ -87,6 +87,17 @@ const ProjectDetail = () => {
         type="article"
       />
       <StructuredData
+        type="project"
+        project={{
+          title: project.title,
+          description: project.shortDescription,
+          url: `/project/${project.id}`,
+          dateCreated: project.startDate,
+          dateModified: project.endDate || project.startDate,
+          tags: project.tags,
+          github: project.github,
+          image: project.thumbnail || project.heroImage,
+        }}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Projects', url: '/projects' },

@@ -108,14 +108,51 @@ const generateProfilePage = (url = '/') => ({
 });
 
 /**
+ * Generate SoftwareSourceCode schema for projects
+ * This helps Google understand technical projects better
+ */
+const generateProject = ({ title, description, url, dateCreated, dateModified, tags, github, image }) => ({
+  '@type': 'SoftwareSourceCode',
+  '@id': `${SITE_URL}${url}/#project`,
+  name: title,
+  description: description,
+  url: `${SITE_URL}${url}`,
+  dateCreated: dateCreated,
+  dateModified: dateModified || dateCreated,
+  image: image || `${SITE_URL}/assets/og-image.png`,
+  author: { '@id': `${SITE_URL}/#person` },
+  creator: { '@id': `${SITE_URL}/#person` },
+  programmingLanguage: tags?.filter(tag =>
+    ['Python', 'JavaScript', 'TypeScript', 'React', 'PyTorch', 'TensorFlow'].includes(tag)
+  ) || [],
+  keywords: tags?.join(', '),
+  ...(github && { codeRepository: github }),
+});
+
+/**
+ * Generate CollectionPage schema for listing pages
+ */
+const generateCollectionPage = ({ title, description, url }) => ({
+  '@type': 'CollectionPage',
+  '@id': `${SITE_URL}${url}/#collectionpage`,
+  name: title,
+  description: description,
+  url: `${SITE_URL}${url}`,
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+  about: { '@id': `${SITE_URL}/#person` },
+});
+
+/**
  * StructuredData Component
  *
  * @param {Object} props
- * @param {string} props.type - 'home' | 'article' | 'page'
+ * @param {string} props.type - 'home' | 'article' | 'project' | 'collection' | 'page'
  * @param {Array} props.breadcrumbs - [{name, url}]
  * @param {Object} props.article - Article data for blog posts
+ * @param {Object} props.project - Project data for project pages
+ * @param {Object} props.collection - Collection data for listing pages
  */
-const StructuredData = ({ type = 'page', breadcrumbs, article }) => {
+const StructuredData = ({ type = 'page', breadcrumbs, article, project, collection }) => {
   const graph = [];
 
   // Homepage: Person + WebSite + ProfilePage
@@ -129,6 +166,18 @@ const StructuredData = ({ type = 'page', breadcrumbs, article }) => {
   if (type === 'article' && article) {
     graph.push(personData);
     graph.push(generateArticle(article));
+  }
+
+  // Projects: Person + SoftwareSourceCode
+  if (type === 'project' && project) {
+    graph.push(personData);
+    graph.push(generateProject(project));
+  }
+
+  // Collection pages (Projects listing, Blog listing)
+  if (type === 'collection' && collection) {
+    graph.push(personData);
+    graph.push(generateCollectionPage(collection));
   }
 
   // Breadcrumbs for all pages that provide them
