@@ -53,6 +53,12 @@ const ProjectsPage = () => {
         url="/projects"
       />
       <StructuredData
+        type="collection"
+        collection={{
+          title: 'Projects - Prakash Chaudhary',
+          description: 'Portfolio of AI and ML projects including Agentic AI systems, MLOps pipelines, and Computer Vision applications.',
+          url: '/projects',
+        }}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Projects' },

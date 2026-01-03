@@ -78,6 +78,12 @@ const Blog = () => {
         url="/blog"
       />
       <StructuredData
+        type="collection"
+        collection={{
+          title: 'Blog - Prakash Chaudhary',
+          description: 'Technical writing on Machine Learning, LLMs, AI Agents, and building production ML systems.',
+          url: '/blog',
+        }}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Blog' },
