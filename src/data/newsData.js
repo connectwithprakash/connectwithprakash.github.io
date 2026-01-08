@@ -1,5 +1,12 @@
 export const newsItems = [
   {
+    date: 'January 2026',
+    icon: 'rocket',
+    title: 'Launched Lazyflow on the App Store',
+    description: 'Released Lazyflow, a free, open-source iOS app for AI-powered task management with Apple Calendar integration, time blocking, and smart task recommendations. Available on iPhone, iPad, and Apple Watch.',
+    color: 'var(--neon-green)',
+  },
+  {
     date: 'December 2025',
     icon: 'rocket',
     title: 'Shipped AI Shopping Assistant Alpha',

@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="presentationGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="businessGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="serviceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2BA5A8;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#218A8D;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#db2777;stop-opacity:0.1" />
+    </linearGradient>
+    <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="5" refY="10" orient="auto">
+      <path d="M0,0 L5,10 L10,0" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+    </marker>
+    <marker id="arrowRight" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2BA5A8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="SF Pro Display, -apple-system, sans-serif" font-size="22" fill="#2BA5A8" text-anchor="middle" font-weight="600">Lazyflow Architecture</text>
+  <text x="450" y="55" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Clean Architecture with MVVM Pattern</text>
+
+  <!-- ==================== LAYER 1: PRESENTATION ==================== -->
+  <rect x="100" y="75" width="500" height="85" rx="10" fill="url(#presentationGrad)" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="120" y="98" font-family="SF Mono, monospace" font-size="11" fill="#a78bfa" font-weight="600">PRESENTATION LAYER</text>
+  <text x="120" y="113" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280">SwiftUI Views, ViewModels, Navigation</text>
+
+  <!-- Presentation components -->
+  <rect x="120" y="125" width="90" height="25" rx="4" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="165" y="142" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">TodayView</text>
+
+  <rect x="220" y="125" width="90" height="25" rx="4" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="265" y="142" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">CalendarView</text>
+
+  <rect x="320" y="125" width="90" height="25" rx="4" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="365" y="142" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">TaskEditor</text>
+
+  <rect x="420" y="125" width="90" height="25" rx="4" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="465" y="142" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">SettingsView</text>
+
+  <rect x="520" y="125" width="65" height="25" rx="4" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="552" y="142" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">...</text>
+
+  <!-- Arrow down -->
+  <path d="M350 165 L350 185" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowDown)"/>
+
+  <!-- ==================== LAYER 2: BUSINESS LOGIC ==================== -->
+  <rect x="100" y="195" width="500" height="85" rx="10" fill="url(#businessGrad)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="120" y="218" font-family="SF Mono, monospace" font-size="11" fill="#fbbf24" font-weight="600">BUSINESS LOGIC LAYER</text>
+  <text x="120" y="233" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280">Priority Algorithm, Conflict Detection, Time Blocking</text>
+
+  <!-- Business components -->
+  <rect x="120" y="245" width="115" height="25" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="177" y="262" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">PriorityEngine</text>
+
+  <rect x="245" y="245" width="115" height="25" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="302" y="262" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">ConflictDetector</text>
+
+  <rect x="370" y="245" width="115" height="25" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="427" y="262" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">TimeBlocker</text>
+
+  <rect x="495" y="245" width="90" height="25" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="540" y="262" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">Scheduler</text>
+
+  <!-- Arrow down -->
+  <path d="M350 285 L350 305" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowDown)"/>
+
+  <!-- ==================== LAYER 3: SERVICE ==================== -->
+  <rect x="100" y="315" width="500" height="85" rx="10" fill="url(#serviceGrad)" stroke="#2BA5A8" stroke-width="2"/>
+  <text x="120" y="338" font-family="SF Mono, monospace" font-size="11" fill="#2BA5A8" font-weight="600">SERVICE LAYER</text>
+  <text x="120" y="353" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280">TaskService, CalendarService, AIService, SyncService</text>
+
+  <!-- Service components -->
+  <rect x="120" y="365" width="100" height="25" rx="4" fill="#1e293b" stroke="#2BA5A8" stroke-width="1"/>
+  <text x="170" y="382" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">TaskService</text>
+
+  <rect x="230" y="365" width="110" height="25" rx="4" fill="#1e293b" stroke="#2BA5A8" stroke-width="1"/>
+  <text x="285" y="382" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">CalendarService</text>
+
+  <rect x="350" y="365" width="80" height="25" rx="4" fill="#1e293b" stroke="#2BA5A8" stroke-width="1"/>
+  <text x="390" y="382" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">AIService</text>
+
+  <rect x="440" y="365" width="90" height="25" rx="4" fill="#1e293b" stroke="#2BA5A8" stroke-width="1"/>
+  <text x="485" y="382" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">SyncService</text>
+
+  <rect x="540" y="365" width="50" height="25" rx="4" fill="#1e293b" stroke="#2BA5A8" stroke-width="1"/>
+  <text x="565" y="382" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">...</text>
+
+  <!-- Arrow down -->
+  <path d="M350 405 L350 425" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowDown)"/>
+
+  <!-- ==================== LAYER 4: DATA & INFRASTRUCTURE ==================== -->
+  <rect x="100" y="435" width="500" height="85" rx="10" fill="url(#dataGrad)" stroke="#10b981" stroke-width="2"/>
+  <text x="120" y="458" font-family="SF Mono, monospace" font-size="11" fill="#10b981" font-weight="600">DATA &amp; INFRASTRUCTURE LAYER</text>
+  <text x="120" y="473" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280">Core Data, CloudKit, EventKit, WatchConnectivity</text>
+
+  <!-- Data components -->
+  <rect x="120" y="485" width="85" height="25" rx="4" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="162" y="502" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">Core Data</text>
+
+  <rect x="215" y="485" width="85" height="25" rx="4" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="257" y="502" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">CloudKit</text>
+
+  <rect x="310" y="485" width="85" height="25" rx="4" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="352" y="502" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">EventKit</text>
+
+  <rect x="405" y="485" width="95" height="25" rx="4" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="452" y="502" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">WatchConnect</text>
+
+  <rect x="510" y="485" width="75" height="25" rx="4" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="547" y="502" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">UserDef</text>
+
+  <!-- ==================== AI PROVIDERS (Right Side) ==================== -->
+  <rect x="650" y="195" width="220" height="205" rx="10" fill="url(#aiGrad)" stroke="#ec4899" stroke-width="2"/>
+  <text x="760" y="220" font-family="SF Mono, monospace" font-size="11" fill="#f472b6" text-anchor="middle" font-weight="600">AI PROVIDERS</text>
+  <text x="760" y="238" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">User brings own API keys</text>
+
+  <!-- AI Provider 1: Apple Intelligence -->
+  <rect x="670" y="255" width="180" height="40" rx="6" fill="#1e293b" stroke="#ec4899" stroke-width="1"/>
+  <text x="760" y="275" font-family="SF Mono, monospace" font-size="10" fill="#f472b6" text-anchor="middle" font-weight="500">Apple Intelligence</text>
+  <text x="760" y="290" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">On-device, Private</text>
+
+  <!-- AI Provider 2: Claude API -->
+  <rect x="670" y="305" width="180" height="40" rx="6" fill="#1e293b" stroke="#ec4899" stroke-width="1"/>
+  <text x="760" y="325" font-family="SF Mono, monospace" font-size="10" fill="#f472b6" text-anchor="middle" font-weight="500">Claude API</text>
+  <text x="760" y="340" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Anthropic</text>
+
+  <!-- AI Provider 3: OpenAI API -->
+  <rect x="670" y="355" width="180" height="40" rx="6" fill="#1e293b" stroke="#ec4899" stroke-width="1"/>
+  <text x="760" y="375" font-family="SF Mono, monospace" font-size="10" fill="#f472b6" text-anchor="middle" font-weight="500">OpenAI API</text>
+  <text x="760" y="390" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">GPT Models</text>
+
+  <!-- Arrow from AIService to AI Providers -->
+  <line x1="390" y1="365" x2="390" y2="340" stroke="#2BA5A8" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="390" y1="340" x2="645" y2="340" stroke="#2BA5A8" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowTeal)"/>
+  <text x="520" y="333" font-family="SF Mono, monospace" font-size="8" fill="#6b7280">API Calls</text>
+
+  <!-- ==================== EXTENSIONS (Right Side Bottom) ==================== -->
+  <rect x="650" y="435" width="220" height="85" rx="10" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="760" y="458" font-family="SF Mono, monospace" font-size="11" fill="#6366f1" text-anchor="middle" font-weight="600">EXTENSIONS</text>
+
+  <rect x="670" y="470" width="85" height="35" rx="4" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
+  <text x="712" y="487" font-family="SF Mono, monospace" font-size="9" fill="#a78bfa" text-anchor="middle">Widgets</text>
+  <text x="712" y="500" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">WidgetKit</text>
+
+  <rect x="765" y="470" width="85" height="35" rx="4" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
+  <text x="807" y="487" font-family="SF Mono, monospace" font-size="9" fill="#a78bfa" text-anchor="middle">Watch</text>
+  <text x="807" y="500" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">WatchOS App</text>
+
+  <!-- ==================== PLATFORMS (Top Right) ==================== -->
+  <rect x="650" y="75" width="220" height="85" rx="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="760" y="98" font-family="SF Mono, monospace" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="600">PLATFORMS</text>
+
+  <rect x="670" y="110" width="55" height="35" rx="4" fill="#1e293b" stroke="#6b7280" stroke-width="1"/>
+  <text x="697" y="127" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">iOS</text>
+  <text x="697" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">17+</text>
+
+  <rect x="735" y="110" width="55" height="35" rx="4" fill="#1e293b" stroke="#6b7280" stroke-width="1"/>
+  <text x="762" y="127" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">iPadOS</text>
+  <text x="762" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">17+</text>
+
+  <rect x="800" y="110" width="55" height="35" rx="4" fill="#1e293b" stroke="#6b7280" stroke-width="1"/>
+  <text x="827" y="127" font-family="SF Mono, monospace" font-size="9" fill="#e0e0e0" text-anchor="middle">watchOS</text>
+  <text x="827" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">10+</text>
+
+  <!-- ==================== LEGEND ==================== -->
+  <rect x="100" y="545" width="530" height="40" rx="6" fill="#1e293b" opacity="0.5"/>
+  <text x="120" y="568" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280">Architecture:</text>
+  <text x="200" y="568" font-family="SF Mono, monospace" font-size="9" fill="#a78bfa">MVVM</text>
+  <text x="260" y="568" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280">Data Flow:</text>
+  <text x="335" y="568" font-family="SF Mono, monospace" font-size="9" fill="#2BA5A8">Combine</text>
+  <text x="400" y="568" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280">Language:</text>
+  <text x="470" y="568" font-family="SF Mono, monospace" font-size="9" fill="#f59e0b">Swift 5.9</text>
+  <text x="540" y="568" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280">UI:</text>
+  <text x="565" y="568" font-family="SF Mono, monospace" font-size="9" fill="#10b981">SwiftUI</text>
+</svg>
