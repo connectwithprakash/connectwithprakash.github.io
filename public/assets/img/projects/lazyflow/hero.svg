@@ -1,0 +1,299 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tealGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2BA5A8;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#218A8D;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="phoneFrame" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ipadFrame" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4b5563;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="calendarEvent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="aiCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2BA5A8;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#218A8D;stop-opacity:0.1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="iphoneScreen">
+      <rect x="445" y="115" width="170" height="370" rx="20"/>
+    </clipPath>
+    <clipPath id="ipadScreen">
+      <rect x="680" y="95" width="360" height="270" rx="8"/>
+    </clipPath>
+    <clipPath id="watchScreen">
+      <rect x="145" y="245" width="90" height="110" rx="22"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bgGrad)"/>
+
+  <!-- Decorative glow circles -->
+  <circle cx="200" cy="300" r="150" fill="#2BA5A8" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="600" cy="300" r="200" fill="#2BA5A8" opacity="0.06" filter="url(#glow)"/>
+  <circle cx="1000" cy="250" r="180" fill="#218A8D" opacity="0.06" filter="url(#glow)"/>
+
+  <!-- Title -->
+  <text x="600" y="50" font-family="SF Pro Display, -apple-system, sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="600">Lazyflow</text>
+  <text x="600" y="78" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" fill="#6b7280" text-anchor="middle">Calendar-first task management across all your Apple devices</text>
+
+  <!-- ==================== APPLE WATCH (Left) ==================== -->
+  <!-- Watch body -->
+  <rect x="130" y="220" width="120" height="160" rx="30" fill="url(#phoneFrame)" stroke="#4b5563" stroke-width="2"/>
+  <!-- Watch crown -->
+  <rect x="250" y="280" width="8" height="30" rx="3" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+  <!-- Watch button -->
+  <circle cx="254" cy="340" r="6" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+
+  <!-- Watch screen -->
+  <g clip-path="url(#watchScreen)">
+    <rect x="145" y="245" width="90" height="110" fill="#1F2121"/>
+
+    <!-- Watch time -->
+    <text x="190" y="265" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#2BA5A8" text-anchor="middle" font-weight="600">10:23</text>
+    <text x="190" y="278" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Today</text>
+
+    <!-- Watch tasks -->
+    <rect x="152" y="285" width="76" height="18" rx="4" fill="#2C2C2E"/>
+    <circle cx="162" cy="294" r="5" fill="none" stroke="#2BA5A8" stroke-width="1.5"/>
+    <text x="172" y="297" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#ffffff">Write tests</text>
+
+    <rect x="152" y="308" width="76" height="18" rx="4" fill="#2C2C2E"/>
+    <circle cx="162" cy="317" r="5" fill="none" stroke="#34C759" stroke-width="1.5"/>
+    <path d="M159 317 L161 319 L166 314" stroke="#34C759" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <text x="172" y="320" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-decoration="line-through">Review PR</text>
+
+    <rect x="152" y="331" width="76" height="18" rx="4" fill="#2C2C2E"/>
+    <circle cx="162" cy="340" r="5" fill="none" stroke="#48484A" stroke-width="1"/>
+    <text x="172" y="343" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#ffffff">Update docs</text>
+  </g>
+
+  <!-- Watch label -->
+  <text x="190" y="400" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">Apple Watch</text>
+
+  <!-- ==================== iPHONE (Center) ==================== -->
+  <!-- iPhone frame -->
+  <rect x="430" y="100" width="200" height="400" rx="28" fill="url(#phoneFrame)" stroke="#4b5563" stroke-width="2"/>
+
+  <!-- Dynamic Island -->
+  <rect x="485" y="112" width="90" height="28" rx="14" fill="#000000"/>
+  <circle cx="510" cy="126" r="5" fill="#1a1a2a"/>
+  <circle cx="550" cy="126" r="8" fill="#0a0a15"/>
+
+  <!-- iPhone screen -->
+  <g clip-path="url(#iphoneScreen)">
+    <rect x="445" y="115" width="170" height="370" fill="#1F2121"/>
+
+    <!-- Status bar -->
+    <text x="455" y="135" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff">9:41</text>
+    <text x="605" y="135" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff" text-anchor="end">100%</text>
+
+    <!-- App header -->
+    <rect x="445" y="145" width="170" height="40" fill="#2C2C2E"/>
+    <text x="458" y="172" font-family="SF Pro Display, -apple-system, sans-serif" font-size="16" fill="#ffffff" font-weight="600">Today</text>
+    <text x="602" y="168" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" fill="#2BA5A8" text-anchor="end">Jan 8</text>
+
+    <!-- Time labels -->
+    <text x="452" y="205" font-family="SF Mono, monospace" font-size="8" fill="#6b7280">9 AM</text>
+    <text x="452" y="260" font-family="SF Mono, monospace" font-size="8" fill="#6b7280">10 AM</text>
+    <text x="452" y="315" font-family="SF Mono, monospace" font-size="8" fill="#6b7280">11 AM</text>
+
+    <!-- Calendar event -->
+    <rect x="478" y="192" width="130" height="38" rx="6" fill="url(#calendarEvent)"/>
+    <text x="486" y="208" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" fill="#ffffff" font-weight="500">Team Standup</text>
+    <text x="486" y="222" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="rgba(255,255,255,0.7)">9:00 - 9:30 AM</text>
+
+    <!-- Task 1 (completed) -->
+    <rect x="478" y="238" width="130" height="30" rx="6" fill="#2C2C2E"/>
+    <circle cx="490" cy="253" r="7" fill="none" stroke="#34C759" stroke-width="1.5"/>
+    <path d="M486 253 L489 256 L494 250" stroke="#34C759" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <text x="502" y="250" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-decoration="line-through">Review PR #247</text>
+    <text x="502" y="262" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#48484A">30m</text>
+
+    <!-- Task 2 (pending, high priority) -->
+    <rect x="478" y="274" width="130" height="30" rx="6" fill="#2C2C2E"/>
+    <circle cx="490" cy="289" r="7" fill="none" stroke="#2BA5A8" stroke-width="1.5"/>
+    <text x="502" y="286" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" fill="#ffffff">Write unit tests</text>
+    <text x="502" y="298" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#FF9500">Due today</text>
+
+    <!-- AI Recommendation -->
+    <rect x="452" y="318" width="156" height="52" rx="8" fill="url(#aiCard)" stroke="#2BA5A8" stroke-width="1"/>
+    <text x="464" y="336" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#2BA5A8" font-weight="500">What should I do next?</text>
+    <text x="464" y="350" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" fill="#ffffff">Write unit tests</text>
+    <text x="464" y="363" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280">High priority, 45 min available</text>
+
+    <!-- Sparkle icon -->
+    <g transform="translate(590, 325)">
+      <path d="M5 0 L6 3.5 L9.5 4.5 L6 5.5 L5 9 L4 5.5 L0.5 4.5 L4 3.5 Z" fill="#2BA5A8" opacity="0.8"/>
+    </g>
+
+    <!-- Tab bar -->
+    <rect x="445" y="440" width="170" height="45" fill="#1C1C1E"/>
+    <line x1="445" y1="440" x2="615" y2="440" stroke="#3A3A3C" stroke-width="0.5"/>
+
+    <!-- Tab: Today (active) -->
+    <circle cx="475" cy="455" r="4" fill="none" stroke="#2BA5A8" stroke-width="1.5"/>
+    <path d="M475 453 L475 457 L477 457" stroke="#2BA5A8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <text x="475" y="472" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#2BA5A8" text-anchor="middle">Today</text>
+
+    <!-- Tab: Calendar -->
+    <rect x="517" y="451" width="10" height="8" rx="1.5" fill="none" stroke="#6b7280" stroke-width="1"/>
+    <line x1="517" y1="454" x2="527" y2="454" stroke="#6b7280" stroke-width="1"/>
+    <text x="522" y="472" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Calendar</text>
+
+    <!-- Tab: Lists -->
+    <line x1="560" y1="452" x2="570" y2="452" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="560" y1="457" x2="570" y2="457" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="560" y1="462" x2="567" y2="462" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="565" y="472" font-family="SF Pro Display, -apple-system, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Lists</text>
+
+    <!-- Home indicator -->
+    <rect x="505" y="478" width="50" height="4" rx="2" fill="#48484A"/>
+  </g>
+
+  <!-- iPhone label -->
+  <text x="530" y="525" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">iPhone</text>
+
+  <!-- ==================== iPAD (Right) ==================== -->
+  <!-- iPad frame -->
+  <rect x="660" y="80" width="400" height="300" rx="16" fill="url(#ipadFrame)" stroke="#4b5563" stroke-width="2"/>
+  <!-- Camera -->
+  <circle cx="860" cy="90" r="4" fill="#1f2937"/>
+
+  <!-- iPad screen -->
+  <g clip-path="url(#ipadScreen)">
+    <rect x="680" y="95" width="360" height="270" fill="#1F2121"/>
+
+    <!-- Split view: Calendar on left, Tasks on right -->
+
+    <!-- Left panel: Calendar week view -->
+    <rect x="680" y="95" width="180" height="270" fill="#1a1a1e"/>
+
+    <!-- Calendar header -->
+    <rect x="680" y="95" width="180" height="30" fill="#2C2C2E"/>
+    <text x="770" y="115" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="600">January 2026</text>
+
+    <!-- Day columns -->
+    <text x="702" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Mon</text>
+    <text x="727" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Tue</text>
+    <text x="752" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#2BA5A8" text-anchor="middle">Wed</text>
+    <text x="777" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Thu</text>
+    <text x="802" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Fri</text>
+    <text x="827" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Sat</text>
+    <text x="852" y="140" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Sun</text>
+
+    <!-- Day numbers -->
+    <text x="702" y="155" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">6</text>
+    <text x="727" y="155" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">7</text>
+    <circle cx="752" cy="152" r="10" fill="#2BA5A8"/>
+    <text x="752" y="156" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="600">8</text>
+    <text x="777" y="155" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">9</text>
+    <text x="802" y="155" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">10</text>
+    <text x="827" y="155" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">11</text>
+    <text x="852" y="155" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">12</text>
+
+    <!-- Calendar events -->
+    <rect x="744" y="175" width="16" height="40" rx="3" fill="url(#calendarEvent)" opacity="0.9"/>
+    <rect x="744" y="240" width="16" height="25" rx="3" fill="#10b981" opacity="0.9"/>
+    <rect x="769" y="190" width="16" height="50" rx="3" fill="#f59e0b" opacity="0.9"/>
+    <rect x="794" y="180" width="16" height="30" rx="3" fill="url(#calendarEvent)" opacity="0.9"/>
+
+    <!-- Time blocks (tasks scheduled) -->
+    <rect x="744" y="280" width="16" height="30" rx="3" fill="url(#aiCard)" stroke="#2BA5A8" stroke-width="1"/>
+
+    <!-- Right panel: Task list -->
+    <rect x="860" y="95" width="180" height="270" fill="#1F2121"/>
+
+    <!-- Tasks header -->
+    <rect x="860" y="95" width="180" height="30" fill="#2C2C2E"/>
+    <text x="870" y="115" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="600">Today's Tasks</text>
+    <text x="1030" y="115" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#2BA5A8" text-anchor="end">3 left</text>
+
+    <!-- Task items -->
+    <rect x="868" y="135" width="164" height="35" rx="6" fill="#2C2C2E"/>
+    <circle cx="882" cy="152" r="8" fill="none" stroke="#34C759" stroke-width="1.5"/>
+    <path d="M878 152 L881 155 L887 148" stroke="#34C759" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <text x="896" y="149" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-decoration="line-through">Review PR #247</text>
+    <text x="896" y="162" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#48484A">Completed at 9:15 AM</text>
+
+    <rect x="868" y="178" width="164" height="35" rx="6" fill="#2C2C2E" stroke="#2BA5A8" stroke-width="1"/>
+    <circle cx="882" cy="195" r="8" fill="none" stroke="#2BA5A8" stroke-width="1.5"/>
+    <text x="896" y="192" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff">Write unit tests</text>
+    <text x="896" y="205" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#FF9500">Due today - High priority</text>
+
+    <rect x="868" y="221" width="164" height="35" rx="6" fill="#2C2C2E"/>
+    <circle cx="882" cy="238" r="8" fill="none" stroke="#48484A" stroke-width="1.5"/>
+    <text x="896" y="235" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff">Update documentation</text>
+    <text x="896" y="248" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280">1h estimated</text>
+
+    <rect x="868" y="264" width="164" height="35" rx="6" fill="#2C2C2E"/>
+    <circle cx="882" cy="281" r="8" fill="none" stroke="#48484A" stroke-width="1.5"/>
+    <text x="896" y="278" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#ffffff">Prepare demo</text>
+    <text x="896" y="291" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#6b7280">Tomorrow</text>
+
+    <!-- AI suggestion bar -->
+    <rect x="868" y="310" width="164" height="45" rx="6" fill="url(#aiCard)" stroke="#2BA5A8" stroke-width="1"/>
+    <g transform="translate(878, 320)">
+      <path d="M4 0 L5 2.5 L7.5 3.5 L5 4.5 L4 7 L3 4.5 L0.5 3.5 L3 2.5 Z" fill="#2BA5A8"/>
+    </g>
+    <text x="895" y="330" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#2BA5A8" font-weight="500">AI Suggestion</text>
+    <text x="878" y="345" font-family="SF Pro Display, -apple-system, sans-serif" font-size="8" fill="#ffffff">Focus on "Write unit tests" now</text>
+  </g>
+
+  <!-- iPad label -->
+  <text x="860" y="405" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">iPad</text>
+
+  <!-- Feature highlights -->
+  <g transform="translate(50, 520)">
+    <circle cx="15" cy="10" r="12" fill="url(#aiCard)" stroke="#2BA5A8" stroke-width="1"/>
+    <text x="15" y="14" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#2BA5A8" text-anchor="middle">AI</text>
+    <text x="40" y="14" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11" fill="#e0e0e0">Smart Prioritization</text>
+  </g>
+
+  <g transform="translate(250, 520)">
+    <circle cx="15" cy="10" r="12" fill="url(#aiCard)" stroke="#2BA5A8" stroke-width="1"/>
+    <text x="15" y="14" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" fill="#2BA5A8" text-anchor="middle">+</text>
+    <text x="40" y="14" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11" fill="#e0e0e0">Calendar Integration</text>
+  </g>
+
+  <g transform="translate(450, 520)">
+    <circle cx="15" cy="10" r="12" fill="url(#aiCard)" stroke="#2BA5A8" stroke-width="1"/>
+    <path d="M10 10 L15 5 L20 10 L15 15 Z" fill="none" stroke="#2BA5A8" stroke-width="1.5"/>
+    <text x="40" y="14" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11" fill="#e0e0e0">Cross-Device Sync</text>
+  </g>
+
+  <g transform="translate(650, 520)">
+    <circle cx="15" cy="10" r="12" fill="url(#aiCard)" stroke="#2BA5A8" stroke-width="1"/>
+    <rect x="10" y="6" width="10" height="8" rx="1" fill="none" stroke="#2BA5A8" stroke-width="1.5"/>
+    <text x="40" y="14" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11" fill="#e0e0e0">Widgets & Live Activities</text>
+  </g>
+
+  <g transform="translate(880, 520)">
+    <circle cx="15" cy="10" r="12" fill="url(#aiCard)" stroke="#2BA5A8" stroke-width="1"/>
+    <path d="M11 8 L15 8 L15 4 M15 8 L19 12" stroke="#2BA5A8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="40" y="14" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11" fill="#e0e0e0">Open Source</text>
+  </g>
+
+  <!-- App Store badge hint -->
+  <text x="600" y="575" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Available on the App Store - Free & Open Source</text>
+</svg>
