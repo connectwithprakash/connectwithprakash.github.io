@@ -165,6 +165,7 @@
 
 .project-links {
   display: flex;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -173,6 +174,20 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.project-links .app-store-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: var(--transition-fast);
+}
+
+.project-links .app-store-badge img {
+  height: 53.6px;
+  width: auto;
+  display: block;
 }
 
 .project-detail-page .project-content {
@@ -403,6 +418,11 @@
   }
 
   .project-links .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-links .app-store-badge {
     width: 100%;
     justify-content: center;
   }

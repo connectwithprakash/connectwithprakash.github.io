@@ -12,8 +12,6 @@ gradient: var(--gradient-primary)
 thumbnail: /assets/img/projects/lazyflow/thumbnail.svg
 heroImage: /assets/img/projects/lazyflow/hero.svg
 images:
-  - path: /assets/img/projects/lazyflow/architecture.svg
-    caption: Clean architecture with MVVM pattern and multi-provider AI support
   - path: /assets/img/projects/lazyflow/01-today-view.png
     caption: Today view showing tasks alongside calendar events in a unified timeline
   - path: /assets/img/projects/lazyflow/02-ai-priority.png
@@ -46,27 +44,7 @@ Built a native iOS app with a focus on seamless Apple ecosystem integration:
 
 ### Architecture
 
-```
-┌─────────────────────────────────────────┐
-│         SwiftUI Presentation Layer      │
-│  (Views, ViewModels, Navigation)        │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│         Business Logic Layer            │
-│  (Priority Algorithm, Conflict Detect)  │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│         Service Layer                   │
-│  (TaskService, CalendarService, AI)     │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│    Data & Infrastructure Layer          │
-│  (CoreData, CloudKit, EventKit, APIs)   │
-└─────────────────────────────────────────┘
-```
+![Clean architecture with MVVM pattern and multi-provider AI support](/assets/img/projects/lazyflow/architecture.svg)
 
 **Core Technologies:**
 - **SwiftUI** - Modern declarative UI with MVVM architecture
