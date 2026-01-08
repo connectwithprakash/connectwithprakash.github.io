@@ -162,17 +162,30 @@ const ProjectDetail = () => {
                   </motion.a>
                 )}
                 {project.demo && !project.demo.includes('youtube') && (
-                  <motion.a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-glass"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FaExternalLinkAlt />
-                    <span>Live Demo</span>
-                  </motion.a>
+                  project.demo.includes('apps.apple.com') ? (
+                    <motion.a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="app-store-badge"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <img src="/assets/img/app-store-badge.svg" alt="Download on the App Store" />
+                    </motion.a>
+                  ) : (
+                    <motion.a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-glass"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FaExternalLinkAlt />
+                      <span>Live Demo</span>
+                    </motion.a>
+                  )
                 )}
               </div>
             </div>
