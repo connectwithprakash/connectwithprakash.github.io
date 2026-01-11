@@ -68,17 +68,22 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 
 ## Projects
 
-### Spectral Unmixing using Machine Learning | Mar 2023 - Oct 2023
+### [Lazyflow - AI Task Manager](https://github.com/connectwithprakash/lazyflow) | Dec 2025 - Jan 2026
+*A free, open-source iOS app for AI-powered task management with Apple Calendar integration.*
+
+- Built and published a native **SwiftUI** iOS app on **App Store** with full Apple ecosystem support (Watch, Widgets, Live Activities) and multi-provider AI integration (**Apple Intelligence**, **Claude**, **OpenAI**) for smart task recommendations
+
+### [Spectral Unmixing using Machine Learning](https://github.com/NASA-IMPACT/ml_spectroscopy) | Mar 2023 - Oct 2023
 *A ML system for material characterization using spectral signal from Infrared (IR) spectroscopy.*
 
 - Developed an ML pipeline, including signal processing, feature engineering, and a multi-label neural network model, achieving over **95% F1 score** for predicting material composition from spectral signatures across diverse datasets
 
-### Foxhound Security Solution | Nov 2019 - Feb 2020
+### [Foxhound Security Solution](https://github.com/kaushu42/foxhound-security-solution) | Nov 2019 - Feb 2020
 *SaaS-based user's behavior anomaly detection and network event log analyzer built using distributed ML.*
 
 - Designed and developed an end-to-end continual machine learning system for anomaly detection and reasoning using Apache Spark for ETL and data analysis, an AutoEncoder architecture, and statistical analysis
 
-### Sound Source Localization | Dec 2018 - Aug 2019
+### [Sound Source Localization](https://github.com/subash-timilsina/Sound-Source-Localization) | Dec 2018 - Aug 2019
 *An 8-microphone cubical mesh that records the azimuth and elevation of an incoming sound source.*
 
 - Constructed a localization system using C++ with the GCC-PHAT algorithm and microphone mesh, and created denoising AutoEncoder model using Keras to denoise speech and achieved **MAE of 1.5 degree** in 3D localization
