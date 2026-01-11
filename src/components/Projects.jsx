@@ -15,6 +15,12 @@ const getStatusOrDate = (project) => {
     const date = new Date(dateStr);
     return { text: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), type: 'date' };
   }
+  if (project.status === 'released' && project.startDate) {
+    // For released projects, show the release date
+    const dateStr = project.startDate.length === 7 ? `${project.startDate}-01` : project.startDate;
+    const date = new Date(dateStr);
+    return { text: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), type: 'date' };
+  }
   if (project.status === 'completed') {
     return { text: 'Completed', type: 'completed' };
   }

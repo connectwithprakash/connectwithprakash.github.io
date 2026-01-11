@@ -4,7 +4,7 @@ title: Sound Source Localization
 shortDescription: A 3D sound source localization system using an 8-microphone cubical mesh for locating disaster victims. Achieved 95% accuracy within 1.5m range using GCC-PHAT algorithm and CNN-based denoising.
 category: robotics
 importance: 1
-featured: true
+featured: false
 tags: [Python, C, Keras, Robotics, Signal Processing]
 gradient: var(--gradient-tertiary)
 thumbnail: /assets/img/projects/sound_source_localization/SSL.jpg

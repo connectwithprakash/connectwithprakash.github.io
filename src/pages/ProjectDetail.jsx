@@ -129,7 +129,7 @@ const ProjectDetail = () => {
                 <div className="project-category-badge">{formatCategory(project.category)}</div>
                 {project.status && (
                   <div className={`project-status-badge status-${project.status}`}>
-                    {project.status === 'in-progress' ? 'In Progress' : 'Completed'}
+                    {project.status === 'in-progress' ? 'In Progress' : project.status === 'released' ? 'Released' : 'Completed'}
                   </div>
                 )}
                 {formatProjectDate(project.startDate, project.endDate, project.status) && (
