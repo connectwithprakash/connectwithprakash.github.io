@@ -19,6 +19,12 @@ h1 {
   font-size: 20pt;
   margin: 0 0 0.15em 0;
   font-weight: 700;
+  text-align: center;
+}
+
+/* Center header contact info (paragraphs before first hr) */
+h1 + p, h1 + p + p, h1 + p + p + p, h1 + p + p + p + p, h1 + p + p + p + p + p {
+  text-align: center;
 }
 
 h2 {
