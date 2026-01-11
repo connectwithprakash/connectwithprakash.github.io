@@ -111,6 +111,11 @@
   color: #ffffff;
 }
 
+.project-status-badge.status-released {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+}
+
 .project-date-badge {
   display: inline-flex;
   align-items: center;

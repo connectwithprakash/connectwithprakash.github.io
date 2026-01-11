@@ -4,7 +4,8 @@ title: Lazyflow
 shortDescription: A free, open-source iOS app for AI-powered task management with Apple Calendar integration, time blocking, and smart "What should I do next?" recommendations.
 category: mobile-apps
 status: released
-startDate: 2025-10
+startDate: 2025-12
+endDate: 2026-01
 importance: 1
 featured: true
 tags: [iOS, Swift, SwiftUI, Core Data, CloudKit, EventKit, AI, Apple Intelligence, Apple Watch, Widgets, Live Activities, Open Source]
