@@ -10,15 +10,15 @@ const getStatusOrDate = (project) => {
     return { text: 'In Progress', type: 'in-progress' };
   }
   if (project.endDate) {
-    // Handle YYYY-MM format
+    // Handle YYYY-MM format - use T12:00:00 to avoid timezone shifting
     const dateStr = project.endDate.length === 7 ? `${project.endDate}-01` : project.endDate;
-    const date = new Date(dateStr);
+    const date = new Date(`${dateStr}T12:00:00`);
     return { text: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), type: 'date' };
   }
   if (project.status === 'released' && project.startDate) {
-    // For released projects, show the release date
+    // For released projects, show the release date - use T12:00:00 to avoid timezone shifting
     const dateStr = project.startDate.length === 7 ? `${project.startDate}-01` : project.startDate;
-    const date = new Date(dateStr);
+    const date = new Date(`${dateStr}T12:00:00`);
     return { text: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), type: 'date' };
   }
   if (project.status === 'completed') {

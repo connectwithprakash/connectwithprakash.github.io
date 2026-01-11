@@ -25,9 +25,10 @@ const formatProjectDate = (startDate, endDate, status) => {
   if (!startDate) return null;
 
   const formatDate = (dateStr) => {
-    // Handle YYYY-MM format (append day to make valid date)
+    // Handle YYYY-MM format - parse manually to avoid timezone issues
     const normalizedDate = dateStr.length === 7 ? `${dateStr}-01` : dateStr;
-    const date = new Date(normalizedDate);
+    // Use T12:00:00 to avoid timezone shifting the date to previous day
+    const date = new Date(`${normalizedDate}T12:00:00`);
     return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   };
 
