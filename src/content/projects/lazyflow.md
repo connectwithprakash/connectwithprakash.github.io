@@ -21,6 +21,10 @@ images:
     caption: Daily summary with completion stats and AI-generated productivity insights
   - path: /assets/img/projects/lazyflow/04-apple-watch.png
     caption: Apple Watch app for quick task management on the go
+  - path: /assets/img/projects/lazyflow/05-subtasks.png
+    caption: Break down tasks into subtasks with automatic completion when all subtasks are done
+  - path: /assets/img/projects/lazyflow/06-history.png
+    caption: Task history view with date filtering to track completed tasks over time
 github: https://github.com/connectwithprakash/lazyflow
 demo: https://apps.apple.com/us/app/lazyflow/id6757427688
 ---
@@ -66,6 +70,9 @@ Built a native iOS app with a focus on seamless Apple ecosystem integration:
 
 - **Calendar Integration** - View tasks alongside calendar events, schedule tasks as time blocks
 - **AI Priority** - "What should I do next?" recommendations with scores and reasoning
+- **Subtasks** - Break down complex tasks into subtasks with automatic completion
+- **Task History** - Track completed tasks over time with date filtering and search
+- **Time Tracking** - Monitor task duration with automatic start/stop timestamps
 - **Daily Summary** - Completion streaks and AI-generated productivity insights
 - **Multi-Platform** - iPhone, iPad, Apple Watch with real-time sync
 - **Widgets** - Home Screen widgets in 3 sizes for quick task access
