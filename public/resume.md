@@ -68,10 +68,10 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 
 ## Projects
 
-### [Lazyflow - AI Task Manager](https://github.com/connectwithprakash/lazyflow) | Dec 2025 - Jan 2026
-*A free, open-source iOS app for AI-powered task management with Apple Calendar integration.*
+### [Lazyflow - Calendar-First Todo App](https://lazyflow.netlify.app) | Dec 2025 - Present
+*A free, open-source iOS app that bridges task management with calendar scheduling, featuring on-device AI.*
 
-- Built and published a native **SwiftUI** iOS app on **App Store** with full Apple ecosystem support (Watch, Widgets, Live Activities) and multi-provider AI integration (**Apple Intelligence**, **Claude**, **OpenAI**) for smart task recommendations
+- Built and published a native **SwiftUI** iOS app on **App Store** with full Apple ecosystem support (Watch, Widgets, Dynamic Island, Siri Shortcuts) and on-device **Apple Intelligence** for smart task suggestions while maintaining privacy with local-first data storage
 
 ### [Spectral Unmixing using Machine Learning](https://github.com/NASA-IMPACT/ml_spectroscopy) | Mar 2023 - Oct 2023
 *A ML system for material characterization using spectral signal from Infrared (IR) spectroscopy.*
