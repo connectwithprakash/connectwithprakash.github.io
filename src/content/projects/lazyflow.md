@@ -5,7 +5,6 @@ shortDescription: A free, open-source iOS app for AI-powered task management wit
 category: mobile-apps
 status: released
 startDate: 2025-12
-endDate: 2026-01
 importance: 1
 featured: true
 tags: [iOS, Swift, SwiftUI, Core Data, CloudKit, EventKit, AI, Apple Intelligence, Apple Watch, Widgets, Live Activities, Open Source]
