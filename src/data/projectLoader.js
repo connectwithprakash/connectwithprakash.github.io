@@ -32,6 +32,7 @@ const unsortedProjects = Object.entries(modules).map(([path, content]) => {
     relatedLinks: data.relatedLinks || [],
     relatedVideos: data.relatedVideos || [],
     images: data.images || [],
+    imageLayout: data.imageLayout,
     installation: data.installation,
     content: markdownContent,
   };

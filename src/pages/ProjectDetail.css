@@ -331,6 +331,12 @@
   gap: 2rem;
 }
 
+.project-images-stacked {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .project-image-item {
   display: flex;
   flex-direction: column;
