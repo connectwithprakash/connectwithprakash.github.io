@@ -12,6 +12,19 @@ gradient: var(--gradient-tertiary)
 thumbnail: /assets/img/projects/diskard/thumbnail.svg
 heroImage: /assets/img/projects/diskard/hero.svg
 github: https://github.com/connectwithprakash/diskard
+images:
+  - path: /assets/img/projects/diskard/01-scan-results.png
+    caption: Interactive TUI showing scan results with 26 reclaimable items sorted by size
+  - path: /assets/img/projects/diskard/02-selected-items.png
+    caption: Item selection with checkboxes for targeted cleanup
+  - path: /assets/img/projects/diskard/03-drill-down.png
+    caption: Drill-down view inspecting Xcode DerivedData directory contents
+relatedLinks:
+  - title: crates.io
+    url: https://crates.io/crates/diskard
+  - title: Homebrew Tap
+    url: https://github.com/connectwithprakash/homebrew-tap
+demo: https://crates.io/crates/diskard
 installation: |
   # Install via Homebrew
   brew install connectwithprakash/tap/diskard
