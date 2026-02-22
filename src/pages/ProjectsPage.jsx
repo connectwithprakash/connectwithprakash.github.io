@@ -27,6 +27,8 @@ const categories = [
   { id: 'featured', label: 'Featured' },
   { id: 'agentic-ai', label: 'Agentic AI' },
   { id: 'mlops', label: 'MLOps' },
+  { id: 'developer-tools', label: 'Developer Tools' },
+  { id: 'mobile-apps', label: 'Mobile Apps' },
   { id: 'computer-vision', label: 'Computer Vision' },
   { id: 'robotics', label: 'Robotics' },
   { id: 'security', label: 'Security' },

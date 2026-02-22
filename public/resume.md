@@ -73,20 +73,15 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 
 - Built and published a native **SwiftUI** iOS app on **App Store** with full Apple ecosystem support (Watch, Widgets, Dynamic Island, Siri Shortcuts) and on-device **Apple Intelligence** for smart task suggestions while maintaining privacy with local-first data storage
 
+### [diskard - Developer-Aware Disk Cleanup](https://github.com/connectwithprakash/diskard) | Feb 2026 - Present
+*An open-source Rust CLI/TUI tool that scans for reclaimable disk space from build caches, AI models, and dev tools.*
+
+- Built a parallel scanner with **18 recognizers** and interactive **ratatui TUI** with drill-down inspection, disk visualization, and safe trash-based cleanup; published on **crates.io** and **Homebrew**
+
 ### [Spectral Unmixing using Machine Learning](https://github.com/NASA-IMPACT/ml_spectroscopy) | Mar 2023 - Oct 2023
 *A ML system for material characterization using spectral signal from Infrared (IR) spectroscopy.*
 
 - Developed an ML pipeline, including signal processing, feature engineering, and a multi-label neural network model, achieving over **95% F1 score** for predicting material composition from spectral signatures across diverse datasets
-
-### [Foxhound Security Solution](https://github.com/kaushu42/foxhound-security-solution) | Nov 2019 - Feb 2020
-*SaaS-based user's behavior anomaly detection and network event log analyzer built using distributed ML.*
-
-- Designed and developed an end-to-end continual machine learning system for anomaly detection and reasoning using Apache Spark for ETL and data analysis, an AutoEncoder architecture, and statistical analysis
-
-### [Sound Source Localization](https://github.com/subash-timilsina/Sound-Source-Localization) | Dec 2018 - Aug 2019
-*An 8-microphone cubical mesh that records the azimuth and elevation of an incoming sound source.*
-
-- Constructed a localization system using C++ with the GCC-PHAT algorithm and microphone mesh, and created denoising AutoEncoder model using Keras to denoise speech and achieved **MAE of 1.5 degree** in 3D localization
 
 ---
 
@@ -102,4 +97,4 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 
 **Infrastructure:** AWS (SageMaker, EC2, Lambda, S3), Apache Spark, Kafka, Snowflake, Vector DBs (FAISS, Pinecone, Chroma), FastAPI
 
-**Programming:** Python, Go, C++, SQL
+**Programming:** Python, Rust, Go, C++, SQL

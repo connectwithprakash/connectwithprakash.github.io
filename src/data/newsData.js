@@ -1,5 +1,12 @@
 export const newsItems = [
   {
+    date: 'February 2026',
+    icon: 'rocket',
+    title: 'Released diskard on crates.io and Homebrew',
+    description: 'Published diskard, an open-source Rust CLI/TUI for developer-aware disk cleanup with 18 recognizers covering build caches, AI models, package managers, and IDE artifacts.',
+    color: 'var(--neon-green)',
+  },
+  {
     date: 'January 2026',
     icon: 'rocket',
     title: 'Launched Lazyflow on the App Store',

@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d2d44;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3d3d5c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gaugeBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2a2a3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="420" fill="url(#bgGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="50" cy="40" r="100" fill="#4facfe" opacity="0.03"/>
+  <circle cx="850" cy="380" r="120" fill="#00f2fe" opacity="0.03"/>
+
+  <!-- Terminal window -->
+  <rect x="16" y="10" width="868" height="400" rx="12" fill="#0d1117" stroke="#4facfe" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- Terminal header -->
+  <rect x="16" y="10" width="868" height="38" rx="12" fill="url(#headerBg)"/>
+  <rect x="16" y="36" width="868" height="12" fill="url(#headerBg)"/>
+
+  <!-- Window buttons -->
+  <circle cx="42" cy="29" r="7" fill="#ff5f56"/>
+  <circle cx="64" cy="29" r="7" fill="#ffbd2e"/>
+  <circle cx="86" cy="29" r="7" fill="#27ca3f"/>
+
+  <!-- Terminal title -->
+  <text x="450" y="34" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#a0a0a0" text-anchor="middle">diskard -i ~/Developer</text>
+
+  <!-- Disk Usage Header Section -->
+  <rect x="30" y="58" width="840" height="48" rx="6" fill="#161b22"/>
+  <text x="46" y="77" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#8b949e">Disk Usage</text>
+  <text x="340" y="77" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#e6edf3">186.2 GB / 460.4 GB (40.4%)</text>
+  <text x="856" y="77" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#27ca3f" text-anchor="end">274.2 GB free</text>
+
+  <!-- Gauge background -->
+  <rect x="46" y="85" width="808" height="12" rx="6" fill="url(#gaugeBg)"/>
+  <!-- Gauge fill -->
+  <rect x="46" y="85" width="326" height="12" rx="6" fill="url(#gaugeGrad)"/>
+
+  <!-- Column Headers -->
+  <text x="46" y="128" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#4facfe" font-weight="bold">Scan Results (12 items found)</text>
+  <text x="580" y="128" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#8b949e">Category</text>
+  <text x="720" y="128" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#8b949e" text-anchor="end">Size</text>
+  <text x="856" y="128" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#8b949e" text-anchor="end">Risk</text>
+
+  <!-- Separator -->
+  <line x1="30" y1="136" x2="870" y2="136" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Result 1 - Selected/highlighted -->
+  <rect x="30" y="142" width="840" height="30" rx="4" fill="#1c2333" stroke="#4facfe" stroke-width="0.5"/>
+  <rect x="46" y="150" width="14" height="14" rx="3" fill="#4facfe"/>
+  <path d="M50 157 L52.5 160 L57 154" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="70" y="161" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#e6edf3">~/Library/Developer/Xcode/DerivedData</text>
+  <text x="580" y="161" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa">Build</text>
+  <text x="720" y="161" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#4facfe" text-anchor="end">6.2 GB</text>
+  <rect x="730" y="157" width="70" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="730" y="157" width="46" height="3" rx="1.5" fill="#4facfe" opacity="0.5"/>
+  <text x="856" y="161" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#27ca3f" text-anchor="end">Safe</text>
+
+  <!-- Result 2 -->
+  <rect x="30" y="176" width="840" height="30" rx="4" fill="#0d1117"/>
+  <rect x="46" y="184" width="14" height="14" rx="3" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <text x="70" y="195" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#e6edf3">~/Developer/web-app/node_modules</text>
+  <text x="580" y="195" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa">Build</text>
+  <text x="720" y="195" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#00f2fe" text-anchor="end">4.1 GB</text>
+  <rect x="730" y="191" width="70" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="730" y="191" width="30" height="3" rx="1.5" fill="#00f2fe" opacity="0.5"/>
+  <text x="856" y="195" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#27ca3f" text-anchor="end">Safe</text>
+
+  <!-- Result 3 -->
+  <rect x="30" y="210" width="840" height="30" rx="4" fill="#0d1117"/>
+  <rect x="46" y="218" width="14" height="14" rx="3" fill="#4facfe"/>
+  <path d="M50 225 L52.5 228 L57 222" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="70" y="229" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#e6edf3">~/Library/Caches/Homebrew</text>
+  <text x="580" y="229" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#fbbf24">Package</text>
+  <text x="720" y="229" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#27ca3f" text-anchor="end">2.8 GB</text>
+  <rect x="730" y="225" width="70" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="730" y="225" width="20" height="3" rx="1.5" fill="#27ca3f" opacity="0.5"/>
+  <text x="856" y="229" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#27ca3f" text-anchor="end">Safe</text>
+
+  <!-- Result 4 -->
+  <rect x="30" y="244" width="840" height="30" rx="4" fill="#0d1117"/>
+  <rect x="46" y="252" width="14" height="14" rx="3" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <text x="70" y="263" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#e6edf3">~/.ollama/models</text>
+  <text x="580" y="263" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#f97583">AI/ML</text>
+  <text x="720" y="263" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#fbbf24" text-anchor="end">2.3 GB</text>
+  <rect x="730" y="259" width="70" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="730" y="259" width="17" height="3" rx="1.5" fill="#fbbf24" opacity="0.5"/>
+  <text x="856" y="263" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#fbbf24" text-anchor="end">Moderate</text>
+
+  <!-- Result 5 -->
+  <rect x="30" y="278" width="840" height="30" rx="4" fill="#0d1117"/>
+  <rect x="46" y="286" width="14" height="14" rx="3" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <text x="70" y="297" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#e6edf3">~/Developer/diskard/target</text>
+  <text x="580" y="297" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa">Build</text>
+  <text x="720" y="297" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#a78bfa" text-anchor="end">1.9 GB</text>
+  <rect x="730" y="293" width="70" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="730" y="293" width="14" height="3" rx="1.5" fill="#a78bfa" opacity="0.5"/>
+  <text x="856" y="297" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#27ca3f" text-anchor="end">Safe</text>
+
+  <!-- Result 6 -->
+  <rect x="30" y="312" width="840" height="30" rx="4" fill="#0d1117"/>
+  <rect x="46" y="320" width="14" height="14" rx="3" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <text x="70" y="331" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#e6edf3">~/Library/Caches/pip</text>
+  <text x="580" y="331" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#fbbf24">Package</text>
+  <text x="720" y="331" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#27ca3f" text-anchor="end">0.8 GB</text>
+  <rect x="730" y="327" width="70" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="730" y="327" width="6" height="3" rx="1.5" fill="#27ca3f" opacity="0.5"/>
+  <text x="856" y="331" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#27ca3f" text-anchor="end">Safe</text>
+
+  <!-- Result 7 -->
+  <rect x="30" y="346" width="840" height="30" rx="4" fill="#0d1117"/>
+  <rect x="46" y="354" width="14" height="14" rx="3" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <text x="70" y="365" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#e6edf3">~/.cache/huggingface/hub</text>
+  <text x="580" y="365" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#f97583">AI/ML</text>
+  <text x="720" y="365" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#fbbf24" text-anchor="end">0.6 GB</text>
+  <rect x="730" y="361" width="70" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="730" y="361" width="5" height="3" rx="1.5" fill="#fbbf24" opacity="0.5"/>
+  <text x="856" y="365" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#fbbf24" text-anchor="end">Moderate</text>
+
+  <!-- Bottom status bar -->
+  <rect x="30" y="382" width="840" height="22" rx="5" fill="#161b22"/>
+  <text x="46" y="397" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#4facfe">3 selected (9.0 GB)</text>
+  <text x="450" y="397" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#8b949e" text-anchor="middle">Space: toggle | a: all | Enter: clean | l: drill-down | ?: help</text>
+  <text x="856" y="397" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#27ca3f" text-anchor="end">18.7 GB total</text>
+
+  <!-- Cursor indicator on highlighted row -->
+  <text x="34" y="161" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#4facfe">></text>
+</svg>
