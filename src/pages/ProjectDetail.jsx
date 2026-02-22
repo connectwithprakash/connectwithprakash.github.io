@@ -280,7 +280,7 @@ const ProjectDetail = () => {
             {project.images && project.images.length > 0 && (
               <motion.section className="project-section glass-card" variants={itemVariants}>
                 <h2 className="gradient-text">Screenshots</h2>
-                <div className="project-images-grid">
+                <div className={`project-images-grid${project.imageLayout === 'stacked' ? ' project-images-stacked' : ''}`}>
                   {project.images.map((image, index) => (
                     <div key={index} className="project-image-item">
                       <img src={image.path} alt={image.caption} />

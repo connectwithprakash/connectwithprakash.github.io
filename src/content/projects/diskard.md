@@ -12,6 +12,7 @@ gradient: var(--gradient-tertiary)
 thumbnail: /assets/img/projects/diskard/thumbnail.svg
 heroImage: /assets/img/projects/diskard/hero.svg
 github: https://github.com/connectwithprakash/diskard
+imageLayout: stacked
 images:
   - path: /assets/img/projects/diskard/01-scan-results.png
     caption: Interactive TUI showing scan results with 26 reclaimable items sorted by size
