@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="reactGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.03" />
+    </linearGradient>
+    <linearGradient id="tacGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0.03" />
+    </linearGradient>
+    <linearGradient id="barReact" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444" />
+      <stop offset="100%" style="stop-color:#f87171" />
+    </linearGradient>
+    <linearGradient id="barTac" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e" />
+      <stop offset="100%" style="stop-color:#4ade80" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" fill="url(#bg)" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="38" font-family="Inter, SF Pro, system-ui, sans-serif" font-size="20" font-weight="700" fill="#e2e8f0" text-anchor="middle">Tool-as-Code vs ReAct</text>
+  <text x="450" y="58" font-family="Inter, SF Pro, system-ui, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">60 benchmark runs | GPT-4.1 | 20 tools | 10 queries</text>
+
+  <!-- Divider -->
+  <line x1="450" y1="72" x2="450" y2="460" stroke="#2d2d44" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- LEFT SIDE: ReAct -->
+  <rect x="20" y="72" width="415" height="395" rx="10" fill="url(#reactGrad)" stroke="#dc2626" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="227" y="98" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" font-weight="600" fill="#f87171" text-anchor="middle">ReAct (standard agent loop)</text>
+
+  <!-- ReAct flow diagram -->
+  <!-- Query box -->
+  <rect x="160" y="112" width="136" height="28" rx="6" fill="#2d2d44" stroke="#64748b" stroke-width="1"/>
+  <text x="228" y="130" font-family="SF Mono, Consolas, monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">User Query</text>
+
+  <!-- Arrow down -->
+  <line x1="228" y1="140" x2="228" y2="152" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="228,156 224,150 232,150" fill="#64748b"/>
+
+  <!-- Round 1 -->
+  <rect x="160" y="158" width="136" height="24" rx="5" fill="#1e1e38" stroke="#f87171" stroke-width="1"/>
+  <text x="228" y="174" font-family="SF Mono, Consolas, monospace" font-size="9" fill="#fca5a5" text-anchor="middle">LLM Round 1</text>
+
+  <!-- Arrow to tool -->
+  <line x1="228" y1="182" x2="228" y2="190" stroke="#f87171" stroke-width="1"/>
+  <polygon points="228,194 224,188 232,188" fill="#f87171"/>
+  <rect x="176" y="195" width="104" height="20" rx="4" fill="#292940" stroke="#818cf8" stroke-width="0.8"/>
+  <text x="228" y="209" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Tool 1 result</text>
+
+  <!-- Arrow back (result re-enters context) -->
+  <path d="M 280,205 Q 310,205 310,225 Q 310,238 280,238" fill="none" stroke="#f87171" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="330" y="222" font-family="SF Mono, Consolas, monospace" font-size="7" fill="#6b7280" text-anchor="middle">context</text>
+  <text x="330" y="232" font-family="SF Mono, Consolas, monospace" font-size="7" fill="#6b7280" text-anchor="middle">grows</text>
+
+  <!-- Round 2 -->
+  <rect x="160" y="228" width="136" height="24" rx="5" fill="#1e1e38" stroke="#f87171" stroke-width="1"/>
+  <text x="228" y="244" font-family="SF Mono, Consolas, monospace" font-size="9" fill="#fca5a5" text-anchor="middle">LLM Round 2</text>
+
+  <!-- Arrow to tool 2 -->
+  <line x1="228" y1="252" x2="228" y2="260" stroke="#f87171" stroke-width="1"/>
+  <polygon points="228,264 224,258 232,258" fill="#f87171"/>
+  <rect x="176" y="265" width="104" height="20" rx="4" fill="#292940" stroke="#818cf8" stroke-width="0.8"/>
+  <text x="228" y="279" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Tool 2 result</text>
+
+  <!-- Arrow back -->
+  <path d="M 280,275 Q 310,275 310,295 Q 310,308 280,308" fill="none" stroke="#f87171" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Round 3 -->
+  <rect x="160" y="298" width="136" height="24" rx="5" fill="#1e1e38" stroke="#f87171" stroke-width="1"/>
+  <text x="228" y="314" font-family="SF Mono, Consolas, monospace" font-size="9" fill="#fca5a5" text-anchor="middle">LLM Round 3</text>
+
+  <!-- Dots for more rounds -->
+  <text x="228" y="338" font-family="SF Mono, Consolas, monospace" font-size="12" fill="#6b7280" text-anchor="middle">...</text>
+
+  <!-- Round N+1 -->
+  <rect x="160" y="348" width="136" height="24" rx="5" fill="#1e1e38" stroke="#f87171" stroke-width="1"/>
+  <text x="228" y="364" font-family="SF Mono, Consolas, monospace" font-size="9" fill="#fca5a5" text-anchor="middle">LLM Round N+1</text>
+
+  <!-- Answer -->
+  <line x1="228" y1="372" x2="228" y2="382" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="228,386 224,380 232,380" fill="#64748b"/>
+  <rect x="176" y="388" width="104" height="24" rx="6" fill="#292940" stroke="#f87171" stroke-width="1"/>
+  <text x="228" y="404" font-family="SF Mono, Consolas, monospace" font-size="9" fill="#fca5a5" text-anchor="middle">Answer</text>
+
+  <!-- ReAct stats -->
+  <text x="80" y="432" font-family="SF Mono, Consolas, monospace" font-size="10" fill="#6b7280">multiple LLM rounds</text>
+  <text x="80" y="448" font-family="SF Mono, Consolas, monospace" font-size="10" fill="#f87171">growing context per round</text>
+
+  <!-- RIGHT SIDE: Tool-as-Code -->
+  <rect x="465" y="72" width="415" height="395" rx="10" fill="url(#tacGrad)" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="672" y="98" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" font-weight="600" fill="#4ade80" text-anchor="middle">Tool-as-Code (generate + execute)</text>
+
+  <!-- Query box -->
+  <rect x="605" y="112" width="136" height="28" rx="6" fill="#2d2d44" stroke="#64748b" stroke-width="1"/>
+  <text x="673" y="130" font-family="SF Mono, Consolas, monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">User Query</text>
+
+  <!-- Arrow down -->
+  <line x1="673" y1="140" x2="673" y2="152" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="673,156 669,150 677,150" fill="#64748b"/>
+
+  <!-- Single LLM round -->
+  <rect x="605" y="158" width="136" height="28" rx="5" fill="#1e1e38" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="673" y="176" font-family="SF Mono, Consolas, monospace" font-size="9" fill="#86efac" text-anchor="middle">LLM: generate solve()</text>
+
+  <!-- Arrow to code -->
+  <line x1="673" y1="186" x2="673" y2="198" stroke="#4ade80" stroke-width="1.5"/>
+  <polygon points="673,202 669,196 677,196" fill="#4ade80"/>
+
+  <!-- Code block -->
+  <rect x="555" y="204" width="236" height="100" rx="6" fill="#12121e" stroke="#4ade80" stroke-width="1"/>
+  <text x="570" y="222" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#6b7280">async def solve():</text>
+  <text x="570" y="236" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#86efac">  geo = await geocode_city(...)</text>
+  <text x="570" y="250" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#86efac">  weather, sunrise = await</text>
+  <text x="570" y="264" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#fbbf24">    asyncio.gather(</text>
+  <text x="570" y="278" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#86efac">      get_weather(...),</text>
+  <text x="570" y="292" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#86efac">      get_sunrise(...))</text>
+
+  <!-- Arrow to parallel execution -->
+  <line x1="673" y1="304" x2="673" y2="316" stroke="#4ade80" stroke-width="1.5"/>
+  <polygon points="673,320 669,314 677,314" fill="#4ade80"/>
+
+  <!-- Parallel tool calls -->
+  <rect x="505" y="322" width="80" height="22" rx="4" fill="#292940" stroke="#818cf8" stroke-width="0.8"/>
+  <text x="545" y="337" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Tool 1</text>
+
+  <rect x="593" y="322" width="80" height="22" rx="4" fill="#292940" stroke="#818cf8" stroke-width="0.8"/>
+  <text x="633" y="337" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Tool 2</text>
+
+  <rect x="681" y="322" width="80" height="22" rx="4" fill="#292940" stroke="#818cf8" stroke-width="0.8"/>
+  <text x="721" y="337" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Tool 3</text>
+
+  <rect x="769" y="322" width="80" height="22" rx="4" fill="#292940" stroke="#818cf8" stroke-width="0.8"/>
+  <text x="809" y="337" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Tool N</text>
+
+  <!-- Parallel label -->
+  <text x="673" y="358" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#fbbf24" text-anchor="middle">parallel execution (asyncio.gather)</text>
+
+  <!-- Results never re-enter -->
+  <text x="673" y="378" font-family="SF Mono, Consolas, monospace" font-size="8" fill="#6b7280" text-anchor="middle">results stay outside LLM context</text>
+
+  <!-- Answer -->
+  <line x1="673" y1="384" x2="673" y2="394" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="673,398 669,392 677,392" fill="#64748b"/>
+  <rect x="621" y="400" width="104" height="24" rx="6" fill="#292940" stroke="#4ade80" stroke-width="1"/>
+  <text x="673" y="416" font-family="SF Mono, Consolas, monospace" font-size="9" fill="#86efac" text-anchor="middle">Result dict</text>
+
+  <!-- TaC stats -->
+  <text x="525" y="432" font-family="SF Mono, Consolas, monospace" font-size="10" fill="#6b7280">single LLM round</text>
+  <text x="525" y="448" font-family="SF Mono, Consolas, monospace" font-size="10" fill="#4ade80">constant context size</text>
+
+  <!-- Bottom: savings banner -->
+  <rect x="200" y="458" width="500" height="18" rx="9" fill="#1e1e38" stroke="#818cf8" stroke-width="0.5"/>
+  <text x="450" y="471" font-family="SF Mono, Consolas, monospace" font-size="10" font-weight="600" fill="#a5b4fc" text-anchor="middle">~80% fewer tokens | ~50% fewer LLM rounds | constant TaC context size</text>
+</svg>
