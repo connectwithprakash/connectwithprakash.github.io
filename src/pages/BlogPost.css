@@ -277,6 +277,38 @@
   padding: 0;
 }
 
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.post-content thead {
+  border-bottom: 2px solid var(--neon-blue);
+}
+
+.post-content th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.post-content td {
+  padding: 0.6rem 1rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--glass-border);
+  white-space: nowrap;
+}
+
+.post-content tbody tr:hover {
+  background: var(--glass-bg);
+}
+
 .post-footer {
   margin: 3rem 0;
   padding: 2rem 0;
