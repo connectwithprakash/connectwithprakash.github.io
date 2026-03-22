@@ -1,103 +1,125 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
   <defs>
-    <linearGradient id="terminalBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1b4b;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2d2d44;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3d3d5c;stop-opacity:1" />
+    <linearGradient id="relayGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.1" />
     </linearGradient>
+    <linearGradient id="agentA" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981" />
+      <stop offset="100%" style="stop-color:#059669" />
+    </linearGradient>
+    <linearGradient id="agentB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6" />
+      <stop offset="100%" style="stop-color:#2563eb" />
+    </linearGradient>
+    <linearGradient id="agentC" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b" />
+      <stop offset="100%" style="stop-color:#d97706" />
+    </linearGradient>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981" opacity="0.8"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6" opacity="0.8"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f59e0b" opacity="0.8"/>
+    </marker>
   </defs>
 
-  <!-- Terminal window -->
-  <rect x="40" y="30" width="720" height="440" rx="12" ry="12" fill="url(#terminalBg)" stroke="#8b5cf6" stroke-width="2"/>
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
 
-  <!-- Terminal header -->
-  <rect x="40" y="30" width="720" height="40" rx="12" ry="12" fill="url(#headerBg)"/>
-  <rect x="40" y="58" width="720" height="12" fill="url(#headerBg)"/>
+  <!-- Central relay hub -->
+  <!-- Ellipse: cx=400, cy=230 -->
+  <ellipse cx="400" cy="230" rx="110" ry="90" fill="url(#relayGlow)" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 3"/>
+  <!-- Relay box: x=345, y=195, w=110, h=70. Center: (400, 230) -->
+  <rect x="345" y="195" width="110" height="70" rx="10" fill="#1e1b4b" stroke="#7c3aed" stroke-width="2"/>
+  <text x="400" y="214" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#a78bfa" text-anchor="middle" dominant-baseline="central" font-weight="bold">RELAY</text>
+  <text x="400" y="230" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#6b7280" text-anchor="middle" dominant-baseline="central">Turn-Based Hub</text>
+  <text x="400" y="246" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#4ade80" text-anchor="middle" dominant-baseline="central">M4UVS8</text>
 
-  <!-- Window buttons -->
-  <circle cx="70" cy="50" r="7" fill="#ff5f56"/>
-  <circle cx="95" cy="50" r="7" fill="#ffbd2e"/>
-  <circle cx="120" cy="50" r="7" fill="#27ca3f"/>
+  <!-- Agent A (left) -->
+  <!-- Box: x=50, y=140, w=150, h=100. Center: (125, 190) -->
+  <rect x="50" y="140" width="150" height="100" rx="10" fill="#0f172a" stroke="url(#agentA)" stroke-width="2"/>
+  <circle cx="85" cy="163" r="8" fill="#10b981"/>
+  <text x="100" y="163" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#10b981" font-weight="bold" dominant-baseline="central">session1</text>
+  <text x="125" y="185" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#6b7280" text-anchor="middle" dominant-baseline="central">Backend Specialist</text>
+  <text x="125" y="201" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#4ade80" text-anchor="middle" dominant-baseline="central">● active</text>
+  <text x="125" y="217" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#6b7280" text-anchor="middle" dominant-baseline="central">MCP · Claude Code</text>
 
-  <!-- Terminal title -->
-  <text x="400" y="55" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#a0a0a0" text-anchor="middle">agent-relay</text>
+  <!-- Agent B (right) -->
+  <!-- Box: x=600, y=140, w=150, h=100. Center: (675, 190) -->
+  <rect x="600" y="140" width="150" height="100" rx="10" fill="#0f172a" stroke="url(#agentB)" stroke-width="2"/>
+  <circle cx="635" cy="163" r="8" fill="#3b82f6"/>
+  <text x="650" y="163" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#3b82f6" font-weight="bold" dominant-baseline="central">session2</text>
+  <text x="675" y="185" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#6b7280" text-anchor="middle" dominant-baseline="central">Frontend Specialist</text>
+  <text x="675" y="201" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#fbbf24" text-anchor="middle" dominant-baseline="central">◉ composing</text>
+  <text x="675" y="217" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#6b7280" text-anchor="middle" dominant-baseline="central">MCP · Claude Code</text>
 
-  <!-- Command 1: Create relay -->
-  <text x="60" y="100" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
-    <tspan fill="#6b7280"># Create a relay for two agents</tspan>
-  </text>
-  <text x="60" y="125" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
-    <tspan fill="#27ca3f">$</tspan>
-    <tspan fill="#e0e0e0"> curl </tspan>
-    <tspan fill="#fbbf24">-X POST</tspan>
-    <tspan fill="#e0e0e0"> localhost:8000/relays </tspan>
-    <tspan fill="#fbbf24">-d</tspan>
-    <tspan fill="#a78bfa"> '{"agent_names": ["A", "B"]}'</tspan>
-  </text>
+  <!-- Agent C (bottom) -->
+  <!-- Box: x=325, y=340, w=150, h=100. Center: (400, 390) -->
+  <rect x="325" y="340" width="150" height="100" rx="10" fill="#0f172a" stroke="url(#agentC)" stroke-width="2"/>
+  <circle cx="360" cy="363" r="8" fill="#f59e0b"/>
+  <text x="375" y="363" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#f59e0b" font-weight="bold" dominant-baseline="central">session3</text>
+  <text x="400" y="385" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#6b7280" text-anchor="middle" dominant-baseline="central">SDK Reviewer</text>
+  <text x="400" y="401" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#4ade80" text-anchor="middle" dominant-baseline="central">● active</text>
+  <text x="400" y="417" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#6b7280" text-anchor="middle" dominant-baseline="central">MCP · Claude Code</text>
 
-  <!-- Response 1 -->
-  <text x="60" y="155" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
-    <tspan>{"relay_id": "relay-abc123", "current_turn": "A"}</tspan>
-  </text>
+  <!-- Connection lines -->
+  <!-- A to Relay: A box right edge (200, 190) -> Relay box left edge (345, 230) -->
+  <line x1="200" y1="190" x2="345" y2="230" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6" marker-end="url(#arrow-green)"/>
+  <!-- Relay to B: Relay box right edge (455, 230) -> B box left edge (600, 190) -->
+  <line x1="455" y1="230" x2="600" y2="190" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6" marker-end="url(#arrow-blue)"/>
+  <!-- C to Relay: C box top edge y=340, center_x=400. Relay box bottom edge y=265, center_x=400 -->
+  <line x1="400" y1="340" x2="400" y2="265" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6" marker-end="url(#arrow-amber)"/>
 
-  <!-- Command 2: Send message -->
-  <text x="60" y="195" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
-    <tspan fill="#6b7280"># Agent A sends a message</tspan>
-  </text>
-  <text x="60" y="220" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
-    <tspan fill="#27ca3f">$</tspan>
-    <tspan fill="#e0e0e0"> curl </tspan>
-    <tspan fill="#fbbf24">-X POST</tspan>
-    <tspan fill="#e0e0e0"> localhost:8000/relays/abc123/messages</tspan>
-  </text>
-  <text x="60" y="245" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
-    <tspan fill="#e0e0e0">  </tspan>
-    <tspan fill="#fbbf24">-d</tspan>
-    <tspan fill="#a78bfa"> '{"sender": "A", "content": "Ready to build?"}'</tspan>
-  </text>
+  <!-- Message bubbles floating near relay -->
+  <!-- relay_send: w=90, h=28. Center: (325, 154) -->
+  <rect x="280" y="140" width="90" height="28" rx="6" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1"/>
+  <text x="325" y="154" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#10b981" text-anchor="middle" dominant-baseline="central">relay_send</text>
 
-  <!-- Response 2 -->
-  <text x="60" y="275" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
-    <tspan>{"id": 1, "sender": "A", "current_turn": "B"}</tspan>
-  </text>
+  <!-- relay_listen: w=95, h=28. Center: (477.5, 154) -->
+  <rect x="430" y="140" width="95" height="28" rx="6" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+  <text x="477" y="154" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#3b82f6" text-anchor="middle" dominant-baseline="central">relay_listen</text>
 
-  <!-- Command 3: WebSocket -->
-  <text x="60" y="315" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
-    <tspan fill="#6b7280"># Real-time WebSocket updates</tspan>
-  </text>
-  <text x="60" y="340" font-family="SF Mono, Monaco, Consolas, monospace" font-size="15">
-    <tspan fill="#27ca3f">$</tspan>
-    <tspan fill="#e0e0e0"> wscat </tspan>
-    <tspan fill="#fbbf24">-c</tspan>
-    <tspan fill="#e0e0e0"> ws://localhost:8000/relays/abc123/ws</tspan>
-  </text>
+  <!-- relay_heartbeat: w=105, h=28. Center: (512.5, 304) -->
+  <rect x="460" y="290" width="105" height="28" rx="6" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+  <text x="512" y="304" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#f59e0b" text-anchor="middle" dominant-baseline="central">relay_heartbeat</text>
 
-  <!-- WebSocket output -->
-  <text x="60" y="370" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#27ca3f">
-    <tspan>Connected to relay abc123</tspan>
-  </text>
-  <text x="60" y="392" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#6b7280">
-    <tspan>&lt; {"type": "message", "sender": "B", "content": "Yes!"}</tspan>
-  </text>
+  <!-- Title -->
+  <text x="400" y="42" font-family="SF Mono, Monaco, Consolas, monospace" font-size="22" fill="#e2e8f0" text-anchor="middle" font-weight="bold">Agent Relay</text>
+  <text x="400" y="65" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#6b7280" text-anchor="middle">Turn-Based Agent-to-Agent Communication</text>
 
-  <!-- Status indicator -->
-  <text x="60" y="430" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14">
-    <tspan fill="#27ca3f">Turn:</tspan>
-    <tspan fill="#fbbf24"> Agent A</tspan>
-    <tspan fill="#6b7280"> | </tspan>
-    <tspan fill="#27ca3f">Messages:</tspan>
-    <tspan fill="#fbbf24"> 59</tspan>
-    <tspan fill="#6b7280"> | </tspan>
-    <tspan fill="#27ca3f">Collisions:</tspan>
-    <tspan fill="#fbbf24"> 0</tspan>
+  <!-- Bottom stats bar -->
+  <!-- Bar: x=40, y=460, w=720, h=30. Center_y=475 -->
+  <rect x="40" y="460" width="720" height="30" rx="6" fill="#1e1b4b" opacity="0.6"/>
+  <text x="80" y="475" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" dominant-baseline="central">
+    <tspan fill="#a78bfa">Turn:</tspan>
+    <tspan fill="#3b82f6"> session2</tspan>
+  </text>
+  <text x="250" y="475" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" dominant-baseline="central">
+    <tspan fill="#a78bfa">Messages:</tspan>
+    <tspan fill="#e2e8f0"> 62</tspan>
+  </text>
+  <text x="400" y="475" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" dominant-baseline="central">
+    <tspan fill="#a78bfa">Agents:</tspan>
+    <tspan fill="#4ade80"> 3/3 online</tspan>
+  </text>
+  <text x="570" y="475" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" dominant-baseline="central">
+    <tspan fill="#a78bfa">Collisions:</tspan>
+    <tspan fill="#4ade80"> 0</tspan>
   </text>
 
-  <!-- Cursor -->
-  <text x="60" y="458" font-family="SF Mono, Monaco, Consolas, monospace" font-size="16">
-    <tspan fill="#27ca3f">$</tspan>
-    <tspan fill="#a78bfa">_</tspan>
-  </text>
+  <!-- Decorative grid dots -->
+  <g opacity="0.1" fill="#7c3aed">
+    <circle cx="30" cy="100" r="1.5"/><circle cx="30" cy="120" r="1.5"/><circle cx="30" cy="140" r="1.5"/>
+    <circle cx="50" cy="100" r="1.5"/><circle cx="50" cy="120" r="1.5"/><circle cx="50" cy="140" r="1.5"/>
+    <circle cx="770" cy="360" r="1.5"/><circle cx="770" cy="380" r="1.5"/><circle cx="770" cy="400" r="1.5"/>
+    <circle cx="750" cy="360" r="1.5"/><circle cx="750" cy="380" r="1.5"/><circle cx="750" cy="400" r="1.5"/>
+  </g>
 </svg>

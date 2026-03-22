@@ -133,15 +133,6 @@ At inference, a new product's image is encoded into the same embedding space. Co
 - Inference: Pre-compute all time series embeddings for fast retrieval
 - Aggregation: Weighted average of Top-K retrieved patterns based on similarity scores
 
-## My Role
-
-Developed the multimodal forecasting pipeline:
-- Designed the dual-encoder contrastive learning architecture inspired by CLIP
-- Implemented image encoder for product design images
-- Built time series encoder for sales pattern representation
-- Created the training pipeline with contrastive loss
-- Developed inference system to retrieve sales patterns from image embeddings
-
 ## Key Achievements
 
 - **Cold start solution** - Enabled forecasting for products with zero sales history

@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      text { font-family: 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace; }
+      .box { rx: 10; ry: 10; stroke-width: 2; }
+      .label { fill: #e2e8f0; font-size: 12px; text-anchor: middle; dominant-baseline: central; }
+      .title { fill: #e2e8f0; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .track-label { fill: #94a3b8; font-size: 10px; text-anchor: middle; letter-spacing: 1px; }
+      .arrow { stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-loop { stroke-width: 2; fill: none; marker-end: url(#arrowhead-amber); }
+      .heartbeat-line { stroke: #f59e0b; stroke-width: 1.5; stroke-dasharray: 6 4; opacity: 0.7; }
+      .heartbeat-dot { fill: #f59e0b; opacity: 0.8; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a78bfa"/>
+    </marker>
+    <marker id="arrowhead-amber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="400" y="28" class="title" font-size="16" fill="#a78bfa">Agent Relay Protocol Flow</text>
+
+  <!-- Track labels -->
+  <text x="400" y="58" class="track-label" fill="#64748b">MAIN FLOW</text>
+  <text x="400" y="328" class="track-label" fill="#64748b">PRESENCE TRACK</text>
+
+  <!-- ===== MAIN FLOW ===== -->
+  <!-- All boxes: y=80, h=44. Vertical center = 102 -->
+
+  <!-- Box 1: Create Relay. x=20, w=120. Center: (80, 102) -->
+  <rect x="20" y="80" width="120" height="44" class="box" fill="#1e1b4b" stroke="#7c3aed"/>
+  <text x="80" y="94" class="label" font-size="11">Create</text>
+  <text x="80" y="110" class="label" font-size="11">Relay</text>
+
+  <!-- Arrow 1->2: right edge x=140 to left edge x=170 -->
+  <line x1="140" y1="102" x2="168" y2="102" class="arrow" stroke="#a78bfa"/>
+
+  <!-- Box 2: Get Join Code. x=170, w=120. Center: (230, 102) -->
+  <rect x="170" y="80" width="120" height="44" class="box" fill="#1e1b4b" stroke="#7c3aed"/>
+  <text x="230" y="94" class="label" font-size="11">Get Join</text>
+  <text x="230" y="110" class="label" font-size="11">Code</text>
+
+  <!-- Arrow 2->3: right edge x=290 to left edge x=320 -->
+  <line x1="290" y1="102" x2="318" y2="102" class="arrow" stroke="#a78bfa"/>
+
+  <!-- Box 3: Join. x=320, w=100. Center: (370, 102) -->
+  <rect x="320" y="80" width="100" height="44" class="box" fill="#022c22" stroke="#10b981"/>
+  <text x="370" y="102" class="label" font-size="11">Join</text>
+
+  <!-- Arrow 3->4: right edge x=420 to left edge x=450 -->
+  <line x1="420" y1="102" x2="448" y2="102" class="arrow" stroke="#a78bfa"/>
+
+  <!-- Box 4: Listen. x=450, w=100. Center: (500, 102) -->
+  <rect x="450" y="80" width="100" height="44" class="box" fill="#172554" stroke="#3b82f6"/>
+  <text x="500" y="102" class="label" font-size="11">Listen</text>
+
+  <!-- Arrow 4->5: right edge x=550 to left edge x=580 -->
+  <line x1="550" y1="102" x2="578" y2="102" class="arrow" stroke="#a78bfa"/>
+
+  <!-- Box 5: Send. x=580, w=120. Center: (640, 102) -->
+  <rect x="580" y="80" width="120" height="44" class="box" fill="#172554" stroke="#3b82f6"/>
+  <text x="640" y="95" class="label" font-size="11">Send</text>
+  <text x="640" y="110" class="label" font-size="9" fill="#94a3b8">(your turn)</text>
+
+  <!-- Arrow 5->6: right edge x=700 to left edge x=730 -->
+  <line x1="700" y1="102" x2="728" y2="102" class="arrow" stroke="#a78bfa"/>
+
+  <!-- Box 6: continuation. x=730, w=50. Center: (755, 102) -->
+  <rect x="730" y="80" width="50" height="44" class="box" fill="#172554" stroke="#3b82f6"/>
+  <text x="755" y="102" class="label" font-size="10">...</text>
+
+  <!-- Loop arrow: from box 6 bottom (755, 124) back to box 4 bottom (500, 124) -->
+  <path d="M 755 124 L 755 170 Q 755 185 740 185 L 515 185 Q 500 185 500 170 L 500 124"
+        class="arrow-loop" stroke="#f59e0b"/>
+  <text x="627" y="200" class="track-label" fill="#f59e0b" font-size="10">repeat</text>
+
+  <!-- ===== ANNOTATIONS ===== -->
+  <!-- Setup phase bracket: boxes 1-3, x=20 to x=420 -->
+  <line x1="20" y1="140" x2="420" y2="140" stroke="#7c3aed" stroke-width="1" opacity="0.4"/>
+  <text x="220" y="156" class="track-label" fill="#7c3aed" font-size="9">SETUP (once)</text>
+
+  <!-- Message loop bracket: boxes 4-6, x=450 to x=780 -->
+  <line x1="450" y1="140" x2="780" y2="140" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+  <text x="615" y="156" class="track-label" fill="#3b82f6" font-size="9">MESSAGE LOOP (repeat)</text>
+
+  <!-- ===== LEGEND ===== -->
+  <!-- Evenly spaced: 4 items across ~380px starting at x=120, gap ~120px -->
+  <rect x="120" y="230" width="12" height="12" rx="3" ry="3" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="140" y="236" fill="#94a3b8" font-size="9" dominant-baseline="central" font-family="'SF Mono', Monaco, Consolas, monospace">Setup</text>
+
+  <rect x="240" y="230" width="12" height="12" rx="3" ry="3" fill="#172554" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="260" y="236" fill="#94a3b8" font-size="9" dominant-baseline="central" font-family="'SF Mono', Monaco, Consolas, monospace">Messaging</text>
+
+  <rect x="390" y="230" width="12" height="12" rx="3" ry="3" fill="#022c22" stroke="#10b981" stroke-width="1.5"/>
+  <text x="410" y="236" fill="#94a3b8" font-size="9" dominant-baseline="central" font-family="'SF Mono', Monaco, Consolas, monospace">Auth</text>
+
+  <circle cx="526" cy="236" r="5" fill="#f59e0b" opacity="0.8"/>
+  <text x="540" y="236" fill="#94a3b8" font-size="9" dominant-baseline="central" font-family="'SF Mono', Monaco, Consolas, monospace">Heartbeat</text>
+
+  <!-- ===== PRESENCE TRACK ===== -->
+
+  <!-- Heartbeat timeline -->
+  <line x1="60" y1="355" x2="740" y2="355" class="heartbeat-line"/>
+
+  <!-- Heartbeat pulses: evenly spaced at 110px intervals -->
+  <circle cx="100" cy="355" r="5" class="heartbeat-dot"/>
+  <circle cx="210" cy="355" r="5" class="heartbeat-dot"/>
+  <circle cx="320" cy="355" r="5" class="heartbeat-dot"/>
+  <circle cx="430" cy="355" r="5" class="heartbeat-dot"/>
+  <circle cx="540" cy="355" r="5" class="heartbeat-dot"/>
+  <circle cx="650" cy="355" r="5" class="heartbeat-dot"/>
+
+  <!-- Heartbeat label pill: w=140, h=24. Center: (370, 347) -->
+  <rect x="300" y="335" width="140" height="24" rx="12" ry="12" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+  <text x="370" y="347" class="label" font-size="10" fill="#fbbf24" dominant-baseline="central">heartbeat()</text>
+
+  <!-- Parallel indicator -->
+  <text x="400" y="300" class="track-label" fill="#475569" font-size="9">runs in parallel with main flow</text>
+  <line x1="300" y1="308" x2="500" y2="308" stroke="#475569" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Timing annotations -->
+  <text x="100" y="380" class="track-label" fill="#64748b" font-size="9">every 30s</text>
+  <text x="650" y="380" class="track-label" fill="#64748b" font-size="9">every 30s</text>
+</svg>

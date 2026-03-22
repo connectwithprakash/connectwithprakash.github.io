@@ -113,17 +113,6 @@ flowchart LR
 **LLM Providers:**
 - OpenAI, Anthropic, Ollama (configurable)
 
-## My Role
-
-Built this as an open-source project to demonstrate production-grade context management:
-
-- Designed the pluggable memory store architecture
-- Implemented semantic similarity filtering with adaptive thresholds
-- Built the LangGraph workflow for agent orchestration
-- Created FastAPI REST API with async support
-- Added comprehensive benchmarking and monitoring
-- Wrote documentation and interactive CLI for testing
-
 ## Impact
 
 This project demonstrates a practical solution to a common LLM application challenge. The 42% cost reduction compounds significantly at scale - for an application making 1M LLM calls/month, this approach can save thousands in API costs while actually improving response quality by filtering out irrelevant context.

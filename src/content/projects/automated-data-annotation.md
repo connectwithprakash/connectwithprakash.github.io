@@ -97,16 +97,6 @@ Each prediction includes structured reasoning:
 - Decision tree trace showing the classification path
 - Textual justification for the final label
 
-## My Role
-
-Designed and built the complete 3-agent annotation system:
-- Architected the LangGraph workflow with three specialized agents
-- Designed decision tree prompts for consistent classification
-- Built the human-LLM agreement comparison system
-- Created structured outputs with explainability metadata
-- Integrated with existing annotation tools and workflows
-- Built internal LLM framework library with reusable agents and workflow orchestration; published to JFrog for organization-wide reuse
-
 ## Key Achievements
 
 - **80%+ LLM accuracy** - LLM matches human annotator judgment across all labels
