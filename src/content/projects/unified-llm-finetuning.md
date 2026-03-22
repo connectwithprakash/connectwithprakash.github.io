@@ -103,17 +103,6 @@ flowchart LR
 - Sample packing for improved throughput
 - Automatic chat template detection and formatting
 
-## My Role
-
-Served as sole architect and developer with complete ownership:
-- Designed abstraction layer unifying 2 major fine-tuning ecosystems
-- Implemented Hydra+Pydantic configuration system with type safety
-- Built AWS SageMaker integration from scratch (multi-node, spot instances)
-- Created distributed training support (DDP, DeepSpeed ZeRO)
-- Developed protocol-based evaluation framework
-- Wrote 129+ tests for production reliability
-- Documented best practices and created sample configurations
-
 ## Key Achievements
 
 - **44 samples/sec** - Achieved high throughput on 4x A10G GPUs with 4-bit quantization

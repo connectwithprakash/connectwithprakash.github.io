@@ -87,15 +87,6 @@ Each prediction includes reasoning from the annotation workflow:
 - Google Sheets integration for workflow
 - AWS CloudWatch for monitoring
 
-## My Role
-
-Designed and built the complete auditing system:
-- Created the LLM classification pipeline with ensemble predictions
-- Built Streamlit UI for team workflow integration
-- Implemented Google Sheets integration for data input/output
-- Deployed on Fetch's Streamlit hub for production use
-- Established logging and monitoring with CloudWatch
-
 ## Key Achievements
 
 - **95% recall** - Catches nearly all false positive matches

@@ -1,33 +1,41 @@
 ---
 id: agent-relay
 title: Agent Relay
-shortDescription: Agent-to-agent communication system with turn-based messaging, WebSocket real-time updates, and webhook delivery - built collaboratively by AI agents while using the very system they were creating.
+shortDescription: Turn-based agent-to-agent communication platform with join codes, presence tracking, MCP integration, and a Python SDK.
 category: agentic-ai
 status: in-progress
-startDate: 2024-12
+startDate: 2025-12
 importance: 1
 featured: true
-tags: [Agentic AI, Multi-Agent Systems, FastAPI, React 19, WebSocket, Real-Time Communication, TailwindCSS, CI/CD]
+tags: [Agentic AI, Multi-Agent Systems, FastAPI, React 19, WebSocket, MCP, Python SDK, Real-Time Communication, TailwindCSS, CI/CD]
 gradient: var(--gradient-quaternary)
 thumbnail: /assets/img/projects/agent-relay/thumbnail.svg
+heroImage: /assets/img/projects/agent-relay/thumbnail.svg
 github: https://github.com/connectwithprakash/agent-relay
+images:
+  - path: /assets/img/projects/agent-relay/homepage.png
+    caption: Agent Relay homepage with hero, how-it-works flow, and public relays list
+  - path: /assets/img/projects/agent-relay/dashboard.png
+    caption: Relay dashboard with live agent conversation, presence indicators, and turn management
+  - path: /assets/img/projects/agent-relay/create-relay.png
+    caption: Create relay page with Named Agents configuration and discoverable toggle
 demo: null
 ---
 
 ## Overview
 
-Agent Relay is a full-stack real-time communication platform designed specifically for AI agent collaboration. Built with FastAPI and React 19, it provides turn-based messaging with strict validation, WebSocket broadcasting for instant updates, and webhook delivery with retry logic. The project was dogfooded during development - two specialized agents used the relay to coordinate while building it.
+Agent Relay lets AI agents talk to each other. It enforces turn-based messaging so only one agent speaks at a time, tracks who's online via heartbeats, and persists every message for full audit trails. Agents join with a 6-character code, authenticate with tokens, and collaborate through a REST API, WebSocket stream, or MCP tools — no shared memory or parent process required.
 
 ## Why Agent Relay?
 
-Many AI frameworks support spawning subagents (child processes that complete tasks and return). Agent Relay solves a different problem - **peer-to-peer collaboration between independent agents**:
+Most AI frameworks treat agent communication as a parent-child relationship: spawn a subagent, wait for it to finish, read its output. Agent Relay enables something different — **peer-to-peer collaboration between independent agents** that may run on separate machines, use different tools, and persist across sessions.
 
 | Aspect | Subagents | Agent Relay |
 |--------|-----------|-------------|
 | Relationship | Hierarchical (parent/child) | Peer-to-peer (equals) |
-| Context | Shared - parent passes context | Isolated - only explicit messages |
-| Lifecycle | Ephemeral - complete and terminate | Persistent - survives restarts |
-| Environment | Same process/session | Separate machines possible |
+| Context | Shared — parent passes context | Isolated — explicit messages only |
+| Lifecycle | Ephemeral — complete and terminate | Persistent — survives restarts |
+| Environment | Same process/session | Cross-machine capable |
 | Parallelism | Parent waits for child | True simultaneous work |
 
 ```mermaid
@@ -39,124 +47,100 @@ flowchart LR
     R --- DB[(History)]
 ```
 
-**When to use Agent Relay:**
-- Multiple AI agents need to collaborate as peers
-- Agents have different specializations, tools, or system prompts
-- You need an audit trail of all agent communication
-- Agents may run on different machines or environments
-- Conversations need to persist across sessions
+**Use Agent Relay when:**
+- Multiple agents need to collaborate as equals, not in a hierarchy
+- Agents run on different machines or have different tool sets
+- You need a persistent audit trail of all agent communication
+- Agents should join dynamically via share codes — no config files needed
+- You want real-time presence tracking (active / composing / idle / disconnected)
 
-## Problem Statement
+## Architecture
 
-AI agents need reliable communication infrastructure to collaborate on complex tasks:
-- **Message collision prevention** - Multiple agents writing simultaneously causes race conditions
-- **Real-time coordination** - Polling is inefficient for interactive workflows
-- **State synchronization** - Agents need to know whose turn it is and what messages have been exchanged
-- **External integration** - Other systems need webhook notifications for agent activity
-- **Production reliability** - Need proper error handling, retry logic, and comprehensive logging
+### Components
 
-## Technical Approach
+- **FastAPI Backend** — SOLID-compliant layered architecture with services, repositories, SQLAlchemy ORM, and SQLite
+- **React 19 Frontend** — Real-time dashboard with WebSocket auto-reconnection, dark mode, and spectator view
+- **Python SDK** — Sync client with CLI for scripted and programmatic access
+- **MCP Server** — 12+ tools that let LLM agents (Claude Code, Cursor) join relays, send messages, and manage turns directly
 
-Designed a layered architecture with strict turn-based protocol and multiple communication channels:
+### Communication Channels
 
-**Core Architecture (SOLID-Compliant):**
-- **FastAPI Backend** - Layered architecture with services and repositories following SOLID principles
-- **Services Layer** - PrivacyService, RelayService, WebhookService for business logic separation
-- **Repository Pattern** - Database abstraction with RelayRepository, MessageRepository, WebhookRepository
-- **SQLite + SQLAlchemy ORM** - Persistent storage for relays, messages, and webhook deliveries
-- **Turn-Based Protocol** - Database-level atomic operations prevent message collisions
-- **WebSocket Manager** - Multi-client broadcasting with connection lifecycle management
-- **React 19 Frontend** - Custom hooks (useRelay, useWebSocket, useMessages) for clean state management
-- **Auto-Reconnection** - WebSocket reconnection with exponential backoff for reliability
+- **HTTP REST API** — CRUD for relays, messages, and agent management
+- **WebSocket** — Sub-second real-time broadcasting to all connected clients
+- **Server-Sent Events** — Read-only spectator mode for monitoring without participating
+- **Webhooks** — POST notifications to external endpoints with 3-attempt exponential backoff
 
-**Communication Mechanisms:**
-- **HTTP REST API** - Create relays, send messages, retrieve history
-- **WebSocket Streaming** - Real-time message broadcasting to all connected clients
-- **Webhook Delivery** - POST notifications to external endpoints with 3-attempt exponential backoff
+![Architecture diagram](/assets/img/projects/agent-relay/architecture.svg)
 
-**Key Features:**
-- Turn validation at database level ensures only the current turn agent can send messages
-- ConnectionManager maintains active WebSocket connections and handles broadcasts
-- Webhook retry with 1s, 2s, 4s delays and comprehensive delivery logging
-- Dark mode support with TailwindCSS v4
-- Comprehensive error handling and CORS configuration
+## Key Features
 
-## My Role
+| Feature | Description |
+|---------|-------------|
+| **Join Codes** | 6-character codes for instant access — share a code, not a config file |
+| **Token Auth** | Per-agent tokens issued on join, persisted to `.agent-relay.json` |
+| **Turn-Based Protocol** | Database-level atomic validation prevents message collisions |
+| **Heartbeat / Presence** | Agents report active/composing/idle; marked disconnected after 120s |
+| **Starvation Prevention** | Tracks turns waited per agent, auto-prioritizes those skipped too often |
+| **Message Types** | text, question, action-item, decision, code, bug-report |
+| **Threading** | `reply_to` field for threaded conversations |
+| **Force Skip** | Skip unresponsive agents via `relay_skip_turn` |
+| **Spectator Mode** | SSE streaming for watching relays without participating |
+| **Webhook Delivery** | POST notifications with exponential backoff retry |
+| **WebSocket Broadcasting** | Real-time message delivery to all connected clients |
 
-This project represents my exploration of AI agent coordination and multi-agent systems. I served as the **human coordinator** who:
-- Designed the system architecture and made key technical decisions
-- Coordinated two AI agents (Backend and Frontend specialists) throughout development
-- Defined the turn-based protocol to prevent race conditions
-- Validated the dogfooding approach - using the system to build itself
+## How It Works
 
-**Agent Collaboration Model:**
+### Join a Relay in 3 Steps
+1. **Create** — `relay_create` returns a 6-character join code (e.g., `M4UVS8`)
+2. **Join** — `relay_join_code("M4UVS8", "my-agent")` returns a token and full relay context
+3. **Collaborate** — `relay_listen` to poll for messages, `relay_send` when it's your turn, `relay_heartbeat` to stay visible
 
-```mermaid
-sequenceDiagram
-    participant BA as Backend Agent
-    participant R as Relay
-    participant FA as Frontend Agent
+### MCP Integration
+The MCP server exposes 12+ tools so LLM agents can join relays, send messages, check status, and skip turns — all from within their tool-calling environment. Session state persists to `.agent-relay.json` for seamless reconnection.
 
-    BA->>R: Backend ready
-    R-->>FA: Notify
-    FA->>R: Frontend ready
-    R-->>BA: Notify
-    BA->>R: Bug found
-    R-->>FA: Notify
-    FA->>R: Fix committed
-    R-->>BA: Notify
+### Claude Code Skill
+A SKILL.md file defines autonomous behavior rules for agents on the relay:
+- **Conversation loop** — heartbeat/poll/listen cycle keeps agents engaged
+- **Deadlock recovery** — detect disconnected agents and force-skip
+- **Full autonomy** — agents coordinate without asking the human for help
+- **Productive waiting** — do useful work (read code, prepare proposals) while waiting for your turn
+
+### Python SDK
+```python
+from agent_relay import AgentRelayClient
+
+with AgentRelayClient("http://localhost:8000") as client:
+    relay = client.create_relay(["alice", "bob"])
+    client.send_message(relay.relay_id, "Hello from Alice!")
+    messages = client.listen(relay.relay_id, since_id=0)
 ```
-
-Over 59 messages were exchanged with zero collisions - the turn-based protocol ensured orderly communication throughout.
-
-This project demonstrates my ability to think through problems, manage AI agents effectively, and execute on complex ideas - rather than claiming deep expertise across every technology in the stack.
 
 ## Key Achievements
 
-- **6,814 lines of production code** - Full-stack implementation with comprehensive error handling
-- **39+ collaboration messages** - Real dogfooding of the system during development
-- **Turn-based protocol** - Zero message collisions despite concurrent agent activity
-- **Real-time WebSocket** - Sub-second message delivery to all connected clients
-- **Webhook reliability** - 3-attempt retry with exponential backoff
-- **Dark mode** - Full UI theming with TailwindCSS v4
-- **CI/CD pipeline** - GitHub Actions for automated testing and deployment
-- **Comprehensive docs** - README, architecture diagrams, deployment guides
+- **216 tests** across 17 test files — API, E2E, edge cases, security, WebSocket, presence, spectator
+- **4 integration surfaces** — REST API, WebSocket, MCP tools, Python SDK
+- **Zero message collisions** — turn-based protocol validated across 100+ messages in live multi-agent sessions
+- **Sub-second delivery** — WebSocket broadcasting to all connected clients
+- **CI/CD pipeline** — GitHub Actions for automated testing and deployment
 
 ## Technologies
 
-**Backend:** FastAPI, SQLAlchemy, SQLite, WebSocket, httpx
+**Backend:** FastAPI, SQLAlchemy, SQLite, WebSocket, Loguru, httpx, Alembic
 
 **Frontend:** React 19, Vite 7.2, TailwindCSS v4
 
-**Infrastructure:** GitHub Actions, Cloudflare Tunnel
+**SDK & Integration:** Python SDK, MCP Server, Claude Code Skill
 
-**Development:** Python, JavaScript, uv package manager, npm
+**Infrastructure:** GitHub Actions, Docker, Cloudflare Tunnel
 
-## Technical Innovations
-
-### 1. Turn-Based Validation at Database Level
-Implemented atomic operations using SQLAlchemy to ensure only the current turn agent can send messages. The relay maintains a `current_turn_index` that points to an agent in the `agent_names` array, and every message POST validates the sender before accepting.
-
-### 2. WebSocket ConnectionManager for Multi-Client Broadcasting
-Built a connection manager that maintains active WebSocket connections across multiple clients and broadcasts new messages instantly. Handles connection lifecycle (connect, disconnect) and ensures message delivery to all connected agents.
-
-### 3. Webhook Delivery with Exponential Backoff
-Implemented retry logic with 3 attempts using exponential delays (1s, 2s, 4s) for webhook deliveries. All attempts are logged in the database with timestamps and error messages for debugging.
-
-### 4. Dogfooded Development
-The most unique aspect: we built the system while using it for coordination. Over 39 messages were exchanged between Coordinator and Builder agents during development, proving the system works for real-world agent collaboration.
-
-### 5. React 19 Real-Time State Management
-Frontend components use WebSocket connections to receive instant message updates without polling. State updates are atomic and preserve message order through proper React hooks usage.
+**Development:** Python 3.13, JavaScript, uv, npm, pytest (216 tests)
 
 ## Impact
 
-Agent Relay v2 demonstrates that AI agents can successfully collaborate on complex software development when given proper communication infrastructure. The dogfooding approach validated the design in real-time, leading to 3 bug fixes during development. The project serves as both a production-ready tool and proof-of-concept that agent-to-agent collaboration can produce shippable software.
+Agent Relay started as an experiment: can AI agents collaborate effectively if you give them structured communication? The answer, after 100+ messages across multiple live sessions with zero collisions, is yes — provided three things are in place:
 
-**Key Insights:**
-- Turn-based protocols prevent chaos in multi-agent systems
-- Real-time communication significantly improves agent coordination
-- Dogfooding catches issues that tests miss
-- Clear role specialization (research vs. implementation) enhances productivity
+1. **Turn-based messaging** prevents the chaos of concurrent writes
+2. **Non-blocking polling** lets agents do useful work while waiting
+3. **Presence tracking** enables autonomous recovery when agents disconnect
 
-The system is ready for production use and can support complex multi-agent workflows requiring reliable, ordered communication.
+The system is production-ready and supports complex multi-agent workflows with reliable, ordered communication and full audit trails.

@@ -277,6 +277,15 @@
   padding: 0;
 }
 
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: 1.5rem 0;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 .post-content table {
   width: 100%;
   border-collapse: collapse;
