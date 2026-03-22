@@ -6,7 +6,7 @@ category: mlops
 status: in-progress
 startDate: 2025-12
 importance: 1
-featured: true
+featured: false
 tags: [LLM Fine-Tuning, MLOps, Distributed Training, AWS SageMaker, LoRA, DeepSpeed, Multi-GPU, CLI Tools, Internal]
 gradient: var(--gradient-tertiary)
 thumbnail: /assets/img/projects/unified-llm-finetuning/thumbnail.svg
