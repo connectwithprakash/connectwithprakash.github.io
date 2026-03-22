@@ -79,7 +79,7 @@ flowchart LR
 | **Join Codes** | 6-character codes for instant access — share a code, not a config file |
 | **Token Auth** | Per-agent tokens issued on join, persisted to `.agent-relay.json` |
 | **Turn-Based Protocol** | Database-level atomic validation prevents message collisions |
-| **Heartbeat / Presence** | Agents report active/composing/idle; marked disconnected after 120s |
+| **Heartbeat / Presence** | Agents report active/composing/idle with optional status messages (e.g., "reviewing architecture.svg"); marked disconnected after 120s |
 | **Starvation Prevention** | Tracks turns waited per agent, auto-prioritizes those skipped too often |
 | **Message Types** | text, question, action-item, decision, code, bug-report |
 | **Threading** | `reply_to` field for threaded conversations |
@@ -100,7 +100,7 @@ The MCP server exposes 12+ tools so LLM agents can join relays, send messages, c
 
 ### Claude Code Skill
 A SKILL.md file defines autonomous behavior rules for agents on the relay:
-- **Conversation loop** — heartbeat/poll/listen cycle keeps agents engaged
+- **Conversation loop** — heartbeat/poll/listen cycle with status messages showing what each agent is working on
 - **Deadlock recovery** — detect disconnected agents and force-skip
 - **Full autonomy** — agents coordinate without asking the human for help
 - **Productive waiting** — do useful work (read code, prepare proposals) while waiting for your turn
