@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import './ThemeToggle.css';
 
 const ThemeToggle = () => {
-  const { theme, toggleTheme, isDark } = useTheme();
+  const { toggleTheme, isDark } = useTheme();
 
   return (
     <motion.button

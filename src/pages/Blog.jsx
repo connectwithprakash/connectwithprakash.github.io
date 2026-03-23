@@ -11,7 +11,7 @@ import './Blog.css';
 
 const Blog = () => {
   const [allPosts, setAllPosts] = useState(blogPosts);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [showPersonal, setShowPersonal] = useState(false);
 
   const [ref, inView] = useInView({
@@ -116,11 +116,8 @@ const Blog = () => {
             variants={containerVariants}
             className="blog-posts-grid"
           >
-            {sortedPosts.map((post, index) => {
+            {sortedPosts.map((post) => {
               const isMediumPost = post.source === 'medium';
-              const linkProps = isMediumPost
-                ? { as: 'a', href: post.url, target: '_blank', rel: 'noopener noreferrer' }
-                : { to: `/blog/${post.id}` };
 
               return (
                 <motion.article

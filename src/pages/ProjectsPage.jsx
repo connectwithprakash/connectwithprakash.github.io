@@ -91,7 +91,7 @@ const ProjectsPage = () => {
         </div>
 
         <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               className={`project-card glass-card ${project.featured ? 'featured' : ''}`}

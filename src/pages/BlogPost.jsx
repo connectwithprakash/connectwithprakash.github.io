@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -26,7 +26,7 @@ import './BlogPost.css';
 
 const BlogPost = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+
   const [post, setPost] = useState(null);
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(0);
@@ -235,7 +235,7 @@ const BlogPost = () => {
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
-                code: ({ node, inline, className, children, ...props }) => {
+                code: ({ inline, className, children, ...props }) => {
                   const match = /language-(\w+)/.exec(className || '');
                   const language = match ? match[1] : '';
 
