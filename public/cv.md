@@ -49,6 +49,13 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 - Taught **50+ students** in Data Science, covering Python, Git, REST API, SQL, LLM, and MLOps as part of the AI Fellowship Latin America 2023
 - Taught Computer Vision as a lecturer and assisted with Machine Learning and Deep Learning courses as a Teaching Assistant for the AI Fellowship Nepal in 2022
 
+### Robotics Club, Pulchowk Campus | Tribhuvan University, Nepal
+**Robotics Team Member** | 2016 - 2019
+
+- Competed in **ABU Robocon**, Asia-Pacific's premier international robotics competition (12-14 countries), for 3 consecutive years
+- Won **ROHM Award (2019, Mongolia)** for innovative four-legged robot design and **Best Shuttlecock Award (2018, Vietnam)** for autonomous shuttlecock-throwing robot
+- Developed **control algorithms**, **kinematics**, and **navigation** using **ARM microcontrollers** with **multi-modal sensors** (IR, accelerometer, gyrometer, compass)
+
 ---
 
 ## Education
