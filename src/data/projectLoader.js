@@ -8,7 +8,7 @@ const modules = import.meta.glob('../content/projects/*.md', {
 });
 
 // Process markdown files into project objects
-const unsortedProjects = Object.entries(modules).map(([path, content]) => {
+const unsortedProjects = Object.entries(modules).map(([, content]) => {
   // Parse frontmatter and content using gray-matter
   const { data, content: markdownContent } = matter(content);
 
