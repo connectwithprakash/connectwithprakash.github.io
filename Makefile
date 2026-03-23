@@ -1,6 +1,9 @@
 # Makefile for Resume PDF Generation
 # Usage: make resume
 
+# macOS: weasyprint needs Homebrew libs (pango, gobject) on the library path
+export DYLD_FALLBACK_LIBRARY_PATH := /opt/homebrew/lib
+
 .PHONY: resume cv all clean help
 
 # Default: generate both PDFs

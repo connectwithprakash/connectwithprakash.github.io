@@ -1,7 +1,7 @@
 ---
 id: ai-shopping-assistant
 title: AI Shopping Assistant
-shortDescription: Multimodal AI assistant helping 25,000+ users discover products, find offers, and maximize rewards through natural language on iOS and Android.
+shortDescription: Multimodal AI assistant helping 50,000+ users discover products, find offers, and maximize rewards through natural language on iOS and Android.
 category: agentic-ai
 status: in-progress
 startDate: 2025-10
@@ -24,7 +24,7 @@ demo: null
 
 ## Overview
 
-Designed and deployed a multimodal AI shopping assistant that helps users discover products, find offers, maximize points, and personalize their shopping experiences across 300+ retail partners. The system serves 25,000+ users on iOS and Android with intelligent, conversational interactions and sub-second response times.
+Designed and deployed a multimodal AI shopping assistant that helps users discover products, find offers, maximize points, and personalize their shopping experiences across 300+ retail partners. The system serves 50,000+ users on iOS and Android with intelligent, conversational interactions and sub-second response times.
 
 ## Problem Statement
 
@@ -128,7 +128,7 @@ Building a production-grade consumer AI assistant required solving several criti
 - **Solution:** Implemented preprocessing pipeline with image compression and quality validation, added fallback to text-based search when image recognition confidence is low
 
 **5. Production Observability**
-- **Challenge:** Debugging non-deterministic LLM behavior in production with 25K+ users
+- **Challenge:** Debugging non-deterministic LLM behavior in production with 50K+ users
 - **Solution:** Built comprehensive tracing with Opik and OpenTelemetry, capturing full conversation flows, tool calls, and latency breakdowns, enabling rapid issue identification and resolution
 
 **6. Cost Management at Scale**
@@ -138,7 +138,7 @@ Building a production-grade consumer AI assistant required solving several criti
 ## My Role
 
 Led ML engineering efforts for the agentic system with end-to-end ownership:
-- Architected the dual-service system (Go frontend + Python agent backend)
+- Architected the dual-service system (Go API gateway + Python agent backend)
 - Built LangGraph-based agent framework with streaming support
 - Integrated OpenAI Responses API for advanced reasoning capabilities
 - Implemented MCP tool wrappers for internal API access
@@ -147,10 +147,12 @@ Led ML engineering efforts for the agentic system with end-to-end ownership:
 - Established comprehensive testing suite (pytest, moto for AWS mocking)
 - Set up observability pipeline (Opik tracing, CloudWatch, Grafana metrics)
 - Conducted A/B testing and evaluation using OpenAI's eval APIs with LLM-as-judge
+- Built product card system spanning agent logic, tool orchestration, and multi-source enrichment (SERP API, catalog search, CDN images, Fetch points)
+- Built end-to-end LLM evaluation pipeline with Opik for prompt versioning, LLM-as-a-Judge scoring, CI/CD deploy gates, annotation queues, and production feedback loop
 
 ## Key Achievements
 
-- **25,000+ users** - Successfully shipped to external users on iOS and Android
+- **50,000+ users** - Successfully shipped to external users on iOS and Android
 - **Sub-second latency** - p95 < 800ms for 95% of queries
 - **5+ MCP tools** - Seamless shopping experience with offers, products, history, location, web search
 - **Multimodal support** - Production-ready agent handling both text and image inputs
@@ -177,14 +179,14 @@ Led ML engineering efforts for the agentic system with end-to-end ownership:
 ## Impact
 
 **Business Impact:**
-- **First Consumer-Facing AI Agent** - Pioneered Fetch's entry into conversational AI, directly accessible to 25,000+ active users
+- **First Consumer-Facing AI Agent** - Pioneered Fetch's entry into conversational AI, directly accessible to 50,000+ active users
 - **Enhanced User Engagement** - Positive user reception and growing adoption
 - **Increased Shopping Efficiency** - Users discover personalized offers and products 3x faster than manual browsing
 - **Revenue Enablement** - Drives higher engagement with 300+ retail partners through intelligent offer discovery
 - **Platform Differentiation** - Establishes Fetch as an AI-first shopping rewards platform
 
 **Technical Innovation:**
-- **Production-Scale AI** - Sub-second latency (p95 < 800ms) at scale with 25K+ concurrent users
+- **Production-Scale AI** - Sub-second latency (p95 < 800ms) at scale with 50K+ concurrent users
 - **Modern AI Stack** - Early adopter of OpenAI Responses API, LangGraph state machines, and MCP tool protocol
 - **Microservices Architecture** - Dual-service design (Go + Python) enabling independent scaling and deployment
 - **Comprehensive Observability** - Full tracing and monitoring pipeline for debugging non-deterministic LLM behavior
