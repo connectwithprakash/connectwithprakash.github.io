@@ -19,9 +19,8 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 ### Fetch Rewards | Remote
 **Machine Learning Engineer - AI Labs** | May 2024 - Present
 
-- Shipped **multimodal AI Shopping Assistant** to **50,000+ external users** (iOS/Android), enabling natural language product discovery and purchase optimization through production multi-agent system
-- Built **product card system** spanning agent logic, tool orchestration, and multi-source enrichment (SERP API, catalog search, CDN images, Fetch points) to surface rich product recommendations in the AI Shopping Assistant
-- Built **end-to-end LLM evaluation pipeline** for the AI Shopping Assistant with **Opik** for prompt versioning, **LLM-as-a-Judge** scoring, CI/CD deploy gates, annotation queues, and **production feedback loop** for continuous agentic system iteration
+- Built and shipped **AI Shopping Assistant** to **200K+ iOS users** -- a Python/LangGraph agent with product card integration (catalog search, web search, 4.2M normalized images at 18x cost efficiency), episode-based conversation history (DynamoDB + S3), and production observability (Opik, OpenTelemetry, Grafana), deployed on AWS ECS Fargate
+- Built **end-to-end LLM evaluation system** -- a continuous improvement loop connecting offline evaluation (golden dataset), online monitoring (production traces), and human annotation (judge calibration), with **CI/CD deploy gating** that blocks releases on quality regression
 - **Led Multi-Agent Matching Framework**: cross-functional team of 4 engineers; improved match rates by **3.1-3.3 percentage points** (73.8%→76.9%) unlocking **$165M in GMV**; achieved **15% full automation** with **LLM-as-a-Judge guardrails** at **97% accuracy**, automating **50+ hours of manual operations to 2 minutes**
 - Developed **3-agent annotation workflow** using **LangGraph** with **LLM annotation** at **80%+ accuracy** to reduce double-annotation to single annotator, cutting total annotation workload by **40%** while maintaining dataset quality through human tie-breaking on disagreements
 - **Fully automated RAG pipeline** to flag incorrect product matches at **95% recall**, protecting **~$800K in GMV annually**; replaced manual workflow, reducing daily effort from **8 hours to 15 minutes** and **saving 40 hours weekly**
