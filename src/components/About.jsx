@@ -110,7 +110,7 @@ const About = () => {
                 <p>
                   I build production AI systems focused on{' '}
                   <strong>LLMs</strong> and <strong>Multi-Agent Systems</strong>.
-                  Recently shipped an <strong>AI Shopping Assistant</strong> to 25,000+ users,
+                  Recently shipped an <strong>AI Shopping Assistant</strong> to 200K+ users,
                   with over 5 years of experience delivering ML solutions that drive business impact.
                 </p>
                 <p>
