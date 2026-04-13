@@ -1,7 +1,7 @@
 ---
 id: ai-shopping-assistant
 title: AI Shopping Assistant
-shortDescription: Multimodal AI assistant helping 200K+ users discover products, find offers, and maximize rewards through natural language on iOS and Android.
+shortDescription: Multimodal AI assistant powering a 200K-user experiment, enabling natural language product discovery, offers, and rewards optimization on iOS.
 category: agentic-ai
 status: in-progress
 startDate: 2025-10
@@ -24,7 +24,7 @@ demo: null
 
 ## Overview
 
-Designed and deployed a multimodal AI shopping assistant that helps users discover products, find offers, maximize points, and personalize their shopping experiences across 300+ retail partners. The system serves 200K+ users on iOS and Android with intelligent, conversational interactions and sub-second response times.
+Designed and deployed a multimodal AI shopping assistant that helps users discover products, find offers, maximize points, and personalize their shopping experiences across 300+ retail partners. The system powers a 200K-user holdout experiment on iOS, with intelligent, conversational interactions and sub-second response times.
 
 ## Problem Statement
 
@@ -179,7 +179,7 @@ Led ML engineering efforts for the agentic system with end-to-end ownership:
 ## Impact
 
 **Business Impact:**
-- **First Consumer-Facing AI Agent** - Pioneered Fetch's entry into conversational AI, directly accessible to 200K+ active users
+- **First Consumer-Facing AI Agent** - Pioneered Fetch's entry into conversational AI, powering a 200K-user holdout experiment
 - **Enhanced User Engagement** - Positive user reception and growing adoption
 - **Increased Shopping Efficiency** - Users discover personalized offers and products 3x faster than manual browsing
 - **Revenue Enablement** - Drives higher engagement with 300+ retail partners through intelligent offer discovery
