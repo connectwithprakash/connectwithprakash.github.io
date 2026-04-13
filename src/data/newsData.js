@@ -1,5 +1,12 @@
 export const newsItems = [
   {
+    date: 'March 2026',
+    icon: 'rocket',
+    title: 'AI Shopping Assistant Reaches 200K+ Users',
+    description: 'AI Shopping Assistant scaled to 200K+ iOS users through the V2.1 holdout experiment, with product cards, web search, and a self-improving LLM evaluation system with CI/CD deploy gating.',
+    color: 'var(--neon-purple)',
+  },
+  {
     date: 'February 2026',
     icon: 'rocket',
     title: 'Released diskard on crates.io and Homebrew',
@@ -17,7 +24,7 @@ export const newsItems = [
     date: 'December 2025',
     icon: 'rocket',
     title: 'Shipped AI Shopping Assistant Alpha',
-    description: 'Shipped multimodal AI Shopping Assistant to 25,000+ external users (iOS/Android), enabling natural language product discovery and purchase optimization through production multi-agent system.',
+    description: 'Shipped multimodal AI Shopping Assistant to 10K+ external users (iOS/Android) in production alpha, enabling natural language product discovery and purchase optimization through production multi-agent system.',
     color: 'var(--neon-green)',
   },
   {

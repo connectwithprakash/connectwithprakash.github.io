@@ -1,7 +1,7 @@
 ---
 id: ai-shopping-assistant
 title: AI Shopping Assistant
-shortDescription: Multimodal AI assistant helping 50,000+ users discover products, find offers, and maximize rewards through natural language on iOS and Android.
+shortDescription: Multimodal AI assistant helping 200K+ users discover products, find offers, and maximize rewards through natural language on iOS and Android.
 category: agentic-ai
 status: in-progress
 startDate: 2025-10
@@ -24,7 +24,7 @@ demo: null
 
 ## Overview
 
-Designed and deployed a multimodal AI shopping assistant that helps users discover products, find offers, maximize points, and personalize their shopping experiences across 300+ retail partners. The system serves 50,000+ users on iOS and Android with intelligent, conversational interactions and sub-second response times.
+Designed and deployed a multimodal AI shopping assistant that helps users discover products, find offers, maximize points, and personalize their shopping experiences across 300+ retail partners. The system serves 200K+ users on iOS and Android with intelligent, conversational interactions and sub-second response times.
 
 ## Problem Statement
 
@@ -128,7 +128,7 @@ Building a production-grade consumer AI assistant required solving several criti
 - **Solution:** Implemented preprocessing pipeline with image compression and quality validation, added fallback to text-based search when image recognition confidence is low
 
 **5. Production Observability**
-- **Challenge:** Debugging non-deterministic LLM behavior in production with 50K+ users
+- **Challenge:** Debugging non-deterministic LLM behavior in production with 200K+ users
 - **Solution:** Built comprehensive tracing with Opik and OpenTelemetry, capturing full conversation flows, tool calls, and latency breakdowns, enabling rapid issue identification and resolution
 
 **6. Cost Management at Scale**
@@ -146,19 +146,19 @@ Led ML engineering efforts for the agentic system with end-to-end ownership:
 - Designed conversational system prompts (4 major iterations v1-v4)
 - Established comprehensive testing suite (pytest, moto for AWS mocking)
 - Set up observability pipeline (Opik tracing, CloudWatch, Grafana metrics)
-- Conducted A/B testing and evaluation using OpenAI's eval APIs with LLM-as-judge
-- Built product card system spanning agent logic, tool orchestration, and multi-source enrichment (SERP API, catalog search, CDN images, Fetch points)
-- Built end-to-end LLM evaluation pipeline with Opik for prompt versioning, LLM-as-a-Judge scoring, CI/CD deploy gates, annotation queues, and production feedback loop
+- Built product card system spanning agent logic, tool orchestration, and multi-source enrichment (SERP API, catalog search, CDN images, Fetch points), with infrastructure that also serves as the foundation for the Direct Messages feature
+- Built image normalization pipeline processing 4.2M product images at 18x cost efficiency ($1,633 vs $30K projected), combining computer vision with LLM-based quality review
+- Built end-to-end LLM evaluation system -- a continuous improvement loop connecting offline evaluation (golden dataset for experimentation), online evaluation (production trace monitoring), and human annotation (judge calibration loop where human feedback improves judges, which improves the dataset, which improves the agent), with CI/CD deploy gating that blocks releases on quality regression
 
 ## Key Achievements
 
-- **50,000+ users** - Successfully shipped to external users on iOS and Android
-- **Sub-second latency** - p95 < 800ms for 95% of queries
+- **200K+ users** - Successfully shipped to external users on iOS via V2.1 holdout experiment
+- **Continuous improvement loop** - Evaluation system connecting offline eval, online monitoring, and human annotation in a self-improving feedback cycle
+- **CI/CD quality gating** - Mandatory deploy gate validating every release against health scores; no automated quality gate existed before
+- **4.2M images processed** - Image normalization pipeline at 18x cost efficiency powering product cards
 - **5+ MCP tools** - Seamless shopping experience with offers, products, history, location, web search
-- **Multimodal support** - Production-ready agent handling both text and image inputs
-- **4 prompt iterations** - Refined conversational experience based on user feedback and evals
-- **Personalized recommendations** - Leveraged purchase history and preferences
-- **Production observability** - Comprehensive monitoring with tracing, logging, and metrics
+- **Extensible by design** - Team can modify agent behaviors, evaluation criteria, and tools without changing core code
+- **Production observability** - End-to-end visibility from LLM traces through production metrics via Opik, OpenTelemetry, and Grafana
 
 ## Technologies
 
@@ -179,18 +179,19 @@ Led ML engineering efforts for the agentic system with end-to-end ownership:
 ## Impact
 
 **Business Impact:**
-- **First Consumer-Facing AI Agent** - Pioneered Fetch's entry into conversational AI, directly accessible to 50,000+ active users
+- **First Consumer-Facing AI Agent** - Pioneered Fetch's entry into conversational AI, directly accessible to 200K+ active users
 - **Enhanced User Engagement** - Positive user reception and growing adoption
 - **Increased Shopping Efficiency** - Users discover personalized offers and products 3x faster than manual browsing
 - **Revenue Enablement** - Drives higher engagement with 300+ retail partners through intelligent offer discovery
 - **Platform Differentiation** - Establishes Fetch as an AI-first shopping rewards platform
 
 **Technical Innovation:**
-- **Production-Scale AI** - Sub-second latency (p95 < 800ms) at scale with 50K+ concurrent users
+- **Production-Scale AI** - Sub-second latency (p95 < 800ms) serving 200K+ users
+- **Self-Improving Evaluation** - Continuous feedback loop where human annotations calibrate judges, which improve the dataset, which improves the agent
+- **Extensible Architecture** - Config-driven system where agent behaviors, evaluation criteria, and tools are modified without changing core code
 - **Modern AI Stack** - Early adopter of OpenAI Responses API, LangGraph state machines, and MCP tool protocol
-- **Microservices Architecture** - Dual-service design (Go + Python) enabling independent scaling and deployment
-- **Comprehensive Observability** - Full tracing and monitoring pipeline for debugging non-deterministic LLM behavior
-- **Quality Engineering** - Rigorous testing with pytest, A/B testing framework, and LLM-as-judge evaluation
+- **Dual-Service Design** - Go API gateway + Python agent backend enabling independent scaling and deployment
+- **End-to-End Observability** - Opik (LLM tracing), OpenTelemetry (HTTP metrics, token usage), Grafana dashboards
 
 **Strategic Value:**
 Unlike internal tooling projects (product matching, annotation, NER), this assistant directly touches end-users and represents a strategic shift toward AI-powered user experiences. The project demonstrates full ownership from architecture through deployment, setting the foundation for future consumer AI initiatives at Fetch.
