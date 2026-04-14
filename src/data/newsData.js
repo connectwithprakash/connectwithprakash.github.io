@@ -2,8 +2,8 @@ export const newsItems = [
   {
     date: 'March 2026',
     icon: 'rocket',
-    title: 'AI Shopping Assistant Reaches 200K+ Users',
-    description: 'AI Shopping Assistant scaled to 200K+ iOS users through the V2.1 holdout experiment, with product cards, web search, and a self-improving LLM evaluation system with CI/CD deploy gating.',
+    title: 'AI Shopping Assistant Reaches 200K-User Experiment',
+    description: 'AI Shopping Assistant scaled to a 200K-user experiment on iOS through the V2.1 holdout, with product cards, web search, and a self-improving LLM evaluation system with CI/CD deploy gating.',
     color: 'var(--neon-purple)',
   },
   {
