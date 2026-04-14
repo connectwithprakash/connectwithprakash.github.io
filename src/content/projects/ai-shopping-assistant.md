@@ -128,7 +128,7 @@ Building a production-grade consumer AI assistant required solving several criti
 - **Solution:** Implemented preprocessing pipeline with image compression and quality validation, added fallback to text-based search when image recognition confidence is low
 
 **5. Production Observability**
-- **Challenge:** Debugging non-deterministic LLM behavior in production with 200K+ users
+- **Challenge:** Debugging non-deterministic LLM behavior in production with 200K users
 - **Solution:** Built comprehensive tracing with Opik and OpenTelemetry, capturing full conversation flows, tool calls, and latency breakdowns, enabling rapid issue identification and resolution
 
 **6. Cost Management at Scale**
@@ -146,13 +146,13 @@ Led ML engineering efforts for the agentic system with end-to-end ownership:
 - Designed conversational system prompts (4 major iterations v1-v4)
 - Established comprehensive testing suite (pytest, moto for AWS mocking)
 - Set up observability pipeline (Opik tracing, CloudWatch, Grafana metrics)
-- Built product card system spanning agent logic, tool orchestration, and multi-source enrichment (SERP API, catalog search, CDN images, Fetch points), with infrastructure that also serves as the foundation for the Direct Messages feature
+- Built product card system spanning agent logic, tool orchestration, multi-source enrichment (SERP API, catalog search, CDN images, Fetch points), and Button-attributed purchase flow enabling users to buy and earn rewards directly from the conversation, with infrastructure that also serves as the foundation for the Direct Messages feature
 - Built image normalization pipeline processing 4.2M product images at 18x cost efficiency ($1,633 vs $30K projected), combining computer vision with LLM-based quality review
 - Built end-to-end LLM evaluation system -- a continuous improvement loop connecting offline evaluation (golden dataset for experimentation), online evaluation (production trace monitoring), and human annotation (judge calibration loop where human feedback improves judges, which improves the dataset, which improves the agent), with CI/CD deploy gating that blocks releases on quality regression
 
 ## Key Achievements
 
-- **200K+ users** - Successfully shipped to external users on iOS via V2.1 holdout experiment
+- **200K users** - Successfully shipped to external users on iOS via V2.1 holdout experiment
 - **Continuous improvement loop** - Evaluation system connecting offline eval, online monitoring, and human annotation in a self-improving feedback cycle
 - **CI/CD quality gating** - Mandatory deploy gate validating every release against health scores; no automated quality gate existed before
 - **4.2M images processed** - Image normalization pipeline at 18x cost efficiency powering product cards
@@ -186,7 +186,7 @@ Led ML engineering efforts for the agentic system with end-to-end ownership:
 - **Platform Differentiation** - Establishes Fetch as an AI-first shopping rewards platform
 
 **Technical Innovation:**
-- **Production-Scale AI** - Sub-second latency (p95 < 800ms) serving 200K+ users
+- **Production-Scale AI** - Sub-second latency (p95 < 800ms) serving 200K users
 - **Self-Improving Evaluation** - Continuous feedback loop where human annotations calibrate judges, which improve the dataset, which improves the agent
 - **Extensible Architecture** - Config-driven system where agent behaviors, evaluation criteria, and tools are modified without changing core code
 - **Modern AI Stack** - Early adopter of OpenAI Responses API, LangGraph state machines, and MCP tool protocol
