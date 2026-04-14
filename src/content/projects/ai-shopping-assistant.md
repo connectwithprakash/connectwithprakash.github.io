@@ -146,7 +146,7 @@ Led ML engineering efforts for the agentic system with end-to-end ownership:
 - Designed conversational system prompts (4 major iterations v1-v4)
 - Established comprehensive testing suite (pytest, moto for AWS mocking)
 - Set up observability pipeline (Opik tracing, CloudWatch, Grafana metrics)
-- Built product card system spanning agent logic, tool orchestration, multi-source enrichment (SERP API, catalog search, CDN images, Fetch points), and Button-attributed purchase flow enabling users to buy and earn rewards directly from the conversation, with infrastructure that also serves as the foundation for the Direct Messages feature
+- Built product card system spanning agent logic, tool orchestration, multi-source enrichment (SERP API, catalog search, CDN images, Fetch points), and shoppable product cards enabling users to shop and earn rewards directly from the conversation, with infrastructure that also serves as the foundation for the Direct Messages feature
 - Built image normalization pipeline processing 4.2M product images at 18x cost efficiency ($1,633 vs $30K projected), combining computer vision with LLM-based quality review
 - Built end-to-end LLM evaluation system -- a continuous improvement loop connecting offline evaluation (golden dataset for experimentation), online evaluation (production trace monitoring), and human annotation (judge calibration loop where human feedback improves judges, which improves the dataset, which improves the agent), with CI/CD deploy gating that blocks releases on quality regression
 
