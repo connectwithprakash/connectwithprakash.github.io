@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1b4b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed" />
+      <stop offset="100%" style="stop-color:#6366f1" />
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981" />
+      <stop offset="100%" style="stop-color:#059669" />
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6" />
+      <stop offset="100%" style="stop-color:#2563eb" />
+    </linearGradient>
+    <linearGradient id="amber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b" />
+      <stop offset="100%" style="stop-color:#d97706" />
+    </linearGradient>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981" opacity="0.8"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6" opacity="0.8"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f59e0b" opacity="0.8"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#7c3aed" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" font-family="SF Mono, Monaco, Consolas, monospace" font-size="16" fill="#e2e8f0" text-anchor="middle" font-weight="bold">Architecture</text>
+
+  <!-- ===== CLIENTS LAYER (top) ===== -->
+  <text x="80" y="72" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa" font-weight="bold">CLIENTS</text>
+  <rect x="40" y="80" width="720" height="70" rx="8" fill="#1e1b4b" opacity="0.3" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- MCP Server: x=70, y=92, w=160, h=46. Center: (150, 115) -->
+  <rect x="70" y="92" width="160" height="46" rx="8" fill="#0f172a" stroke="url(#green)" stroke-width="1.5"/>
+  <circle cx="90" cy="115" r="6" fill="#10b981"/>
+  <text x="104" y="108" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#10b981" font-weight="bold" dominant-baseline="central">MCP Server</text>
+  <text x="104" y="124" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#6b7280" dominant-baseline="central">Claude Code / Cursor</text>
+
+  <!-- Python SDK: x=270, y=92, w=160, h=46. Center: (350, 115) -->
+  <rect x="270" y="92" width="160" height="46" rx="8" fill="#0f172a" stroke="url(#blue)" stroke-width="1.5"/>
+  <circle cx="290" cy="115" r="6" fill="#3b82f6"/>
+  <text x="304" y="108" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#3b82f6" font-weight="bold" dominant-baseline="central">Python SDK</text>
+  <text x="304" y="124" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#6b7280" dominant-baseline="central">Sync Client + CLI</text>
+
+  <!-- React Frontend: x=470, y=92, w=180, h=46. Center: (560, 115) -->
+  <rect x="470" y="92" width="180" height="46" rx="8" fill="#0f172a" stroke="url(#amber)" stroke-width="1.5"/>
+  <circle cx="490" cy="115" r="6" fill="#f59e0b"/>
+  <text x="504" y="108" font-family="SF Mono, Monaco, Consolas, monospace" font-size="12" fill="#f59e0b" font-weight="bold" dominant-baseline="central">React Frontend</text>
+  <text x="504" y="124" font-family="SF Mono, Monaco, Consolas, monospace" font-size="9" fill="#6b7280" dominant-baseline="central">Dashboard + Spectator</text>
+
+  <!-- ===== TRANSPORT LAYER ===== -->
+  <!-- Arrows from clients to transport -->
+  <!-- MCP Server (150) -> REST API (130): nearly straight down -->
+  <line x1="150" y1="138" x2="130" y2="208" stroke="#10b981" stroke-width="1.5" opacity="0.5" marker-end="url(#arrow-green)"/>
+
+  <!-- Python SDK (350) -> WebSocket (300): slight diagonal -->
+  <line x1="350" y1="138" x2="300" y2="208" stroke="#3b82f6" stroke-width="1.5" opacity="0.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- React Frontend -> SSE (470): short diagonal -->
+  <line x1="540" y1="138" x2="470" y2="208" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" marker-end="url(#arrow-amber)"/>
+
+  <!-- React Frontend -> Webhooks (640): short diagonal -->
+  <line x1="580" y1="138" x2="640" y2="208" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" marker-end="url(#arrow-amber)"/>
+
+  <text x="80" y="190" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa" font-weight="bold">TRANSPORT</text>
+  <rect x="40" y="198" width="720" height="55" rx="8" fill="#1e1b4b" opacity="0.3" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- REST API: x=60, y=208, w=140, h=35. Center: (130, 225.5) -->
+  <rect x="60" y="208" width="140" height="35" rx="6" fill="#0f172a" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="130" y="226" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa" text-anchor="middle" dominant-baseline="central" font-weight="bold">REST API</text>
+
+  <!-- WebSocket: x=230, y=208, w=140, h=35. Center: (300, 225.5) -->
+  <rect x="230" y="208" width="140" height="35" rx="6" fill="#0f172a" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="300" y="226" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa" text-anchor="middle" dominant-baseline="central" font-weight="bold">WebSocket</text>
+
+  <!-- SSE: x=400, y=208, w=140, h=35. Center: (470, 225.5) -->
+  <rect x="400" y="208" width="140" height="35" rx="6" fill="#0f172a" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="470" y="226" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa" text-anchor="middle" dominant-baseline="central" font-weight="bold">SSE / Spectator</text>
+
+  <!-- Webhooks: x=570, y=208, w=140, h=35. Center: (640, 225.5) -->
+  <rect x="570" y="208" width="140" height="35" rx="6" fill="#0f172a" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="640" y="226" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa" text-anchor="middle" dominant-baseline="central" font-weight="bold">Webhooks</text>
+
+  <!-- ===== SERVICES LAYER ===== -->
+  <!-- Arrow from transport to services -->
+  <line x1="400" y1="253" x2="400" y2="318" stroke="#7c3aed" stroke-width="1.5" opacity="0.5" marker-end="url(#arrow-purple)"/>
+
+  <text x="80" y="300" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa" font-weight="bold">SERVICES</text>
+  <rect x="40" y="308" width="720" height="55" rx="8" fill="#1e1b4b" opacity="0.3" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- RelayService: x=80, y=318, w=180, h=35. Center: (170, 335.5) -->
+  <rect x="80" y="318" width="180" height="35" rx="6" fill="#0f172a" stroke="url(#purple)" stroke-width="1.5"/>
+  <text x="170" y="336" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#c4b5fd" text-anchor="middle" dominant-baseline="central">RelayService</text>
+
+  <!-- WebhookService: x=290, y=318, w=180, h=35. Center: (380, 335.5) -->
+  <rect x="290" y="318" width="180" height="35" rx="6" fill="#0f172a" stroke="url(#purple)" stroke-width="1.5"/>
+  <text x="380" y="336" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#c4b5fd" text-anchor="middle" dominant-baseline="central">WebhookService</text>
+
+  <!-- PrivacyService: x=500, y=318, w=180, h=35. Center: (590, 335.5) -->
+  <rect x="500" y="318" width="180" height="35" rx="6" fill="#0f172a" stroke="url(#purple)" stroke-width="1.5"/>
+  <text x="590" y="336" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#c4b5fd" text-anchor="middle" dominant-baseline="central">PrivacyService</text>
+
+  <!-- ===== REPOSITORY LAYER ===== -->
+  <!-- Arrow from services to data -->
+  <line x1="400" y1="363" x2="400" y2="424" stroke="#7c3aed" stroke-width="1.5" opacity="0.5" marker-end="url(#arrow-purple)"/>
+
+  <text x="80" y="408" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#a78bfa" font-weight="bold">DATA</text>
+  <rect x="40" y="416" width="720" height="50" rx="8" fill="#1e1b4b" opacity="0.3" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- RelayRepository: x=80, y=424, w=160, h=32. Center: (160, 440) -->
+  <rect x="80" y="424" width="160" height="32" rx="6" fill="#0f172a" stroke="#4ade80" stroke-width="1"/>
+  <text x="160" y="440" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#4ade80" text-anchor="middle" dominant-baseline="central">RelayRepository</text>
+
+  <!-- MessageRepository: x=270, y=424, w=160, h=32. Center: (350, 440) -->
+  <rect x="270" y="424" width="160" height="32" rx="6" fill="#0f172a" stroke="#4ade80" stroke-width="1"/>
+  <text x="350" y="440" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#4ade80" text-anchor="middle" dominant-baseline="central">MessageRepository</text>
+
+  <!-- PresenceRepository: x=460, y=424, w=160, h=32. Center: (540, 440) -->
+  <rect x="460" y="424" width="160" height="32" rx="6" fill="#0f172a" stroke="#4ade80" stroke-width="1"/>
+  <text x="540" y="440" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" fill="#4ade80" text-anchor="middle" dominant-baseline="central">PresenceRepository</text>
+
+  <!-- SQLite: x=650, y=424, w=90, h=32. Center: (695, 440) -->
+  <rect x="650" y="424" width="90" height="32" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="695" y="440" font-family="SF Mono, Monaco, Consolas, monospace" font-size="11" fill="#f59e0b" text-anchor="middle" dominant-baseline="central" font-weight="bold">SQLite</text>
+
+  <!-- Decorative grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="20" cy="60" r="1.5"/><circle cx="20" cy="75" r="1.5"/><circle cx="20" cy="90" r="1.5"/>
+    <circle cx="780" cy="420" r="1.5"/><circle cx="780" cy="435" r="1.5"/><circle cx="780" cy="450" r="1.5"/>
+  </g>
+</svg>

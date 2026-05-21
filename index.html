@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+      SEO Meta Tags are dynamically managed by React SEO component.
+      This ensures each page has unique, relevant metadata.
+      See src/components/SEO.jsx for implementation.
+    -->
+    <meta name="author" content="Prakash Chaudhary" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    <script>
+      // GitHub Pages SPA redirect handling
+      // Restores the path that was saved by 404.html
+      (function() {
+        var redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DsD0LeHw.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-3JUIpFxE.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-motion-2kSCJESn.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-mermaid-D3omBTQe.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-SFIx5Edf.css">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

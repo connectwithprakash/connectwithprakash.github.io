@@ -1,0 +1,11 @@
+import{j as m}from"./vendor-motion-2kSCJESn.js";import{r as o}from"./vendor-react-3JUIpFxE.js";import{an as l}from"./vendor-mermaid-D3omBTQe.js";let g=0;const y=({chart:n})=>{const e=o.useRef(null),d=o.useRef(++g),s=o.useRef(0),[i,f]=o.useState(()=>window.matchMedia("(prefers-color-scheme: dark)").matches);return o.useEffect(()=>{const c=window.matchMedia("(prefers-color-scheme: dark)"),a=r=>f(r.matches);return c.addEventListener("change",a),()=>c.removeEventListener("change",a)},[]),o.useEffect(()=>{(async()=>{if(!e.current||!n)return;l.initialize({startOnLoad:!1,theme:"base",securityLevel:"loose",themeVariables:i?{primaryColor:"#3b3b5c",primaryTextColor:"#e2e8f0",primaryBorderColor:"#6366f1",secondaryColor:"#2d2d44",tertiaryColor:"#252538",lineColor:"#818cf8",textColor:"#cbd5e1",mainBkg:"#1a1a2e",nodeBorder:"#818cf8",clusterBkg:"#252538",titleColor:"#e2e8f0",edgeLabelBackground:"#2d2d44",actorBkg:"#3b3b5c",actorTextColor:"#e2e8f0",actorLineColor:"#818cf8",signalColor:"#a5b4fc",signalTextColor:"#cbd5e1",noteBkgColor:"#2d2d44",noteTextColor:"#cbd5e1"}:{primaryColor:"#e0e7ff",primaryTextColor:"#3730a3",primaryBorderColor:"#a5b4fc",secondaryColor:"#f5f3ff",tertiaryColor:"#ede9fe",lineColor:"#818cf8",textColor:"#4338ca",mainBkg:"#faf5ff",nodeBorder:"#a5b4fc",clusterBkg:"#f5f3ff",titleColor:"#3730a3",edgeLabelBackground:"#f5f3ff",actorBkg:"#e0e7ff",actorTextColor:"#3730a3",actorLineColor:"#818cf8",signalColor:"#6366f1",signalTextColor:"#4338ca",noteBkgColor:"#ede9fe",noteTextColor:"#4338ca"}}),s.current+=1;const a=`mermaid-${d.current}-${s.current}`;try{const{svg:r}=await l.render(a,n);if(e.current){e.current.innerHTML=r;const t=e.current.querySelector("svg");t&&(t.style.maxWidth="100%",t.style.height="auto",t.style.display="block",t.style.margin="0 auto")}}catch(r){console.error("Mermaid rendering error:",r),e.current&&(e.current.innerHTML=`
+            <div style="
+              color: #ff6b6b;
+              background: rgba(255, 107, 107, 0.1);
+              padding: 1rem;
+              border-radius: 8px;
+              border: 1px solid #ff6b6b;
+            ">
+              <strong>Diagram Error:</strong> ${r.message}
+            </div>
+          `)}})()},[n,i]),m.jsx("div",{ref:e,className:"mermaid-diagram"})};export{y as default};
