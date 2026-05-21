@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430" role="img">
+  <defs>
+    <linearGradient id="node" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#252538"/>
+      <stop offset="100%" stop-color="#343456"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#818cf8"/>
+    </marker>
+    <style>
+      .bg { fill: #111827; stroke: rgba(129,140,248,.35); stroke-width: 1; }
+      .box { fill: url(#node); stroke: #818cf8; stroke-width: 1.5; rx: 15; }
+      .safe { stroke: #22c55e; }
+      .risk { stroke: #f59e0b; }
+      .danger { stroke: #ef4444; }
+      .decision { fill: #1f2937; stroke: #a78bfa; stroke-width: 1.5; }
+      .title { fill: #f8fafc; font: 700 20px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .text { fill: #e2e8f0; font: 650 15px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .small { fill: #cbd5e1; font: 500 13px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .muted { fill: #94a3b8; font: 500 12px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .line { stroke: #818cf8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .line-safe { stroke: #22c55e; }
+      .line-risk { stroke: #f59e0b; }
+    </style>
+  </defs>
+  <rect class="bg" x="1" y="1" width="718" height="428" rx="20"/>
+<text class="title" x="360" y="38" text-anchor="middle">How one wrong branch becomes durable state</text>
+<rect class="box risk" x="45" y="86" width="130" height="82" rx="15"/>
+<text class="text" x="110.0" y="130" text-anchor="middle">Ambiguous
+request</text>
+<rect class="box risk" x="215" y="86" width="130" height="82" rx="15"/>
+<text class="text" x="280.0" y="130" text-anchor="middle">Wrong
+branch</text>
+<rect class="box danger" x="385" y="86" width="130" height="82" rx="15"/>
+<text class="text" x="450.0" y="130" text-anchor="middle">Side-effectful
+action</text>
+<rect class="box danger" x="555" y="86" width="130" height="82" rx="15"/>
+<text class="text" x="620.0" y="130" text-anchor="middle">Wrong state
+becomes context</text>
+<path class="line" d="M175 127 L215 127"/>
+<path class="line" d="M345 127 L385 127"/>
+<path class="line" d="M515 127 L555 127"/>
+<path class="line" d="M620 168 C620 210 620 210 620 250"/>
+<rect class="box risk" x="555" y="254" width="130" height="82" rx="15"/>
+<text class="text" x="620.0" y="298" text-anchor="middle">Agent plans from
+polluted context</text>
+<rect class="box risk" x="385" y="254" width="130" height="82" rx="15"/>
+<text class="text" x="450.0" y="298" text-anchor="middle">Confident
+downstream actions</text>
+<rect class="box danger" x="215" y="254" width="130" height="82" rx="15"/>
+<text class="text" x="280.0" y="298" text-anchor="middle">Human cannot
+audit every step</text>
+<rect class="box danger" x="45" y="254" width="130" height="82" rx="15"/>
+<text class="text" x="110.0" y="298" text-anchor="middle">Durable
+system damage</text>
+<path class="line" d="M555 295 L515 295"/>
+<path class="line" d="M385 295 L345 295"/>
+<path class="line" d="M215 295 L175 295"/>
+<text class="small" x="360" y="395" text-anchor="middle">Slightly wrong at the wrong branch point is enough.</text>
+</svg>
