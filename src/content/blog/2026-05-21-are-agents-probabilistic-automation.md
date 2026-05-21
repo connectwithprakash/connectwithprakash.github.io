@@ -35,17 +35,7 @@ Here is the rough shape of what happened.
 
 The agent was not obviously wrong. In fact, I think it behaved reasonably. But the interface was weak. The user had said `yes` to a question with two possible actions.
 
-```mermaid
-flowchart TD
-    A[Agent asks: inspect first, or close directly?] --> B[User says: yes]
-    B --> C{What does yes attach to?}
-    C --> D[Inspect first]
-    C --> E[Close directly]
-    C --> F[Ask for clarification]
-    C --> G[Explain ambiguity, then choose]
-    D --> H[Mostly read-only]
-    E --> I[Side effect]
-```
+![Ambiguous chat response as an action selector](/assets/blog/are-agents-probabilistic-automation/ambiguous-action-selector.svg)
 
 That is the whole problem in miniature. Natural language is flexible. Automation wants sharper edges.
 
@@ -113,16 +103,7 @@ Most bad automation stories are not about a system being malicious. They are abo
 
 Agents make this easier to trigger because natural language becomes the control plane.
 
-```mermaid
-flowchart TD
-    A[Ambiguous request] --> B[Plausible but wrong branch]
-    B --> C[Side-effectful action]
-    C --> D[Future context assumes wrong state]
-    D --> E[Agent plans from polluted context]
-    E --> F[More confident downstream actions]
-    F --> G[Human cannot audit every step]
-    G --> H[Durable system damage]
-```
+![How one wrong branch can become durable state](/assets/blog/are-agents-probabilistic-automation/cascading-failure.svg)
 
 They do not need to be wildly wrong. They only need to be slightly wrong at the wrong branch point.
 
@@ -175,21 +156,7 @@ Sometimes that is fine. For a hobby project or a throwaway prototype, exploratio
 
 For durable systems, especially customer-facing systems, that shortcut becomes debt. If the human skips understanding, the agent does not remove that debt. It turns it into system behavior.
 
-```mermaid
-flowchart TD
-    A[Unclear goal or unknown system] --> B[Learn]
-    B --> C[Summarize current behavior]
-    C --> D[Identify unknowns]
-    D --> E[Write explicit requirement]
-    E --> F[Plan]
-    F --> G[Execute bounded change]
-    G --> H[Verify]
-    H --> I{Side-effect boundary?}
-    I -->|No| J[Continue]
-    I -->|Yes| K[Dry run or explicit approval]
-    K --> L[Act]
-    H --> B
-```
+![A safer workflow separates learning from execution](/assets/blog/are-agents-probabilistic-automation/agent-workflow.svg)
 
 Strict workflow does not make the model non-probabilistic. It reduces the space of allowed actions.
 
