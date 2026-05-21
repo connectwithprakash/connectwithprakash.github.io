@@ -75,6 +75,8 @@ A single ambiguous decision is usually not the end of the world. The human can i
 
 Long-running sessions are different. They contain many small branch points, and the human often cannot keep up with all of them. The agent is reading, editing, running commands, interpreting failures, updating plans, and carrying context forward.
 
+I am also not claiming there is a fixed number of such decisions in a complex task. That number depends heavily on the context and requirements we provide. A well-defined task with clear constraints, examples, test commands, and boundaries creates fewer ambiguous branch points. An ill-defined task forces the agent to infer more. Every missing requirement becomes another place where the system has to guess.
+
 Even if each ambiguous decision is usually right, "usually" gets uncomfortable over many decisions.
 
 ![Reliability decay for repeated ambiguous decisions](/assets/blog/are-agents-probabilistic-automation/reliability-decay.svg)
