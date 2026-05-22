@@ -1,56 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img">
   <defs>
     <linearGradient id="node" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#252538"/>
-      <stop offset="100%" stop-color="#343456"/>
+      <stop offset="0%" stop-color="#24243a"/>
+      <stop offset="100%" stop-color="#323252"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#818cf8"/>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L11,4 z" fill="#8b96ff"/>
     </marker>
     <style>
-      .bg { fill: #111827; stroke: rgba(129,140,248,.35); stroke-width: 1; }
-      .box { fill: url(#node); stroke: #818cf8; stroke-width: 1.5; rx: 16; }
+      .bg { fill: #0f1724; stroke: rgba(129,140,248,.38); stroke-width: 1.5; }
+      .box { fill: url(#node); stroke: #818cf8; stroke-width: 2; }
       .safe { stroke: #22c55e; }
       .risk { stroke: #f59e0b; }
-      .danger { stroke: #ef4444; }
-      .decision { fill: #1f2937; stroke: #a78bfa; stroke-width: 1.5; }
-      .title { fill: #f8fafc; font: 700 23px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .text { fill: #e2e8f0; font: 600 17px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .small { fill: #cbd5e1; font: 500 14px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .muted { fill: #94a3b8; font: 500 13px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .line { stroke: #818cf8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .danger { stroke: #ff4d4d; }
+      .decision { fill: #182133; stroke: #a78bfa; stroke-width: 2; }
+      .title { fill: #f8fafc; font: 700 30px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .text { fill: #eef2ff; font: 700 21px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .small { fill: #d3d9e8; font: 600 17px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .muted { fill: #aeb7ca; font: 600 15px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .line { stroke: #8b96ff; stroke-width: 3; fill: none; marker-end: url(#arrow); }
       .line-safe { stroke: #22c55e; }
       .line-risk { stroke: #f59e0b; }
     </style>
   </defs>
-  <rect class="bg" x="1" y="1" width="898" height="558" rx="22"/>
-<text class="title" x="450" y="42" text-anchor="middle">Ambiguous chat response as an action selector</text>
-<rect class="box " x="260" y="72" width="380" height="72" rx="16"/>
-<text class="text" x="450.0" y="106" text-anchor="middle">Agent asks: inspect first,</text>
-<text class="text" x="450.0" y="129" text-anchor="middle">or close directly?</text>
-<path class="line" d="M450 144 L450 182"/>
-<rect class="box decision" x="335" y="186" width="230" height="62" rx="16"/>
-<text class="text" x="450.0" y="228" text-anchor="middle">User says: yes</text>
-<path class="line" d="M450 248 L450 286"/>
-<rect class="box decision" x="310" y="290" width="280" height="72" rx="16"/>
-<text class="text" x="450.0" y="324" text-anchor="middle">What does yes</text>
-<text class="text" x="450.0" y="347" text-anchor="middle">attach to?</text>
-<rect class="box safe" x="55" y="425" width="190" height="88" rx="16"/>
-<text class="text" x="150.0" y="467" text-anchor="middle">Inspect first</text>
-<text class="muted" x="150.0" y="495" text-anchor="middle">mostly read-only</text>
-<rect class="box danger" x="255" y="425" width="190" height="88" rx="16"/>
-<text class="text" x="350.0" y="467" text-anchor="middle">Close directly</text>
-<text class="muted" x="350.0" y="495" text-anchor="middle">side effect</text>
-<rect class="box safe" x="455" y="425" width="190" height="88" rx="16"/>
-<text class="text" x="550.0" y="459" text-anchor="middle">Ask for</text>
-<text class="text" x="550.0" y="482" text-anchor="middle">clarification</text>
-<text class="muted" x="550.0" y="495" text-anchor="middle">pause</text>
-<rect class="box risk" x="655" y="425" width="190" height="88" rx="16"/>
-<text class="text" x="750.0" y="459" text-anchor="middle">Explain ambiguity,</text>
-<text class="text" x="750.0" y="482" text-anchor="middle">then choose</text>
-<text class="muted" x="750.0" y="495" text-anchor="middle">inference</text>
-<path class="line" d="M450 362 C450 390 150 390 150 425"/>
-<path class="line" d="M450 362 C450 390 350 390 350 425"/>
-<path class="line" d="M450 362 C450 390 550 390 550 425"/>
-<path class="line" d="M450 362 C450 390 750 390 750 425"/>
+  <rect class="bg" x="1" y="1" width="1198" height="698" rx="28"/>
+<text class="title" x="600" y="64" text-anchor="middle"><tspan x="600" dy="0">Ambiguous chat response as an action selector</tspan></text>
+<rect class="box" x="360" y="105" width="480" height="82" rx="18"/>
+<text class="text" x="600.0" y="140.5" text-anchor="middle"><tspan x="600.0" dy="0">Agent asks: inspect first,</tspan><tspan x="600.0" dy="25">or close directly?</tspan></text>
+<path class="line" d="M600 187 L600 232"/>
+<rect class="box decision" x="455" y="238" width="290" height="70" rx="18"/>
+<text class="text" x="600.0" y="280.0" text-anchor="middle"><tspan x="600.0" dy="0">User says: yes</tspan></text>
+<path class="line" d="M600 308 L600 354"/>
+<rect class="box decision" x="420" y="360" width="360" height="86" rx="18"/>
+<text class="text" x="600.0" y="397.5" text-anchor="middle"><tspan x="600.0" dy="0">What does yes</tspan><tspan x="600.0" dy="25">attach to?</tspan></text>
+<rect class="box safe" x="60" y="535" width="235" height="100" rx="18"/>
+<text class="text" x="177.5" y="592.0" text-anchor="middle"><tspan x="177.5" dy="0">Inspect first</tspan></text>
+<text class="muted" x="177.5" y="615" text-anchor="middle"><tspan x="177.5" dy="0">mostly read-only</tspan></text>
+<rect class="box danger" x="335" y="535" width="235" height="100" rx="18"/>
+<text class="text" x="452.5" y="592.0" text-anchor="middle"><tspan x="452.5" dy="0">Close directly</tspan></text>
+<text class="muted" x="452.5" y="615" text-anchor="middle"><tspan x="452.5" dy="0">side effect</tspan></text>
+<rect class="box safe" x="610" y="535" width="235" height="100" rx="18"/>
+<text class="text" x="727.5" y="579.5" text-anchor="middle"><tspan x="727.5" dy="0">Ask for</tspan><tspan x="727.5" dy="25">clarification</tspan></text>
+<text class="muted" x="727.5" y="615" text-anchor="middle"><tspan x="727.5" dy="0">pause</tspan></text>
+<rect class="box risk" x="885" y="535" width="255" height="100" rx="18"/>
+<text class="text" x="1012.5" y="579.5" text-anchor="middle"><tspan x="1012.5" dy="0">Explain ambiguity,</tspan><tspan x="1012.5" dy="25">then choose</tspan></text>
+<text class="muted" x="1012.5" y="615" text-anchor="middle"><tspan x="1012.5" dy="0">inference</tspan></text>
+<path class="line" d="M600 446 C600 500 177 485 177 535"/>
+<path class="line" d="M600 446 C600 500 452 485 452 535"/>
+<path class="line" d="M600 446 C600 500 727 485 727 535"/>
+<path class="line" d="M600 446 C600 500 1012 485 1012 535"/>
 </svg>
