@@ -1,60 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img">
   <defs>
     <linearGradient id="node" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#252538"/>
-      <stop offset="100%" stop-color="#343456"/>
+      <stop offset="0%" stop-color="#24243a"/>
+      <stop offset="100%" stop-color="#323252"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#818cf8"/>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L11,4 z" fill="#8b96ff"/>
     </marker>
     <style>
-      .bg { fill: #111827; stroke: rgba(129,140,248,.35); stroke-width: 1; }
-      .box { fill: url(#node); stroke: #818cf8; stroke-width: 1.5; rx: 15; }
+      .bg { fill: #0f1724; stroke: rgba(129,140,248,.38); stroke-width: 1.5; }
+      .box { fill: url(#node); stroke: #818cf8; stroke-width: 2; }
       .safe { stroke: #22c55e; }
       .risk { stroke: #f59e0b; }
-      .danger { stroke: #ef4444; }
-      .decision { fill: #1f2937; stroke: #a78bfa; stroke-width: 1.5; }
-      .title { fill: #f8fafc; font: 700 20px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .text { fill: #e2e8f0; font: 650 15px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .small { fill: #cbd5e1; font: 500 13px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .muted { fill: #94a3b8; font: 500 12px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .line { stroke: #818cf8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .danger { stroke: #ff4d4d; }
+      .decision { fill: #182133; stroke: #a78bfa; stroke-width: 2; }
+      .title { fill: #f8fafc; font: 700 30px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .text { fill: #eef2ff; font: 700 21px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .small { fill: #d3d9e8; font: 600 17px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .muted { fill: #aeb7ca; font: 600 15px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .line { stroke: #8b96ff; stroke-width: 3; fill: none; marker-end: url(#arrow); }
       .line-safe { stroke: #22c55e; }
       .line-risk { stroke: #f59e0b; }
     </style>
   </defs>
-  <rect class="bg" x="1" y="1" width="718" height="428" rx="20"/>
-<text class="title" x="360" y="38" text-anchor="middle">How one wrong branch becomes durable state</text>
-<rect class="box risk" x="45" y="86" width="130" height="82" rx="15"/>
-<text class="text" x="110.0" y="130" text-anchor="middle">Ambiguous
-request</text>
-<rect class="box risk" x="215" y="86" width="130" height="82" rx="15"/>
-<text class="text" x="280.0" y="130" text-anchor="middle">Wrong
-branch</text>
-<rect class="box danger" x="385" y="86" width="130" height="82" rx="15"/>
-<text class="text" x="450.0" y="130" text-anchor="middle">Side-effectful
-action</text>
-<rect class="box danger" x="555" y="86" width="130" height="82" rx="15"/>
-<text class="text" x="620.0" y="130" text-anchor="middle">Wrong state
-becomes context</text>
-<path class="line" d="M175 127 L215 127"/>
-<path class="line" d="M345 127 L385 127"/>
-<path class="line" d="M515 127 L555 127"/>
-<path class="line" d="M620 168 C620 210 620 210 620 250"/>
-<rect class="box risk" x="555" y="254" width="130" height="82" rx="15"/>
-<text class="text" x="620.0" y="298" text-anchor="middle">Agent plans from
-polluted context</text>
-<rect class="box risk" x="385" y="254" width="130" height="82" rx="15"/>
-<text class="text" x="450.0" y="298" text-anchor="middle">Confident
-downstream actions</text>
-<rect class="box danger" x="215" y="254" width="130" height="82" rx="15"/>
-<text class="text" x="280.0" y="298" text-anchor="middle">Human cannot
-audit every step</text>
-<rect class="box danger" x="45" y="254" width="130" height="82" rx="15"/>
-<text class="text" x="110.0" y="298" text-anchor="middle">Durable
-system damage</text>
-<path class="line" d="M555 295 L515 295"/>
-<path class="line" d="M385 295 L345 295"/>
-<path class="line" d="M215 295 L175 295"/>
-<text class="small" x="360" y="395" text-anchor="middle">Slightly wrong at the wrong branch point is enough.</text>
+  <rect class="bg" x="1" y="1" width="1198" height="618" rx="28"/>
+<text class="title" x="600" y="64" text-anchor="middle"><tspan x="600" dy="0">How one wrong branch becomes durable state</tspan></text>
+<rect class="box risk" x="70" y="135" width="210" height="105" rx="18"/>
+<text class="text" x="175.0" y="182.0" text-anchor="middle"><tspan x="175.0" dy="0">Ambiguous</tspan><tspan x="175.0" dy="25">request</tspan></text>
+<rect class="box risk" x="350" y="135" width="210" height="105" rx="18"/>
+<text class="text" x="455.0" y="182.0" text-anchor="middle"><tspan x="455.0" dy="0">Plausible but</tspan><tspan x="455.0" dy="25">wrong branch</tspan></text>
+<rect class="box danger" x="630" y="135" width="210" height="105" rx="18"/>
+<text class="text" x="735.0" y="182.0" text-anchor="middle"><tspan x="735.0" dy="0">Side-effectful</tspan><tspan x="735.0" dy="25">action</tspan></text>
+<rect class="box danger" x="910" y="135" width="210" height="105" rx="18"/>
+<text class="text" x="1015.0" y="182.0" text-anchor="middle"><tspan x="1015.0" dy="0">Wrong state</tspan><tspan x="1015.0" dy="25">becomes context</tspan></text>
+<path class="line" d="M280 188 L350 188"/>
+<path class="line" d="M560 188 L630 188"/>
+<path class="line" d="M840 188 L910 188"/>
+<path class="line" d="M1015 240 L1015 360"/>
+<rect class="box risk" x="910" y="365" width="210" height="105" rx="18"/>
+<text class="text" x="1015.0" y="412.0" text-anchor="middle"><tspan x="1015.0" dy="0">Agent plans from</tspan><tspan x="1015.0" dy="25">polluted context</tspan></text>
+<rect class="box risk" x="630" y="365" width="210" height="105" rx="18"/>
+<text class="text" x="735.0" y="412.0" text-anchor="middle"><tspan x="735.0" dy="0">Confident</tspan><tspan x="735.0" dy="25">downstream actions</tspan></text>
+<rect class="box danger" x="350" y="365" width="210" height="105" rx="18"/>
+<text class="text" x="455.0" y="412.0" text-anchor="middle"><tspan x="455.0" dy="0">Human cannot</tspan><tspan x="455.0" dy="25">audit every step</tspan></text>
+<rect class="box danger" x="70" y="365" width="210" height="105" rx="18"/>
+<text class="text" x="175.0" y="412.0" text-anchor="middle"><tspan x="175.0" dy="0">Durable system</tspan><tspan x="175.0" dy="25">damage</tspan></text>
+<path class="line" d="M910 418 L840 418"/>
+<path class="line" d="M630 418 L560 418"/>
+<path class="line" d="M350 418 L280 418"/>
+<text class="small" x="600" y="570" text-anchor="middle"><tspan x="600" dy="0">Slightly wrong at the wrong branch point is enough.</tspan></text>
 </svg>
