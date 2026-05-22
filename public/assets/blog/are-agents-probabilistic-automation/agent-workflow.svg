@@ -1,58 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 720 520" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img">
   <defs>
     <linearGradient id="node" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#252538"/>
-      <stop offset="100%" stop-color="#343456"/>
+      <stop offset="0%" stop-color="#24243a"/>
+      <stop offset="100%" stop-color="#323252"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#818cf8"/>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L11,4 z" fill="#8b96ff"/>
     </marker>
     <style>
-      .bg { fill: #111827; stroke: rgba(129,140,248,.35); stroke-width: 1; }
-      .box { fill: url(#node); stroke: #818cf8; stroke-width: 1.5; rx: 15; }
+      .bg { fill: #0f1724; stroke: rgba(129,140,248,.38); stroke-width: 1.5; }
+      .box { fill: url(#node); stroke: #818cf8; stroke-width: 2; }
       .safe { stroke: #22c55e; }
       .risk { stroke: #f59e0b; }
-      .danger { stroke: #ef4444; }
-      .decision { fill: #1f2937; stroke: #a78bfa; stroke-width: 1.5; }
-      .title { fill: #f8fafc; font: 700 20px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .text { fill: #e2e8f0; font: 650 15px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .small { fill: #cbd5e1; font: 500 13px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .muted { fill: #94a3b8; font: 500 12px Inter, ui-sans-serif, system-ui, sans-serif; }
-      .line { stroke: #818cf8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .danger { stroke: #ff4d4d; }
+      .decision { fill: #182133; stroke: #a78bfa; stroke-width: 2; }
+      .title { fill: #f8fafc; font: 700 30px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .text { fill: #eef2ff; font: 700 21px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .small { fill: #d3d9e8; font: 600 17px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .muted { fill: #aeb7ca; font: 600 15px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .line { stroke: #8b96ff; stroke-width: 3; fill: none; marker-end: url(#arrow); }
       .line-safe { stroke: #22c55e; }
       .line-risk { stroke: #f59e0b; }
     </style>
   </defs>
-  <rect class="bg" x="1" y="1" width="718" height="518" rx="20"/>
-<text class="title" x="360" y="38" text-anchor="middle">A safer workflow separates learning from execution</text>
-<rect class="box safe" x="45" y="88" width="125" height="82" rx="15"/>
-<text class="text" x="107.5" y="132" text-anchor="middle">Learn</text>
-<text class="muted" x="107.5" y="154" text-anchor="middle">inspect system</text>
-<rect class="box safe" x="200" y="88" width="125" height="82" rx="15"/>
-<text class="text" x="262.5" y="132" text-anchor="middle">Specify</text>
-<text class="muted" x="262.5" y="154" text-anchor="middle">make intent explicit</text>
-<rect class="box " x="355" y="88" width="125" height="82" rx="15"/>
-<text class="text" x="417.5" y="132" text-anchor="middle">Plan</text>
-<text class="muted" x="417.5" y="154" text-anchor="middle">bound the change</text>
-<rect class="box " x="510" y="88" width="125" height="82" rx="15"/>
-<text class="text" x="572.5" y="132" text-anchor="middle">Execute</text>
-<text class="muted" x="572.5" y="154" text-anchor="middle">edit and check</text>
-<path class="line line-safe" d="M170 129 L200 129"/>
-<path class="line line-safe" d="M325 129 L355 129"/>
-<path class="line line-safe" d="M480 129 L510 129"/>
-<path class="line" d="M572 170 L572 218"/>
-<rect class="box safe" x="470" y="222" width="205" height="78" rx="15"/>
-<text class="text" x="572.5" y="266" text-anchor="middle">Verify</text>
-<text class="muted" x="572.5" y="284" text-anchor="middle">tests, diffs, logs</text>
-<path class="line" d="M572 300 L572 344"/>
-<rect class="box decision" x="435" y="348" width="275" height="78" rx="15"/>
-<text class="text" x="572.5" y="392" text-anchor="middle">Side-effect boundary?</text>
-<text class="muted" x="572.5" y="410" text-anchor="middle">deploy, delete, publish, migrate</text>
-<rect class="box safe" x="145" y="348" width="135" height="78" rx="15"/>
-<text class="text" x="212.5" y="392" text-anchor="middle">Continue</text>
-<text class="muted" x="212.5" y="410" text-anchor="middle">low blast radius</text>
-<path class="line line-safe" d="M435 386 L280 386"/>
-<path class="line line-risk" d="M572 426 C572 465 438 465 438 426"/>
-<text class="small" x="438" y="482" text-anchor="middle">If yes: dry run or explicit approval before acting</text>
-<path class="line" d="M212 426 C150 486 95 220 108 170"/>
+  <rect class="bg" x="1" y="1" width="1198" height="648" rx="28"/>
+<text class="title" x="600" y="64" text-anchor="middle"><tspan x="600" dy="0">A safer workflow separates learning from execution</tspan></text>
+<rect class="box safe" x="70" y="135" width="160" height="105" rx="18"/>
+<text class="text" x="150.0" y="194.5" text-anchor="middle"><tspan x="150.0" dy="0">Learn</tspan></text>
+<text class="muted" x="150.0" y="220" text-anchor="middle"><tspan x="150.0" dy="0">read, inspect</tspan></text>
+<rect class="box safe" x="300" y="135" width="160" height="105" rx="18"/>
+<text class="text" x="380.0" y="194.5" text-anchor="middle"><tspan x="380.0" dy="0">Specify</tspan></text>
+<text class="muted" x="380.0" y="220" text-anchor="middle"><tspan x="380.0" dy="0">make intent explicit</tspan></text>
+<rect class="box" x="530" y="135" width="160" height="105" rx="18"/>
+<text class="text" x="610.0" y="194.5" text-anchor="middle"><tspan x="610.0" dy="0">Plan</tspan></text>
+<text class="muted" x="610.0" y="220" text-anchor="middle"><tspan x="610.0" dy="0">bound the change</tspan></text>
+<rect class="box" x="760" y="135" width="160" height="105" rx="18"/>
+<text class="text" x="840.0" y="194.5" text-anchor="middle"><tspan x="840.0" dy="0">Execute</tspan></text>
+<text class="muted" x="840.0" y="220" text-anchor="middle"><tspan x="840.0" dy="0">edit and check</tspan></text>
+<rect class="box safe" x="990" y="135" width="160" height="105" rx="18"/>
+<text class="text" x="1070.0" y="194.5" text-anchor="middle"><tspan x="1070.0" dy="0">Verify</tspan></text>
+<text class="muted" x="1070.0" y="220" text-anchor="middle"><tspan x="1070.0" dy="0">tests, diffs</tspan></text>
+<path class="line line-safe" d="M230 188 L300 188"/>
+<path class="line line-safe" d="M460 188 L530 188"/>
+<path class="line line-safe" d="M690 188 L760 188"/>
+<path class="line line-safe" d="M920 188 L990 188"/>
+<path class="line" d="M1070 240 C1070 295 930 310 825 330"/>
+<rect class="box decision" x="690" y="335" width="270" height="95" rx="18"/>
+<text class="text" x="825.0" y="377.0" text-anchor="middle"><tspan x="825.0" dy="0">Side-effect</tspan><tspan x="825.0" dy="25">boundary?</tspan></text>
+<text class="muted" x="825.0" y="410" text-anchor="middle"><tspan x="825.0" dy="0">deploy, delete, publish</tspan></text>
+<rect class="box safe" x="320" y="335" width="200" height="95" rx="18"/>
+<text class="text" x="420.0" y="389.5" text-anchor="middle"><tspan x="420.0" dy="0">Continue</tspan></text>
+<text class="muted" x="420.0" y="410" text-anchor="middle"><tspan x="420.0" dy="0">low blast radius</tspan></text>
+<rect class="box danger" x="690" y="500" width="270" height="95" rx="18"/>
+<text class="text" x="825.0" y="542.0" text-anchor="middle"><tspan x="825.0" dy="0">Dry run or</tspan><tspan x="825.0" dy="25">explicit approval</tspan></text>
+<text class="muted" x="825.0" y="575" text-anchor="middle"><tspan x="825.0" dy="0">then act</tspan></text>
+<path class="line line-safe" d="M690 382 L520 382"/>
+<path class="line line-risk" d="M825 430 L825 500"/>
+<path class="line" d="M420 430 C260 535 130 340 150 240"/>
 </svg>

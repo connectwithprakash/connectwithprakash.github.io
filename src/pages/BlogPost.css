@@ -304,14 +304,16 @@
   padding: 0.75rem 1rem;
   color: var(--text-primary);
   font-weight: 700;
-  white-space: nowrap;
+  white-space: normal;
+  vertical-align: top;
 }
 
 .post-content td {
   padding: 0.6rem 1rem;
   color: var(--text-secondary);
   border-bottom: 1px solid var(--glass-border);
-  white-space: nowrap;
+  white-space: normal;
+  vertical-align: top;
 }
 
 .post-content tbody tr:hover {

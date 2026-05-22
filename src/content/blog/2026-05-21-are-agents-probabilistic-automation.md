@@ -80,7 +80,7 @@ The math here is intentionally simple. If each ambiguous branch has probability 
 | 10 | 90.4% | 81.7% | 59.9% | 34.9% |
 | 20 | 81.8% | 66.8% | 35.8% | 12.2% |
 | 50 | 60.5% | 36.4% | 7.7% | 0.5% |
-| 100 | 36.6% | 13.3% | 0.6% | ~0.0% |
+| 100 | 36.6% | 13.3% | 0.6% | 0.003% |
 
 This is illustrative, not measured. Real sessions are messier. Decisions are not independent. Some mistakes are recoverable. Tests and guardrails catch some failures. Human checkpoints can reset the path.
 
