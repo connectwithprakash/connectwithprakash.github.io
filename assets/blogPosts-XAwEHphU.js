@@ -545,9 +545,9 @@ A coding agent asked whether it should inspect a pull request before closing it,
 yes
 \`\`\`
 
-Then I interrupted the run, went back in the chat, and submitted the same \`yes\` again. I did that four times.
+Then I interrupted the run, went back in the chat, and submitted the same \`yes\` again. I ended up with four visible runs of the same answer.
 
-The agent mostly chose the safer path. It decided to inspect first before closing. That part was reassuring. But the reasoning was not the same each time. One run treated \`yes\` as clear approval to inspect. Another run explicitly said the answer was ambiguous. Another leaned on previous context and said this matched a pattern that had saved useful work earlier. One run had prose saying "inspect first" while the task label still looked like "closing".
+Across the screenshots, the visible reasoning pointed toward the safer path: inspect first before closing. That part was reassuring. But the reasoning was not the same each time. One run treated \`yes\` as clear approval to inspect. Another run explicitly said the answer was ambiguous. Another leaned on previous context and said this matched a pattern that had saved useful work earlier. One run had prose saying "inspect first" while the task label still looked like "closing".
 
 That made me pause.
 
@@ -725,7 +725,7 @@ The important part is not to ban autonomy. It is to match autonomy to blast radi
 
 ## Where I land
 
-The small \`yes\` experiment did not show that the agent was bad. If anything, it showed a useful safety bias: when the answer was ambiguous, it usually chose to inspect before acting.
+The small \`yes\` experiment did not show that the agent was bad. If anything, the four screenshots showed a useful safety bias: when the answer was ambiguous, the visible reasoning leaned toward inspecting before acting.
 
 But I do not want important systems to depend on "usually".
 
