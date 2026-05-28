@@ -20,7 +20,7 @@ Across the screenshots, the visible reasoning pointed toward the safer path: ins
 
 That made me pause.
 
-Not because this is a benchmark. Four runs tell us almost nothing about the true probability of any behavior. The useful part is smaller: a normal chat response had become an action selector.
+Not because this is a benchmark. Four runs tell us almost nothing about the true probability of any behavior. The useful observation is narrower: a normal chat response had become an action selector.
 
 ## The four runs
 
@@ -99,9 +99,9 @@ The `yes` example is harmless enough. The same pattern shows up in more dangerou
 | "Fix duplicate charges" | Produce a reconciliation report | Mutate billing records without enough checks |
 | "Disable the old flow" | Feature-flag it for a test cohort | Break users still using a fallback path |
 
-Most bad automation stories are not about a system being malicious. They are about a plausible instruction being executed in the wrong scope, at the wrong time, or with the wrong assumption.
+Many bad automation stories are not about a system being malicious. They are about a plausible instruction being executed in the wrong scope, at the wrong time, or with the wrong assumption.
 
-Agents make this easier to trigger because natural language becomes the control plane.
+Agents can make this easier to trigger because natural language becomes the control plane.
 
 ![How one wrong branch can become durable state](/assets/blog/are-agents-probabilistic-automation/cascading-failure.svg)
 
@@ -113,7 +113,7 @@ I keep coming back to an ML analogy.
 
 In classical ML, we often choose a function form and estimate parameters. In deep learning, we learn more of the function from data. Coding agents feel like another step: a learned policy operating inside a tool environment.
 
-The input is not just the user request. It includes the repo, conversation history, tool outputs, system prompt, memory, workflow instructions, and the current sampled trajectory. The output is not just text. It can be code edits, shell commands, comments, tickets, deployments, and other side effects.
+The input is not just the user request. It includes the repo, conversation history, tool outputs, system prompt, memory, workflow instructions, and the path the session has already taken. The output is not just text. It can be code edits, shell commands, comments, tickets, deployments, and other side effects.
 
 | ML or systems idea | Coding agent equivalent |
 |---|---|
