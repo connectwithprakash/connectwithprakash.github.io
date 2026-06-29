@@ -1,7 +1,7 @@
 ---
 id: term-chameleon
 title: Term Chameleon
-shortDescription: An open-source Python CLI that keeps terminal text readable on translucent "glass" terminals — diagnosing readability failures, fixing palettes, and watching the screen to adapt iTerm2's colors and transparency live as the backdrop changes.
+shortDescription: An open-source Python CLI that keeps text readable on translucent "glass" terminals. It diagnoses readability failures, fixes palettes, and adapts iTerm2's colors and transparency live as the backdrop changes.
 category: developer-tools
 status: released
 startDate: 2026-06
@@ -37,9 +37,9 @@ installation: |
 
 ## Overview
 
-Glassy terminal themes look great — until white text disappears over a bright browser window behind them, dim text vanishes over a dark blur, or iTerm2's Light/Dark profile variants silently override your palette. **Term Chameleon** diagnoses and fixes those readability failures, and can watch your screen to adapt the terminal's colors and transparency live as the background behind it changes.
+Glassy terminal themes look great until white text disappears over a bright browser window behind them, dim text vanishes over a dark blur, or iTerm2's Light/Dark profile variants silently override your palette. **Term Chameleon** diagnoses and fixes those readability failures, and can watch your screen to adapt the terminal's colors and transparency live as the background behind it changes.
 
-It targets macOS + iTerm2 today, with OSC color sequences that also work on Kitty, Ghostty, and Alacritty. The package ships with zero runtime dependencies and installs from PyPI; the whole happy path is two commands to a tuned, readable glass terminal, three for live auto-adaptation.
+It targets macOS and iTerm2 today, with OSC color sequences that also work on Kitty, Ghostty, and Alacritty. The package ships with zero runtime dependencies and installs from PyPI. The whole happy path is two commands to a tuned, readable glass terminal, three for live auto-adaptation.
 
 ## Problem Statement
 
@@ -62,7 +62,7 @@ The presets form a calibrated **glassiness ladder**, ordered most-translucent to
 
 ### A note on what is and isn't possible
 
-True per-glyph correction — fixing each character against the exact pixels behind it — is **not achievable** through any terminal's controls: every lever is a single window-wide value, and macOS owns the backdrop, so no app (including GPU-shader terminals) receives the see-through pixels. Term Chameleon therefore enforces a *worst-case readable* configuration with the levers it does have, rather than pretending to solve an unobservable per-pixel problem. Being honest about that boundary — and engineering the best solution that fits inside it — was the core design decision.
+True per-glyph correction, fixing each character against the exact pixels behind it, is **not achievable** through any terminal's controls: every lever is a single window-wide value, and macOS owns the backdrop, so no app (including GPU-shader terminals) receives the see-through pixels. Term Chameleon therefore enforces a *worst-case readable* configuration with the levers it does have, rather than pretending to solve an unobservable per-pixel problem. Being honest about that boundary, then engineering the best solution that fits inside it, was the core design decision.
 
 ## Key Features
 
@@ -107,7 +107,7 @@ True per-glyph correction — fixing each character against the exact pixels beh
 
 - **Open source** under a permissive license, installable in one `pip` command.
 - **Accessibility-first** — every adaptation decision is grounded in measurable WCAG contrast, not aesthetic guesswork.
-- **Honest engineering** — ships a solution scoped to what the platform actually allows, with the platform limits documented rather than papered over.
+- **Honest engineering** — ships a solution scoped to what the platform actually allows, documenting the platform limits rather than papering over them.
 - **Cross-terminal reach** — the preset/OSC layer extends beyond iTerm2 to other modern terminals.
 
 ## Links
