@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="450" viewBox="0 0 400 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2027;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="brightBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f7fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c3cfe2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="450" fill="url(#bgGrad)" />
+
+  <!-- Bright "background window" peeking behind the glass terminal -->
+  <rect x="120" y="60" width="240" height="180" rx="10" fill="url(#brightBack)" opacity="0.9" />
+  <rect x="138" y="84" width="150" height="10" rx="5" fill="#9aa7bd" opacity="0.7" />
+  <rect x="138" y="106" width="190" height="8" rx="4" fill="#b3bed0" opacity="0.6" />
+  <rect x="138" y="124" width="120" height="8" rx="4" fill="#b3bed0" opacity="0.6" />
+
+  <!-- Translucent glass terminal window in front -->
+  <rect x="40" y="120" width="280" height="230" rx="12" fill="#10243a" opacity="0.78" stroke="url(#chamGrad)" stroke-width="1.5" />
+  <!-- title bar -->
+  <rect x="40" y="120" width="280" height="34" rx="12" fill="#0c1b2c" opacity="0.85" />
+  <circle cx="62" cy="137" r="5" fill="#ff5f57" />
+  <circle cx="80" cy="137" r="5" fill="#febc2e" />
+  <circle cx="98" cy="137" r="5" fill="#28c840" />
+
+  <!-- terminal text, kept readable (light) over the glass -->
+  <text x="58" y="186" font-family="Menlo, monospace" font-size="13" fill="#43e97b">$ term-chameleon</text>
+  <text x="58" y="210" font-family="Menlo, monospace" font-size="12" fill="#e8f0f8">watch-live --yes</text>
+  <text x="58" y="234" font-family="Menlo, monospace" font-size="11" fill="#9fe8c8">bright backdrop -&gt; opaque</text>
+  <text x="58" y="256" font-family="Menlo, monospace" font-size="11" fill="#9fe8c8">dark backdrop  -&gt; glassy</text>
+  <text x="58" y="282" font-family="Menlo, monospace" font-size="12" fill="#e8f0f8">contrast: WCAG AA &#10003;</text>
+  <text x="58" y="312" font-family="Menlo, monospace" font-size="13" fill="#38f9d7">readable &#9608;</text>
+
+  <!-- chameleon-eye accent: adaptation indicator -->
+  <circle cx="290" cy="300" r="20" fill="none" stroke="url(#chamGrad)" stroke-width="3" opacity="0.9" />
+  <circle cx="290" cy="300" r="7" fill="url(#chamGrad)" />
+
+  <!-- title -->
+  <text x="200" y="392" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">term-chameleon</text>
+  <text x="200" y="420" font-family="Inter, sans-serif" font-size="13" fill="#7fdcb0" text-anchor="middle">adaptive contrast for glass terminals</text>
+</svg>

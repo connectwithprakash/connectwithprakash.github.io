@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <linearGradient id="hBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2027;stop-opacity:1" />
+      <stop offset="55%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0c1b2c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hCham" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hBright" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f7fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c3cfe2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d0d1a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="420" fill="url(#hBg)" />
+
+  <!-- LEFT: glassy terminal over a DARK backdrop (stays translucent) -->
+  <g>
+    <rect x="60" y="70" width="320" height="220" rx="10" fill="url(#hDark)" />
+    <text x="80" y="110" font-family="Inter, sans-serif" font-size="12" fill="#5a5a72">dark backdrop</text>
+    <rect x="80" y="120" width="180" height="7" rx="3" fill="#2a2a44" />
+    <rect x="80" y="136" width="220" height="7" rx="3" fill="#2a2a44" />
+
+    <!-- glass terminal, high transparency -->
+    <rect x="100" y="110" width="300" height="200" rx="12" fill="#10243a" opacity="0.62" stroke="url(#hCham)" stroke-width="1.5" />
+    <rect x="100" y="110" width="300" height="30" rx="12" fill="#0c1b2c" opacity="0.7" />
+    <circle cx="120" cy="125" r="4.5" fill="#ff5f57" />
+    <circle cx="136" cy="125" r="4.5" fill="#febc2e" />
+    <circle cx="152" cy="125" r="4.5" fill="#28c840" />
+    <text x="118" y="172" font-family="Menlo, monospace" font-size="12" fill="#43e97b">$ glassy &amp; readable</text>
+    <text x="118" y="196" font-family="Menlo, monospace" font-size="11" fill="#e8f0f8">transparency: high</text>
+    <text x="118" y="218" font-family="Menlo, monospace" font-size="11" fill="#9fe8c8">contrast: AA &#10003;</text>
+  </g>
+
+  <!-- adaptation arrow -->
+  <g>
+    <circle cx="450" cy="210" r="30" fill="none" stroke="url(#hCham)" stroke-width="3" />
+    <circle cx="450" cy="210" r="10" fill="url(#hCham)" />
+    <path d="M 408 175 L 492 175" stroke="url(#hCham)" stroke-width="2" fill="none" marker-end="url(#arr)" opacity="0.6" />
+    <path d="M 492 245 L 408 245" stroke="url(#hCham)" stroke-width="2" fill="none" marker-end="url(#arr)" opacity="0.6" />
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#38f9d7" />
+      </marker>
+    </defs>
+  </g>
+
+  <!-- RIGHT: terminal over a BRIGHT backdrop (steps toward opaque) -->
+  <g>
+    <rect x="520" y="70" width="320" height="220" rx="10" fill="url(#hBright)" />
+    <text x="540" y="110" font-family="Inter, sans-serif" font-size="12" fill="#8a96ac">bright backdrop</text>
+    <rect x="540" y="120" width="180" height="7" rx="3" fill="#aeb9cc" />
+    <rect x="540" y="136" width="220" height="7" rx="3" fill="#aeb9cc" />
+
+    <!-- terminal, low transparency so bright bg can't wash out text -->
+    <rect x="500" y="110" width="300" height="200" rx="12" fill="#0c1b2c" opacity="0.95" stroke="url(#hCham)" stroke-width="1.5" />
+    <rect x="500" y="110" width="300" height="30" rx="12" fill="#081320" opacity="0.98" />
+    <circle cx="520" cy="125" r="4.5" fill="#ff5f57" />
+    <circle cx="536" cy="125" r="4.5" fill="#febc2e" />
+    <circle cx="552" cy="125" r="4.5" fill="#28c840" />
+    <text x="518" y="172" font-family="Menlo, monospace" font-size="12" fill="#38f9d7">$ opaque &amp; readable</text>
+    <text x="518" y="196" font-family="Menlo, monospace" font-size="11" fill="#e8f0f8">transparency: low</text>
+    <text x="518" y="218" font-family="Menlo, monospace" font-size="11" fill="#9fe8c8">contrast: AA &#10003;</text>
+  </g>
+
+  <!-- caption -->
+  <text x="450" y="360" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">Same readability, adapted to the backdrop</text>
+  <text x="450" y="388" font-family="Inter, sans-serif" font-size="14" fill="#7fdcb0" text-anchor="middle">sample &#8594; decide &#8594; apply &#183; transparency traded for contrast only when the backdrop demands it</text>
+</svg>
