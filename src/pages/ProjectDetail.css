@@ -415,7 +415,7 @@
     padding: 1.5rem;
   }
 
-  .project-markdown table {
+  .project-detail-page .project-markdown table {
     display: block;
     max-width: 100%;
     overflow-x: auto;
