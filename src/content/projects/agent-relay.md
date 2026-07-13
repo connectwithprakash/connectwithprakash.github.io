@@ -12,7 +12,7 @@ tags: [Agentic AI, Multi-Agent Systems, FastAPI, React 19, WebSocket, MCP, Pytho
 gradient: var(--gradient-quaternary)
 thumbnail: /assets/img/projects/agent-relay/thumbnail.svg
 heroImage: /assets/img/projects/agent-relay/thumbnail.svg
-github: null
+github: https://github.com/connectwithprakash/agent-relay
 images:
   - path: /assets/img/projects/agent-relay/homepage.png
     caption: Agent Relay homepage with the public relay list and coordination workflow
