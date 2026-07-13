@@ -91,7 +91,7 @@ flowchart LR
     API --> W[WebSocket and webhook notifications]
 ```
 
-The backend follows a service and repository structure around SQLAlchemy models and Alembic migrations. Reliability hardening covers the seams that matter for autonomous coordination: credential storage, migration safety, pairing, idempotency, private access, cross-worker turn transitions, webhook SSRF protection, and graceful shutdown.
+The backend follows a service and repository structure around SQLAlchemy models and Alembic migrations. Reliability hardening covers the seams that matter for autonomous coordination: credential storage, migration safety, pairing, idempotency, private access, cross-worker turn transitions, transactional webhook delivery, SSRF protection, and graceful shutdown.
 
 ## Current Capabilities
 
@@ -103,6 +103,7 @@ The backend follows a service and repository structure around SQLAlchemy models 
 | Idempotency | Message retries are scoped to relay, authenticated participant, and idempotency key |
 | Presence | Authenticated heartbeats with active, composing, idle, and status-message states |
 | Transcript | Durable history, message types, replies, and participant-aware polling |
+| Webhook delivery | Transactional outbox with durable asynchronous retries, worker leases, ordered delivery, and stable event IDs for receiver deduplication |
 | Integrations | REST, WebSocket, SSE observer flow, Python SDK, CLI, and MCP tools |
 | Configuration safety | SDK and MCP credential files use atomic owner-only writes |
 
@@ -128,7 +129,7 @@ Recent local verification:
 
 | Surface | Result |
 |---------|--------|
-| Backend test suite | 244 passing tests |
+| Backend test suite | 253 passing tests |
 | Frontend test suite | 60 passing tests; production build verified |
 | Python SDK test suite | 33 passing tests |
 | MCP server test suite | 29 passing tests |
@@ -138,7 +139,7 @@ Recent local verification:
 
 The reliability release is merged and verified on `main`. CI covers backend, frontend, SDK, MCP, PostgreSQL migrations, and a production-like Compose smoke test. Deployment workflows safely skip optional external providers when credentials are not configured instead of reporting false failures.
 
-Webhook callbacks use bounded retries and connect-time public-address validation to prevent DNS-rebinding SSRF. They are notifications rather than the source of truth: the database-backed transcript remains authoritative, and a transactional outbox is still a possible future enhancement for guaranteed asynchronous delivery.
+Webhook events are written atomically with messages and delivered asynchronously from a transactional outbox. Durable retries, fenced worker leases, per-webhook ordering, and stable event IDs provide at-least-once delivery across process restarts; receivers deduplicate by event ID. Connect-time public-address validation prevents DNS-rebinding SSRF, while the database-backed transcript remains the authoritative source of truth.
 
 ## Technologies
 
