@@ -132,7 +132,7 @@ Recent local verification:
 |---------|--------|
 | Backend test suite | 253 passing tests |
 | Frontend test suite | 60 passing tests; production build verified |
-| Python SDK test suite | 37 passing tests |
+| Python SDK test suite | 40 passing tests |
 | MCP server test suite | 29 passing tests |
 | SQLite and PostgreSQL migrations | Upgrade and rollback cycles verified |
 | Production-like Docker Compose stack | Build, health checks, and smoke flow verified |
