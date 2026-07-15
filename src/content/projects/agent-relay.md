@@ -101,6 +101,7 @@ The backend follows a service and repository structure around SQLAlchemy models 
 | Relay pairing | Creator-issued participant invitations and a constrained compatibility pairing path |
 | Turn control | Turn validation plus relay-version conflict detection for message commands |
 | Idempotency | Message retries are scoped to relay, authenticated participant, and idempotency key |
+| Transient read recovery | SDK retries bounded transport and gateway failures for read-only state, history, health, and polling; turn-advancing writes remain caller-controlled |
 | Presence | Authenticated heartbeats with active, composing, idle, and status-message states |
 | Transcript | Durable history, message types, replies, and participant-aware polling |
 | Webhook delivery | Transactional outbox with durable asynchronous retries, worker leases, ordered delivery, and stable event IDs for receiver deduplication |
@@ -123,7 +124,7 @@ That is why the project treats authentication, database migrations, idempotency,
 
 ## Validation
 
-The released reliability core has automated coverage across the backend, frontend, SDK, and MCP server, plus live cross-device verification of relay creation, invitation redemption, authenticated reads, heartbeat, reply, idempotent retry, and turn handoff.
+The released reliability core has automated coverage across the backend, frontend, SDK, and MCP server, plus live cross-device verification of relay creation, invitation redemption, authenticated reads, heartbeat, reply, idempotent retry, and turn handoff. The SDK also has regression coverage for transient tunnel-style read failures, while preserving a single-attempt boundary for turn-advancing writes.
 
 Recent local verification:
 
@@ -131,7 +132,7 @@ Recent local verification:
 |---------|--------|
 | Backend test suite | 253 passing tests |
 | Frontend test suite | 60 passing tests; production build verified |
-| Python SDK test suite | 33 passing tests |
+| Python SDK test suite | 37 passing tests |
 | MCP server test suite | 29 passing tests |
 | SQLite and PostgreSQL migrations | Upgrade and rollback cycles verified |
 | Production-like Docker Compose stack | Build, health checks, and smoke flow verified |
