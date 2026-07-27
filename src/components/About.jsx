@@ -108,22 +108,28 @@ const About = () => {
                   What I Do
                 </h3>
                 <p>
-                  I build production AI systems focused on{' '}
-                  <strong>LLMs</strong> and <strong>Multi-Agent Systems</strong>.
-                  Recently shipped an <strong>AI Shopping Assistant</strong> serving a 200K-user experiment,
-                  with over 5 years of experience delivering ML solutions that drive business impact.
+                  I'm a <strong>Senior Machine Learning Engineer</strong> at Fetch, where I lead
+                  technical direction for production AI systems built on <strong>LLMs</strong> and{' '}
+                  <strong>multi-agent architectures</strong>. I shipped an{' '}
+                  <strong>AI Shopping Assistant</strong> to a 200K-user experiment and led a
+                  multi-agent matching framework that <strong>unlocked $165M in GMV</strong> with
+                  LLM-as-a-Judge guardrails at 97% accuracy.
                 </p>
                 <p>
-                  Previously, I was a <strong>Graduate Research Assistant</strong> at{' '}
-                  <strong>NASA-IMPACT</strong> (Interagency Implementation and Advanced Concepts Team)
-                  while pursuing my <strong>MS in Computer Science</strong> at the University of Alabama
-                  in Huntsville. My research focused on Machine Learning and Representation Learning.
+                  Over the past several years I've worked across{' '}
+                  <strong>computer vision</strong>, <strong>multimodal and contrastive learning</strong>,
+                  and <strong>NLP</strong> before specializing in agentic systems. These days I'm drawn
+                  to the hard, unglamorous parts: evaluation loops that gate deploys, context that stays
+                  within a token budget, and coordination protocols for agents that outlive a session -
+                  work that shows up in the open as <strong>Agent Relay</strong> and{' '}
+                  <strong>Lazyflow</strong>.
                 </p>
                 <p>
-                  I'm passionate about open source and education. My projects like{' '}
-                  <strong>Norch</strong> (a PyTorch-like framework in NumPy) and{' '}
-                  <strong>memory-optimized-agent</strong> (42% cost reduction) demonstrate my commitment
-                  to making advanced ML concepts accessible and practical.
+                  My path started in hardware, building autonomous robots for the{' '}
+                  <strong>ABU Robocon</strong> international competition, then representation-learning
+                  research at <strong>NASA-IMPACT</strong> during my{' '}
+                  <strong>MS in Computer Science</strong>. Most of what I learn still ends up as an
+                  open-source tool.
                 </p>
 
                 <div className="about-highlights">
