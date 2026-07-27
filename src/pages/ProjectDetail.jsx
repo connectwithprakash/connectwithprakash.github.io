@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
@@ -43,6 +43,21 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
   const project = getProjectById(id);
   const relatedProjects = project ? getRelatedProjects(id, project.category) : [];
+  const [lightbox, setLightbox] = useState(null);
+
+  // Close the lightbox on Escape and freeze page scroll while it is open.
+  useEffect(() => {
+    if (!lightbox) return undefined;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setLightbox(null);
+    };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [lightbox]);
 
   if (!project) {
     return (
@@ -283,7 +298,14 @@ const ProjectDetail = () => {
                 <div className={`project-images-grid${project.imageLayout === 'stacked' ? ' project-images-stacked' : ''}`}>
                   {project.images.map((image, index) => (
                     <div key={index} className="project-image-item">
-                      <img src={image.path} alt={image.caption} />
+                      <button
+                        type="button"
+                        className="image-zoom"
+                        onClick={() => setLightbox(image)}
+                        aria-label={`View full size: ${image.caption || project.title}`}
+                      >
+                        <img src={image.path} alt={image.caption} />
+                      </button>
                       {image.caption && <p className="image-caption">{image.caption}</p>}
                     </div>
                   ))}
@@ -350,6 +372,31 @@ const ProjectDetail = () => {
           </div>
         </motion.div>
       </div>
+
+      {lightbox && (
+        <div
+          className="image-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.caption || 'Full size image'}
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            className="image-lightbox-close"
+            aria-label="Close full size image"
+            onClick={() => setLightbox(null)}
+          >
+            &times;
+          </button>
+          <img
+            src={lightbox.path}
+            alt={lightbox.caption || ''}
+            onClick={(e) => e.stopPropagation()}
+          />
+          {lightbox.caption && <p className="image-lightbox-caption">{lightbox.caption}</p>}
+        </div>
+      )}
     </div>
   );
 };
