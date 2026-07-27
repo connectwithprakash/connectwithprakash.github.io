@@ -189,6 +189,30 @@
   line-height: 1.6;
 }
 
+.timeline-roles {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.timeline-role {
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--glass-border);
+}
+
+.timeline-role h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.timeline-role-date {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--neon-blue);
+  margin-bottom: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .about-card {
     padding: 2rem;

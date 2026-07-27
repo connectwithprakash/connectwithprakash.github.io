@@ -1,6 +1,6 @@
 # Prakash Chaudhary
 
-**Location:** San Francisco, CA
+**Location:** Fort Worth, TX
 **Email:** connectwithprakash@gmail.com
 **Website:** [connectwithprakash.com](https://connectwithprakash.com)
 **LinkedIn:** [linkedin.com/in/connectwithprakash](https://www.linkedin.com/in/connectwithprakash/)
@@ -16,8 +16,8 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
 
 ## Industry Experience
 
-### Fetch Rewards | Remote
-**Machine Learning Engineer - AI Labs** | May 2024 - Present
+### Fetch | Remote (AI Labs)
+**Senior Machine Learning Engineer** | May 2024 - Present
 
 - Built and shipped **AI Shopping Assistant** serving a **200K-user experiment** -- a Python/LangGraph agent with product card integration with shoppable product cards (catalog search, web search, 4.2M normalized images at 18x cost efficiency), episode-based conversation history (DynamoDB + S3), and production observability (Opik, OpenTelemetry, Grafana), deployed on AWS ECS Fargate
 - Built **end-to-end LLM evaluation system** -- a continuous improvement loop connecting offline evaluation (golden dataset), online monitoring (production traces), and human annotation (judge calibration), with **CI/CD deploy gating** that blocks releases on quality regression

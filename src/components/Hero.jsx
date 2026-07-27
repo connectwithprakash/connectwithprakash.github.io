@@ -93,11 +93,11 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p className="hero-subtitle" variants={itemVariants}>
-            Machine Learning Engineer @ Fetch Rewards
+            Senior Machine Learning Engineer @ Fetch Rewards
           </motion.p>
 
           <motion.p className="hero-description" variants={itemVariants}>
-            Based in San Francisco. I build production multi-agent systems and self-supervised learning pipelines.
+            Based in Fort Worth. I build production multi-agent systems and self-supervised learning pipelines.
             Previously did ML research at NASA-IMPACT, working on representation learning. Also into{' '}
             <span className="highlight">robotics, electronics, and the math that makes it all work</span>.
           </motion.p>

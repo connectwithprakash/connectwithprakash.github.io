@@ -120,7 +120,7 @@ const Contact = () => {
                 <div className="contact-card-header">
                   <h3 className="gradient-text">Get In Touch</h3>
                   <p>
-                    Machine Learning Engineer at Fetch Rewards. Always excited to discuss
+                    Senior Machine Learning Engineer at Fetch Rewards. Always excited to discuss
                     AI, robotics, and innovative tech projects. Let's connect!
                   </p>
                 </div>
@@ -132,7 +132,7 @@ const Contact = () => {
                     </div>
                     <div className="detail-content">
                       <h4>Location</h4>
-                      <p>San Francisco, CA</p>
+                      <p>Fort Worth, TX</p>
                     </div>
                   </div>
 

@@ -97,7 +97,7 @@ const About = () => {
           <motion.div className="section-header" variants={itemVariants}>
             <h2 className="section-title">About Me</h2>
             <p className="section-subtitle">
-              Machine Learning Engineer building production AI systems
+              Senior Machine Learning Engineer building production AI systems
             </p>
           </motion.div>
 
@@ -164,12 +164,31 @@ const About = () => {
             <h3 className="subsection-title gradient-text">Work Experience</h3>
             <div className="timeline">
               <div className="timeline-item glass-card">
-                <div className="timeline-date">2024 - Present</div>
-                <h4>Machine Learning Engineer - AI Labs</h4>
-                <p className="timeline-org">Fetch Rewards - Remote</p>
-                <p className="timeline-desc">
-                  Leading AI innovation, automation, and LLM enablement initiatives. Building production multi-agent systems and ML solutions driving measurable business impact.
-                </p>
+                <div className="timeline-date">May 2024 - Present</div>
+                <p className="timeline-org">Fetch - Remote (AI Labs)</p>
+                <div className="timeline-roles">
+                  <div className="timeline-role">
+                    <h4>Senior Machine Learning Engineer</h4>
+                    <span className="timeline-role-date">Jul 2026 - Present</span>
+                    <p className="timeline-desc">
+                      Leading technical direction for Fetch's AI Shopping Assistant, a self-improving agentic system, with a focus on the evaluation systems and architecture the team builds on.
+                    </p>
+                  </div>
+                  <div className="timeline-role">
+                    <h4>Machine Learning Engineer II</h4>
+                    <span className="timeline-role-date">Jan 2026 - Jun 2026</span>
+                    <p className="timeline-desc">
+                      Built and shipped the AI Shopping Assistant to a 200K-user experiment, plus an end-to-end LLM evaluation system with CI/CD deploy gating that blocks releases on quality regression.
+                    </p>
+                  </div>
+                  <div className="timeline-role">
+                    <h4>Machine Learning Engineer</h4>
+                    <span className="timeline-role-date">May 2024 - Dec 2025</span>
+                    <p className="timeline-desc">
+                      Led the Multi-Agent Matching Framework, improving match rates by 3.1-3.3 points and unlocking $165M in GMV with LLM-as-a-Judge guardrails at 97% accuracy.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div className="timeline-item glass-card">
