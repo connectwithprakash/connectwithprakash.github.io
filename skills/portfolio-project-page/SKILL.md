@@ -27,7 +27,7 @@ Run this whenever a project page is ADDED or its status changes to released/comp
 
 | Surface | Trigger | Action |
 |---|---|---|
-| `src/data/newsData.js` | New released project | Decide: news entry? Launches historically get one (diskard, Lazyflow, Session Bridge). Shape: `{date: 'Month YYYY', icon: 'rocket', title, description, color: 'var(--neon-green)'}`, inserted newest-first |
+| `src/data/newsData.js` | New released project | Decide: news entry? Launches historically get one (diskard, Lazyflow, Session Bridge). Shape: `{date: 'Month YYYY', icon: 'rocket', title, description, color: 'var(--neon-green)'}`. Order strictly by event date, newest first, including within the same month; do not reorder by perceived significance |
 | `featured` flag | Always | Budget check: the home section renders ALL featured projects, so each addition crowds it. Decide whether something else should un-feature |
 | Categories in `src/pages/ProjectsPage.jsx` | Only if the project needs a new category | Add to the hardcoded list |
 | Sitemap / routing | Never | Automatic; no action |
