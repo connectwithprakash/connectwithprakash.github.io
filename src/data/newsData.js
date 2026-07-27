@@ -7,6 +7,13 @@ export const newsItems = [
     color: 'var(--neon-yellow)',
   },
   {
+    date: 'July 2026',
+    icon: 'rocket',
+    title: 'Released Session Bridge',
+    description: 'Published session-bridge, a local-first tool that moves live coding-agent sessions between Claude Code, Codex, and Hermes: one intermediate representation, pre-write dry runs that disclose every lossy conversion, a Textual TUI, and an agent skill so agents can hand off their own sessions.',
+    color: 'var(--neon-green)',
+  },
+  {
     date: 'March 2026',
     icon: 'rocket',
     title: 'AI Shopping Assistant Reaches 200K-User Experiment',
