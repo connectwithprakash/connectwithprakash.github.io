@@ -298,14 +298,29 @@ const ProjectDetail = () => {
                 <div className={`project-images-grid${project.imageLayout === 'stacked' ? ' project-images-stacked' : ''}`}>
                   {project.images.map((image, index) => (
                     <div key={index} className="project-image-item">
-                      <button
-                        type="button"
-                        className="image-zoom"
-                        onClick={() => setLightbox(image)}
-                        aria-label={`View full size: ${image.caption || project.title}`}
-                      >
-                        <img src={image.path} alt={image.caption} />
-                      </button>
+                      {/\.(mp4|webm)$/i.test(image.path) ? (
+                        // Videos get native controls (incl. fullscreen), so no
+                        // lightbox; muted autoplay loop keeps GIF-like behavior.
+                        <video
+                          className="project-video"
+                          src={image.path}
+                          muted
+                          loop
+                          playsInline
+                          autoPlay
+                          controls
+                          aria-label={image.caption || project.title}
+                        />
+                      ) : (
+                        <button
+                          type="button"
+                          className="image-zoom"
+                          onClick={() => setLightbox(image)}
+                          aria-label={`View full size: ${image.caption || project.title}`}
+                        >
+                          <img src={image.path} alt={image.caption} />
+                        </button>
+                      )}
                       {image.caption && <p className="image-caption">{image.caption}</p>}
                     </div>
                   ))}

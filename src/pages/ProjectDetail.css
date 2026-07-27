@@ -355,6 +355,13 @@
   border-color: var(--neon-blue);
 }
 
+.project-video {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  display: block;
+}
+
 /* Clickable screenshot wrapper: an unstyled button so the zoom affordance
    is keyboard-accessible, with the img keeping its existing hover style. */
 .image-zoom {

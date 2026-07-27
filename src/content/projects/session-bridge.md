@@ -14,7 +14,7 @@ thumbnail: /assets/img/projects/session-bridge/thumbnail.svg
 heroImage: /assets/img/projects/session-bridge/thumbnail.svg
 github: https://github.com/connectwithprakash/session-bridge
 images:
-  - path: /assets/img/projects/session-bridge/tui-demo.gif
+  - path: /assets/img/projects/session-bridge/tui-demo.mp4
     caption: "The TUI wizard end to end: discover sessions across all three stores, inspect, dry-run, write"
   - path: /assets/img/projects/session-bridge/architecture.svg
     caption: "One intermediate representation in the middle: readers normalize each harness in, writers render out, and losses and pending state ride a side channel"
