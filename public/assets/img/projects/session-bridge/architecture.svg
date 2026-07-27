@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="session-bridge architecture: three harness session stores converted through a shared intermediate representation">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="#1e1e28"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 L7 4 L1 7" fill="none" stroke="#6b7180" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="640" rx="16" fill="#111118"/>
+  <rect x="0" y="0" width="1200" height="640" rx="16" fill="url(#dots)"/>
+
+  <g font-family="SF Mono, Menlo, monospace">
+
+    <!-- title block -->
+    <text x="40" y="58" font-size="14" letter-spacing="3">
+      <tspan fill="#e8e8f0" font-weight="600">SESSION-BRIDGE</tspan>
+      <tspan fill="#9aa0ae"> · CONVERSION ARCHITECTURE</tspan>
+    </text>
+    <text x="1160" y="58" text-anchor="end" font-size="13" fill="#9aa0ae">one session · three harnesses</text>
+    <line x1="40" y1="74" x2="1160" y2="74" stroke="#22222e" stroke-width="1"/>
+
+    <!-- section headers -->
+    <text x="40" y="114" font-size="13" letter-spacing="2" fill="#9aa0ae">SOURCES</text>
+    <text x="900" y="114" font-size="13" letter-spacing="2" fill="#9aa0ae">TARGETS</text>
+    <text x="605" y="174" text-anchor="middle" font-size="13" letter-spacing="2" fill="#9aa0ae">INTERMEDIATE REPRESENTATION</text>
+
+    <!-- source cards -->
+    <g>
+      <rect x="40" y="130" width="260" height="72" rx="2" fill="#15151d" stroke="#2b2b3a" stroke-width="1"/>
+      <rect x="40" y="130" width="3" height="72" fill="#17a2b8"/>
+      <text x="58" y="158" font-size="14" font-weight="600" fill="#e8e8f0">Claude Code</text>
+      <text x="58" y="180" font-size="13" fill="#9aa0ae">~/.claude/projects/*.jsonl</text>
+
+      <rect x="40" y="234" width="260" height="72" rx="2" fill="#15151d" stroke="#2b2b3a" stroke-width="1"/>
+      <rect x="40" y="234" width="3" height="72" fill="#3aa85f"/>
+      <text x="58" y="256" font-size="14" font-weight="600" fill="#e8e8f0">Codex</text>
+      <text x="58" y="278" font-size="13" fill="#9aa0ae">~/.codex/sessions/</text>
+      <text x="58" y="296" font-size="13" fill="#9aa0ae">rollout-*.jsonl</text>
+
+      <rect x="40" y="338" width="260" height="72" rx="2" fill="#15151d" stroke="#2b2b3a" stroke-width="1"/>
+      <rect x="40" y="338" width="3" height="72" fill="#8f6ae0"/>
+      <text x="58" y="366" font-size="14" font-weight="600" fill="#e8e8f0">Hermes</text>
+      <text x="58" y="388" font-size="13" fill="#9aa0ae">~/.hermes/sessions/*.jsonl</text>
+    </g>
+
+    <!-- readers box -->
+    <rect x="360" y="242" width="110" height="56" rx="2" fill="#14141c" stroke="#6b7180" stroke-width="1"/>
+    <text x="415" y="275" text-anchor="middle" font-size="14" fill="#e8e8f0">readers/</text>
+
+    <!-- writers box -->
+    <rect x="740" y="242" width="110" height="56" rx="2" fill="#14141c" stroke="#6b7180" stroke-width="1"/>
+    <text x="795" y="275" text-anchor="middle" font-size="14" fill="#e8e8f0">writers/</text>
+
+    <!-- IR box -->
+    <rect x="510" y="190" width="190" height="160" rx="2" fill="#15151d" stroke="#b08c22" stroke-width="1.5"/>
+    <text x="526" y="218" font-size="15" font-weight="600" fill="#e8e8f0">IR · Session</text>
+    <line x1="510" y1="230" x2="700" y2="230" stroke="#b08c22" stroke-width="1" opacity="0.7"/>
+    <text x="526" y="256" font-size="13" fill="#9aa0ae">messages (threaded)</text>
+    <line x1="524" y1="270" x2="686" y2="270" stroke="#262633" stroke-width="1"/>
+    <text x="526" y="296" font-size="13" fill="#9aa0ae">tool schemas</text>
+    <line x1="524" y1="310" x2="686" y2="310" stroke="#262633" stroke-width="1"/>
+    <text x="526" y="336" font-size="13" fill="#9aa0ae">pending state</text>
+
+    <!-- flow: sources to readers -->
+    <g fill="none" stroke="#6b7180" stroke-width="1">
+      <path d="M300 166 H330 V252 H357" marker-end="url(#arr)"/>
+      <path d="M300 270 H357" marker-end="url(#arr)"/>
+      <path d="M300 374 H330 V288 H357" marker-end="url(#arr)"/>
+      <path d="M470 270 H505" marker-end="url(#arr)"/>
+      <path d="M700 270 H737" marker-end="url(#arr)"/>
+      <path d="M850 252 H870 V166 H897" marker-end="url(#arr)"/>
+      <path d="M850 270 H897" marker-end="url(#arr)"/>
+      <path d="M850 288 H870 V374 H897" marker-end="url(#arr)"/>
+    </g>
+
+    <!-- target cards -->
+    <g>
+      <rect x="900" y="130" width="260" height="72" rx="2" fill="#15151d" stroke="#2b2b3a" stroke-width="1"/>
+      <rect x="900" y="130" width="3" height="72" fill="#17a2b8"/>
+      <text x="918" y="158" font-size="14" font-weight="600" fill="#e8e8f0">Claude Code</text>
+      <text x="918" y="180" font-size="13" fill="#9aa0ae">*.jsonl transcript</text>
+
+      <rect x="900" y="234" width="260" height="72" rx="2" fill="#15151d" stroke="#2b2b3a" stroke-width="1"/>
+      <rect x="900" y="234" width="3" height="72" fill="#3aa85f"/>
+      <text x="918" y="262" font-size="14" font-weight="600" fill="#e8e8f0">Codex</text>
+      <text x="918" y="284" font-size="13" fill="#9aa0ae">rollout + state_5.sqlite</text>
+      <g fill="none" stroke="#9aa0ae" stroke-width="1">
+        <ellipse cx="1128" cy="254" rx="9" ry="3.5"/>
+        <path d="M1119 254 V272 A9 3.5 0 0 0 1137 272 V254"/>
+      </g>
+
+      <rect x="900" y="338" width="260" height="72" rx="2" fill="#15151d" stroke="#2b2b3a" stroke-width="1"/>
+      <rect x="900" y="338" width="3" height="72" fill="#8f6ae0"/>
+      <text x="918" y="366" font-size="14" font-weight="600" fill="#e8e8f0">Hermes</text>
+      <text x="918" y="388" font-size="13" fill="#9aa0ae">state.db (SQLite)</text>
+      <g fill="none" stroke="#9aa0ae" stroke-width="1">
+        <ellipse cx="1128" cy="358" rx="9" ry="3.5"/>
+        <path d="M1119 358 V376 A9 3.5 0 0 0 1137 376 V358"/>
+      </g>
+    </g>
+
+    <!-- side channels -->
+    <g fill="none" stroke="#6b7180" stroke-width="1" stroke-dasharray="3 4">
+      <path d="M605 350 V552"/>
+      <path d="M605 490 H1118" marker-end="url(#arr)"/>
+      <path d="M605 552 H1118" marker-end="url(#arr)"/>
+    </g>
+    <circle cx="605" cy="490" r="2.5" fill="#6b7180"/>
+    <circle cx="605" cy="552" r="2.5" fill="#6b7180"/>
+    <text x="625" y="482" font-size="13">
+      <tspan fill="#e8e8f0">ConversionReport</tspan>
+      <tspan fill="#9aa0ae"> — every lossy asymmetry, disclosed</tspan>
+    </text>
+    <text x="625" y="544" font-size="13">
+      <tspan fill="#e8e8f0">resume handshake</tspan>
+      <tspan fill="#9aa0ae"> — pending state, prepended to the target</tspan>
+    </text>
+
+  </g>
+</svg>
