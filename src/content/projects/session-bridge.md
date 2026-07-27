@@ -15,13 +15,13 @@ heroImage: /assets/img/projects/session-bridge/thumbnail.svg
 github: https://github.com/connectwithprakash/session-bridge
 images:
   - path: /assets/img/projects/session-bridge/tui-demo.gif
-    caption: The TUI wizard end to end, discover sessions across all three stores, inspect, dry-run, write
+    caption: "The TUI wizard end to end: discover sessions across all three stores, inspect, dry-run, write"
   - path: /assets/img/projects/session-bridge/architecture.svg
-    caption: One intermediate representation in the middle, readers normalize each harness in, writers render out, losses and pending state travel on a side channel
+    caption: "One intermediate representation in the middle: readers normalize each harness in, writers render out, and losses and pending state ride a side channel"
   - path: /assets/img/projects/session-bridge/handoff-flow.svg
-    caption: The handoff story, a session stops mid-task in one tool and resumes in another with a real resume command
+    caption: "The handoff story: a session stops mid-task in one tool and resumes in another with a real resume command"
   - path: /assets/img/projects/session-bridge/tui-dryrun.svg
-    caption: The dry-run screen, conversion notes and the equivalent CLI command shown before a single byte is written
+    caption: "The dry-run screen: conversion notes and the equivalent CLI command, shown before a single byte is written"
 demo: null
 ---
 
@@ -29,7 +29,7 @@ demo: null
 
 Session Bridge moves a live coding-agent session between harnesses. Hit a usage limit mid-refactor in Claude Code, run one command, and continue the same conversation in Codex or Hermes with the history, tool calls, and unfinished work carried over. Everything runs against files already on disk. No cloud, no accounts.
 
-The problem is that each harness writes an incompatible session log. Claude Code keeps threaded JSONL under a cwd-encoded directory, Codex writes OpenAI Responses shaped rollouts plus a SQLite index, and Hermes treats a SQLite database as the source of truth with JSONL as export. Built-in escape hatches are lossy plain-text exports. Session Bridge normalizes any of the three into one intermediate representation, renders it into the target shape, and then does the part that actually matters: it makes the target harness recognize the session as resumable.
+The problem is that each harness writes an incompatible session log. Claude Code keeps threaded JSONL under a cwd-encoded directory, Codex writes OpenAI Responses-shaped rollouts plus a SQLite index, and Hermes treats a SQLite database as the source of truth with JSONL as export. Built-in escape hatches are lossy plain-text exports. Session Bridge normalizes any of the three into one intermediate representation, renders it into the target shape, and then does the part that actually matters: it makes the target harness recognize the session as resumable.
 
 ## The Portability Model
 
@@ -72,7 +72,7 @@ The conversation core transfers between all three harnesses: user and assistant 
 | Asymmetry | Behavior |
 |-----------|----------|
 | Thread topology | Only Claude Code has parent links; converting away flattens forks |
-| Reasoning signatures | Provider-bound, reasoning survives as summary text |
+| Reasoning signatures | Provider-bound; reasoning survives as summary text |
 | Tool schemas | Only Hermes stores them; reconstructed from invoked names otherwise |
 | System instructions | Only Codex stores them |
 | Queued user input | Only Claude Code records it; surfaced in the handshake |
@@ -88,7 +88,7 @@ A converted file sitting in the right directory is not enough for two of the thr
 - Nothing is ever silently overwritten. An existing transcript, a duplicate session id, or a conflicting title fails closed with an explicit force path.
 - Session ids are treated as untrusted input, validated before they ever reach a filesystem path or a database row, because ids can arrive from a source file rather than a person.
 
-Resumability is verified against real installs, not assumed. A session was round-tripped Claude Code to Hermes to Claude Code and resumed in a live claude process that recalled a fact existing only in the converted transcript. Codex registration was verified with Codex CLI 0.145.0 the same way: a resumed session returned a sentinel that existed only in the imported history.
+Resumability is verified against real installs, not assumed. A session was round-tripped Claude Code to Hermes to Claude Code and resumed in a live claude process that recalled a fact that existed only in the converted transcript. Codex registration was verified with Codex CLI 0.145.0 the same way: a resumed session returned a sentinel that existed only in the imported history.
 
 ## The TUI
 
@@ -109,9 +109,9 @@ session-bridge install-skill
 
 - **Schema archaeology beats schema guessing.** Every reader and registrar was built against real captured sessions and verified against live installs. The Hermes session id turned out to be the full filename stem, a detail the docs implied and a synthetic test had pinned wrong.
 - **Adversarial review earns its cost on mutation code.** Independent review passes confirmed findings the test suite missed: the plan phase opening a live SQLite store read-write, a path expansion that could crash the UI through a never-raise boundary, markup injection from transcript content.
-- **Demos are verification.** Recording the walkthrough GIF exposed a real usability bug, focus sat on Cancel while the confirm button was disabled, so pressing Enter on the dry-run screen silently cancelled. The fix shipped before the recording did.
+- **Demos are verification.** Recording the walkthrough GIF exposed a real usability bug: focus sat on Cancel while the confirm button was disabled, so pressing Enter on the dry-run screen silently cancelled. The fix shipped before the recording did.
 - **Fail closed, disclose everything.** The most reusable design rule in the codebase: an operation that cannot preserve something must say so, and an operation that could destroy something must refuse until forced.
 
 ## Technologies
 
-Python 3.11, stdlib-only core with zero runtime dependencies, Textual for the optional TUI, SQLite (WAL-safe backup API, read-only URIs, transactional registration), JSONL transcript formats for Claude Code, Codex, and Hermes, pytest with 298 tests including headless end-to-end TUI drives, and an agent-skill distribution model compatible with any SKILL.md-reading harness.
+Python 3.11, stdlib-only core with zero runtime dependencies, Textual for the optional TUI, SQLite (WAL-safe backup API, read-only URIs, transactional registration), JSONL transcript formats for Claude Code, Codex, and Hermes, pytest with 298 tests, including headless end-to-end TUI drives, and an agent-skill distribution model compatible with any SKILL.md-reading harness.
