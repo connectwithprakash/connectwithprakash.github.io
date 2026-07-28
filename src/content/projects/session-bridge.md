@@ -12,7 +12,7 @@ tags: [Python, CLI, TUI, Textual, AI Agents, SQLite, JSONL, Claude Code, Codex, 
 gradient: var(--gradient-cosmic)
 thumbnail: /assets/img/projects/session-bridge/thumbnail.svg
 heroImage: /assets/img/projects/session-bridge/thumbnail.svg
-github: https://github.com/connectwithprakash/session-bridge
+github: https://github.com/connectwithprakash/agent-session-bridge
 images:
   - path: /assets/img/projects/session-bridge/tui-demo.mp4
     caption: "The TUI wizard end to end: discover sessions across all three stores, inspect, dry-run, write"
