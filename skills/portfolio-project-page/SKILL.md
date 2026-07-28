@@ -17,6 +17,11 @@ Publish a project as a case-study page on this site. The site is a React 19 + Vi
 
 ## Frontmatter schema
 
+Title rule: portfolio visitors read titles with ZERO context, so the title
+self-describes rather than using the brand short-form when they differ
+("Agent Session Bridge", not "Session Bridge"); the `id`/URL and in-page
+command references keep the short name.
+
 Required-ish: `id`, `title`, `shortDescription` (1-2 sentence card text), `category`, `tags`, `startDate`/`endDate` (`YYYY-MM`), `status` (`completed`/`released`/`in-progress`; in-progress pins to top), `importance` (lower wins ties), `featured`, `gradient` (a `var(--gradient-*)`; check current usage counts and pick an underused one that harmonizes with the artwork), `thumbnail`/`heroImage`, `github`, `images: [{path, caption}]`. Quote any YAML value containing a colon.
 
 `images` entries ending in `.mp4`/`.webm` render as muted looping autoplay video with native controls; static images open in a lightbox.
