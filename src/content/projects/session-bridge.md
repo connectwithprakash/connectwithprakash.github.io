@@ -1,6 +1,6 @@
 ---
 id: session-bridge
-title: Session Bridge
+title: Agent Session Bridge
 shortDescription: Local-first portability for coding-agent sessions. Export a session from Claude Code, Codex, or Hermes and resume it in another harness, with every lossy conversion disclosed before anything is written.
 category: developer-tools
 status: released

@@ -2,8 +2,8 @@ export const newsItems = [
   {
     date: 'July 2026',
     icon: 'rocket',
-    title: 'Released Session Bridge',
-    description: 'Published session-bridge, a local-first tool that moves live coding-agent sessions between Claude Code, Codex, and Hermes: one intermediate representation, pre-write dry runs that disclose every lossy conversion, a Textual TUI, and an agent skill so agents can hand off their own sessions.',
+    title: 'Released Agent Session Bridge',
+    description: 'Published agent-session-bridge, a local-first tool that moves live coding-agent sessions between Claude Code, Codex, and Hermes: one intermediate representation, pre-write dry runs that disclose every lossy conversion, a Textual TUI, and an agent skill so agents can hand off their own sessions.',
     color: 'var(--neon-green)',
   },
   {
