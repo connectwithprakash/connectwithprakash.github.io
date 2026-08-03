@@ -5,7 +5,7 @@ shortDescription: Local-first portability for coding-agent sessions. Export a se
 category: developer-tools
 status: released
 startDate: 2026-07
-endDate: 2026-07
+endDate: 2026-08
 importance: 1
 featured: true
 tags: [Python, CLI, TUI, Textual, AI Agents, SQLite, JSONL, Claude Code, Codex, Agent Skills]
@@ -30,6 +30,13 @@ demo: null
 Session Bridge moves a live coding-agent session between harnesses. Hit a usage limit mid-refactor in Claude Code, run one command, and continue the same conversation in Codex or Hermes with the history, tool calls, and unfinished work carried over. Everything runs against files already on disk. No cloud, no accounts.
 
 The problem is that each harness writes an incompatible session log. Claude Code keeps threaded JSONL under a cwd-encoded directory, Codex writes OpenAI Responses-shaped rollouts plus a SQLite index, and Hermes treats a SQLite database as the source of truth with JSONL as export. Built-in escape hatches are lossy plain-text exports. Session Bridge normalizes any of the three into one intermediate representation, renders it into the target shape, and then does the part that actually matters: it makes the target harness recognize the session as resumable.
+
+It installs as a normal package:
+
+```bash
+brew install connectwithprakash/tap/session-bridge
+# or: pip install agent-session-bridge
+```
 
 ## The Portability Model
 
@@ -87,8 +94,9 @@ A converted file sitting in the right directory is not enough for two of the thr
 - Every registration takes a WAL-safe backup first, through the SQLite backup API rather than a file copy, and reports the backup path.
 - Nothing is ever silently overwritten. An existing transcript, a duplicate session id, or a conflicting title fails closed with an explicit force path.
 - Session ids are treated as untrusted input, validated before they ever reach a filesystem path or a database row, because ids can arrive from a source file rather than a person.
+- Newer Hermes builds stopped writing JSONL exports entirely, so discovery also reads sessions straight out of the live state.db through the same read-only URIs, and an export command materializes any of them for the convert flows.
 
-Resumability is verified against real installs, not assumed. A session was round-tripped Claude Code to Hermes to Claude Code and resumed in a live claude process that recalled a fact that existed only in the converted transcript. Codex registration was verified with Codex CLI 0.145.0 the same way: a resumed session returned a sentinel that existed only in the imported history.
+Resumability is verified against real installs, not assumed. An automated acceptance runner seeds a sentinel session in each harness, bridges it through every conversion pair, and resumes the result in the live target binary. A pair passes only when the resumed agent recalls sentinels from both the user and the assistant side of the imported history, because a transcript can look complete while the target silently drops one role. All six pairs are certified this way, most recently against Codex CLI 0.146.0.
 
 ## The TUI
 
@@ -110,8 +118,9 @@ session-bridge install-skill
 - **Schema archaeology beats schema guessing.** Every reader and registrar was built against real captured sessions and verified against live installs. The Hermes session id turned out to be the full filename stem, a detail the docs implied and a synthetic test had pinned wrong.
 - **Adversarial review earns its cost on mutation code.** Independent review passes confirmed findings the test suite missed: the plan phase opening a live SQLite store read-write, a path expansion that could crash the UI through a never-raise boundary, markup injection from transcript content.
 - **Demos are verification.** Recording the walkthrough GIF exposed a real usability bug: focus sat on Cancel while the confirm button was disabled, so pressing Enter on the dry-run screen silently cancelled. The fix shipped before the recording did.
+- **Unit tests certify code; live stores certify software.** The acceptance runner caught two crashes after the full unit suite passed: database-backed sessions share one file path, which collided as picker row keys, and about a quarter of real session previews contain bracket sequences that both rich's and Textual's own escape helpers fail to neutralize. Both fixes shipped with regression tests pinned.
 - **Fail closed, disclose everything.** The most reusable design rule in the codebase: an operation that cannot preserve something must say so, and an operation that could destroy something must refuse until forced.
 
 ## Technologies
 
-Python 3.11, stdlib-only core with zero runtime dependencies, Textual for the optional TUI, SQLite (WAL-safe backup API, read-only URIs, transactional registration), JSONL transcript formats for Claude Code, Codex, and Hermes, pytest with 298 tests, including headless end-to-end TUI drives, and an agent-skill distribution model compatible with any SKILL.md-reading harness.
+Python 3.11, stdlib-only core with zero runtime dependencies, Textual for the optional TUI, SQLite (WAL-safe backup API, read-only URIs, transactional registration), JSONL transcript formats for Claude Code, Codex, and Hermes, pytest with 300+ tests plus a live all-pairs acceptance runner, a fully automated release chain (release-please, PyPI trusted publishing, a self-bumping Homebrew tap), and an agent-skill distribution model compatible with any SKILL.md-reading harness.
