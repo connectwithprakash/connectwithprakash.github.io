@@ -15,7 +15,7 @@ heroImage: /assets/img/projects/session-bridge/thumbnail.svg
 github: https://github.com/connectwithprakash/agent-session-bridge
 images:
   - path: /assets/img/projects/session-bridge/tui-demo.mp4
-    caption: "The TUI wizard end to end: discover sessions across all three stores, inspect, dry-run, write"
+    caption: "The TUI end to end: discover sessions across all three stores, read the transcript, review the plan and its disclosures, register into Codex's store"
   - path: /assets/img/projects/session-bridge/architecture.svg
     caption: "One intermediate representation in the middle: readers normalize each harness in, writers render out, and losses and pending state ride a side channel"
   - path: /assets/img/projects/session-bridge/handoff-flow.svg
