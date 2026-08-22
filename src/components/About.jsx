@@ -4,6 +4,33 @@ import { useState, useEffect } from 'react';
 import { FaBrain, FaRobot, FaRocket, FaEye, FaCog } from 'react-icons/fa';
 import './About.css';
 
+const TimelineDetails = ({
+  itemKey,
+  date,
+  org,
+  title,
+  roleDate,
+  isMobile,
+  open,
+  onToggle,
+  children,
+}) => (
+  <details
+    className="timeline-item glass-card"
+    open={!isMobile || open}
+    onToggle={(event) => onToggle(itemKey, event.currentTarget.open)}
+  >
+    <summary className="timeline-summary">
+      <div className="timeline-date">{date}</div>
+      {org && <p className="timeline-org">{org}</p>}
+      {title && <h4>{title}</h4>}
+      {roleDate && <span className="timeline-role-date">{roleDate}</span>}
+      <span className="timeline-summary-toggle" aria-hidden="true">⌄</span>
+    </summary>
+    <div className="timeline-item-body">{children}</div>
+  </details>
+);
+
 const About = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -14,6 +41,20 @@ const About = () => {
     repos: 55,
     followers: 38,
   });
+  const [isMobile, setIsMobile] = useState(false);
+  const [expandedTimelineItems, setExpandedTimelineItems] = useState({ fetch: true });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const update = () => setIsMobile(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener('change', update);
+    return () => mediaQuery.removeEventListener('change', update);
+  }, []);
+
+  const handleTimelineToggle = (itemKey, open) => {
+    setExpandedTimelineItems(previous => ({ ...previous, [itemKey]: open }));
+  };
 
   useEffect(() => {
     const fetchGithubStats = async () => {
@@ -169,9 +210,14 @@ const About = () => {
           <motion.div className="education-section" variants={itemVariants}>
             <h3 className="subsection-title gradient-text">Work Experience</h3>
             <div className="timeline">
-              <div className="timeline-item glass-card">
-                <div className="timeline-date">May 2024 - Present</div>
-                <p className="timeline-org">Fetch - Remote (AI Labs)</p>
+              <TimelineDetails
+                itemKey="fetch"
+                date="May 2024 - Present"
+                org="Fetch - Remote (AI Labs)"
+                isMobile={isMobile}
+                open={expandedTimelineItems.fetch}
+                onToggle={handleTimelineToggle}
+              >
                 <div className="timeline-roles">
                   <div className="timeline-role">
                     <h4>Senior Machine Learning Engineer</h4>
@@ -195,20 +241,30 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </TimelineDetails>
 
-              <div className="timeline-item glass-card">
-                <div className="timeline-date">2022 - 2024</div>
-                <h4>Graduate Research Assistant</h4>
-                <p className="timeline-org">NASA-IMPACT</p>
+              <TimelineDetails
+                itemKey="nasa"
+                date="2022 - 2024"
+                title="Graduate Research Assistant"
+                org="NASA-IMPACT"
+                isMobile={isMobile}
+                open={expandedTimelineItems.nasa}
+                onToggle={handleTimelineToggle}
+              >
                 <p className="timeline-desc">
                   Research in Machine Learning and Natural Language Processing at NASA's Interagency Implementation and Advanced Concepts Team.
                 </p>
-              </div>
+              </TimelineDetails>
 
-              <div className="timeline-item glass-card">
-                <div className="timeline-date">Feb 2020 - Mar 2024</div>
-                <p className="timeline-org">Fusemachines Nepal - Kathmandu, Nepal</p>
+              <TimelineDetails
+                itemKey="fusemachines"
+                date="Feb 2020 - Mar 2024"
+                org="Fusemachines Nepal - Kathmandu, Nepal"
+                isMobile={isMobile}
+                open={expandedTimelineItems.fusemachines}
+                onToggle={handleTimelineToggle}
+              >
                 <div className="timeline-roles">
                   <div className="timeline-role">
                     <h4>Machine Learning Engineer Level III</h4>
@@ -239,25 +295,35 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </TimelineDetails>
 
-              <div className="timeline-item glass-card">
-                <div className="timeline-date">2019 - 2020</div>
-                <h4>Machine Learning Engineer</h4>
-                <p className="timeline-org">Betterhalf.ai - Bangalore, India</p>
+              <TimelineDetails
+                itemKey="betterhalf"
+                date="2019 - 2020"
+                title="Machine Learning Engineer"
+                org="Betterhalf.ai - Bangalore, India"
+                isMobile={isMobile}
+                open={expandedTimelineItems.betterhalf}
+                onToggle={handleTimelineToggle}
+              >
                 <p className="timeline-desc">
                   Built LSTM-based NLP models for automated user profile generation, improving sign-up efficiency by 40%. Developed NSFW detection system for content moderation.
                 </p>
-              </div>
+              </TimelineDetails>
 
-              <div className="timeline-item glass-card">
-                <div className="timeline-date">2016 - 2019</div>
-                <h4>Robotics Team Member</h4>
-                <p className="timeline-org">Robotics Club, Pulchowk Campus - Tribhuvan University</p>
+              <TimelineDetails
+                itemKey="robotics"
+                date="2016 - 2019"
+                title="Robotics Team Member"
+                org="Robotics Club, Pulchowk Campus - Tribhuvan University"
+                isMobile={isMobile}
+                open={expandedTimelineItems.robotics}
+                onToggle={handleTimelineToggle}
+              >
                 <p className="timeline-desc">
                   Mentored junior members and competed in ABU Robocon, Asia-Pacific's premier international robotics competition (12-14 countries). Won ROHM Award (2019 Mongolia) for innovative four-legged robot design and Best Shuttlecock Award (2018 Vietnam). Developed control algorithms including double differential drive system for stable high-speed movement, kinematics, and navigation using ARM microcontrollers.
                 </p>
-              </div>
+              </TimelineDetails>
             </div>
           </motion.div>
         </motion.div>

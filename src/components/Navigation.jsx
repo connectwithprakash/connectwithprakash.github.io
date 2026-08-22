@@ -79,7 +79,7 @@ const Navigation = () => {
 
   return (
     <motion.nav
-      className={`navigation ${scrolled ? 'scrolled' : ''}`}
+      className={`navigation ${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'menu-open' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -157,46 +157,7 @@ const Navigation = () => {
               )}
             </Link>
           </motion.li>
-          <motion.li
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: (navItems.length + 2) * 0.1 }}
-          >
-            <Link
-              to="/inquiry"
-              className={`nav-link ${location.pathname === '/inquiry' ? 'active' : ''}`}
-            >
-              Inquiry
-              {location.pathname === '/inquiry' && (
-                <motion.div
-                  className="active-indicator"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-              )}
-            </Link>
-          </motion.li>
-          <motion.li
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: (navItems.length + 3) * 0.1 }}
-          >
-            <Link
-              to="/books"
-              className={`nav-link ${location.pathname === '/books' ? 'active' : ''}`}
-            >
-              Books
-              {location.pathname === '/books' && (
-                <motion.div
-                  className="active-indicator"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-              )}
-            </Link>
-          </motion.li>
+
         </ul>
 
         <ThemeToggle />
@@ -278,37 +239,12 @@ const Navigation = () => {
                   Resume
                 </Link>
               </motion.li>
-              <motion.li
-                initial={false}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navItems.length + 2) * 0.05 }}
-              >
-                <Link
-                  to="/inquiry"
-                  className={`mobile-nav-link ${location.pathname === '/inquiry' ? 'active' : ''}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Inquiry
-                </Link>
-              </motion.li>
-              <motion.li
-                initial={false}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navItems.length + 3) * 0.05 }}
-              >
-                <Link
-                  to="/books"
-                  className={`mobile-nav-link ${location.pathname === '/books' ? 'active' : ''}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Books
-                </Link>
-              </motion.li>
+
               <motion.li
                 initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navItems.length + 4) * 0.05 }}
-                style={{ padding: '1rem 2rem' }}
+                style={{ padding: '0.75rem 1rem 1rem' }}
               >
                 <button
                   className="btn btn-primary mobile-cta"
