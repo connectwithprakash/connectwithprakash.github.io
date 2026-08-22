@@ -7,8 +7,8 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 10pt;
-  line-height: 1.35;
+  font-size: 9.25pt;
+  line-height: 1.3;
   color: #000;
   max-width: 100%;
   margin: 0;
@@ -16,59 +16,103 @@ body {
 }
 
 h1 {
-  font-size: 20pt;
-  margin: 0 0 0.15em 0;
+  font-size: 18pt;
+  margin: 0 0 0.2em 0;
   font-weight: 700;
+  letter-spacing: -0.02em;
   text-align: center;
 }
 
-/* Center header contact info (paragraphs before first hr) */
-h1 + p, h1 + p + p, h1 + p + p + p, h1 + p + p + p + p, h1 + p + p + p + p + p {
+.document-contact {
   text-align: center;
+  font-size: 8.25pt;
+  line-height: 1.35;
+  margin: 0 0 0.35em;
 }
 
 h2 {
-  font-size: 13pt;
-  margin: 0.6em 0 0.3em 0;
+  font-size: 11.5pt;
+  margin: 0.75em 0 0.3em 0;
   font-weight: 700;
-  border-bottom: 1.5pt solid #333;
-  padding-bottom: 0.15em;
+  letter-spacing: 0.035em;
+  border-bottom: 0.75pt solid #555;
+  padding-bottom: 0.2em;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
 h3 {
-  font-size: 11pt;
-  margin: 0.4em 0 0.15em 0;
+  font-size: 10pt;
+  margin: 0.45em 0 0.12em 0;
   font-weight: 600;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
 p {
-  margin: 0.25em 0;
+  margin: 0.18em 0;
 }
 
 ul {
-  margin: 0.3em 0;
-  padding-left: 1.2em;
+  margin: 0.22em 0;
+  padding-left: 1.1em;
 }
 
 li {
-  margin: 0.2em 0;
+  margin: 0.12em 0;
 }
 
 strong {
   font-weight: 600;
 }
 
-hr {
-  border: none;
-  border-top: 1pt solid #ccc;
-  margin: 0.4em 0;
+.document-entry-row {
+  display: table;
+  width: 100%;
+  margin: 0.15em 0;
+  page-break-inside: avoid;
 }
 
-/* Header contact info */
-body > p:first-of-type {
-  font-size: 9pt;
-  line-height: 1.3;
-  margin-bottom: 0.3em;
+.document-entry-title,
+.document-entry-date {
+  display: table-cell;
+  vertical-align: baseline;
+}
+
+.document-entry-title {
+  min-width: 0;
+}
+
+.document-entry-date {
+  width: 1%;
+  padding-left: 1.5em;
+  text-align: right;
+  color: #444;
+  font-size: 0.92em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+h3.document-entry-row {
+  margin: 0.45em 0 0.12em 0;
+}
+
+.cv-projects-heading {
+  break-before: page;
+  page-break-before: always;
+}
+
+hr {
+  border: none;
+  border-top: 0.5pt solid #aaa;
+  margin: 0.55em 0;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+a {
+  color: #111;
+  text-decoration: none;
 }
 
 /* Reduce spacing between sections */
@@ -82,6 +126,12 @@ blockquote {
 #technical-skills ~ p strong::after {
   content: " ";
   white-space: pre;
+}
+
+/* Compact skills block so the résumé remains within two pages */
+#technical-skills ~ p {
+  margin: 0;
+  line-height: 1.25;
 }
 
 /* Ensure bullets show in skills section */

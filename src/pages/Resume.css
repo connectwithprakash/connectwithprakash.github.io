@@ -142,9 +142,43 @@
   margin-bottom: 0.5rem;
 }
 
+.resume-content .document-contact {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0.75rem 0 1.25rem;
+  text-align: center;
+}
+
+.resume-content .document-contact a {
+  color: inherit;
+}
+
 .resume-content p {
   color: var(--text-secondary);
   margin-bottom: 1rem;
+}
+
+.resume-content .resume-entry-row,
+.resume-content .document-entry-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.resume-content .resume-entry-title,
+.resume-content .document-entry-title {
+  min-width: 0;
+}
+
+.resume-content .resume-entry-date,
+.resume-content .document-entry-date {
+  flex: 0 0 auto;
+  color: var(--neon-blue);
+  font-size: 0.9em;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .resume-content strong {
@@ -299,6 +333,18 @@
 
   .resume-content h3 {
     font-size: 1.25rem;
+  }
+
+  .resume-content .resume-entry-row,
+  .resume-content .document-entry-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .resume-content .resume-entry-date,
+  .resume-content .document-entry-date {
+    font-size: 0.85em;
   }
 
   .resume-toggle-btn {

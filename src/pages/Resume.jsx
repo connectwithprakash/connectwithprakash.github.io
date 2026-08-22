@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { Children, createElement, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { FaDownload, FaPrint } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
@@ -23,6 +24,33 @@ const modes = {
     downloadName: 'Prakash_Chaudhary_CV.pdf',
     title: 'Curriculum Vitae',
   },
+};
+
+const MONTH = '(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)';
+const YEAR = `(?:${MONTH} )?\\d{4}`;
+const DATE_RANGE = `${YEAR}(?: - (?:${YEAR}|Present))?`;
+const datedEntryPattern = new RegExp(`^(.*?)\\s*\\|\\s*(${DATE_RANGE})$`);
+
+const DateAlignedEntry = ({ children, as: Element, className }) => {
+  const childNodes = Children.toArray(children);
+  const text = childNodes.map(child => (typeof child === 'string' ? child : '')).join('');
+  const match = text.match(datedEntryPattern);
+
+  if (!match) return createElement(Element, { className }, children);
+
+  const [title, date] = match.slice(1);
+  const titleNodes = childNodes.length === 1
+    ? title
+    : [...childNodes.slice(0, -1), title];
+
+  return createElement(
+    Element,
+    { className: 'resume-entry-row' },
+    <>
+      <span className="resume-entry-title">{titleNodes}</span>
+      <span className="resume-entry-date">{date}</span>
+    </>,
+  );
 };
 
 const Resume = () => {
@@ -127,7 +155,19 @@ const Resume = () => {
               transition={{ duration: 0.3 }}
               className="resume-content glass-card"
             >
-              <ReactMarkdown>{content[activeMode]}</ReactMarkdown>
+              <ReactMarkdown
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                  h3: ({ children, className }) => (
+                    <DateAlignedEntry as="h3" className={className}>{children}</DateAlignedEntry>
+                  ),
+                  p: ({ children, className }) => (
+                    <DateAlignedEntry as="p" className={className}>{children}</DateAlignedEntry>
+                  ),
+                }}
+              >
+                {content[activeMode]}
+              </ReactMarkdown>
             </motion.div>
           </AnimatePresence>
         )}
