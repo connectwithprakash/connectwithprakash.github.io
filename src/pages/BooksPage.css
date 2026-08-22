@@ -1,0 +1,243 @@
+.books-page {
+  min-height: 100vh;
+  padding: 8rem 0 5rem;
+}
+
+.books-hero {
+  max-width: 820px;
+  margin: 0 auto 5rem;
+  text-align: center;
+}
+
+.books-kicker {
+  margin: 0 0 0.75rem;
+  color: var(--neon-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.books-title {
+  margin: 0 0 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1;
+}
+
+.books-subtitle {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  color: var(--text-secondary);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+}
+
+.books-intro {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.books-section {
+  max-width: 980px;
+  margin: 0 auto 5rem;
+}
+
+.books-section-heading {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.books-section-heading h2 {
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.books-section-heading > p:last-child {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.books-grid-current {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.book-card {
+  padding: 1.75rem;
+}
+
+.book-card-main {
+  display: grid;
+  grid-template-columns: 6.25rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.book-cover-frame {
+  display: grid;
+  width: 6.25rem;
+  min-height: 9.25rem;
+  place-items: center;
+  overflow: hidden;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.25);
+}
+
+.book-cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.book-card-details {
+  min-width: 0;
+}
+
+.book-card-topline {
+  min-height: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.book-status {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+}
+
+.book-status-currently-reading {
+  color: var(--neon-blue);
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.book-status-finished {
+  color: var(--neon-purple);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+
+.book-card h3 {
+  margin: 0 0 0.3rem;
+  color: var(--text-primary);
+  font-size: 1.35rem;
+}
+
+.book-author {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+}
+
+.book-reading-meta {
+  margin: -0.45rem 0 1rem;
+  color: var(--text-tertiary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.book-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book-tags li {
+  padding: 0.22rem 0.6rem;
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+}
+
+.book-notes {
+  display: grid;
+  gap: 1rem;
+}
+
+.book-note-block {
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.book-note-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.book-note-heading svg {
+  color: var(--neon-purple);
+}
+
+.book-note-block ul,
+.book-note-block p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.book-note-block ul {
+  padding-left: 1.15rem;
+}
+
+.book-empty-note {
+  color: var(--text-tertiary) !important;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .books-page {
+    padding-top: 6.5rem;
+  }
+
+  .books-page .container,
+  .books-hero,
+  .books-section {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-card-main {
+    grid-template-columns: 5.25rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .book-cover-frame {
+    width: 5.25rem;
+    min-height: 7.75rem;
+  }
+
+}
