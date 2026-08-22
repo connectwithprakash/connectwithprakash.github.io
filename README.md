@@ -117,4 +117,4 @@ For questions or collaboration:
 
 ---
 
-Built with ❤️ using React + Vite and Claude Code
+Built with ❤️ using React + Vite, with assistance from Claude Code, Hermes Agent, and Codex

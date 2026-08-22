@@ -183,7 +183,7 @@ const Contact = () => {
           </div>
 
           <motion.div className="footer" variants={itemVariants}>
-            <p>&copy; {new Date().getFullYear()} Prakash Chaudhary. Built with React + Vite and Claude Code.</p>
+            <p>&copy; {new Date().getFullYear()} Prakash Chaudhary. Built with React + Vite, with assistance from Claude Code, Hermes Agent, and Codex.</p>
             <div className="footer-links">
               <a href="#home">Back to Top ↑</a>
             </div>
