@@ -244,7 +244,18 @@
 
 @media (max-width: 768px) {
   .about-card {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+
+  .about-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .about-card p {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1.15rem;
   }
 
   .about-highlights {

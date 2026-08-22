@@ -261,4 +261,8 @@
   .code-snippet {
     font-size: 0.85rem;
   }
+
+  .scroll-indicator {
+    display: none;
+  }
 }
