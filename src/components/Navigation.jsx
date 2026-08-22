@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -11,6 +11,8 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuToggleRef = useRef(null);
+  const firstMobileNavRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
@@ -41,12 +43,40 @@ const Navigation = () => {
 
     const originalBodyOverflow = document.body.style.overflow;
     const originalHtmlOverflow = document.documentElement.style.overflow;
+    const menuToggle = mobileMenuToggleRef.current;
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';
 
+    const focusFirstItem = () => firstMobileNavRef.current?.focus();
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMobileMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+      const focusable = [...document.querySelectorAll('#mobile-navigation a, #mobile-navigation button')];
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    requestAnimationFrame(focusFirstItem);
+
     return () => {
+      document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = originalBodyOverflow;
       document.documentElement.style.overflow = originalHtmlOverflow;
+      menuToggle?.focus();
     };
   }, [mobileMenuOpen]);
 
@@ -176,6 +206,7 @@ const Navigation = () => {
         </motion.a>
 
         <motion.button
+          ref={mobileMenuToggleRef}
           className="mobile-menu-toggle"
           aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileMenuOpen}
@@ -192,6 +223,9 @@ const Navigation = () => {
           <motion.div
             id="mobile-navigation"
             className="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -206,6 +240,7 @@ const Navigation = () => {
                   transition={{ delay: index * 0.05 }}
                 >
                   <button
+                    ref={index === 0 ? firstMobileNavRef : undefined}
                     className={`mobile-nav-link ${activeSection === item.id && isHomePage ? 'active' : ''}`}
                     onClick={() => scrollToSection(item.id)}
                   >
@@ -241,10 +276,10 @@ const Navigation = () => {
               </motion.li>
 
               <motion.li
+                className="mobile-menu-cta-item"
                 initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navItems.length + 4) * 0.05 }}
-                style={{ padding: '0.75rem 1rem 1rem' }}
               >
                 <button
                   className="btn btn-primary mobile-cta"
