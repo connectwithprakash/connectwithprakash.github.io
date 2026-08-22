@@ -101,7 +101,10 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
-  overflow: hidden;
+  max-height: calc(100dvh - 6rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .mobile-menu-list {
@@ -151,7 +154,7 @@
 }
 
 /* Mobile Styles */
-@media (max-width: 968px) {
+@media (max-width: 1150px) {
   .nav-menu {
     display: none;
   }

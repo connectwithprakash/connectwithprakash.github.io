@@ -51,6 +51,8 @@ export default defineConfig({
         '/news',
         '/blog',
         '/resume',
+        '/inquiry',
+        '/books',
         ...getDynamicRoutes()
       ],
       exclude: ['/404', '/google1b40ab9e59fe683c'],

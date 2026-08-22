@@ -5,6 +5,8 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import ThemeToggle from './ThemeToggle';
 import './Navigation.css';
 
+const MotionLink = motion(Link);
+
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -33,6 +35,20 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return undefined;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    };
+  }, [mobileMenuOpen]);
 
   const scrollToSection = (id) => {
     if (!isHomePage) {
@@ -69,20 +85,21 @@ const Navigation = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
-        <motion.div
+        <MotionLink
+          to="/"
+          aria-label="Go to homepage"
           className="nav-logo"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => scrollToSection('home')}
         >
           <span className="gradient-text">Prakash</span>
-        </motion.div>
+        </MotionLink>
 
         <ul className="nav-menu">
           {navItems.map((item, index) => (
             <motion.li
               key={item.id}
-              initial={{ opacity: 0, y: -20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
@@ -101,7 +118,7 @@ const Navigation = () => {
             </motion.li>
           ))}
           <motion.li
-            initial={{ opacity: 0, y: -20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: navItems.length * 0.1 }}
           >
@@ -121,7 +138,7 @@ const Navigation = () => {
             </Link>
           </motion.li>
           <motion.li
-            initial={{ opacity: 0, y: -20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: (navItems.length + 1) * 0.1 }}
           >
@@ -131,6 +148,46 @@ const Navigation = () => {
             >
               Resume
               {location.pathname === '/resume' && (
+                <motion.div
+                  className="active-indicator"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
+              )}
+            </Link>
+          </motion.li>
+          <motion.li
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: (navItems.length + 2) * 0.1 }}
+          >
+            <Link
+              to="/inquiry"
+              className={`nav-link ${location.pathname === '/inquiry' ? 'active' : ''}`}
+            >
+              Inquiry
+              {location.pathname === '/inquiry' && (
+                <motion.div
+                  className="active-indicator"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
+              )}
+            </Link>
+          </motion.li>
+          <motion.li
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: (navItems.length + 3) * 0.1 }}
+          >
+            <Link
+              to="/books"
+              className={`nav-link ${location.pathname === '/books' ? 'active' : ''}`}
+            >
+              Books
+              {location.pathname === '/books' && (
                 <motion.div
                   className="active-indicator"
                   initial={{ opacity: 0 }}
@@ -159,6 +216,9 @@ const Navigation = () => {
 
         <motion.button
           className="mobile-menu-toggle"
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           whileTap={{ scale: 0.9 }}
         >
@@ -169,6 +229,7 @@ const Navigation = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-navigation"
             className="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -179,7 +240,7 @@ const Navigation = () => {
               {navItems.map((item, index) => (
                 <motion.li
                   key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                 >
@@ -192,7 +253,7 @@ const Navigation = () => {
                 </motion.li>
               ))}
               <motion.li
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.05 }}
               >
@@ -205,7 +266,7 @@ const Navigation = () => {
                 </Link>
               </motion.li>
               <motion.li
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navItems.length + 1) * 0.05 }}
               >
@@ -218,9 +279,35 @@ const Navigation = () => {
                 </Link>
               </motion.li>
               <motion.li
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navItems.length + 2) * 0.05 }}
+              >
+                <Link
+                  to="/inquiry"
+                  className={`mobile-nav-link ${location.pathname === '/inquiry' ? 'active' : ''}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Inquiry
+                </Link>
+              </motion.li>
+              <motion.li
+                initial={false}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (navItems.length + 3) * 0.05 }}
+              >
+                <Link
+                  to="/books"
+                  className={`mobile-nav-link ${location.pathname === '/books' ? 'active' : ''}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Books
+                </Link>
+              </motion.li>
+              <motion.li
+                initial={false}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (navItems.length + 4) * 0.05 }}
                 style={{ padding: '1rem 2rem' }}
               >
                 <button
