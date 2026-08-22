@@ -207,12 +207,38 @@ const About = () => {
               </div>
 
               <div className="timeline-item glass-card">
-                <div className="timeline-date">2020 - 2022</div>
-                <h4>Machine Learning Engineer</h4>
-                <p className="timeline-org">Fusemachines Inc. - New York City, NY</p>
-                <p className="timeline-desc">
-                  Developed production ML systems for fashion retail, including sales forecasting, recommendation systems, and computer vision solutions.
-                </p>
+                <div className="timeline-date">Feb 2020 - Mar 2024</div>
+                <p className="timeline-org">Fusemachines Nepal - Kathmandu, Nepal</p>
+                <div className="timeline-roles">
+                  <div className="timeline-role">
+                    <h4>Machine Learning Engineer Level III</h4>
+                    <span className="timeline-role-date">Jan 2022 - May 2022</span>
+                    <p className="timeline-desc">
+                      Explored and quantified product cannibalization effects for retail fashion, delivering actionable insights for merchandising strategies.
+                    </p>
+                  </div>
+                  <div className="timeline-role">
+                    <h4>Machine Learning Engineer Level I</h4>
+                    <span className="timeline-role-date">Jan 2021 - Dec 2021</span>
+                    <p className="timeline-desc">
+                      Led efforts to build an ensemble model classifying fashion products into Kate Spade's four customer segments using computer vision and SciPy optimization, achieving 62% accuracy.
+                    </p>
+                  </div>
+                  <div className="timeline-role">
+                    <h4>Machine Learning Engineer Associate</h4>
+                    <span className="timeline-role-date">Feb 2020 - Dec 2020</span>
+                    <p className="timeline-desc">
+                      Developed an in-house recommendation system using a Factorization Machine model, AWS EC2, and Lambda, achieving ranking metrics comparable to AWS's recommendation engine.
+                    </p>
+                  </div>
+                  <div className="timeline-role">
+                    <h4>Lecturer &amp; Teaching Assistant</h4>
+                    <span className="timeline-role-date">Mar 2022 - Mar 2024</span>
+                    <p className="timeline-desc">
+                      Taught data science, computer vision, machine learning, deep learning, and MLOps through Fusemachines AI Fellowship programs.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div className="timeline-item glass-card">
