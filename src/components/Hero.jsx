@@ -93,8 +93,7 @@ const Hero = () => {
 
           <motion.p className="hero-description" variants={itemVariants}>
             I’m interested in the layers that help agents get built, connected, evaluated, deployed,
-            and improved over time. My background includes machine learning, computer vision,
-            multimodal systems, and robotics.
+            and improved over time.
           </motion.p>
 
           <motion.div className="hero-cta" variants={itemVariants}>
