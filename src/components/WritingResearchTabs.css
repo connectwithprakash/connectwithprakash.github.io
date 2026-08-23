@@ -1,0 +1,38 @@
+.writing-research-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 auto 2rem;
+  padding: 0.35rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.writing-research-tabs a {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.writing-research-tabs a:hover {
+  color: var(--text-primary);
+}
+
+.writing-research-tabs a.active {
+  color: var(--text-primary);
+  background: var(--glass-bg);
+  box-shadow: inset 0 0 0 1px var(--glass-border);
+}
+
+@media (max-width: 768px) {
+  .writing-research-tabs {
+    margin-bottom: 1.5rem;
+  }
+}

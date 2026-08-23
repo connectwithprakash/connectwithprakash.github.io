@@ -7,6 +7,7 @@ import { blogPosts } from '../data/blogPosts';
 import { getMediumPosts } from '../services/mediumService';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
+import WritingResearchTabs from '../components/WritingResearchTabs';
 import './Blog.css';
 
 const Blog = () => {
@@ -97,6 +98,7 @@ const Blog = () => {
             transition={{ duration: 0.6 }}
             className="blog-hero-content"
           >
+            <WritingResearchTabs active="blog" />
             <h1 className="blog-hero-title">
               <span className="gradient-text">Blog</span>
             </h1>

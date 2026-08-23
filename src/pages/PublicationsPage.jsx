@@ -1,6 +1,7 @@
 import Publications from '../components/Publications';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
+import WritingResearchTabs from '../components/WritingResearchTabs';
 
 const PublicationsPage = () => (
   <>
@@ -17,6 +18,9 @@ const PublicationsPage = () => (
         { name: 'Research' },
       ]}
     />
+    <div className="research-page-tabs">
+      <WritingResearchTabs active="research" />
+    </div>
     <Publications />
   </>
 );
