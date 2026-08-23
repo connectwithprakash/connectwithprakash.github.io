@@ -12,7 +12,6 @@ import {
   FaMapMarkerAlt,
   FaCalendarAlt,
 } from 'react-icons/fa';
-import { SiGooglescholar } from 'react-icons/si';
 import './Contact.css';
 
 const Contact = () => {
@@ -36,13 +35,7 @@ const Contact = () => {
       username: '@connectwithprakash',
       color: 'var(--text-primary)',
     },
-    {
-      name: 'Google Scholar',
-      icon: <SiGooglescholar />,
-      url: 'https://scholar.google.com/citations?user=zYlOgbgAAAAJ',
-      username: 'View Publications',
-      color: '#4285f4',
-    },
+
     {
       name: 'Medium',
       icon: <FaMedium />,
