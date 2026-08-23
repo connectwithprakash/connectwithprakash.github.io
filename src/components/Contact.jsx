@@ -23,13 +23,6 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      name: 'Email',
-      icon: <FaEnvelope />,
-      url: 'mailto:connectwithprakash@gmail.com',
-      username: 'connectwithprakash@gmail.com',
-      color: 'var(--neon-blue)',
-    },
-    {
       name: 'LinkedIn',
       icon: <FaLinkedin />,
       url: 'https://linkedin.com/in/connectwithprakash',
@@ -119,12 +112,16 @@ const Contact = () => {
             <motion.div className="contact-info" variants={itemVariants}>
               <div className="glass-card contact-card">
                 <div className="contact-card-header">
-                  <h3 className="gradient-text">Get In Touch</h3>
+                  <h3 className="gradient-text">Email me</h3>
                   <p>
-                    I work on AI, robotics, and technical systems. These are the places where I share
-                    work, research, and ways to get in touch.
+                    I work on AI, robotics, and technical systems. Email is the best way to reach me.
                   </p>
                 </div>
+
+                <a className="primary-contact-link" href="mailto:connectwithprakash@gmail.com">
+                  <FaEnvelope />
+                  <span>connectwithprakash@gmail.com</span>
+                </a>
 
                 <div className="contact-details">
                   <div className="contact-detail-item">
@@ -137,15 +134,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="contact-detail-item">
-                    <div className="detail-icon">
-                      <FaEnvelope />
-                    </div>
-                    <div className="detail-content">
-                      <h4>Email</h4>
-                      <a href="mailto:connectwithprakash@gmail.com">connectwithprakash@gmail.com</a>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="availability-badge">
@@ -155,10 +143,9 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            <motion.div
-              className="social-links-grid"
-              variants={containerVariants}
-            >
+            <motion.div className="social-links-section" variants={itemVariants}>
+              <h3 className="social-links-title">Find me online</h3>
+              <div className="social-links-grid">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={index}
@@ -180,6 +167,7 @@ const Contact = () => {
                   <div className="social-card-glow" style={{ background: link.color }} />
                 </motion.a>
               ))}
+              </div>
             </motion.div>
           </div>
 
