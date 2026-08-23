@@ -146,16 +146,14 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-card glass-card"
+                  aria-label={link.name}
+                  title={link.name}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="social-card-icon" style={{ color: link.color }}>
                     {link.icon}
-                  </div>
-                  <div className="social-card-content">
-                    <h4>{link.name}</h4>
-                    <p>{link.username}</p>
                   </div>
                   <div className="social-card-glow" style={{ background: link.color }} />
                 </motion.a>

@@ -1,6 +1,7 @@
 .contact {
   background: var(--bg-secondary);
   position: relative;
+  scroll-margin-top: 6rem;
 }
 
 .contact-content {
@@ -126,11 +127,11 @@
 }
 
 .social-links-section {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .social-links-title {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
   color: var(--text-primary);
   font-size: 1.25rem;
   text-align: center;
@@ -146,19 +147,19 @@
 }
 
 .social-links-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .social-card {
-  min-height: 0;
-  padding: 1rem 1.25rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 1rem;
-  text-align: left;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -166,9 +167,7 @@
 }
 
 .social-card-icon {
-  flex-shrink: 0;
-  font-size: 1.75rem;
-  margin-bottom: 0;
+  font-size: 1.5rem;
   transition: transform 0.3s ease;
 }
 
@@ -176,17 +175,6 @@
   transform: scale(1.2);
 }
 
-.social-card-content h4 {
-  font-size: 1rem;
-  color: var(--text-primary);
-  margin-bottom: 0.2rem;
-  font-weight: 700;
-}
-
-.social-card-content p {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
 
 .social-card-glow {
   position: absolute;
@@ -261,9 +249,6 @@
     grid-template-columns: minmax(0, 1fr) minmax(14rem, 1fr);
   }
 
-  .social-links-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 768px) {
@@ -273,12 +258,8 @@
     gap: 1.5rem;
   }
 
-  .social-links-grid {
-    grid-template-columns: 1fr;
-  }
-
   .social-links-section {
-    margin-top: 2.5rem;
+    margin-top: 1.75rem;
   }
 
   .footer {

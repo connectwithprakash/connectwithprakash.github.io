@@ -5,16 +5,29 @@ const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      // If there's a hash, scroll to that element
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return undefined;
+    }
+
+    let attempts = 0;
+    let timeoutId;
+
+    const scrollToHash = () => {
       const element = document.querySelector(hash);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
       }
-    } else {
-      // No hash, scroll to top
-      window.scrollTo(0, 0);
-    }
+
+      attempts += 1;
+      if (attempts < 20) {
+        timeoutId = window.setTimeout(scrollToHash, 50);
+      }
+    };
+
+    scrollToHash();
+    return () => window.clearTimeout(timeoutId);
   }, [pathname, hash]);
 
   return null;
