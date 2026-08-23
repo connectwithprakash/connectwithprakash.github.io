@@ -76,7 +76,7 @@ const Contact = () => {
             >
               Prakash Chaudhary
             </Link>
-            . Built with React + Vite, with assistance from coding agents.
+            . Built with React + Vite.
           </p>
           <div className="footer-connection-links" aria-label="Connection links">
             {socialLinks.map((link) => (

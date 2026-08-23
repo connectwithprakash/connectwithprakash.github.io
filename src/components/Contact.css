@@ -196,10 +196,11 @@
   padding: 2.5rem 0;
   border-top: 1px solid var(--glass-border);
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
+  text-align: center;
 }
 
 .footer-connection-links {
@@ -232,8 +233,10 @@
 }
 
 .footer p {
+  max-width: 34rem;
   color: var(--text-tertiary);
   font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .footer-name-link {
@@ -250,7 +253,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 1rem;
 }
 
