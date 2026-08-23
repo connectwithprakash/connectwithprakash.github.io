@@ -92,6 +92,13 @@
   flex: 1;
 }
 
+.education-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .education-date {
   display: inline-block;
   font-size: 0.875rem;
@@ -119,10 +126,7 @@
 }
 
 .education-meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
+  min-width: 0;
 }
 
 .education-location {
@@ -191,7 +195,7 @@
     font-size: 1rem;
   }
 
-  .education-meta {
+  .education-heading {
     align-items: flex-start;
   }
 }

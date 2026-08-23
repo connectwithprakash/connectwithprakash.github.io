@@ -110,10 +110,12 @@ const Education = () => {
                   </div>
 
                   <div className="education-content">
-                    <h3 className="education-degree">{item.degree}</h3>
+                    <div className="education-heading">
+                      <h3 className="education-degree">{item.degree}</h3>
+                      <div className="education-date">{item.date}</div>
+                    </div>
                     <div className="education-meta">
                       <p className="education-institution">{item.institution}</p>
-                      <div className="education-date">{item.date}</div>
                     </div>
                     <p className="education-location">{item.location}</p>
                     <p className="education-details">{item.details}</p>
