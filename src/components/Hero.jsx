@@ -97,11 +97,6 @@ const Hero = () => {
           </motion.p>
 
           <motion.div className="hero-cta" variants={itemVariants}>
-            <button className="btn btn-primary" onClick={() => {
-              document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            }}>
-              Get in Touch
-            </button>
             <button className="btn btn-glass" onClick={() => {
               document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
             }}>
