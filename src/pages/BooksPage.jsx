@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion';
 import { FaPen, FaRegLightbulb } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
@@ -32,13 +31,9 @@ const getReadingMeta = (book) => {
   return finished ? String(finished).slice(0, 4) : '';
 };
 
-const BookCard = ({ book, shouldReduceMotion }) => (
-  <motion.article
+const BookCard = ({ book }) => (
+  <article
     className="book-card glass-card"
-    initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
-    whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.15 }}
-    transition={{ duration: 0.4 }}
   >
     <div className="book-card-main">
       <div className="book-cover-frame">
@@ -95,12 +90,10 @@ const BookCard = ({ book, shouldReduceMotion }) => (
         )}
       </div>
     )}
-  </motion.article>
+  </article>
 );
 
 const BooksPage = () => {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <main className="books-page">
       <SEO
@@ -137,7 +130,7 @@ const BooksPage = () => {
           </div>
           <div className="books-grid books-grid-current">
             {sortedCurrentlyReading.map(book => (
-              <BookCard key={book.id} book={book} shouldReduceMotion={shouldReduceMotion} />
+              <BookCard key={book.id} book={book} />
             ))}
           </div>
         </section>
@@ -152,7 +145,7 @@ const BooksPage = () => {
           </div>
           <div className="books-grid">
             {sortedFinishedBooks.map(book => (
-              <BookCard key={book.id} book={book} shouldReduceMotion={shouldReduceMotion} />
+              <BookCard key={book.id} book={book} />
             ))}
           </div>
         </section>
