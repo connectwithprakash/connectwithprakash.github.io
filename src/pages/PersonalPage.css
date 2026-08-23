@@ -12,7 +12,7 @@
 .personal-kicker,
 .personal-card-kicker {
   margin: 0 0 0.75rem;
-  color: var(--neon-blue);
+  color: var(--text-tertiary);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -44,6 +44,13 @@
 
 .personal-card {
   padding: 2rem;
+  background: var(--personal-card-bg);
+  border-color: var(--personal-card-border);
+}
+
+.personal-card:hover {
+  border-color: var(--personal-card-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .personal-card h2 {
@@ -60,13 +67,16 @@
 }
 
 .personal-card-link {
-  color: var(--neon-blue);
+  color: var(--text-primary);
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: var(--personal-card-border);
+  text-underline-offset: 0.25em;
 }
 
 .personal-card-link:hover {
-  color: var(--neon-purple);
+  color: var(--text-primary);
+  text-decoration-color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
