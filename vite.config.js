@@ -47,12 +47,15 @@ export default defineConfig({
     Sitemap({
       hostname: 'https://connectwithprakash.com',
       dynamicRoutes: [
+        '/about',
         '/projects',
         '/news',
+        '/publications',
         '/blog',
         '/resume',
-        '/inquiry',
-        '/books',
+        '/personal',
+        '/personal/books',
+        '/personal/inquiry',
         ...getDynamicRoutes()
       ],
       exclude: ['/404', '/google1b40ab9e59fe683c'],

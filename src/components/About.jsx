@@ -223,7 +223,7 @@ const About = () => {
                     <h4>Senior Machine Learning Engineer</h4>
                     <span className="timeline-role-date">Jul 2026 - Present</span>
                     <p className="timeline-desc">
-                      Working on Fetch's AI Shopping Assistant, a self-improving agentic system, with a focus on the evaluation systems and architecture it builds on.
+                      Working on Fetch's AI Shopping Assistant, a self-improving agentic system, with a focus on evaluation systems and supporting architecture.
                     </p>
                   </div>
                   <div className="timeline-role">

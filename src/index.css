@@ -41,6 +41,8 @@
   --personal-card-action-bg: rgba(255, 255, 255, 0.12);
   --personal-card-action-border: rgba(255, 255, 255, 0.2);
   --personal-card-action-text: #ffffff;
+  --personal-tab-active-bg: #6d5eb7;
+  --personal-tab-active-text: #ffffff;
 
   /* Bold & Colorful Gradients */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -78,6 +80,8 @@
   --personal-card-action-bg: #1a1a1a;
   --personal-card-action-border: #1a1a1a;
   --personal-card-action-text: #ffffff;
+  --personal-tab-active-bg: #5b21b6;
+  --personal-tab-active-text: #ffffff;
 
   /* Bold & Colorful Gradients (slightly adjusted for light mode) */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

@@ -43,8 +43,8 @@
 }
 
 .personal-tab.active {
-  color: var(--text-primary);
-  background: var(--gradient-primary);
+  color: var(--personal-tab-active-text);
+  background: var(--personal-tab-active-bg);
 }
 
 @media (max-width: 768px) {

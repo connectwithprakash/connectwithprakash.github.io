@@ -64,14 +64,13 @@ const Navigation = () => {
   }, [mobileMenuOpen]);
 
   const scrollToContact = () => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
-    } else {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate({ pathname: '/', hash: '#contact' });
     setMobileMenuOpen(false);
   };
+
+  const isActiveRoute = (to) => (
+    to === '/blog' ? location.pathname.startsWith('/blog') : location.pathname === to
+  );
 
   const navItems = [
     { label: 'Home', to: '/' },
@@ -109,9 +108,9 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Link className={`nav-link ${location.pathname === item.to ? 'active' : ''}`} to={item.to}>
+              <Link className={`nav-link ${isActiveRoute(item.to) ? 'active' : ''}`} to={item.to}>
                 {item.label}
-                {location.pathname === item.to && <motion.div className="active-indicator" layoutId="activeIndicator" />}
+                {isActiveRoute(item.to) && <motion.div className="active-indicator" layoutId="activeIndicator" />}
               </Link>
             </motion.li>
           ))}
@@ -168,7 +167,7 @@ const Navigation = () => {
                 >
                   <Link
                     ref={index === 0 ? firstMobileNavRef : undefined}
-                    className={`mobile-nav-link ${location.pathname === item.to ? 'active' : ''}`}
+                    className={`mobile-nav-link ${isActiveRoute(item.to) ? 'active' : ''}`}
                     to={item.to}
                     onClick={() => setMobileMenuOpen(false)}
                   >
