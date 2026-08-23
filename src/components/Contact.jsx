@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import {
   FaEnvelope,
   FaLinkedin,
@@ -8,19 +6,18 @@ import {
   FaMedium,
   FaYoutube,
   FaDiscord,
-  FaWhatsapp,
-  FaMapMarkerAlt,
   FaCalendarAlt,
 } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const socialLinks = [
+    {
+      name: 'Email',
+      icon: <FaEnvelope />,
+      url: 'mailto:connectwithprakash@gmail.com',
+      color: 'var(--neon-blue)',
+    },
     {
       name: 'LinkedIn',
       icon: <FaLinkedin />,
@@ -66,119 +63,40 @@ const Contact = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
-    <section id="contact" className="section contact">
+    <section id="contact" className="contact">
       <div className="container">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          <motion.div className="section-header" variants={itemVariants}>
-            <h2 className="section-title">Let's Connect</h2>
-            <p className="section-subtitle">
-              Where to find me and follow my work
-            </p>
-          </motion.div>
-
-          <div className="contact-content">
-            <motion.div className="contact-info" variants={itemVariants}>
-              <div className="glass-card contact-card">
-                <div className="contact-card-header">
-                  <h3 className="gradient-text">Email me</h3>
-                  <p>
-                    I work on AI, robotics, and technical systems. Email is the best way to reach me.
-                  </p>
-                </div>
-
-                <a className="primary-contact-link" href="mailto:connectwithprakash@gmail.com">
-                  <FaEnvelope />
-                  <span>connectwithprakash@gmail.com</span>
-                </a>
-
-                <div className="contact-details">
-                  <div className="contact-detail-item">
-                    <div className="detail-icon">
-                      <FaMapMarkerAlt />
-                    </div>
-                    <div className="detail-content">
-                      <h4>Location</h4>
-                      <p>Fort Worth, TX</p>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div className="availability-badge">
-                  <span className="status-dot"></span>
-                  <span>Open to Conversation</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div className="social-links-section" variants={itemVariants}>
-              <h3 className="social-links-title">Find me online</h3>
-              <div className="social-links-grid">
-              {socialLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-card glass-card"
-                  aria-label={link.name}
-                  title={link.name}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <div className="social-card-icon" style={{ color: link.color }}>
-                    {link.icon}
-                  </div>
-                  <div className="social-card-glow" style={{ background: link.color }} />
-                </motion.a>
-              ))}
-              </div>
-            </motion.div>
-          </div>
-
-          <motion.div className="footer" variants={itemVariants}>
-            <p>
-              &copy; {new Date().getFullYear()}{' '}
-              <Link
-                className="footer-name-link"
-                to="/personal"
-                aria-label="Open personal space"
+        <footer className="footer">
+          <p>
+            &copy; {new Date().getFullYear()}{' '}
+            <Link
+              className="footer-name-link"
+              to="/personal"
+              aria-label="Open personal space"
+            >
+              Prakash Chaudhary
+            </Link>
+            . Built with React + Vite, with assistance from coding agents.
+          </p>
+          <div className="footer-connection-links" aria-label="Connection links">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target={link.url.startsWith('mailto:') ? undefined : '_blank'}
+                rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                className="footer-connection-link"
+                aria-label={link.name}
+                title={link.name}
               >
-                Prakash Chaudhary
-              </Link>
-              . Built with React + Vite, with assistance from coding agents.
-            </p>
-            <div className="footer-links">
-              <a href="#home">Back to Top ↑</a>
-            </div>
-          </motion.div>
-        </motion.div>
+                {link.icon}
+              </a>
+            ))}
+          </div>
+          <div className="footer-links">
+            <a href="#home">Back to Top ↑</a>
+          </div>
+        </footer>
       </div>
     </section>
   );
