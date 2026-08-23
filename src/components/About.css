@@ -90,9 +90,11 @@
 }
 
 .skill-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 1rem;
+  align-content: start;
   min-height: 18rem;
-  flex-direction: column;
   padding: 1.5rem;
   text-align: left;
 }
@@ -100,7 +102,7 @@
 .skill-icon {
   width: 2.75rem;
   height: 2.75rem;
-  margin: 0 0 1.25rem;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,18 +114,22 @@
 }
 
 .skill-card h4 {
+  align-self: center;
+  margin: 0;
   font-size: 1.25rem;
-  margin-bottom: 1rem;
   color: var(--text-primary);
 }
 
 .skill-card p {
+  grid-column: 1 / -1;
+  margin: 1rem 0 0;
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
 .skill-tools {
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
