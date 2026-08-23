@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import { FaBrain, FaChartLine, FaCloud, FaDatabase, FaRobot, FaTools } from 'react-icons/fa';
 import './About.css';
@@ -32,11 +31,6 @@ const TimelineDetails = ({
 );
 
 const About = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const [githubStats, setGithubStats] = useState({
     repos: 55,
     followers: 38,
@@ -113,15 +107,6 @@ const About = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -135,12 +120,7 @@ const About = () => {
   return (
     <section id="about" className="section about">
       <div className="container">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
+        <div>
           <motion.div className="section-header" variants={itemVariants}>
             <h2 className="section-title">About Me</h2>
             <p className="section-subtitle">
@@ -197,7 +177,7 @@ const About = () => {
               <h3>From model behavior to production operation</h3>
             </motion.div>
 
-            <motion.div className="about-skills" variants={containerVariants}>
+            <motion.div className="about-skills">
               {skills.map((skill, index) => (
                 <motion.div
                   key={index}
@@ -336,7 +316,7 @@ const About = () => {
               </TimelineDetails>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
