@@ -21,9 +21,9 @@ const TimelineDetails = ({
     onToggle={(event) => onToggle(itemKey, event.currentTarget.open)}
   >
     <summary className="timeline-summary">
-      <div className="timeline-date">{date}</div>
-      {org && <p className="timeline-org">{org}</p>}
       {title && <h4>{title}</h4>}
+      {org && <p className="timeline-org">{org}</p>}
+      <div className="timeline-date">{date}</div>
       {roleDate && <span className="timeline-role-date">{roleDate}</span>}
       <span className="timeline-summary-toggle" aria-hidden="true">⌄</span>
     </summary>
