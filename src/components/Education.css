@@ -100,7 +100,7 @@
   background: var(--glass-bg);
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
-  margin-bottom: 0.75rem;
+  margin: 0;
   border: 1px solid var(--glass-border);
 }
 
@@ -116,6 +116,13 @@
   color: var(--neon-blue);
   margin-bottom: 0.25rem;
   font-weight: 600;
+}
+
+.education-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .education-location {
@@ -182,5 +189,9 @@
 
   .education-institution {
     font-size: 1rem;
+  }
+
+  .education-meta {
+    align-items: flex-start;
   }
 }
