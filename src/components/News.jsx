@@ -47,15 +47,15 @@ const News = () => {
           variants={containerVariants}
         >
           <motion.div className="section-header" variants={itemVariants}>
-            <h2 className="section-title">Latest News</h2>
+            <h2 className="section-title">Latest Update</h2>
             <p className="section-subtitle">
-              Recent achievements and milestones in my journey
+              A recent note from my work and projects
             </p>
           </motion.div>
 
           <div className="news-timeline">
             <div className="timeline-line" />
-            {newsItems.slice(0, 5).map((item, index) => (
+            {newsItems.slice(0, 1).map((item, index) => (
               <motion.div
                 key={index}
                 className="news-item"
@@ -93,7 +93,7 @@ const News = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View All News
+                View All Updates
               </motion.button>
             </Link>
           </motion.div>

@@ -9,31 +9,14 @@ const MotionLink = motion(Link);
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuToggleRef = useRef(null);
   const firstMobileNavRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'news', 'projects', 'publications', 'contact'];
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -80,31 +63,24 @@ const Navigation = () => {
     };
   }, [mobileMenuOpen]);
 
-  const scrollToSection = (id) => {
-    if (!isHomePage) {
+  const scrollToContact = () => {
+    if (location.pathname !== '/') {
       navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
     } else {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
   };
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'news', label: 'News' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'publications', label: 'Publications' },
-    { id: 'contact', label: 'Contact' },
+    { label: 'Home', to: '/' },
+    { label: 'About', to: '/about' },
+    { label: 'News', to: '/news' },
+    { label: 'Projects', to: '/projects' },
+    { label: 'Publications', to: '/publications' },
+    { label: 'Blog', to: '/blog' },
+    { label: 'Resume', to: '/resume' },
   ];
 
   return (
@@ -128,66 +104,17 @@ const Navigation = () => {
         <ul className="nav-menu">
           {navItems.map((item, index) => (
             <motion.li
-              key={item.id}
+              key={item.to}
               initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <button
-                className={`nav-link ${activeSection === item.id && isHomePage ? 'active' : ''}`}
-                onClick={() => scrollToSection(item.id)}
-              >
+              <Link className={`nav-link ${location.pathname === item.to ? 'active' : ''}`} to={item.to}>
                 {item.label}
-                {activeSection === item.id && isHomePage && (
-                  <motion.div
-                    className="active-indicator"
-                    layoutId="activeIndicator"
-                  />
-                )}
-              </button>
+                {location.pathname === item.to && <motion.div className="active-indicator" layoutId="activeIndicator" />}
+              </Link>
             </motion.li>
           ))}
-          <motion.li
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: navItems.length * 0.1 }}
-          >
-            <Link
-              to="/blog"
-              className={`nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
-            >
-              Blog
-              {location.pathname.startsWith('/blog') && (
-                <motion.div
-                  className="active-indicator"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-              )}
-            </Link>
-          </motion.li>
-          <motion.li
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: (navItems.length + 1) * 0.1 }}
-          >
-            <Link
-              to="/resume"
-              className={`nav-link ${location.pathname === '/resume' ? 'active' : ''}`}
-            >
-              Resume
-              {location.pathname === '/resume' && (
-                <motion.div
-                  className="active-indicator"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-              )}
-            </Link>
-          </motion.li>
-
         </ul>
 
         <ThemeToggle />
@@ -197,9 +124,9 @@ const Navigation = () => {
           className="btn btn-primary nav-cta"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('contact');
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToContact();
           }}
         >
           Get in Touch
@@ -234,58 +161,28 @@ const Navigation = () => {
             <ul className="mobile-menu-list">
               {navItems.map((item, index) => (
                 <motion.li
-                  key={item.id}
+                  key={item.to}
                   initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <button
+                  <Link
                     ref={index === 0 ? firstMobileNavRef : undefined}
-                    className={`mobile-nav-link ${activeSection === item.id && isHomePage ? 'active' : ''}`}
-                    onClick={() => scrollToSection(item.id)}
+                    className={`mobile-nav-link ${location.pathname === item.to ? 'active' : ''}`}
+                    to={item.to}
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 </motion.li>
               ))}
-              <motion.li
-                initial={false}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navItems.length * 0.05 }}
-              >
-                <Link
-                  to="/blog"
-                  className={`mobile-nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Blog
-                </Link>
-              </motion.li>
-              <motion.li
-                initial={false}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navItems.length + 1) * 0.05 }}
-              >
-                <Link
-                  to="/resume"
-                  className={`mobile-nav-link ${location.pathname === '/resume' ? 'active' : ''}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Resume
-                </Link>
-              </motion.li>
-
               <motion.li
                 className="mobile-menu-cta-item"
                 initial={false}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navItems.length + 4) * 0.05 }}
+                transition={{ delay: (navItems.length + 1) * 0.05 }}
               >
-                <button
-                  className="btn btn-primary mobile-cta"
-                  onClick={() => scrollToSection('contact')}
-                  style={{ width: '100%' }}
-                >
+                <button className="btn btn-primary mobile-cta" onClick={scrollToContact} style={{ width: '100%' }}>
                   Get in Touch
                 </button>
               </motion.li>

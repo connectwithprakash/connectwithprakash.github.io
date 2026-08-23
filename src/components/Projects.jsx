@@ -36,7 +36,8 @@ const Projects = () => {
   // Show only featured projects, sorted by importance
   const projects = projectsData
     .filter(p => p.id !== 'personal-website' && p.featured === true)
-    .sort((a, b) => a.importance - b.importance);
+    .sort((a, b) => a.importance - b.importance)
+    .slice(0, 3);
 
   const containerVariants = {
     hidden: { opacity: 0 },

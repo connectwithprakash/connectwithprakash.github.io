@@ -36,6 +36,8 @@
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --overview-bg: rgba(79, 172, 254, 0.09);
+  --overview-border: rgba(79, 172, 254, 0.22);
 
   /* Bold & Colorful Gradients */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -68,6 +70,8 @@
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.1);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  --overview-bg: rgba(14, 165, 233, 0.06);
+  --overview-border: rgba(14, 165, 233, 0.18);
 
   /* Bold & Colorful Gradients (slightly adjusted for light mode) */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

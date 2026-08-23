@@ -13,8 +13,11 @@ const NewsPage = lazy(() => import('./pages/NewsPage'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const Resume = lazy(() => import('./pages/Resume'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const PublicationsPage = lazy(() => import('./pages/PublicationsPage'));
 const QuestionPage = lazy(() => import('./pages/QuestionPage'));
 const BooksPage = lazy(() => import('./pages/BooksPage'));
+const PersonalPage = lazy(() => import('./pages/PersonalPage'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 function App() {
@@ -29,14 +32,19 @@ function App() {
           <Suspense fallback={<div className="route-loading" role="status" aria-live="polite">Loading…</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/news" element={<NewsPage />} />
+              <Route path="/publications" element={<PublicationsPage />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/resume" element={<Resume />} />
-              <Route path="/inquiry" element={<QuestionPage />} />
-              <Route path="/question" element={<Navigate to="/inquiry" replace />} />
-              <Route path="/books" element={<BooksPage />} />
+              <Route path="/personal" element={<PersonalPage />} />
+              <Route path="/personal/inquiry" element={<QuestionPage />} />
+              <Route path="/personal/books" element={<BooksPage />} />
+              <Route path="/inquiry" element={<Navigate to="/personal/inquiry" replace />} />
+              <Route path="/question" element={<Navigate to="/personal/inquiry" replace />} />
+              <Route path="/books" element={<Navigate to="/personal/books" replace />} />
               <Route path="/project/:id" element={<ProjectDetail />} />
             </Routes>
           </Suspense>
