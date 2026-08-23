@@ -114,17 +114,15 @@ const BooksPage = () => {
 
       <div className="container">
         <header className="books-hero">
-          <p className="books-kicker">Reading record</p>
           <h1 className="books-title">Books</h1>
           <p className="books-subtitle">
-            A structured record of books I have finished and what I am reading now.
+            Current and finished reading.
           </p>
 
         </header>
 
         <section className="books-section" aria-labelledby="current-reading-heading">
           <div className="books-section-heading">
-            <p className="books-kicker">Open now</p>
             <h2 id="current-reading-heading">Currently reading</h2>
           </div>
           <div className="books-grid books-grid-current">
@@ -136,11 +134,7 @@ const BooksPage = () => {
 
         <section className="books-section" aria-labelledby="finished-reading-heading">
           <div className="books-section-heading">
-            <p className="books-kicker">Reading history</p>
             <h2 id="finished-reading-heading">Finished</h2>
-            <p>
-              These are the books marked finished in the reading record.
-            </p>
           </div>
           <div className="books-grid">
             {sortedFinishedBooks.map(book => (
