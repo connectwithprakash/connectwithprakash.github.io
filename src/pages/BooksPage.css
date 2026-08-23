@@ -265,7 +265,7 @@
   .book-card-main {
     min-width: 0;
     max-width: 100%;
-    grid-template-columns: 1fr;
+    grid-template-columns: 5.25rem minmax(0, 1fr);
     gap: 1rem;
   }
 
@@ -285,5 +285,10 @@
     min-width: 0;
     max-width: 100%;
   }
+}
 
+@media (max-width: 480px) {
+  .book-card-main {
+    grid-template-columns: 1fr;
+  }
 }
