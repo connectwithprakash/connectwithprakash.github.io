@@ -331,7 +331,7 @@ const About = () => {
                 onToggle={handleTimelineToggle}
               >
                 <p className="timeline-desc">
-                  Built and tested autonomous robots for ABU Robocon, mentored junior members, and received a 2019 ROHM Award for robot design.
+                  Designed and built autonomous robots for ABU Robocon, mentored junior members, and received a 2019 ROHM Award for robot design.
                 </p>
               </TimelineDetails>
             </div>
