@@ -1,7 +1,7 @@
 import { FaPen, FaRegLightbulb } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
-import PersonalTabs from '../components/PersonalTabs';
+
 import {
   currentlyReading,
   finishedBooks,
@@ -113,7 +113,6 @@ const BooksPage = () => {
       />
 
       <div className="container">
-        <PersonalTabs active="books" />
         <header className="books-hero">
           <p className="books-kicker">Reading record</p>
           <h1 className="books-title">Books</h1>

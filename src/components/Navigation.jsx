@@ -13,6 +13,7 @@ const Navigation = () => {
   const mobileMenuToggleRef = useRef(null);
   const firstMobileNavRef = useRef(null);
   const location = useLocation();
+  const isPersonalRoute = location.pathname.startsWith('/personal');
 
 
   useEffect(() => {
@@ -72,14 +73,20 @@ const Navigation = () => {
       : location.pathname === to
   );
 
-  const navItems = [
-    { label: 'Home', to: '/' },
-    { label: 'About', to: '/about' },
-    { label: 'News', to: '/news' },
-    { label: 'Projects', to: '/projects' },
-    { label: 'Writing & Research', to: '/writing' },
-    { label: 'Resume', to: '/resume' },
-  ];
+  const navItems = isPersonalRoute
+    ? [
+      { label: 'Overview', to: '/personal' },
+      { label: 'Books', to: '/personal/books' },
+      { label: 'Inquiry', to: '/personal/inquiry' },
+    ]
+    : [
+      { label: 'Home', to: '/' },
+      { label: 'About', to: '/about' },
+      { label: 'News', to: '/news' },
+      { label: 'Projects', to: '/projects' },
+      { label: 'Writing & Research', to: '/writing' },
+      { label: 'Resume', to: '/resume' },
+    ];
 
   return (
     <motion.nav
@@ -96,7 +103,7 @@ const Navigation = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="gradient-text">Prakash</span>
+          <span className="gradient-text">{isPersonalRoute ? 'Personal' : 'Prakash'}</span>
         </MotionLink>
 
         <ul className="nav-menu">
@@ -113,6 +120,13 @@ const Navigation = () => {
               </Link>
             </motion.li>
           ))}
+          {isPersonalRoute && (
+            <motion.li initial={false} animate={{ opacity: 1, y: 0 }}>
+              <Link className="nav-link personal-back-link" to="/">
+                Professional portfolio
+              </Link>
+            </motion.li>
+          )}
         </ul>
 
         <ThemeToggle />
@@ -161,7 +175,17 @@ const Navigation = () => {
                   </Link>
                 </motion.li>
               ))}
-
+              {isPersonalRoute && (
+                <motion.li initial={false} animate={{ opacity: 1, x: 0 }}>
+                  <Link
+                    className="mobile-nav-link personal-back-link"
+                    to="/"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Professional portfolio
+                  </Link>
+                </motion.li>
+              )}
             </ul>
           </motion.div>
         )}

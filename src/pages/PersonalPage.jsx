@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
-import PersonalTabs from '../components/PersonalTabs';
+
 import './PersonalPage.css';
 
 const PersonalPage = () => {
@@ -27,7 +27,6 @@ const PersonalPage = () => {
       />
 
       <div className="container">
-        <PersonalTabs active="overview" />
         <header className="personal-hero">
           <p className="personal-kicker">A quieter space</p>
           <h1 className="personal-title">Personal</h1>

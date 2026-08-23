@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
-import PersonalTabs from '../components/PersonalTabs';
+
 import './QuestionPage.css';
 
 const timeline = [
@@ -79,7 +79,6 @@ const QuestionPage = () => {
     />
 
     <div className="container">
-      <PersonalTabs active="inquiry" />
       <header className="question-hero">
         <h1 className="question-title">The Question</h1>
         <blockquote className="question-quote">
