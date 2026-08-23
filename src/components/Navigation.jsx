@@ -98,12 +98,14 @@ const Navigation = () => {
       <div className="nav-container">
         <MotionLink
           to="/"
-          aria-label="Go to homepage"
-          className="nav-logo"
+          aria-label={isPersonalRoute ? 'Back to professional portfolio' : 'Go to homepage'}
+          className={`nav-logo ${isPersonalRoute ? 'personal-nav-back' : ''}`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="gradient-text">{isPersonalRoute ? 'Personal' : 'Prakash'}</span>
+          <span className="gradient-text">
+            {isPersonalRoute ? '← Back to Professional' : 'Prakash'}
+          </span>
         </MotionLink>
 
         <ul className="nav-menu">
@@ -120,13 +122,7 @@ const Navigation = () => {
               </Link>
             </motion.li>
           ))}
-          {isPersonalRoute && (
-            <motion.li initial={false} animate={{ opacity: 1, y: 0 }}>
-              <Link className="nav-link personal-back-link" to="/">
-                Professional portfolio
-              </Link>
-            </motion.li>
-          )}
+
         </ul>
 
         <ThemeToggle />
@@ -175,17 +171,7 @@ const Navigation = () => {
                   </Link>
                 </motion.li>
               ))}
-              {isPersonalRoute && (
-                <motion.li initial={false} animate={{ opacity: 1, x: 0 }}>
-                  <Link
-                    className="mobile-nav-link personal-back-link"
-                    to="/"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Professional portfolio
-                  </Link>
-                </motion.li>
-              )}
+
             </ul>
           </motion.div>
         )}

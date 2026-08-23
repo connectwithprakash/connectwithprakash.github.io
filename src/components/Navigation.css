@@ -69,11 +69,13 @@
   color: var(--neon-blue);
 }
 
-.personal-back-link {
-  margin-left: 0.5rem;
-  padding-left: 1.5rem;
-  color: var(--text-tertiary);
-  border-left: 1px solid var(--glass-border);
+.personal-nav-back {
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.personal-nav-back:hover {
+  color: var(--text-primary);
 }
 
 .active-indicator {
@@ -161,14 +163,6 @@
   bottom: 0;
   width: 3px;
   background: var(--gradient-tertiary);
-}
-
-.mobile-nav-link.personal-back-link {
-  margin-left: 0;
-  padding-left: 2rem;
-  border-left: none;
-  border-top: 1px solid var(--glass-border);
-  color: var(--text-tertiary);
 }
 
 /* Mobile Styles */
