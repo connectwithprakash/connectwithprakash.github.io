@@ -219,6 +219,15 @@
     padding-top: 6.5rem;
   }
 
+  .books-hero,
+  .books-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .books-section-heading {
+    margin-bottom: 2rem;
+  }
+
   .books-page .container,
   .books-hero,
   .books-section {

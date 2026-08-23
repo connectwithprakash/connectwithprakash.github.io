@@ -23,6 +23,12 @@
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+
+  /* Shared surfaces */
+  --card-bg: var(--glass-bg);
+  --border-color: var(--glass-border);
+  --accent-primary: var(--neon-blue);
+  --tag-bg: var(--glass-bg);
 }
 
 /* Dark Theme (Default) */
@@ -346,7 +352,28 @@ button, .btn {
 }
 
 .section + .section {
-  padding-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+}
+
+.section-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.25rem;
 }
 
 .text-center {
@@ -375,7 +402,15 @@ button, .btn {
   }
 
   .section + .section {
-    padding-top: var(--spacing-sm);
+    padding-top: var(--spacing-xs);
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
   }
 }
 

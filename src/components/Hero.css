@@ -227,6 +227,12 @@
   color: var(--neon-blue);
 }
 
+@media (max-width: 1150px) {
+  .hero {
+    padding-top: 6.5rem;
+  }
+}
+
 @media (max-width: 968px) {
   .hero .container {
     grid-template-columns: 1fr;
@@ -244,7 +250,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 60px;
+    padding-top: 6.5rem;
   }
 
   .hero-content {

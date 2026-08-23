@@ -1,6 +1,6 @@
 .blog-post-page {
   min-height: 100vh;
-  padding: 120px 0 4rem;
+  padding: 8rem 0 4rem;
 }
 
 .blog-post {
@@ -25,7 +25,7 @@
 }
 
 .post-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .post-meta {
@@ -100,7 +100,7 @@
 .post-actions {
   display: flex;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -189,6 +189,12 @@
   padding: 3rem;
   margin-bottom: 3rem;
   line-height: 1.8;
+}
+
+.post-content h2:first-child,
+.post-content h3:first-child,
+.post-content p:first-child {
+  margin-top: 0;
 }
 
 .post-content h2 {
@@ -357,7 +363,7 @@
 
 @media (max-width: 768px) {
   .blog-post-page {
-    padding: 100px 0 2rem;
+    padding: 6.5rem 0 2rem;
   }
 
   .post-content {

@@ -11,6 +11,21 @@
   padding-left: 3rem;
 }
 
+.education-timeline .timeline-line {
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--glass-border) 10%,
+    var(--glass-border) 90%,
+    transparent
+  );
+}
+
 .education-item {
   margin-bottom: 2rem;
   position: relative;

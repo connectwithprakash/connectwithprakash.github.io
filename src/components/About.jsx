@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
-import { FaBrain, FaRobot, FaRocket, FaEye, FaCog } from 'react-icons/fa';
+import { FaBrain, FaChartLine, FaCloud, FaDatabase, FaRobot, FaTools } from 'react-icons/fa';
 import './About.css';
 
 const TimelineDetails = ({
@@ -77,33 +77,39 @@ const About = () => {
   const skills = [
     {
       icon: <FaBrain />,
-      title: 'LLM & Generative AI',
-      description: 'Production LLM systems with RAG pipelines, fine-tuning (LoRA), prompt engineering, and embeddings. Building multimodal agents for real-world applications.',
-      gradient: 'var(--gradient-primary)',
+      title: 'Model Systems & Multimodal',
+      description: 'Language and multimodal models used as capabilities within larger systems.',
+      tools: ['OpenAI', 'Claude', 'Gemini', 'Open-weight models'],
+    },
+    {
+      icon: <FaDatabase />,
+      title: 'LLM Workflows & Retrieval',
+      description: 'Predetermined LLM pipelines, retrieval patterns, and structured model steps.',
+      tools: ['LangChain', 'RAG', 'Graph RAG', 'Vector embeddings'],
     },
     {
       icon: <FaRobot />,
-      title: 'AI Agents & Automation',
-      description: 'Multi-agent workflows using LangGraph, human-in-the-loop systems, LLM-as-a-Judge evaluation, and autonomous decision-making agents driving business impact.',
-      gradient: 'var(--gradient-secondary)',
+      title: 'Agent Workflows & Tool Use',
+      description: 'Stateful agents that choose tools and adapt their process to a task.',
+      tools: ['LangGraph', 'MCP', 'ReAct', 'Tool calling'],
     },
     {
-      icon: <FaRocket />,
-      title: 'ML Engineering & MLOps',
-      description: 'End-to-end ML pipelines from research to production. Model deployment on AWS (ECS/Fargate), monitoring, optimization, and scaling ML systems for millions of users.',
-      gradient: 'var(--gradient-tertiary)',
+      icon: <FaTools />,
+      title: 'Multi-Agent Systems',
+      description: 'Specialized agents coordinated through roles, state, handoffs, and review.',
+      tools: ['Multi-agent', 'Handoffs', 'Shared state', 'Human-in-the-loop'],
     },
     {
-      icon: <FaEye />,
-      title: 'Computer Vision & NLP',
-      description: 'Deep learning for vision tasks, NLP, hierarchical classification, and multimodal contrastive learning combining images and time-series data.',
-      gradient: 'var(--gradient-quaternary)',
+      icon: <FaChartLine />,
+      title: 'Evaluation & Observability',
+      description: 'Quality gates, traces, feedback signals, and continuous improvement.',
+      tools: ['Opik', 'LangSmith', 'LLM-as-a-Judge', 'OpenTelemetry'],
     },
     {
-      icon: <FaCog />,
-      title: 'Robotics & Autonomous Systems',
-      description: 'Control systems, kinematics, and navigation algorithms for autonomous robots. Embedded programming with ARM microcontrollers and hardware-software integration.',
-      gradient: 'var(--gradient-primary)',
+      icon: <FaCloud />,
+      title: 'Production AI Infrastructure',
+      description: 'Services, persistence, deployment, and operational systems behind AI products.',
+      tools: ['Python', 'Go', 'AWS ECS/Fargate', 'Docker'],
     },
   ];
 
@@ -186,22 +192,26 @@ const About = () => {
               </div>
             </motion.div>
 
-            <motion.div
-              className="about-skills"
-              variants={containerVariants}
-            >
+            <motion.div className="systems-intro" variants={itemVariants}>
+              <p className="systems-kicker">Systems I work with</p>
+              <h3>From model behavior to production operation</h3>
+            </motion.div>
+
+            <motion.div className="about-skills" variants={containerVariants}>
               {skills.map((skill, index) => (
                 <motion.div
                   key={index}
                   className="skill-card glass-card"
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
                 >
-                  <div className="skill-icon" style={{ background: skill.gradient }}>
-                    {skill.icon}
-                  </div>
-                  <h4>{skill.title}</h4>
-                  <p>{skill.description}</p>
+                    <div className="skill-icon">
+                      {skill.icon}
+                    </div>
+                    <h4>{skill.title}</h4>
+                    <p>{skill.description}</p>
+                    <ul className="skill-tools" aria-label={`${skill.title} technologies`}>
+                      {skill.tools.map(tool => <li key={tool}>{tool}</li>)}
+                    </ul>
                 </motion.div>
               ))}
             </motion.div>

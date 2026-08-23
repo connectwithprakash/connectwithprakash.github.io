@@ -158,6 +158,19 @@
 
 /* Mobile Styles */
 @media (max-width: 1150px) {
+  .navigation {
+    min-height: 5.5rem;
+    padding: 1rem 0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+  }
+
+  .navigation.scrolled {
+    padding: 1rem 0;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+  }
+
   .navigation.menu-open {
     background: var(--bg-primary);
   }

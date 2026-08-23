@@ -54,6 +54,10 @@
   position: relative;
 }
 
+.news-page .news-item:last-child {
+  margin-bottom: 0;
+}
+
 .news-page .news-item::before {
   content: '';
   position: absolute;
@@ -140,7 +144,7 @@
 
 @media (max-width: 768px) {
   .news-page {
-    padding: 6rem 0 3rem;
+    padding: 6.5rem 0 3rem;
   }
 
   .news-page-title {
