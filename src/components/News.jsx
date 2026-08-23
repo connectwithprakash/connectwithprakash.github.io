@@ -47,15 +47,15 @@ const News = () => {
           variants={containerVariants}
         >
           <motion.div className="section-header" variants={itemVariants}>
-            <h2 className="section-title">Latest Update</h2>
+            <h2 className="section-title">Latest Updates</h2>
             <p className="section-subtitle">
-              A recent note from my work and projects
+              A few recent notes from my work and projects
             </p>
           </motion.div>
 
           <div className="news-timeline">
             <div className="timeline-line" />
-            {newsItems.slice(0, 1).map((item, index) => (
+            {newsItems.slice(0, 3).map((item, index) => (
               <motion.div
                 key={index}
                 className="news-item"

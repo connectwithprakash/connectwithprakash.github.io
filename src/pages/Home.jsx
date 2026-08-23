@@ -1,5 +1,4 @@
 import Hero from '../components/Hero';
-import HomeOverview from '../components/HomeOverview';
 import News from '../components/News';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
@@ -17,7 +16,6 @@ const Home = () => {
       />
       <StructuredData type="home" />
       <Hero />
-      <HomeOverview />
       <Projects />
       <News />
       <Contact />
