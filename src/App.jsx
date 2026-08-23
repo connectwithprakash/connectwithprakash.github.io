@@ -50,8 +50,8 @@ function App() {
               <Route path="/books" element={<Navigate to="/personal/books" replace />} />
               <Route path="/project/:id" element={<ProjectDetail />} />
             </Routes>
+            <Contact />
           </Suspense>
-          <Contact />
         </div>
         </BrowserRouter>
       </ThemeProvider>
