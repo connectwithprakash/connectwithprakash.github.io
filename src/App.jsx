@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
 import { ThemeProvider } from './context/ThemeContext';
 import Navigation from './components/Navigation';
+import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
 import Particles from './components/Particles';
 
@@ -50,6 +51,7 @@ function App() {
               <Route path="/project/:id" element={<ProjectDetail />} />
             </Routes>
           </Suspense>
+          <Contact />
         </div>
         </BrowserRouter>
       </ThemeProvider>

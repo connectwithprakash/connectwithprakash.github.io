@@ -195,12 +195,11 @@
 .footer {
   padding: 2.5rem 0;
   border-top: 1px solid var(--glass-border);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  text-align: center;
+  gap: 1.5rem;
 }
 
 .footer-connection-links {
@@ -295,7 +294,21 @@
   }
 
   .footer {
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
     text-align: center;
+  }
+
+  .footer p {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .footer-connection-links {
+    justify-self: start;
+  }
+
+  .footer-links {
+    justify-self: end;
   }
 }

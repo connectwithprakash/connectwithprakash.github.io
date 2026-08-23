@@ -1,7 +1,6 @@
 import Hero from '../components/Hero';
 import News from '../components/News';
 import Projects from '../components/Projects';
-import Contact from '../components/Contact';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
 
@@ -18,7 +17,6 @@ const Home = () => {
       <Hero />
       <Projects />
       <News />
-      <Contact />
     </>
   );
 };
