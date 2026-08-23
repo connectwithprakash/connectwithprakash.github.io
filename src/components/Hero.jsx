@@ -96,14 +96,6 @@ const Hero = () => {
             and improved over time.
           </motion.p>
 
-          <motion.div className="hero-cta" variants={itemVariants}>
-            <button className="btn btn-glass" onClick={() => {
-              document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-            }}>
-              View Projects
-            </button>
-          </motion.div>
-
           <motion.div className="hero-socials" variants={itemVariants}>
             {socialLinks.map((social, index) => (
               <motion.a
