@@ -1,15 +1,10 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+
 import { FaFileAlt, FaQuoteLeft } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
 import './Publications.css';
 
 const Publications = () => {
-  const [ref] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const publications = [
     {
       title: 'Search disaster victims using sound source localization',
@@ -31,17 +26,6 @@ const Publications = () => {
       secondaryUrl: 'https://louis.uah.edu/cgi/viewcontent.cgi?article=1679&context=uah-theses',
     },
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -54,14 +38,9 @@ const Publications = () => {
   return (
     <section id="publications" className="section publications">
       <div className="container">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
+        <div>
           <motion.div className="section-header" variants={itemVariants}>
-            <h2 className="section-title">Publications</h2>
+            <h2 className="section-title">Research</h2>
             <p className="section-subtitle">
               Contributing to the advancement of AI through research
             </p>
@@ -173,7 +152,7 @@ const Publications = () => {
               <span>Google Scholar</span>
             </motion.a>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
