@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 
 import { FaFileAlt, FaQuoteLeft } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
+import WritingResearchTabs from './WritingResearchTabs';
 import './Publications.css';
 
 const Publications = () => {
@@ -39,6 +40,7 @@ const Publications = () => {
     <section id="publications" className="section publications">
       <div className="container">
         <div>
+          <WritingResearchTabs active="research" />
           <motion.div className="section-header" variants={itemVariants}>
             <h2 className="section-title">Research</h2>
             <p className="section-subtitle">

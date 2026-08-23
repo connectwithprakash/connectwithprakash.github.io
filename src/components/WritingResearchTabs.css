@@ -1,5 +1,6 @@
 .writing-research-tabs {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 0.25rem;
   margin: 0 auto 2rem;

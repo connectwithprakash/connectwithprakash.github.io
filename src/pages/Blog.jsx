@@ -13,7 +13,7 @@ import './Blog.css';
 const Blog = () => {
   const [allPosts, setAllPosts] = useState(blogPosts);
   const [, setLoading] = useState(true);
-  const [showPersonal, setShowPersonal] = useState(false);
+
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -59,11 +59,8 @@ const Blog = () => {
   };
 
   // Filter and sort posts by date (newest first)
-  const filteredPosts = showPersonal
-    ? allPosts.filter(post => post.category === 'personal')
-    : allPosts.filter(post => post.category !== 'personal');
+  const filteredPosts = allPosts.filter(post => post.category !== 'personal');
   const sortedPosts = [...filteredPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
-  const hasPersonalPosts = allPosts.some(post => post.category === 'personal');
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -181,7 +178,7 @@ const Blog = () => {
             })}
           </motion.div>
 
-          {sortedPosts.length === 0 && !showPersonal && hasPersonalPosts && (
+          {sortedPosts.length === 0 && (
             <motion.div
               className="no-posts"
               initial={{ opacity: 0 }}
@@ -191,31 +188,7 @@ const Blog = () => {
             </motion.div>
           )}
 
-          {sortedPosts.length === 0 && (showPersonal || !hasPersonalPosts) && (
-            <motion.div
-              className="no-posts"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <p>No blog posts yet. Stay tuned!</p>
-            </motion.div>
-          )}
 
-          {hasPersonalPosts && (
-            <motion.div
-              className="personal-toggle"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              <button
-                className="personal-toggle-btn"
-                onClick={() => setShowPersonal(!showPersonal)}
-              >
-                {showPersonal ? '← Back to technical posts' : 'Show personal thoughts →'}
-              </button>
-            </motion.div>
-          )}
         </div>
       </section>
     </div>

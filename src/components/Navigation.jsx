@@ -77,6 +77,7 @@ const Navigation = () => {
     ? [
       { label: 'Overview', to: '/personal' },
       { label: 'Books', to: '/personal/books' },
+      { label: 'Thoughts', to: '/personal/thoughts' },
       { label: 'Inquiry', to: '/personal/inquiry' },
     ]
     : [

@@ -20,6 +20,7 @@ const WritingResearchPage = lazy(() => import('./pages/WritingResearchPage'));
 const QuestionPage = lazy(() => import('./pages/QuestionPage'));
 const BooksPage = lazy(() => import('./pages/BooksPage'));
 const PersonalPage = lazy(() => import('./pages/PersonalPage'));
+const ThoughtsPage = lazy(() => import('./pages/ThoughtsPage'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/personal" element={<PersonalPage />} />
+              <Route path="/personal/thoughts" element={<ThoughtsPage />} />
               <Route path="/personal/inquiry" element={<QuestionPage />} />
               <Route path="/personal/books" element={<BooksPage />} />
               <Route path="/inquiry" element={<Navigate to="/personal/inquiry" replace />} />

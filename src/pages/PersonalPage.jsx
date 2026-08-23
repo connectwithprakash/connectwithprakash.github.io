@@ -58,6 +58,17 @@ const PersonalPage = () => {
             <p>Questions about ethics, self-knowledge, observation, meditation, and how to live.</p>
             <Link className="personal-card-link" to="/personal/inquiry">Open Inquiry →</Link>
           </motion.div>
+          <motion.div
+            className="personal-card glass-card"
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.12 }}
+          >
+            <p className="personal-card-kicker">Personal essays</p>
+            <h2>Thoughts</h2>
+            <p>Reflections on motivation, self-knowledge, and perspectives still taking shape.</p>
+            <Link className="personal-card-link" to="/personal/thoughts">Open Thoughts →</Link>
+          </motion.div>
         </section>
       </div>
     </main>

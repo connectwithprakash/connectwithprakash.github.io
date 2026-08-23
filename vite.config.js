@@ -56,6 +56,7 @@ export default defineConfig({
         '/resume',
         '/personal',
         '/personal/books',
+        '/personal/thoughts',
         '/personal/inquiry',
         ...getDynamicRoutes()
       ],
