@@ -317,7 +317,7 @@ const About = () => {
                 onToggle={handleTimelineToggle}
               >
                 <p className="timeline-desc">
-                  Built LSTM-based NLP models for automated user profile generation, improving sign-up efficiency by 40%. Developed NSFW detection system for content moderation.
+                  Built NLP systems for automated user profile generation and content moderation at a consumer matchmaking platform.
                 </p>
               </TimelineDetails>
 
@@ -331,7 +331,7 @@ const About = () => {
                 onToggle={handleTimelineToggle}
               >
                 <p className="timeline-desc">
-                  Mentored junior members and competed in ABU Robocon, Asia-Pacific's premier international robotics competition (12-14 countries). Won ROHM Award (2019 Mongolia) for innovative four-legged robot design and Best Shuttlecock Award (2018 Vietnam). Developed control algorithms including double differential drive system for stable high-speed movement, kinematics, and navigation using ARM microcontrollers.
+                  Built and tested autonomous robots for ABU Robocon, mentored junior members, and received a 2019 ROHM Award for robot design.
                 </p>
               </TimelineDetails>
             </div>

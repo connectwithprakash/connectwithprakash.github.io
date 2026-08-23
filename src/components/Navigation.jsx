@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import ThemeToggle from './ThemeToggle';
@@ -13,7 +13,7 @@ const Navigation = () => {
   const mobileMenuToggleRef = useRef(null);
   const firstMobileNavRef = useRef(null);
   const location = useLocation();
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -63,10 +63,6 @@ const Navigation = () => {
     };
   }, [mobileMenuOpen]);
 
-  const scrollToContact = () => {
-    navigate({ pathname: '/', hash: '#contact' });
-    setMobileMenuOpen(false);
-  };
 
   const isActiveRoute = (to) => (
     to === '/writing'
@@ -121,19 +117,6 @@ const Navigation = () => {
 
         <ThemeToggle />
 
-        <motion.a
-          href="#contact"
-          className="btn btn-primary nav-cta"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={(event) => {
-            event.preventDefault();
-            scrollToContact();
-          }}
-        >
-          Get in Touch
-        </motion.a>
-
         <motion.button
           ref={mobileMenuToggleRef}
           className="mobile-menu-toggle"
@@ -178,16 +161,7 @@ const Navigation = () => {
                   </Link>
                 </motion.li>
               ))}
-              <motion.li
-                className="mobile-menu-cta-item"
-                initial={false}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navItems.length + 1) * 0.05 }}
-              >
-                <button className="btn btn-primary mobile-cta" onClick={scrollToContact} style={{ width: '100%' }}>
-                  Get in Touch
-                </button>
-              </motion.li>
+
             </ul>
           </motion.div>
         )}

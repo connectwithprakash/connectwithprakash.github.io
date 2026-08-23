@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaGoogle, FaMedium, FaYoutube } from 'react-icons/fa';
-import { SiGooglescholar } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaMedium, FaYoutube } from 'react-icons/fa';
 import './Hero.css';
 
 const Hero = () => {
   const socialLinks = [
     { icon: <FaGithub />, url: 'https://github.com/connectwithprakash', label: 'GitHub' },
     { icon: <FaLinkedin />, url: 'https://linkedin.com/in/connectwithprakash', label: 'LinkedIn' },
-    { icon: <SiGooglescholar />, url: 'https://scholar.google.com/citations?user=zYlOgbgAAAAJ', label: 'Google Scholar' },
+
     { icon: <FaMedium />, url: 'https://medium.com/@connectwithprakash', label: 'Medium' },
     { icon: <FaYoutube />, url: 'https://www.youtube.com/@connectwithprakash', label: 'YouTube' },
   ];
