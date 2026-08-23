@@ -45,6 +45,7 @@ function App() {
               <Route path="/resume" element={<Resume />} />
               <Route path="/personal" element={<PersonalPage />} />
               <Route path="/personal/thoughts" element={<ThoughtsPage />} />
+              <Route path="/personal/thoughts/:id" element={<BlogPost />} />
               <Route path="/personal/inquiry" element={<QuestionPage />} />
               <Route path="/personal/books" element={<BooksPage />} />
               <Route path="/inquiry" element={<Navigate to="/personal/inquiry" replace />} />

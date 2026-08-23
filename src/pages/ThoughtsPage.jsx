@@ -59,7 +59,7 @@ const ThoughtsPage = () => (
                 </div>
               </div>
               <h2 className="blog-card-title">
-                <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                <Link to={`/personal/thoughts/${post.id}`}>{post.title}</Link>
               </h2>
               <p className="blog-card-description">{post.description}</p>
               <div className="blog-card-tags">
@@ -70,7 +70,7 @@ const ThoughtsPage = () => (
                   </span>
                 ))}
               </div>
-              <Link to={`/blog/${post.id}`} className="blog-card-link">
+              <Link to={`/personal/thoughts/${post.id}`} className="blog-card-link">
                 Read More
                 <FaArrowRight />
               </Link>

@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -26,6 +26,10 @@ import './BlogPost.css';
 
 const BlogPost = () => {
   const { id } = useParams();
+  const location = useLocation();
+  const isThought = location.pathname.startsWith('/personal/thoughts/');
+  const collectionPath = isThought ? '/personal/thoughts' : '/blog';
+  const collectionLabel = isThought ? 'Thoughts' : 'Blog';
 
   const [post, setPost] = useState(null);
   const [liked, setLiked] = useState(false);
@@ -63,7 +67,7 @@ const BlogPost = () => {
     }
   };
 
-  const shareUrl = `${window.location.origin}/blog/${id}`;
+  const shareUrl = `${window.location.origin}${collectionPath}/${id}`;
   const shareTitle = post?.title || '';
 
   const handleShare = async (platform) => {
@@ -111,8 +115,8 @@ const BlogPost = () => {
         <div className="container">
           <div className="post-not-found">
             <h2>Post not found</h2>
-            <Link to="/blog" className="btn btn-primary">
-              <FaArrowLeft /> Back to Blog
+            <Link to={collectionPath} className="btn btn-primary">
+              <FaArrowLeft /> Back to {collectionLabel}
             </Link>
           </div>
         </div>
@@ -126,7 +130,7 @@ const BlogPost = () => {
         title={post.title}
         description={post.description}
         keywords={post.tags?.join(', ')}
-        url={`/blog/${post.id}`}
+        url={`${collectionPath}/${post.id}`}
         type="article"
         article={{
           publishedTime: post.date,
@@ -138,13 +142,13 @@ const BlogPost = () => {
         article={{
           title: post.title,
           description: post.description,
-          url: `/blog/${post.id}`,
+          url: `${collectionPath}/${post.id}`,
           datePublished: post.date,
           dateModified: post.dateModified || post.date,
         }}
         breadcrumbs={[
           { name: 'Home', url: '/' },
-          { name: 'Blog', url: '/blog' },
+          { name: collectionLabel, url: collectionPath },
           { name: post.title },
         ]}
       />
@@ -155,8 +159,8 @@ const BlogPost = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Link to="/blog" className="back-link">
-            <FaArrowLeft /> Back to Blog
+          <Link to={collectionPath} className="back-link">
+            <FaArrowLeft /> Back to {collectionLabel}
           </Link>
 
           <header className="post-header">
@@ -261,8 +265,8 @@ const BlogPost = () => {
 
           <div className="post-footer">
             <div className="post-nav">
-              <Link to="/blog" className="btn btn-glass">
-                <FaArrowLeft /> All Posts
+              <Link to={collectionPath} className="btn btn-glass">
+                <FaArrowLeft /> All {collectionLabel}
               </Link>
             </div>
           </div>

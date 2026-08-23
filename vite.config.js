@@ -28,8 +28,10 @@ function getDynamicRoutes() {
   if (fs.existsSync(blogDir)) {
     const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.md'))
     for (const file of blogFiles) {
+      const content = fs.readFileSync(path.join(blogDir, file), 'utf-8')
+      const { data } = matter(content)
       const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace('.md', '')
-      routes.push(`/blog/${slug}`)
+      routes.push(data.category === 'personal' ? `/personal/thoughts/${slug}` : `/blog/${slug}`)
     }
   }
 
