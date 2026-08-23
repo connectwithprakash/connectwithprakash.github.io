@@ -78,23 +78,25 @@ const Contact = () => {
             </Link>
             . Built with React + Vite.
           </p>
-          <div className="footer-connection-links" aria-label="Connection links">
-            {socialLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target={link.url.startsWith('mailto:') ? undefined : '_blank'}
-                rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                className="footer-connection-link"
-                aria-label={link.name}
-                title={link.name}
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
-          <div className="footer-links">
-            <a href="#home">Back to Top ↑</a>
+          <div className="footer-utility-links">
+            <div className="footer-connection-links" aria-label="Connection links">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target={link.url.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                  className="footer-connection-link"
+                  aria-label={link.name}
+                  title={link.name}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+            <div className="footer-links">
+              <a href="#home">Back to Top ↑</a>
+            </div>
           </div>
         </footer>
       </div>

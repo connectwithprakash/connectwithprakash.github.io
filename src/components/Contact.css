@@ -196,7 +196,7 @@
   padding: 2.5rem 0;
   border-top: 1px solid var(--glass-border);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
@@ -208,6 +208,12 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.9rem;
+}
+
+.footer-utility-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .footer-connection-link {
@@ -304,11 +310,9 @@
     justify-self: center;
   }
 
-  .footer-connection-links {
-    justify-self: start;
-  }
-
-  .footer-links {
-    justify-self: end;
+  .footer-utility-links {
+    grid-column: 1 / -1;
+    justify-self: center;
+    gap: 1rem;
   }
 }
