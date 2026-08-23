@@ -1,0 +1,100 @@
+.writing-research-page {
+  min-height: 100vh;
+  padding: 8rem 0 5rem;
+}
+
+.writing-research-header {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.writing-research-kicker,
+.writing-research-card-kicker {
+  margin: 0 0 0.75rem;
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.writing-research-header h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
+  line-height: 1;
+}
+
+.writing-research-header > p:last-child {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.writing-research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.writing-research-card {
+  display: flex;
+  min-height: 16rem;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--personal-card-bg);
+  border-color: var(--personal-card-border);
+}
+
+.writing-research-card h2 {
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-size: 1.8rem;
+}
+
+.writing-research-card > p:not(.writing-research-card-kicker) {
+  margin: 0 0 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.writing-research-link {
+  width: fit-content;
+  margin-top: auto;
+  padding: 0.55rem 0.85rem;
+  color: var(--personal-card-action-text);
+  background: var(--personal-card-action-bg);
+  border: 1px solid var(--personal-card-action-border);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.writing-research-link:hover {
+  color: var(--personal-card-action-text);
+  filter: brightness(1.12);
+}
+
+@media (max-width: 1150px) {
+  .writing-research-page {
+    padding-top: 6.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .writing-research-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .writing-research-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .writing-research-card {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+}

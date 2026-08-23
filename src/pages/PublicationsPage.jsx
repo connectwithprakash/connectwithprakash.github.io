@@ -5,15 +5,16 @@ import StructuredData from '../components/StructuredData';
 const PublicationsPage = () => (
   <>
     <SEO
-      title="Publications"
-      description="Research publications in machine learning and sound source localization."
-      keywords="machine learning publications, sound source localization, research"
+      title="Research"
+      description="Research papers and a master's thesis in machine learning, sound source localization, and spectral deconvolution."
+      keywords="machine learning research, sound source localization, spectral deconvolution, thesis"
       url="/publications"
     />
     <StructuredData
       breadcrumbs={[
         { name: 'Home', url: '/' },
-        { name: 'Publications' },
+        { name: 'Writing & Research', url: '/writing' },
+        { name: 'Research' },
       ]}
     />
     <Publications />

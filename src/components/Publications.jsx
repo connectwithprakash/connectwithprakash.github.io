@@ -5,7 +5,7 @@ import { SiGooglescholar } from 'react-icons/si';
 import './Publications.css';
 
 const Publications = () => {
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -14,11 +14,21 @@ const Publications = () => {
     {
       title: 'Search disaster victims using sound source localization',
       authors: 'A Khanal, D Chand, P Chaudhary, S Timilsina, SP Panday, A Shakya, et al.',
-      venue: 'arXiv preprint arXiv:2103.06049',
-      year: '2021',
-      type: 'Preprint',
-      citations: 7,
+      venue: 'ISCRAM 2020 Conference Proceedings · pp. 1022–1030',
+      year: '2020',
+      type: 'Conference Paper',
+      citations: 8,
       url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zYlOgbgAAAAJ&citation_for_view=zYlOgbgAAAAJ:u5HHmVD_uO8C',
+      secondaryUrl: 'https://arxiv.org/abs/2103.06049',
+    },
+    {
+      title: 'Spectral deconvolution using machine learning for determining material compositions in mixed samples',
+      authors: 'Prakash Chaudhary',
+      venue: 'Master\'s thesis, University of Alabama in Huntsville',
+      year: '2024',
+      type: 'Thesis',
+      url: 'https://louis.uah.edu/uah-theses/676',
+      secondaryUrl: 'https://louis.uah.edu/cgi/viewcontent.cgi?article=1679&context=uah-theses',
     },
   ];
 
@@ -47,7 +57,7 @@ const Publications = () => {
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate="visible"
           variants={containerVariants}
         >
           <motion.div className="section-header" variants={itemVariants}>
@@ -63,8 +73,8 @@ const Publications = () => {
                 <FaFileAlt />
               </div>
               <div className="stat-content">
-                <div className="stat-number gradient-text">1</div>
-                <div className="stat-label">Publications</div>
+                <div className="stat-number gradient-text">2</div>
+                <div className="stat-label">Research works</div>
               </div>
             </div>
 
@@ -73,7 +83,7 @@ const Publications = () => {
                 <FaQuoteLeft />
               </div>
               <div className="stat-content">
-                <div className="stat-number gradient-text">7</div>
+                <div className="stat-number gradient-text">8</div>
                 <div className="stat-label">Citations</div>
               </div>
             </div>
@@ -112,8 +122,14 @@ const Publications = () => {
 
                 <div className="publication-footer">
                   <div className="publication-citations">
-                    <FaQuoteLeft />
-                    <span>{pub.citations} citations</span>
+                    {pub.citations ? (
+                      <>
+                        <FaQuoteLeft />
+                        <span>{pub.citations} citations</span>
+                      </>
+                    ) : (
+                      <span>{pub.type === 'Thesis' ? 'UAH thesis' : pub.venue}</span>
+                    )}
                   </div>
 
                   <div className="publication-links">
@@ -128,14 +144,14 @@ const Publications = () => {
                       View
                     </motion.a>
                     <motion.a
-                      href={`https://arxiv.org/abs/2103.06049`}
+                      href={pub.secondaryUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="pub-link-btn"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      arXiv
+                      {pub.type === 'Thesis' ? 'PDF' : 'arXiv'}
                     </motion.a>
                   </div>
                 </div>

@@ -69,7 +69,11 @@ const Navigation = () => {
   };
 
   const isActiveRoute = (to) => (
-    to === '/blog' ? location.pathname.startsWith('/blog') : location.pathname === to
+    to === '/writing'
+      ? location.pathname === '/writing'
+        || location.pathname.startsWith('/blog')
+        || location.pathname.startsWith('/publications')
+      : location.pathname === to
   );
 
   const navItems = [
@@ -77,8 +81,7 @@ const Navigation = () => {
     { label: 'About', to: '/about' },
     { label: 'News', to: '/news' },
     { label: 'Projects', to: '/projects' },
-    { label: 'Publications', to: '/publications' },
-    { label: 'Blog', to: '/blog' },
+    { label: 'Writing & Research', to: '/writing' },
     { label: 'Resume', to: '/resume' },
   ];
 

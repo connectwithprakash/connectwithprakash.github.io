@@ -51,6 +51,7 @@ export default defineConfig({
         '/projects',
         '/news',
         '/publications',
+        '/writing',
         '/blog',
         '/resume',
         '/personal',
