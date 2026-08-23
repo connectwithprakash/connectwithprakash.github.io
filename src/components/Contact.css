@@ -213,7 +213,6 @@
 .footer-utility-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
 }
 
 .footer-connection-link {
@@ -254,33 +253,6 @@
   color: var(--text-primary);
 }
 
-.footer-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.footer-links-label {
-  color: var(--text-tertiary);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.footer-links a {
-  color: var(--neon-blue);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: var(--neon-purple);
-}
-
 @media (max-width: 968px) {
   .contact-card {
     grid-template-columns: minmax(0, 1fr) minmax(14rem, 1fr);
@@ -313,6 +285,5 @@
   .footer-utility-links {
     grid-column: 1 / -1;
     justify-self: center;
-    gap: 1rem;
   }
 }

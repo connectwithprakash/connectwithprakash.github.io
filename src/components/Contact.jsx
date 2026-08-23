@@ -94,9 +94,6 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-            <div className="footer-links">
-              <a href="#home">Back to Top ↑</a>
-            </div>
           </div>
         </footer>
       </div>
