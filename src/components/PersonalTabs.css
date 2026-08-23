@@ -1,7 +1,7 @@
 .personal-tabs {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1.5rem;
   max-width: 980px;
   margin: 0 auto 2rem;
@@ -13,7 +13,6 @@
   -webkit-backdrop-filter: blur(14px);
 }
 
-.personal-back-link,
 .personal-tab {
   color: var(--text-secondary);
   text-decoration: none;
@@ -21,18 +20,10 @@
   transition: color 0.2s ease, background 0.2s ease;
 }
 
-.personal-back-link {
-  flex: 0 0 auto;
-  padding: 0.55rem 0.85rem;
-  font-size: 0.85rem;
-}
-
-.personal-back-link:hover,
 .personal-tab:hover {
   color: var(--text-primary);
 }
 
-.personal-back-link:focus-visible,
 .personal-tab:focus-visible {
   outline: 2px solid var(--neon-blue);
   outline-offset: 3px;
@@ -58,17 +49,12 @@
 
 @media (max-width: 768px) {
   .personal-tabs {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
     margin-bottom: 1.5rem;
     padding: 0.65rem;
     border-radius: 1rem;
   }
 
-  .personal-back-link {
-    padding: 0.5rem 0.65rem;
-  }
 
   .personal-tab-list {
     width: 100%;

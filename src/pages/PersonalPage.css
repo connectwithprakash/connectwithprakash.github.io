@@ -67,16 +67,20 @@
 }
 
 .personal-card-link {
-  color: var(--text-primary);
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.55rem 0.85rem;
+  color: var(--personal-card-action-text);
+  background: var(--personal-card-action-bg);
+  border: 1px solid var(--personal-card-action-border);
+  border-radius: 999px;
   font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: var(--personal-card-border);
-  text-underline-offset: 0.25em;
+  text-decoration: none;
 }
 
 .personal-card-link:hover {
-  color: var(--text-primary);
-  text-decoration-color: var(--text-primary);
+  color: var(--personal-card-action-text);
+  filter: brightness(1.12);
 }
 
 @media (max-width: 768px) {

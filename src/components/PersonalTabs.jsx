@@ -9,9 +9,6 @@ const tabs = [
 
 const PersonalTabs = ({ active }) => (
   <nav className="personal-tabs" aria-label="Personal space navigation">
-    <Link className="personal-back-link" to="/">
-      ← Professional portfolio
-    </Link>
     <div className="personal-tab-list">
       {tabs.map(tab => (
         <Link

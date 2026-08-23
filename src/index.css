@@ -38,6 +38,9 @@
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   --personal-card-bg: rgba(255, 255, 255, 0.07);
   --personal-card-border: rgba(255, 255, 255, 0.12);
+  --personal-card-action-bg: rgba(255, 255, 255, 0.12);
+  --personal-card-action-border: rgba(255, 255, 255, 0.2);
+  --personal-card-action-text: #ffffff;
 
   /* Bold & Colorful Gradients */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -72,6 +75,9 @@
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
   --personal-card-bg: rgba(255, 255, 255, 0.92);
   --personal-card-border: rgba(15, 23, 42, 0.12);
+  --personal-card-action-bg: #1a1a1a;
+  --personal-card-action-border: #1a1a1a;
+  --personal-card-action-text: #ffffff;
 
   /* Bold & Colorful Gradients (slightly adjusted for light mode) */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
