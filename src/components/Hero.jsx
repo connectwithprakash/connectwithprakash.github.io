@@ -35,7 +35,7 @@ const Hero = () => {
   const floatingVariants = {
     initial: { y: 0 },
     animate: {
-      y: [-10, 10, -10],
+      y: [0, 12, 0],
       transition: {
         duration: 6,
         repeat: Infinity,
@@ -83,23 +83,18 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="hero-badge" variants={itemVariants}>
-            <span className="badge-dot"></span>
-            Available for Opportunities
-          </motion.div>
-
           <motion.h1 className="hero-title" variants={itemVariants}>
-            Hi, I'm <span className="gradient-text">Prakash Chaudhary</span>
+            <span className="gradient-text">Senior Machine Learning Engineer</span>
           </motion.h1>
 
           <motion.p className="hero-subtitle" variants={itemVariants}>
-            Senior Machine Learning Engineer @ Fetch Rewards
+            I work on agentic systems and the infrastructure around them.
           </motion.p>
 
           <motion.p className="hero-description" variants={itemVariants}>
-            Based in Fort Worth. I build production multi-agent systems and self-supervised learning pipelines.
-            Previously did ML research at NASA-IMPACT, working on representation learning. Also into{' '}
-            <span className="highlight">robotics, electronics, and the math that makes it all work</span>.
+            I’m interested in the layers that help agents get built, connected, evaluated, deployed,
+            and improved over time. My background includes machine learning, computer vision,
+            multimodal systems, and robotics.
           </motion.p>
 
           <motion.div className="hero-cta" variants={itemVariants}>
@@ -144,25 +139,25 @@ const Hero = () => {
               <div className="code-line">
                 <span className="code-keyword">const</span>{' '}
                 <span className="code-variable">focus</span> ={' '}
-                <span className="code-string">"Multi-Agent Systems"</span>;
+                <span className="code-string">"Agentic Infrastructure"</span>;
               </div>
               <div className="code-line">
                 <span className="code-keyword">const</span>{' '}
                 <span className="code-variable">mission</span> ={' '}
-                <span className="code-string">"Build things that work"</span>;
+                <span className="code-string">"Build, evaluate, improve"</span>;
               </div>
               <div className="code-line">
                 <span className="code-keyword">while</span> (
-                <span className="code-variable">true</span>) {'{'}
+                <span className="code-variable">systemsEvolve</span>) {'{'}
               </div>
               <div className="code-line code-indent">
-                <span className="code-function">learn</span>();
+                <span className="code-function">evaluate</span>();
               </div>
               <div className="code-line code-indent">
                 <span className="code-function">build</span>();
               </div>
               <div className="code-line code-indent">
-                <span className="code-function">repeat</span>();
+                <span className="code-function">improve</span>();
               </div>
               <div className="code-line">{'}'}</div>
             </div>

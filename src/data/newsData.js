@@ -10,7 +10,7 @@ export const newsItems = [
     date: 'July 2026',
     icon: 'trophy',
     title: 'Promoted to Senior Machine Learning Engineer',
-    description: 'Promoted to Senior Machine Learning Engineer at Fetch, leading technical direction for the AI Shopping Assistant with a focus on the evaluation systems and architecture the team builds on.',
+    description: 'Promoted to Senior Machine Learning Engineer at Fetch, working on the AI Shopping Assistant with a focus on the evaluation systems and architecture it builds on.',
     color: 'var(--neon-yellow)',
   },
   {

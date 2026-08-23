@@ -175,6 +175,16 @@
   font-size: 0.95rem;
 }
 
+.footer-name-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-name-link:hover,
+.footer-name-link:focus-visible {
+  color: var(--text-primary);
+}
+
 .footer-links {
   display: flex;
   align-items: center;

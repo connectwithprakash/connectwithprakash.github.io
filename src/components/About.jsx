@@ -149,10 +149,10 @@ const About = () => {
                   What I Do
                 </h3>
                 <p>
-                  I'm a <strong>Senior Machine Learning Engineer</strong> at Fetch, where I lead
-                  technical direction for production AI systems built on <strong>LLMs</strong> and{' '}
+                  I'm a <strong>Senior Machine Learning Engineer</strong> at Fetch, where I work on
+                  production AI systems built on <strong>LLMs</strong> and{' '}
                   <strong>multi-agent architectures</strong>. I shipped an{' '}
-                  <strong>AI Shopping Assistant</strong> to a 200K-user experiment and led a
+                  <strong>AI Shopping Assistant</strong> to a 200K-user experiment and worked on a
                   multi-agent matching framework that <strong>unlocked $165M in GMV</strong> with
                   LLM-as-a-Judge guardrails at 97% accuracy.
                 </p>
@@ -223,7 +223,7 @@ const About = () => {
                     <h4>Senior Machine Learning Engineer</h4>
                     <span className="timeline-role-date">Jul 2026 - Present</span>
                     <p className="timeline-desc">
-                      Leading technical direction for Fetch's AI Shopping Assistant, a self-improving agentic system, with a focus on the evaluation systems and architecture the team builds on.
+                      Working on Fetch's AI Shopping Assistant, a self-improving agentic system, with a focus on the evaluation systems and architecture it builds on.
                     </p>
                   </div>
                   <div className="timeline-role">

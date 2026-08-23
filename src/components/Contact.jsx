@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -110,7 +111,7 @@ const Contact = () => {
           <motion.div className="section-header" variants={itemVariants}>
             <h2 className="section-title">Let's Connect</h2>
             <p className="section-subtitle">
-              Always open to discussing new opportunities and collaborations
+              Where to find me and follow my work
             </p>
           </motion.div>
 
@@ -120,8 +121,8 @@ const Contact = () => {
                 <div className="contact-card-header">
                   <h3 className="gradient-text">Get In Touch</h3>
                   <p>
-                    Senior Machine Learning Engineer at Fetch Rewards. Always excited to discuss
-                    AI, robotics, and innovative tech projects. Let's connect!
+                    I work on AI, robotics, and technical systems. These are the places where I share
+                    work, research, and ways to get in touch.
                   </p>
                 </div>
 
@@ -149,7 +150,7 @@ const Contact = () => {
 
                 <div className="availability-badge">
                   <span className="status-dot"></span>
-                  <span>Open to Collaboration</span>
+                  <span>Open to Conversation</span>
                 </div>
               </div>
             </motion.div>
@@ -183,11 +184,18 @@ const Contact = () => {
           </div>
 
           <motion.div className="footer" variants={itemVariants}>
-            <p>&copy; {new Date().getFullYear()} Prakash Chaudhary. Built with React + Vite, with assistance from Claude Code, Hermes Agent, and Codex.</p>
+            <p>
+              &copy; {new Date().getFullYear()}{' '}
+              <Link
+                className="footer-name-link"
+                to="/personal"
+                aria-label="Open personal space"
+              >
+                Prakash Chaudhary
+              </Link>
+              . Built with React + Vite, with assistance from coding agents.
+            </p>
             <div className="footer-links">
-              <span className="footer-links-label">Personal</span>
-              <a href="/books">Books</a>
-              <a href="/inquiry">Inquiry</a>
               <a href="#home">Back to Top ↑</a>
             </div>
           </motion.div>
