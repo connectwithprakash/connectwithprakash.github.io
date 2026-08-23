@@ -1,6 +1,7 @@
 .books-page {
   min-height: 100vh;
   padding: 8rem 0 5rem;
+  overflow-x: hidden;
 }
 
 .books-hero {
@@ -228,25 +229,61 @@
     margin-bottom: 2rem;
   }
 
-  .books-page .container,
+  .books-page .container {
+    width: calc(100vw - 2rem);
+    max-width: calc(100vw - 2rem);
+    padding-right: 0;
+    padding-left: 0;
+    overflow-x: hidden;
+  }
+
   .books-hero,
   .books-section {
     width: 100%;
     min-width: 0;
+    max-width: 100%;
   }
 
   .books-grid {
+    width: 100%;
+    min-width: 0;
     grid-template-columns: 1fr;
   }
 
+  .books-grid-current,
+  .book-card {
+    width: calc(100vw - 2rem);
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .books-subtitle {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
   .book-card-main {
-    grid-template-columns: 5.25rem minmax(0, 1fr);
+    min-width: 0;
+    max-width: 100%;
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
   .book-cover-frame {
     width: 5.25rem;
     min-height: 7.75rem;
+  }
+
+  .book-tags li {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .book-card-details,
+  .book-tags {
+    min-width: 0;
+    max-width: 100%;
   }
 
 }
