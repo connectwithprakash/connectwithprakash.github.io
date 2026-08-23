@@ -43,6 +43,8 @@
 }
 
 .personal-card {
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
   background: var(--personal-card-bg);
   border-color: var(--personal-card-border);
@@ -69,6 +71,7 @@
 .personal-card-link {
   display: inline-flex;
   width: fit-content;
+  margin-top: auto;
   padding: 0.55rem 0.85rem;
   color: var(--personal-card-action-text);
   background: var(--personal-card-action-bg);
