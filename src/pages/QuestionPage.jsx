@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
+import PersonalTabs from '../components/PersonalTabs';
 import './QuestionPage.css';
 
 const timeline = [
@@ -65,19 +66,20 @@ const QuestionPage = () => {
       title="The Question"
       description="A personal inquiry into ethics, self-knowledge, Buddhism, Dzogchen, and Advaita Vedanta."
       keywords="ethics, self-knowledge, skepticism, Buddhism, Dzogchen, Advaita Vedanta, meditation"
-      url="/inquiry"
+      url="/personal/inquiry"
     />
     <StructuredData
       type="collection"
       collection={{
         title: 'The Question',
         description: 'A personal inquiry into ethics, self-knowledge, Buddhism, Dzogchen, and Advaita Vedanta.',
-        url: '/inquiry',
+        url: '/personal/inquiry',
       }}
       breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'The Question' }]}
     />
 
     <div className="container">
+      <PersonalTabs active="inquiry" />
       <header className="question-hero">
         <h1 className="question-title">The Question</h1>
         <blockquote className="question-quote">

@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { FaPen, FaRegLightbulb } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
+import PersonalTabs from '../components/PersonalTabs';
 import {
   currentlyReading,
   finishedBooks,
@@ -106,19 +107,20 @@ const BooksPage = () => {
         title="Books"
         description="A structured reading record of books finished and currently being read."
         keywords="books, reading, personal reflections, Buddhism, philosophy"
-        url="/books"
+        url="/personal/books"
       />
       <StructuredData
         type="collection"
         collection={{
           title: 'Books',
           description: 'A structured reading record of books finished and currently being read.',
-          url: '/books',
+          url: '/personal/books',
         }}
         breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Books' }]}
       />
 
       <div className="container">
+        <PersonalTabs active="books" />
         <header className="books-hero">
           <p className="books-kicker">Reading record</p>
           <h1 className="books-title">Books</h1>

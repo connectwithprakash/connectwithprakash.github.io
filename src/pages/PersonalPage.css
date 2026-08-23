@@ -1,0 +1,92 @@
+.personal-page {
+  min-height: 100vh;
+  padding: 8rem 0 5rem;
+}
+
+.personal-hero {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.personal-kicker,
+.personal-card-kicker {
+  margin: 0 0 0.75rem;
+  color: var(--neon-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.personal-title {
+  margin: 0 0 1rem;
+  color: var(--text-primary);
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1;
+}
+
+.personal-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.7;
+}
+
+.personal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.personal-card {
+  padding: 2rem;
+}
+
+.personal-card h2 {
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-size: 1.8rem;
+}
+
+.personal-card > p:not(.personal-card-kicker) {
+  min-height: 4.8rem;
+  margin: 0 0 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.personal-card-link {
+  color: var(--neon-blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.personal-card-link:hover {
+  color: var(--neon-purple);
+}
+
+@media (max-width: 768px) {
+  .personal-page {
+    padding: 6.5rem 0 3rem;
+  }
+
+  .personal-hero {
+    margin-bottom: 2.5rem;
+  }
+
+  .personal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-card {
+    padding: 1.5rem;
+  }
+
+  .personal-card > p:not(.personal-card-kicker) {
+    min-height: 0;
+  }
+}
