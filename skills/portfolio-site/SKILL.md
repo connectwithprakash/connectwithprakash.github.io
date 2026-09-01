@@ -1,11 +1,28 @@
 ---
-name: portfolio-project-page
-description: Add or update a project page on this portfolio site. Use when creating a project page, publishing a project, adding a project card, refreshing a project's images or description, or making any change under src/content/projects/ or src/data/newsData.js. Covers the content schema, the release cascade checklist (news, featured, categories), image conventions, palette validation, real-app capture techniques, and rendering verification.
+name: portfolio-site
+description: "Publish or update content on this portfolio site: project pages, blog/thoughts posts, news entries, and the reading list. Use when creating or refreshing any of those, or making any change under src/content/, src/data/newsData.js, src/data/booksData.js, or public/assets/img/projects/. Covers per-surface schemas, the release cascade checklist (news, featured, categories), the category field that routes a post between /blog and /thoughts, image conventions, palette validation, real-app capture techniques, and rendering verification."
 ---
 
-# Portfolio Project Page
+# Portfolio Site
 
-Publish a project as a case-study page on this site. The site is a React 19 + Vite SPA; projects are markdown files that auto-load, so a page is content plus assets, no route changes.
+Publish content to this site. It is a React 19 + Vite SPA; content auto-loads
+from `src/content/`, so adding a file IS registering it. No route edits.
+
+## Surfaces
+
+Load the row you are touching. The project surface carries the most machinery
+(release cascade, images, captures); the others are schema plus verification.
+
+| Surface | Files | What governs it |
+|---|---|---|
+| Project page | `src/content/projects/<id>.md` + `public/assets/img/projects/<id>/` | Frontmatter schema, release cascade, image and capture sections below |
+| Blog / thoughts post | `src/content/blog/YYYY-MM-DD-<slug>.md` | Blog frontmatter section below. **`category` decides which page it lands on** |
+| News entry | `src/data/newsData.js` | Release cascade row below |
+| Reading list | `src/data/booksData.js` | Reading list section below |
+
+Pages that are static JSX (resume, publications, writing/research, questions,
+personal) are code changes, not content publishing; this skill does not cover
+them.
 
 ## Site facts
 
@@ -15,7 +32,7 @@ Publish a project as a case-study page on this site. The site is a React 19 + Vi
 - Categories are hardcoded in `src/pages/ProjectsPage.jsx`.
 - Build: `npm run build`. Sitemap picks up content files automatically. Deploys automatically from `main` (live at `https://www.connectwithprakash.com`), so pushing IS publishing.
 
-## Frontmatter schema
+## Project frontmatter schema
 
 Title rule: portfolio visitors read titles with ZERO context, so the title
 self-describes rather than using the brand short-form when they differ
@@ -25,6 +42,47 @@ command references keep the short name.
 Required-ish: `id`, `title`, `shortDescription` (1-2 sentence card text), `category`, `tags`, `startDate`/`endDate` (`YYYY-MM`), `status` (`completed`/`released`/`in-progress`; in-progress pins to top), `importance` (lower wins ties), `featured`, `gradient` (a `var(--gradient-*)`; check current usage counts and pick an underused one that harmonizes with the artwork), `thumbnail`/`heroImage`, `github`, `images: [{path, caption}]`. Quote any YAML value containing a colon.
 
 `images` entries ending in `.mp4`/`.webm` render as muted looping autoplay video with native controls; static images open in a lightbox.
+
+## Blog frontmatter (blog and thoughts)
+
+A post is `src/content/blog/YYYY-MM-DD-<slug>.md`. `src/data/blogPosts.js` globs
+the directory and derives `id` by stripping the date prefix from the filename, so
+the file lands at `/blog/<slug>` with no route edit.
+
+| Field | Notes |
+|---|---|
+| `title` | Quoted. Self-describing; a reader arrives with zero context |
+| `date` | `YYYY-MM-DD`. An ISO datetime also parses when same-day ordering matters |
+| `description` | One or two sentences; used as the card blurb and in SEO |
+| `tags` | Array, lowercase |
+| `category` | **Routing field, see below** |
+
+**`category` decides which page the post appears on.** `ThoughtsPage` renders
+`category === 'personal'`; `Blog` renders everything else. So `personal` sends a
+post to `/thoughts` and any other value (`engineering` is the established one)
+sends it to `/blog`. There is no separate thoughts directory and no flag beyond
+this: getting `category` wrong publishes the post to the wrong section.
+
+`Blog` also merges posts fetched from Medium at runtime, so the local files are
+not the whole page. A local post can be correct while the rendered list looks
+different from the directory.
+
+Voice for the prose itself is not this skill's job: load `authorship-voice` for
+the register, and the portfolio/blog publishing reference under
+`portfolio-site` in the agent-skills library for essay structure and the
+pre-publish pass.
+
+## Reading list
+
+`src/data/booksData.js`, shape
+`{id, title, author, status, tags, notes:{summary,takeaways,thoughts,questions}, reading:{started,finished,completionDates}}`.
+
+Status discipline, and this one matters more than it looks: **only mark a book
+`finished` or `currently-reading` when the owner has explicitly confirmed it.**
+Inferring status from a note, a date, or a conversation invents a fact about what
+someone read. Leave `notes` fields empty strings until actually written rather
+than filling them with plausible summary text. For rereads, `completionDates`
+preserves each confirmed completion while `reading.finished` holds the latest.
 
 ## Release cascade checklist
 
@@ -57,6 +115,10 @@ Long-form case study in the owner's voice (load `authorship-voice`; no em dashes
 - **Driving a REAL third-party binary in the tape (the payoff shot):** a demo that ends inside the real tool (e.g. `codex resume` continuing an imported session) beats one that ends on your own success screen. Gotchas learned live: hand-built SQLite stores can satisfy a tool's read paths but fail its interactive TUI, which runs schema migrations (clone the real store's `.schema` minus `sqlite_sequence`, plus its migrations-ledger rows, instead of hand-writing DDL); trust/config entries must name the REALPATH (`/private/tmp/...`), not the `/tmp` symlink; pre-verify the interactive flow with the tool's non-interactive twin (`codex exec resume ...`) before taping; and pin any runtime-generated id by typing a fixed value into the form so later tape commands can reference it. Model responses on camera are genuinely live — budget a 40s+ Sleep and screenshot-verify the answer landed.
 
 ## Verification before commit
+
+For a blog post, news entry, or reading-list change, steps 1, 2, and 5 apply;
+the screenshot pass in step 3 is worth it for a blog post (the rendered card and
+the post body) and unnecessary for a data-file edit.
 
 1. `node -e` with `gray-matter` to confirm the frontmatter parses (especially after quoting captions).
 2. `npm run build`; confirm the assets land in `dist/` and the sitemap includes the page.

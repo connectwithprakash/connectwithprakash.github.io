@@ -11,9 +11,11 @@ the skill BEFORE making the change it governs:
 
 | Touching | Load first |
 |---|---|
-| `src/content/projects/*` (add/update a project) | `skills/portfolio-project-page/SKILL.md` |
-| `src/data/newsData.js` | `skills/portfolio-project-page/SKILL.md` (release cascade section) |
-| Project images under `public/assets/img/projects/` | `skills/portfolio-project-page/SKILL.md` (images and captures sections) |
+| `src/content/projects/*` (add/update a project) | `skills/portfolio-site/SKILL.md` |
+| `src/content/blog/*` (blog or thoughts post) | `skills/portfolio-site/SKILL.md` (blog frontmatter section; `category` routes the post between `/blog` and `/thoughts`) |
+| `src/data/newsData.js` | `skills/portfolio-site/SKILL.md` (release cascade section) |
+| `src/data/booksData.js` (reading list) | `skills/portfolio-site/SKILL.md` (reading list section; status only when confirmed) |
+| Project images under `public/assets/img/projects/` | `skills/portfolio-site/SKILL.md` (images and captures sections) |
 
 Adding a released project ALWAYS triggers the release cascade checklist in
 that skill (news entry decision, featured budget, category check). Do not
