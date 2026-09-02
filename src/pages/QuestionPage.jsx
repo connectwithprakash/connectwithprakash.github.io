@@ -32,7 +32,7 @@ const timeline = [
     title: 'Self-observation',
     icon: <FaEye />,
     tags: ['Self-knowledge', 'Observation'],
-    text: 'I had already begun noticing thoughts, reactions, self-images, and judgments before encountering Krishnamurti. I encountered Krishnamurti later, and his work gave me language for examining something I had already begun noticing.',
+    text: 'Before encountering Krishnamurti, I had begun to notice thoughts, reactions, self-images, and judgments. When I later encountered his work, it gave me language and direction for staying with questions that had begun to arise for me.',
   },
   {
     period: 'Late 2025',
