@@ -29,7 +29,7 @@
   line-height: 1;
 }
 
-.question-quote {
+.question-intro {
   max-width: 700px;
   width: 100%;
   margin: 2rem auto 1.5rem;
@@ -43,15 +43,6 @@
   text-align: left;
   background: rgba(139, 92, 246, 0.08);
   border-radius: 0 1rem 1rem 0;
-}
-
-.question-quote cite {
-  display: block;
-  margin-top: 0.75rem;
-  color: var(--text-tertiary);
-  font-family: var(--font-primary);
-  font-size: 0.8rem;
-  font-style: normal;
 }
 
 
@@ -202,7 +193,7 @@
     min-width: 0;
   }
 
-  .question-quote {
+  .question-intro {
     width: 100%;
     min-width: 0;
     overflow-wrap: break-word;
@@ -212,7 +203,7 @@
     margin-bottom: 3rem;
   }
 
-  .question-quote {
+  .question-intro {
     margin-top: 1.5rem;
     padding: 1.25rem;
   }

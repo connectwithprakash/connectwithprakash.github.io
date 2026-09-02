@@ -81,10 +81,10 @@ const QuestionPage = () => {
     <div className="container">
       <header className="question-hero">
         <h1 className="question-title">The Question</h1>
-        <blockquote className="question-quote">
-          “What is that through which, if it is known, everything else becomes known?”
-          <cite>— English translation of <em>Mundaka Upanishad</em>, 1.1.3</cite>
-        </blockquote>
+        <p className="question-intro">
+          The more I see, the more I begin to unsee: assumptions, self-images, and
+          explanations that once felt solid.
+        </p>
 
       </header>
 
