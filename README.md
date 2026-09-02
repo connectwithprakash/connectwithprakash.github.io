@@ -25,24 +25,29 @@ A modern personal portfolio website built with **React**, **Vite**, and **Framer
 - **Google Fonts** - Inter and Space Grotesk typography
 
 #### Libraries
+- **react-router-dom** - Client-side routing with lazy-loaded pages
 - **react-icons** - Icon library
-- **react-markdown** - Markdown rendering for blog posts
+- **react-markdown** - Markdown rendering, with remark-gfm and rehype-highlight
+- **gray-matter** - Frontmatter parsing for content files
 - **mermaid** - Diagram rendering
 - **giscus** - GitHub-based comments
+- **vite-plugin-sitemap** - Sitemap and robots.txt generation
 
 ### Pages
 
-- **Home** - Hero, About, News, Projects, Publications, Contact sections
+- **Home** - Hero, About, News, Projects, Publications sections
+- **About** - Background, skills, career timeline, and education
 - **Projects** - Full project listing with category filters
-- **Blog** - Technical blog with markdown support
-- **Resume** - Professional resume/CV
 - **News** - Timeline of achievements and milestones
+- **Writing & Research** - Blog posts and publications
+- **Blog** - Technical blog with markdown support, plus posts pulled from Medium
+- **Resume** - Professional resume/CV with a PDF download
 
 ## Installation
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
+- Node.js (v22, matching CI)
+- npm
 
 ### Setup
 
@@ -82,19 +87,45 @@ npm run preview
 
 ```
 website/
-├── public/              # Static assets
+├── public/              # Static assets, images, resume/CV files
+├── skills/              # Repo-specific authoring guides for agents
 ├── src/
 │   ├── components/      # React components
-│   ├── pages/           # Page components
+│   ├── pages/           # Page components (lazy-loaded routes)
 │   ├── content/         # Markdown content (projects, blog)
-│   ├── data/            # Data files
+│   ├── data/            # Content loaders and hand-maintained data
 │   ├── context/         # React context providers
-│   ├── App.jsx          # Main app component
-│   ├── index.css        # Global styles
+│   ├── services/        # External data fetching (Medium RSS)
+│   ├── App.jsx          # Routes and providers
+│   ├── index.css        # Global styles and CSS variables
 │   └── main.jsx         # Entry point
 ├── package.json
-└── vite.config.js
+└── vite.config.js       # Build config and sitemap generation
 ```
+
+## Adding Content
+
+Projects and blog posts are markdown files that register themselves, so adding
+content needs no route changes:
+
+- **Project**: add `src/content/projects/<id>.md`. `src/data/projectLoader.js`
+  globs the directory, and the `id` in the frontmatter becomes `/project/<id>`.
+  Images go in `public/assets/img/projects/<id>/`.
+- **Blog post**: add `src/content/blog/YYYY-MM-DD-<slug>.md`. The date prefix is
+  stripped to form the URL.
+
+`vite.config.js` reads both directories at build time, so the sitemap picks up
+new pages automatically. `src/data/newsData.js` holds the news timeline.
+
+See `skills/portfolio-site/SKILL.md` for the frontmatter schemas, image
+conventions, and the pre-publish checklist.
+
+## Deployment
+
+Pushing to `main` triggers the GitHub Actions workflow in
+`.github/workflows/deploy.yml`, which builds and publishes to GitHub Pages at
+[connectwithprakash.com](https://www.connectwithprakash.com). Pushing is
+publishing.
 
 ## Browser Support
 
