@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import ThemeToggle from './ThemeToggle';
 import './Navigation.css';
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -134,49 +134,37 @@ const Navigation = () => {
           aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
           whileTap={{ scale: 0.9 }}
         >
           {mobileMenuOpen ? <FaTimes /> : <FaBars />}
         </motion.button>
       </div>
 
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            id="mobile-navigation"
-            className="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile navigation"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ul className="mobile-menu-list">
-              {navItems.map((item, index) => (
-                <motion.li
-                  key={item.to}
-                  initial={false}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <Link
-                    ref={index === 0 ? firstMobileNavRef : undefined}
-                    className={`mobile-nav-link ${isActiveRoute(item.to) ? 'active' : ''}`}
-                    to={item.to}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </motion.li>
-              ))}
-
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        id="mobile-navigation"
+        className={`mobile-menu ${mobileMenuOpen ? 'is-open' : ''}`}
+        role="dialog"
+        aria-modal={mobileMenuOpen}
+        aria-hidden={!mobileMenuOpen}
+        aria-label="Mobile navigation"
+      >
+        <ul className="mobile-menu-list">
+          {navItems.map((item, index) => (
+            <li key={item.to}>
+              <Link
+                ref={index === 0 ? firstMobileNavRef : undefined}
+                className={`mobile-nav-link ${isActiveRoute(item.to) ? 'active' : ''}`}
+                to={item.to}
+                tabIndex={mobileMenuOpen ? 0 : -1}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </motion.nav>
   );
 };
