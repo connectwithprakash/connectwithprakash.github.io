@@ -35,7 +35,7 @@ A modern personal portfolio website built with **React**, **Vite**, and **Framer
 
 ### Pages
 
-- **Home** - Hero, About, News, Projects, Publications sections
+- **Home** - Hero, featured projects, and news sections
 - **About** - Background, skills, career timeline, and education
 - **Projects** - Full project listing with category filters
 - **News** - Timeline of achievements and milestones
@@ -102,6 +102,9 @@ website/
 ├── package.json
 └── vite.config.js       # Build config and sitemap generation
 ```
+
+Personal pages live under `/personal`: books, thoughts, and inquiry. Personal posts use
+`category: personal` and resolve to `/personal/thoughts/<slug>`.
 
 ## Adding Content
 

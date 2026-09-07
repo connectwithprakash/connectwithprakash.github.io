@@ -6,6 +6,7 @@ import Navigation from './components/Navigation';
 import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
 import Particles from './components/Particles';
+import NotFound from './pages/NotFound';
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home'));
@@ -52,6 +53,7 @@ function App() {
               <Route path="/question" element={<Navigate to="/personal/inquiry" replace />} />
               <Route path="/books" element={<Navigate to="/personal/books" replace />} />
               <Route path="/project/:id" element={<ProjectDetail />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
             <Contact />
           </Suspense>

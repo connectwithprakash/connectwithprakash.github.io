@@ -45,9 +45,11 @@ const SEO = ({
   image = DEFAULT_IMAGE,
   url,
   type = 'website',
+  noIndex = false,
   article = null, // For blog posts: { publishedTime, author }
 }) => {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+  const absoluteImage = new URL(image, SITE_URL).href;
   const canonicalUrl = url ? `${SITE_URL}${url}` : SITE_URL;
 
   useEffect(() => {
@@ -69,7 +71,7 @@ const SEO = ({
     updateMetaTag('property', 'og:url', canonicalUrl);
     updateMetaTag('property', 'og:title', fullTitle);
     updateMetaTag('property', 'og:description', description);
-    updateMetaTag('property', 'og:image', image);
+    updateMetaTag('property', 'og:image', absoluteImage);
     updateMetaTag('property', 'og:site_name', SITE_NAME);
 
     // Twitter Card
@@ -77,7 +79,11 @@ const SEO = ({
     updateMetaTag('name', 'twitter:site', TWITTER_HANDLE);
     updateMetaTag('name', 'twitter:title', fullTitle);
     updateMetaTag('name', 'twitter:description', description);
-    updateMetaTag('name', 'twitter:image', image);
+    updateMetaTag('name', 'twitter:image', absoluteImage);
+
+    updateMetaTag('name', 'robots', noIndex ? 'noindex, follow' : 'index, follow');
+    updateMetaTag('name', 'googlebot', noIndex ? 'noindex, follow' : 'index, follow, max-image-preview:large');
+    document.querySelectorAll('meta[property^="article:"]').forEach(tag => tag.remove());
 
     // Article-specific tags (for blog posts)
     if (article) {
@@ -86,7 +92,7 @@ const SEO = ({
         updateMetaTag('property', 'article:author', article.author);
       }
     }
-  }, [fullTitle, description, keywords, canonicalUrl, type, image, article]);
+  }, [fullTitle, description, keywords, canonicalUrl, type, absoluteImage, article, noIndex]);
 
   // Return null - all updates happen via useEffect
   return null;

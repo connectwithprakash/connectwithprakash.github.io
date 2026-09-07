@@ -1,5 +1,6 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import NotFound from './NotFound';
+import { useState, lazy, Suspense } from 'react';
+import { useParams, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -31,40 +32,15 @@ const BlogPost = () => {
   const collectionPath = isThought ? '/personal/thoughts' : '/blog';
   const collectionLabel = isThought ? 'Thoughts' : 'Blog';
 
-  const [post, setPost] = useState(null);
-  const [liked, setLiked] = useState(false);
-  const [likes, setLikes] = useState(0);
+  const post = blogPosts.find(p => p.id === id);
+  const [liked, setLiked] = useState(() => localStorage.getItem(`blog-liked-${id}`) === 'true');
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    const foundPost = blogPosts.find(p => p.id === id);
-    if (foundPost) {
-      setPost(foundPost);
-
-      // Load likes from localStorage
-      const storedLikes = localStorage.getItem(`blog-likes-${id}`);
-      const storedLiked = localStorage.getItem(`blog-liked-${id}`);
-
-      if (storedLikes) setLikes(parseInt(storedLikes));
-      if (storedLiked === 'true') setLiked(true);
-    }
-  }, [id]);
-
   const handleLike = () => {
-    if (liked) {
-      setLiked(false);
-      const newLikes = Math.max(0, likes - 1);
-      setLikes(newLikes);
-      localStorage.setItem(`blog-likes-${id}`, newLikes.toString());
-      localStorage.setItem(`blog-liked-${id}`, 'false');
-    } else {
-      setLiked(true);
-      const newLikes = likes + 1;
-      setLikes(newLikes);
-      localStorage.setItem(`blog-likes-${id}`, newLikes.toString());
-      localStorage.setItem(`blog-liked-${id}`, 'true');
-    }
+    const nextLiked = !liked;
+    setLiked(nextLiked);
+    localStorage.setItem(`blog-liked-${id}`, String(nextLiked));
   };
 
   const shareUrl = `${window.location.origin}${collectionPath}/${id}`;
@@ -109,20 +85,10 @@ const BlogPost = () => {
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
-  if (!post) {
-    return (
-      <div className="blog-post-page">
-        <div className="container">
-          <div className="post-not-found">
-            <h2>Post not found</h2>
-            <Link to={collectionPath} className="btn btn-primary">
-              <FaArrowLeft /> Back to {collectionLabel}
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  if (!post) return <NotFound />;
+
+  const canonicalPath = post.category === 'personal' ? `/personal/thoughts/${id}` : `/blog/${id}`;
+  if (location.pathname !== canonicalPath) return <Navigate to={canonicalPath} replace />;
 
   return (
     <div className="blog-post-page">
@@ -187,13 +153,15 @@ const BlogPost = () => {
 
           <div className="post-actions">
             <motion.button
+              aria-pressed={liked}
+              title="Saved in this browser"
               className={`action-btn like-btn ${liked ? 'liked' : ''}`}
               onClick={handleLike}
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
             >
               {liked ? <FaHeart /> : <FaRegHeart />}
-              <span>{likes > 0 ? likes : 'Like'}</span>
+              <span>{liked ? 'Liked' : 'Like'}</span>
             </motion.button>
 
             <div className="share-container">
@@ -294,4 +262,9 @@ const BlogPost = () => {
   );
 };
 
-export default BlogPost;
+const BlogPostRoute = () => {
+  const { id } = useParams();
+  return <BlogPost key={id} />;
+};
+
+export default BlogPostRoute;

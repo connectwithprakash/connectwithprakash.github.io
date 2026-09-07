@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaMedium, FaYoutube } from 'react-icons/fa';
 import './Hero.css';
@@ -82,6 +83,7 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
+          <p className="hero-eyebrow">Prakash Chaudhary</p>
           <motion.h1 className="hero-title" variants={itemVariants}>
             <span className="gradient-text">Senior Machine Learning Engineer</span>
           </motion.h1>
@@ -94,6 +96,11 @@ const Hero = () => {
             I’m interested in the layers that help agents get built, connected, evaluated, deployed,
             and improved over time.
           </motion.p>
+
+          <div className="hero-cta">
+            <Link to="/projects" className="btn btn-primary">Explore my work →</Link>
+            <Link to="/about" className="btn btn-glass">About me</Link>
+          </div>
 
           <motion.div className="hero-socials" variants={itemVariants}>
             {socialLinks.map((social, index) => (

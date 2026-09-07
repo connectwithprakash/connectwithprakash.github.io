@@ -1,3 +1,4 @@
+import NotFound from './NotFound';
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -59,19 +60,7 @@ const ProjectDetail = () => {
     };
   }, [lightbox]);
 
-  if (!project) {
-    return (
-      <div className="project-detail-page">
-        <div className="container">
-          <div className="project-not-found">
-            <h1>Project Not Found</h1>
-            <p>The project you're looking for doesn't exist.</p>
-            <Link to="/" className="btn btn-primary">Go Home</Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  if (!project) return <NotFound />;
 
   const containerVariants = {
     hidden: { opacity: 0 },

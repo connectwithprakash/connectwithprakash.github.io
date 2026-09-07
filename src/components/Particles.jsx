@@ -1,10 +1,16 @@
+import { useReducedMotion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import './Particles.css';
 
 const Particles = () => {
+  const { pathname } = useLocation();
+  const reducedMotion = useReducedMotion();
+  const enabled = pathname === '/' && !reducedMotion;
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (!enabled) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -95,9 +101,9 @@ const Particles = () => {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [enabled]);
 
-  return <canvas ref={canvasRef} className="particles-canvas" />;
+  return enabled ? <canvas ref={canvasRef} className="particles-canvas" aria-hidden="true" /> : null;
 };
 
 export default Particles;
