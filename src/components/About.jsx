@@ -204,7 +204,7 @@ const About = () => {
               <TimelineDetails
                 itemKey="fetch"
                 date="May 2024 - Present"
-                org="Fetch - Remote (AI Labs)"
+                org="Fetch · Remote"
                 isMobile={isMobile}
                 open={expandedTimelineItems.fetch}
                 onToggle={handleTimelineToggle}

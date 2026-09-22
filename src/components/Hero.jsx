@@ -88,6 +88,10 @@ const Hero = () => {
             <span className="gradient-text">Senior Machine Learning Engineer</span>
           </motion.h1>
 
+          <motion.p className="hero-role" variants={itemVariants}>
+            Tech Lead, Agentic Infrastructure
+          </motion.p>
+
           <motion.p className="hero-subtitle" variants={itemVariants}>
             I work on agentic systems and the infrastructure around them.
           </motion.p>
