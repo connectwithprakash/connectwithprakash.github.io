@@ -61,6 +61,11 @@
   font-family: var(--font-primary);
 }
 
+.nav-link-personal {
+  border-left: 1px solid var(--glass-border);
+  margin-left: 0.5rem;
+}
+
 .nav-link:hover {
   color: var(--text-primary);
 }
@@ -157,6 +162,11 @@
   transition: all 0.2s ease;
   font-family: var(--font-primary);
   position: relative;
+}
+
+.mobile-nav-link-personal {
+  border-top: 1px solid var(--glass-border);
+  margin-top: 0.5rem;
 }
 
 .mobile-nav-link:hover {

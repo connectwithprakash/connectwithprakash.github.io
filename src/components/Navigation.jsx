@@ -91,6 +91,7 @@ const Navigation = () => {
       { label: 'Projects', to: '/projects' },
       { label: 'Writing & Research', to: '/writing' },
       { label: 'Resume', to: '/resume' },
+      { label: 'Personal', to: '/personal' },
     ];
 
   return (
@@ -121,7 +122,7 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Link aria-current={isActiveRoute(item.to) ? (location.pathname === item.to ? 'page' : 'location') : undefined} className={`nav-link ${isActiveRoute(item.to) ? 'active' : ''}`} to={item.to}>
+              <Link aria-current={isActiveRoute(item.to) ? (location.pathname === item.to ? 'page' : 'location') : undefined} className={`nav-link ${item.to === '/personal' ? 'nav-link-personal' : ''} ${isActiveRoute(item.to) ? 'active' : ''}`} to={item.to}>
                 {item.label}
                 {isActiveRoute(item.to) && <motion.div className="active-indicator" layoutId="activeIndicator" />}
               </Link>
@@ -158,7 +159,7 @@ const Navigation = () => {
             <li key={item.to}>
               <Link
                 ref={index === 0 ? firstMobileNavRef : undefined}
-                className={`mobile-nav-link ${isActiveRoute(item.to) ? 'active' : ''}`}
+                className={`mobile-nav-link ${item.to === '/personal' ? 'mobile-nav-link-personal' : ''} ${isActiveRoute(item.to) ? 'active' : ''}`}
                 to={item.to}
                 aria-current={isActiveRoute(item.to) ? (location.pathname === item.to ? 'page' : 'location') : undefined}
                 tabIndex={mobileMenuOpen ? 0 : -1}
