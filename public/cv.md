@@ -23,8 +23,6 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
   <span class="document-entry-date">Jul 2026 - Present</span>
 </div>
 
-- **Tech Lead, Agentic Infrastructure:** Lead the infrastructure work behind production agents, from evaluation and deployment to observability and day-to-day operation
-
 <div class="document-entry-row">
   <span class="document-entry-title"><strong>Machine Learning Engineer II</strong></span>
   <span class="document-entry-date">Jan 2026 - Jun 2026</span>
@@ -35,6 +33,7 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
   <span class="document-entry-date">May 2024 - Dec 2025</span>
 </div>
 
+- **Tech Lead, Agentic Infrastructure:** Lead the infrastructure work behind production agents, from evaluation and deployment to observability and day-to-day operation
 - Built and shipped **AI Shopping Assistant** serving a **200K-user experiment** -- a Python/LangGraph agent with product card integration with shoppable product cards (catalog search, web search, 4.2M normalized images at 18x cost efficiency), episode-based conversation history (DynamoDB + S3), and production observability (Opik, OpenTelemetry, Grafana), deployed on AWS ECS Fargate
 - Built **end-to-end LLM evaluation system** -- a continuous improvement loop connecting offline evaluation (golden dataset), online monitoring (production traces), and human annotation (judge calibration), with **CI/CD deploy gating** that blocks releases on quality regression
 - **Led Multi-Agent Matching Framework**: cross-functional team of 4 engineers; improved match rates by **3.1-3.3 percentage points** (73.8%→76.9%) unlocking **$165M in GMV**; achieved **15% full automation** with **LLM-as-a-Judge guardrails** at **97% accuracy**, automating **50+ hours of manual operations to 2 minutes**
