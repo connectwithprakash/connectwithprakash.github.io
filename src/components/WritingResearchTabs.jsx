@@ -3,10 +3,10 @@ import './WritingResearchTabs.css';
 
 const WritingResearchTabs = ({ active }) => (
   <nav className="writing-research-tabs" aria-label="Writing and research navigation">
-    <Link className={active === 'blog' ? 'active' : ''} to="/blog">
+    <Link className={active === 'blog' ? 'active' : ''} aria-current={active === 'blog' ? 'page' : undefined} to="/blog">
       Blog
     </Link>
-    <Link className={active === 'research' ? 'active' : ''} to="/publications">
+    <Link className={active === 'research' ? 'active' : ''} aria-current={active === 'research' ? 'page' : undefined} to="/publications">
       Research
     </Link>
   </nav>

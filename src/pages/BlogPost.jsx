@@ -35,6 +35,7 @@ const BlogPost = () => {
 
   const post = blogPosts.find(p => p.id === id);
   const contentRef = useRef(null);
+  const shareButtonRef = useRef(null);
   const [liked, setLiked] = useState(() => localStorage.getItem(`blog-liked-${id}`) === 'true');
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -80,6 +81,13 @@ const BlogPost = () => {
     }
 
     setShowShareMenu(false);
+  };
+
+  const handleShareKeyDown = (event) => {
+    if (event.key === 'Escape' && showShareMenu) {
+      setShowShareMenu(false);
+      shareButtonRef.current?.focus();
+    }
   };
 
   const formatDate = (dateString) => {
@@ -174,9 +182,12 @@ const BlogPost = () => {
               <span>{liked ? 'Liked' : 'Like'}</span>
             </motion.button>
 
-            <div className="share-container">
+            <div className="share-container" onKeyDown={handleShareKeyDown}>
               <motion.button
+                ref={shareButtonRef}
                 className="action-btn share-btn"
+                aria-expanded={showShareMenu}
+                aria-controls="blog-share-menu"
                 onClick={() => setShowShareMenu(!showShareMenu)}
                 whileTap={{ scale: 0.9 }}
                 whileHover={{ scale: 1.05 }}
@@ -187,6 +198,7 @@ const BlogPost = () => {
 
               {showShareMenu && (
                 <motion.div
+                  id="blog-share-menu"
                   className="share-menu glass-card"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}

@@ -38,7 +38,7 @@
   background: var(--gradient-tertiary);
   border-radius: 16px;
   font-size: 1.75rem;
-  color: white;
+  color: #101820;
   flex-shrink: 0;
   box-shadow: 0 8px 24px rgba(79, 172, 254, 0.3);
 }

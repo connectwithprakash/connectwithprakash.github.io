@@ -97,11 +97,11 @@
   --gradient-cosmic: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
 
   /* Accent Colors (darker for better contrast on light background) */
-  --neon-blue: #0ea5e9;
-  --neon-purple: #8b5cf6;
-  --neon-pink: #ec4899;
-  --neon-green: #10b981;
-  --neon-yellow: #f59e0b;
+  --neon-blue: #026991;
+  --neon-purple: #6d28d9;
+  --neon-pink: #be185d;
+  --neon-green: #047857;
+  --neon-yellow: #92400e;
 
   /* Text Colors */
   --text-primary: #1a1a1a;
@@ -275,6 +275,16 @@ a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+:root.light .gradient-text,
+:root.light .section-title,
+:root.light .projects-page-title,
+:root.light .project-detail-page .project-title,
+:root.light .project-markdown h2 {
+  background: none;
+  -webkit-text-fill-color: #0b5b82;
+  color: #0b5b82;
 }
 
 /* Button Styles */

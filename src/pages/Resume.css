@@ -45,7 +45,7 @@
 }
 
 .resume-toggle-btn.active {
-  background: var(--gradient-primary);
+  background: #4f46a5;
   color: white;
   font-weight: 600;
 }

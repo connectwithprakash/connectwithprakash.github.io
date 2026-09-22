@@ -53,7 +53,7 @@
 }
 
 .category-filter.active {
-  background: var(--gradient-primary);
+  background: #4f46a5;
   border-color: transparent;
   color: white;
 }

@@ -109,6 +109,7 @@ const Resume = () => {
               <button
                 key={key}
                 className={`resume-toggle-btn ${activeMode === key ? 'active' : ''}`}
+                aria-pressed={activeMode === key}
                 onClick={() => setActiveMode(key)}
               >
                 {mode.label}

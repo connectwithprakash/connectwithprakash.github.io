@@ -89,6 +89,11 @@
   color: #00ab6b;
 }
 
+:root.light .blog-source-badge.medium {
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+}
+
 .blog-source-badge svg {
   font-size: 0.7rem;
 }

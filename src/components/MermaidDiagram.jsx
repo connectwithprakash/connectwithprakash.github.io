@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import mermaid from 'mermaid';
+import { useTheme } from '../context/ThemeContext';
 import './MermaidDiagram.css';
 
 // Global counter to ensure unique IDs across all component instances
@@ -9,18 +10,7 @@ const MermaidDiagram = ({ chart }) => {
   const containerRef = useRef(null);
   const instanceId = useRef(++globalInstanceCounter);
   const renderCount = useRef(0);
-  const [isDark, setIsDark] = useState(() =>
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-  );
-
-  // Listen for system theme changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e) => setIsDark(e.matches);
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     const renderDiagram = async () => {
