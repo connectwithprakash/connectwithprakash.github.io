@@ -1,5 +1,12 @@
 export const newsItems = [
   {
+    date: 'August 2026',
+    icon: 'trophy',
+    title: 'Tech Lead, Agentic Infrastructure',
+    description: 'Leading the infrastructure work behind production agents, from evaluation and deployment to observability and day-to-day operation.',
+    color: 'var(--neon-yellow)',
+  },
+  {
     date: 'July 2026',
     icon: 'rocket',
     title: 'Released Agent Session Bridge',
@@ -9,7 +16,7 @@ export const newsItems = [
   {
     date: 'July 2026',
     icon: 'trophy',
-    title: 'Promoted to Senior Machine Learning Engineer',
+    title: 'Senior Machine Learning Engineer',
     description: 'Promoted to Senior Machine Learning Engineer at Fetch, working on the AI Shopping Assistant with a focus on the evaluation systems and architecture it builds on.',
     color: 'var(--neon-yellow)',
   },

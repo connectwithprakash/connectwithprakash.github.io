@@ -17,7 +17,7 @@ const personData = {
   '@id': `${SITE_URL}/#person`,
   name: 'Prakash Chaudhary',
   jobTitle: 'Senior Machine Learning Engineer',
-  description: 'Senior Machine Learning Engineer working on agentic systems, evaluation, and the infrastructure around them.',
+  description: 'Senior Machine Learning Engineer and Tech Lead for Agentic Infrastructure, working on production agents, evaluation, and the systems around them.',
   url: SITE_URL,
   image: `${SITE_URL}/assets/og-image.png`,
   sameAs: [
@@ -52,7 +52,7 @@ const websiteData = {
   '@id': `${SITE_URL}/#website`,
   url: SITE_URL,
   name: SITE_NAME,
-  description: 'Portfolio of Prakash Chaudhary, a Senior Machine Learning Engineer working on agentic systems, evaluation, and production ML.',
+  description: 'Portfolio of Prakash Chaudhary, a Senior Machine Learning Engineer and Tech Lead for Agentic Infrastructure working on production agents, evaluation, and production ML.',
   publisher: {
     '@id': `${SITE_URL}/#person`,
   },

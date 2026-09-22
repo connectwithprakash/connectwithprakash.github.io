@@ -86,11 +86,15 @@ export default defineConfig({
           'vendor-motion': ['framer-motion'],
           // Markdown rendering - only needed for blog/project pages
           'vendor-markdown': ['react-markdown', 'remark-gfm', 'rehype-highlight', 'rehype-raw'],
-          // Mermaid diagrams - only loaded when needed (lazy)
-          'vendor-mermaid': ['mermaid'],
           // Comments - only on blog posts
           'vendor-giscus': ['@giscus/react'],
         },
+      },
+      onwarn(warning, warn) {
+        // gray-matter contains an intentional eval in a third-party parser.
+        // Keep other Rollup warnings visible.
+        if (warning.code === 'EVAL' && warning.id?.includes('/gray-matter/')) return;
+        warn(warning);
       },
     },
   },

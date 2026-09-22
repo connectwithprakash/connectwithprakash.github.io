@@ -124,7 +124,7 @@ const About = () => {
           <motion.div className="section-header" variants={itemVariants}>
             <h2 className="section-title">About Me</h2>
             <p className="section-subtitle">
-              Senior Machine Learning Engineer building production AI systems
+              Senior Machine Learning Engineer · Tech Lead, Agentic Infrastructure
             </p>
           </motion.div>
 
@@ -135,9 +135,10 @@ const About = () => {
                   What I Do
                 </h3>
                 <p>
-                  I'm a <strong>Senior Machine Learning Engineer</strong> at Fetch, where I work on
-                  production AI systems built on <strong>LLMs</strong> and{' '}
-                  <strong>multi-agent architectures</strong>. I shipped an{' '}
+                  I'm a <strong>Senior Machine Learning Engineer</strong> at Fetch and work as{' '}
+                  <strong>Tech Lead for Agentic Infrastructure</strong>. I lead the infrastructure work
+                  behind production agents, from evaluation and deployment to observability and day-to-day
+                  operation. I shipped an{' '}
                   <strong>AI Shopping Assistant</strong> to a 200K-user experiment and worked on a
                   multi-agent matching framework that <strong>unlocked $165M in GMV</strong> with
                   LLM-as-a-Judge guardrails at 97% accuracy.
@@ -213,7 +214,7 @@ const About = () => {
                     <h4>Senior Machine Learning Engineer</h4>
                     <span className="timeline-role-date">Jul 2026 - Present</span>
                     <p className="timeline-desc">
-                      Working on Fetch's AI Shopping Assistant, a self-improving agentic system, with a focus on evaluation systems and supporting architecture.
+                      Leading the infrastructure work behind Fetch's production agents, from evaluation and deployment to observability and day-to-day operation.
                     </p>
                   </div>
                   <div className="timeline-role">

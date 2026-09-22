@@ -23,6 +23,8 @@ Machine Learning Engineer with over 5 years of experience designing and deployin
   <span class="document-entry-date">Jul 2026 - Present</span>
 </div>
 
+- **Tech Lead, Agentic Infrastructure:** Lead the infrastructure work behind production agents, from evaluation and deployment to observability and day-to-day operation
+
 <div class="document-entry-row">
   <span class="document-entry-title"><strong>Machine Learning Engineer II</strong></span>
   <span class="document-entry-date">Jan 2026 - Jun 2026</span>

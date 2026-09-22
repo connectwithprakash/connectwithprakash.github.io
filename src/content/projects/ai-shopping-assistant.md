@@ -1,10 +1,11 @@
 ---
 id: ai-shopping-assistant
 title: AI Shopping Assistant
-shortDescription: Multimodal AI assistant powering a 200K-user experiment, enabling natural language product discovery, offers, and rewards optimization on iOS.
+shortDescription: Multimodal AI assistant that powered a 200K-user experiment, enabling natural language product discovery, offers, and rewards optimization on iOS.
 category: agentic-ai
-status: in-progress
+status: completed
 startDate: 2025-10
+endDate: 2026-08
 importance: 1
 featured: true
 tags: [Agentic AI, LLM, Multimodal AI, ReAct Pattern, MCP, Production ML, E-commerce, Shopping Assistant]
@@ -24,7 +25,7 @@ demo: null
 
 ## Overview
 
-Designed and deployed a multimodal AI shopping assistant that helps users discover products, find offers, maximize points, and personalize their shopping experiences across 300+ retail partners. The system powers a 200K-user holdout experiment on iOS, with intelligent, conversational interactions and sub-second response times.
+Designed and deployed a multimodal AI shopping assistant that helped users discover products, find offers, maximize points, and personalize their shopping experiences across 300+ retail partners. The system powered a 200K-user holdout experiment on iOS, with intelligent, conversational interactions and sub-second response times.
 
 ## Problem Statement
 
