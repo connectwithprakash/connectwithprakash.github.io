@@ -10,24 +10,27 @@ const ScrollToTop = () => {
       return undefined;
     }
 
-    let attempts = 0;
-    let timeoutId;
-
-    const scrollToHash = () => {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        return;
-      }
-
-      attempts += 1;
-      if (attempts < 20) {
-        timeoutId = window.setTimeout(scrollToHash, 50);
-      }
+    let anchor;
+    try { anchor = decodeURIComponent(hash.slice(1)); } catch { return undefined; }
+    let frame;
+    const scrollToAnchor = () => {
+      const element = document.getElementById(anchor);
+      if (!element) return;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        frame = requestAnimationFrame(() => {
+          element.scrollIntoView({ behavior: 'instant', block: 'start' });
+          observer.disconnect();
+        });
+      });
     };
-
-    scrollToHash();
-    return () => window.clearTimeout(timeoutId);
+    const observer = new MutationObserver(scrollToAnchor);
+    observer.observe(document.getElementById('root'), { childList: true, subtree: true });
+    scrollToAnchor();
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
   }, [pathname, hash]);
 
   return null;

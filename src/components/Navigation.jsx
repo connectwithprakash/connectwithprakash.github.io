@@ -70,7 +70,11 @@ const Navigation = () => {
       ? location.pathname === '/writing'
         || location.pathname.startsWith('/blog')
         || location.pathname.startsWith('/publications')
-      : location.pathname === to
+      : to === '/projects'
+        ? location.pathname === to || location.pathname.startsWith('/project/')
+        : to === '/personal/thoughts'
+          ? location.pathname === to || location.pathname.startsWith(`${to}/`)
+          : location.pathname === to
   );
 
   const navItems = isPersonalRoute
@@ -117,7 +121,7 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Link className={`nav-link ${isActiveRoute(item.to) ? 'active' : ''}`} to={item.to}>
+              <Link aria-current={isActiveRoute(item.to) ? (location.pathname === item.to ? 'page' : 'location') : undefined} className={`nav-link ${isActiveRoute(item.to) ? 'active' : ''}`} to={item.to}>
                 {item.label}
                 {isActiveRoute(item.to) && <motion.div className="active-indicator" layoutId="activeIndicator" />}
               </Link>
@@ -156,6 +160,7 @@ const Navigation = () => {
                 ref={index === 0 ? firstMobileNavRef : undefined}
                 className={`mobile-nav-link ${isActiveRoute(item.to) ? 'active' : ''}`}
                 to={item.to}
+                aria-current={isActiveRoute(item.to) ? (location.pathname === item.to ? 'page' : 'location') : undefined}
                 tabIndex={mobileMenuOpen ? 0 : -1}
                 onClick={() => setMobileMenuOpen(false)}
               >

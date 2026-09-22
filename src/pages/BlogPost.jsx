@@ -1,5 +1,5 @@
 import NotFound from './NotFound';
-import { useState, lazy, Suspense } from 'react';
+import { useState, useRef, lazy, Suspense } from 'react';
 import { useParams, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -21,6 +21,7 @@ import {
   FaLink,
 } from 'react-icons/fa';
 import { blogPosts } from '../data/blogPosts';
+import ArticleContents from '../components/ArticleContents';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
 import './BlogPost.css';
@@ -33,6 +34,7 @@ const BlogPost = () => {
   const collectionLabel = isThought ? 'Thoughts' : 'Blog';
 
   const post = blogPosts.find(p => p.id === id);
+  const contentRef = useRef(null);
   const [liked, setLiked] = useState(() => localStorage.getItem(`blog-liked-${id}`) === 'true');
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -88,7 +90,15 @@ const BlogPost = () => {
   if (!post) return <NotFound />;
 
   const canonicalPath = post.category === 'personal' ? `/personal/thoughts/${id}` : `/blog/${id}`;
-  if (location.pathname !== canonicalPath) return <Navigate to={canonicalPath} replace />;
+  if (location.pathname !== canonicalPath) return <Navigate to={`${canonicalPath}${location.search}${location.hash}`} replace />;
+
+  const relatedPosts = blogPosts
+    .filter(candidate => candidate.id !== id && (candidate.category === 'personal') === (post.category === 'personal'))
+    .sort((a, b) => {
+      const overlap = candidate => candidate.tags.filter(tag => post.tags.includes(tag)).length;
+      return overlap(b) - overlap(a) || new Date(b.date) - new Date(a.date);
+    })
+    .slice(0, 2);
 
   return (
     <div className="blog-post-page">
@@ -121,7 +131,7 @@ const BlogPost = () => {
       <div className="container">
         <motion.article
           className="blog-post"
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -203,10 +213,14 @@ const BlogPost = () => {
             </div>
           </div>
 
-          <div className="post-content glass-card">
+          <ArticleContents contentRef={contentRef} />
+
+          <div ref={contentRef} className="post-content glass-card">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
+                h2: ({ node, children }) => <h2 id={`section-${node.position.start.line}`} tabIndex={-1}>{children}</h2>,
+                h3: ({ node, children }) => <h3 id={`section-${node.position.start.line}`} tabIndex={-1}>{children}</h3>,
                 code: ({ inline, className, children, ...props }) => {
                   const match = /language-(\w+)/.exec(className || '');
                   const language = match ? match[1] : '';
@@ -238,6 +252,21 @@ const BlogPost = () => {
               </Link>
             </div>
           </div>
+
+          {relatedPosts.length > 0 && (
+            <section className="related-reading" aria-labelledby="related-reading-title">
+              <h2 id="related-reading-title">More {isThought ? 'thoughts' : 'to read'}</h2>
+              <div className="related-reading-grid">
+                {relatedPosts.map(related => (
+                  <Link key={related.id} to={`${collectionPath}/${related.id}`} className="related-reading-card glass-card">
+                    <h3>{related.title}</h3>
+                    <p>{related.description}</p>
+                    <span>Read article →</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
           <div className="post-comments">
             <h3 className="comments-title">Comments</h3>

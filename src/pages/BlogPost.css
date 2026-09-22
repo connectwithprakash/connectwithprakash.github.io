@@ -386,3 +386,25 @@
     right: 1rem;
   }
 }
+
+.article-contents {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+}
+.article-contents summary { cursor: pointer; font-weight: 600; padding: 0.5rem 0; }
+.article-contents ul { list-style: none; padding: 0; margin: 0.75rem 0 0; }
+.article-contents a { display: block; padding: 0.5rem 0; color: var(--text-secondary); }
+.article-contents a:hover { color: var(--text-primary); text-decoration: underline; }
+.article-contents .contents-subheading { padding-left: 1.25rem; font-size: 0.95rem; }
+.post-content :is(h2, h3) { scroll-margin-top: 7rem; }
+.related-reading { margin: 3rem 0; }
+.related-reading > h2 { margin-bottom: 1.25rem; }
+.related-reading-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.related-reading-card { display: flex; flex-direction: column; padding: 1.5rem; min-width: 0; color: var(--text-primary); }
+.related-reading-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+.related-reading-card p { color: var(--text-secondary); margin-bottom: 1rem; }
+.related-reading-card > span { margin-top: auto; font-weight: 600; }
+@media (max-width: 600px) { .related-reading-grid { grid-template-columns: 1fr; } }

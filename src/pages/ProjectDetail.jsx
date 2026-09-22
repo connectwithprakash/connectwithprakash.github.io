@@ -1,5 +1,5 @@
 import NotFound from './NotFound';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
@@ -44,19 +44,20 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
   const project = getProjectById(id);
   const relatedProjects = project ? getRelatedProjects(id, project.category) : [];
+  const lightboxRef = useRef(null);
   const [lightbox, setLightbox] = useState(null);
 
-  // Close the lightbox on Escape and freeze page scroll while it is open.
   useEffect(() => {
     if (!lightbox) return undefined;
-    const onKey = (e) => {
-      if (e.key === 'Escape') setLightbox(null);
-    };
-    window.addEventListener('keydown', onKey);
+    const dialog = lightboxRef.current;
+    const trigger = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
     document.body.style.overflow = 'hidden';
     return () => {
-      window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      if (trigger?.isConnected) trigger.focus();
     };
   }, [lightbox]);
 
@@ -378,12 +379,18 @@ const ProjectDetail = () => {
       </div>
 
       {lightbox && (
-        <div
+        <dialog
+          ref={lightboxRef}
           className="image-lightbox"
-          role="dialog"
-          aria-modal="true"
+          onCancel={() => setLightbox(null)}
+          onKeyDown={(event) => {
+            if (event.key === 'Tab') {
+              event.preventDefault();
+              lightboxRef.current.querySelector('.image-lightbox-close')?.focus();
+            }
+          }}
           aria-label={lightbox.caption || 'Full size image'}
-          onClick={() => setLightbox(null)}
+          onClick={(event) => { if (event.target === event.currentTarget) setLightbox(null); }}
         >
           <button
             type="button"
@@ -399,7 +406,7 @@ const ProjectDetail = () => {
             onClick={(e) => e.stopPropagation()}
           />
           {lightbox.caption && <p className="image-lightbox-caption">{lightbox.caption}</p>}
-        </div>
+        </dialog>
       )}
     </div>
   );

@@ -32,8 +32,12 @@ function App() {
         <ScrollToTop />
         <div className="app">
           <Particles />
+          <a className="skip-link" href="#page-content" onClick={() => {
+            document.getElementById('page-content')?.focus();
+          }}>Skip to content</a>
           <Navigation />
           <Suspense fallback={<div className="route-loading" role="status" aria-live="polite">Loading…</div>}>
+            <div id="page-content" tabIndex={-1}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutPage />} />
@@ -55,6 +59,7 @@ function App() {
               <Route path="/project/:id" element={<ProjectDetail />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </div>
             <Contact />
           </Suspense>
         </div>
