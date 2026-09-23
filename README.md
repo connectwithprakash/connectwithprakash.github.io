@@ -125,10 +125,14 @@ conventions, and the pre-publish checklist.
 
 ## Deployment
 
-Pushing to `main` triggers the GitHub Actions workflow in
-`.github/workflows/deploy.yml`, which builds and publishes to GitHub Pages at
-[connectwithprakash.com](https://www.connectwithprakash.com). Pushing is
-publishing.
+Netlify builds `main` with `npm run build` and serves the production site at
+[connectwithprakash.com](https://connectwithprakash.com). The `www` hostname
+redirects to the apex domain. The build includes static metadata for article
+and project URLs, while React renders the page content in the browser.
+
+The GitHub Actions workflow in `.github/workflows/deploy.yml` also builds and
+deploys to GitHub Pages. It does not serve the custom domain. Pushing to `main`
+publishes the Netlify site.
 
 ## Browser Support
 

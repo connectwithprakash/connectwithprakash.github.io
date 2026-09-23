@@ -1,8 +1,10 @@
 # Agent notes for connectwithprakash.github.io
 
 Personal portfolio site: React 19 + Vite SPA, plain CSS per component, dark
-glassmorphism design. Deploys automatically from `main` to
-`https://www.connectwithprakash.com`, so **pushing is publishing**.
+glassmorphism design. Netlify deploys `main` to
+`https://connectwithprakash.com` (`www` redirects there), so **pushing is
+publishing**. GitHub Actions also builds and deploys GitHub Pages, but the
+custom domain is served by Netlify.
 
 ## Skill routing
 

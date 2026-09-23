@@ -30,7 +30,7 @@ them.
 - Images live in `public/assets/img/projects/<id>/`, referenced root-absolute (`/assets/img/projects/<id>/...`).
 - News items live in `src/data/newsData.js` (`{date, icon, title, description, color}`; newest first).
 - Categories are hardcoded in `src/pages/ProjectsPage.jsx`.
-- Build: `npm run build`. Sitemap picks up content files automatically. Deploys automatically from `main` (live at `https://www.connectwithprakash.com`), so pushing IS publishing.
+- Build: `npm run build`. Sitemap picks up content files automatically. Netlify deploys `main` to `https://connectwithprakash.com`; GitHub Actions separately deploys GitHub Pages. Pushing IS publishing.
 
 ## Project frontmatter schema
 
