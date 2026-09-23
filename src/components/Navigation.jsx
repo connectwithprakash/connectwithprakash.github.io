@@ -91,7 +91,6 @@ const Navigation = () => {
       { label: 'Projects', to: '/projects' },
       { label: 'Writing & Research', to: '/writing' },
       { label: 'Resume', to: '/resume' },
-      { label: 'Personal', to: '/personal' },
     ];
 
   return (
