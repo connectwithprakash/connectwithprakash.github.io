@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaMedium, FaYoutube } from 'react-icons/fa';
+import useDecorativeMotion from '../hooks/useDecorativeMotion';
 import './Hero.css';
 
 const Hero = () => {
+  const decorativeMotion = useDecorativeMotion();
   const socialLinks = [
     { icon: <FaGithub />, url: 'https://github.com/connectwithprakash', label: 'GitHub' },
     { icon: <FaLinkedin />, url: 'https://linkedin.com/in/connectwithprakash', label: 'LinkedIn' },
@@ -29,29 +31,29 @@ const Hero = () => {
       <div className="hero-background">
         <motion.div
           className="gradient-orb orb-1"
-          animate={{
+          animate={decorativeMotion ? {
             x: [0, 100, 0],
             y: [0, -50, 0],
             scale: [1, 1.2, 1],
-          }}
+          } : undefined}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="gradient-orb orb-2"
-          animate={{
+          animate={decorativeMotion ? {
             x: [0, -80, 0],
             y: [0, 80, 0],
             scale: [1, 1.3, 1],
-          }}
+          } : undefined}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="gradient-orb orb-3"
-          animate={{
+          animate={decorativeMotion ? {
             x: [0, 50, 0],
             y: [0, -100, 0],
             scale: [1, 1.1, 1],
-          }}
+          } : undefined}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
@@ -102,8 +104,8 @@ const Hero = () => {
         <motion.div
           className="hero-visual"
           variants={floatingVariants}
-          initial="initial"
-          animate="animate"
+          initial={decorativeMotion ? 'initial' : false}
+          animate={decorativeMotion ? 'animate' : undefined}
         >
           <div className="visual-card glass-card">
             <div className="code-snippet">
@@ -138,13 +140,13 @@ const Hero = () => {
 
       <motion.div
         className="scroll-indicator"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={decorativeMotion ? { opacity: 0, y: -10 } : false}
+        animate={decorativeMotion ? { opacity: 1, y: 0 } : undefined}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
         <motion.div
           className="scroll-arrow"
-          animate={{ y: [0, 10, 0] }}
+          animate={decorativeMotion ? { y: [0, 10, 0] } : undefined}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
           ↓

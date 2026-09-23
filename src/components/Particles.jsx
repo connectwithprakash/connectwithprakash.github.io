@@ -1,12 +1,12 @@
-import { useReducedMotion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import useDecorativeMotion from '../hooks/useDecorativeMotion';
 import './Particles.css';
 
 const Particles = () => {
   const { pathname } = useLocation();
-  const reducedMotion = useReducedMotion();
-  const enabled = pathname === '/' && !reducedMotion;
+  const decorativeMotion = useDecorativeMotion();
+  const enabled = pathname === '/' && decorativeMotion;
   const canvasRef = useRef(null);
 
   useEffect(() => {
