@@ -66,7 +66,6 @@ export default defineConfig({
       outDir: 'dist',
       changefreq: 'weekly',
       priority: 0.8,
-      lastmod: new Date(),
       generateRobotsTxt: true,
       robots: [
         { userAgent: '*', allow: '/' }

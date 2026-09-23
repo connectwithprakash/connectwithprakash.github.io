@@ -68,3 +68,8 @@ for (const file of (await fs.readdir(projectDir)).filter(file => file.endsWith('
 }
 
 console.log(`Wrote static metadata for ${routes.size} article and project routes`);
+
+const sitemapPath = path.join(distDir, 'sitemap.xml');
+const sitemap = await fs.readFile(sitemapPath, 'utf8');
+// The sitemap plugin defaults to build-time dates, which are not page modification dates.
+await fs.writeFile(sitemapPath, sitemap.replace(/<lastmod>[^<]*<\/lastmod>/g, ''));
