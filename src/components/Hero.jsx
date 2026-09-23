@@ -12,26 +12,6 @@ const Hero = () => {
     { icon: <FaYoutube />, url: 'https://www.youtube.com/@connectwithprakash', label: 'YouTube' },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-  };
-
   const floatingVariants = {
     initial: { y: 0 },
     animate: {
@@ -77,36 +57,31 @@ const Hero = () => {
       </div>
 
       <div className="container">
-        <motion.div
-          className="hero-content"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className="hero-content">
           <p className="hero-eyebrow">Prakash Chaudhary</p>
-          <motion.h1 className="hero-title" variants={itemVariants}>
+          <h1 className="hero-title">
             <span className="gradient-text">Senior Machine Learning Engineer</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p className="hero-role" variants={itemVariants}>
+          <p className="hero-role">
             Tech Lead, Agentic Infrastructure
-          </motion.p>
+          </p>
 
-          <motion.p className="hero-subtitle" variants={itemVariants}>
+          <p className="hero-subtitle">
             I work on agentic systems and the infrastructure around them.
-          </motion.p>
+          </p>
 
-          <motion.p className="hero-description" variants={itemVariants}>
+          <p className="hero-description">
             I’m interested in the layers that help agents get built, connected, evaluated, deployed,
             and improved over time.
-          </motion.p>
+          </p>
 
           <div className="hero-cta">
             <Link to="/projects" className="btn btn-primary">Explore my work →</Link>
             <Link to="/about" className="btn btn-glass">About me</Link>
           </div>
 
-          <motion.div className="hero-socials" variants={itemVariants}>
+          <div className="hero-socials">
             {socialLinks.map((social, index) => (
               <motion.a
                 key={index}
@@ -121,8 +96,8 @@ const Hero = () => {
                 {social.icon}
               </motion.a>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         <motion.div
           className="hero-visual"
