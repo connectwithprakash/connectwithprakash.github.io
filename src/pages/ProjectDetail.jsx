@@ -4,6 +4,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
 import { getProjectById, getRelatedProjects } from '../data/projectLoader';
+import { getProjectSocialImage } from '../data/projectSocialImage';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import SEO from '../components/SEO';
@@ -88,7 +89,7 @@ const ProjectDetail = () => {
         title={project.title}
         description={project.shortDescription}
         keywords={project.tags?.join(', ')}
-        image={project.thumbnail || project.heroImage}
+        image={getProjectSocialImage(project)}
         url={`/project/${project.id}`}
         type="article"
       />
