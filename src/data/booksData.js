@@ -7,10 +7,10 @@ export const books = [
     id: 'our-pristine-mind',
     title: 'Our Pristine Mind',
     author: 'Orgyen Chowang',
-    status: 'currently-reading',
+    status: 'finished',
     tags: ['Dzogchen', 'Mind', 'Contemplative practice'],
     notes: { summary: '', takeaways: [], thoughts: '', questions: [] },
-    reading: { started: null, finished: null },
+    reading: { started: null, finished: '2026-08-23', completionDates: ['2026-08-23'] },
   },
   {
     id: 'the-psychology-of-money',
