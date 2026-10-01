@@ -166,6 +166,15 @@ export const books = [
     notes: { summary: '', takeaways: [], thoughts: '', questions: [] },
     reading: { started: null, finished: null },
   },
+  {
+    id: 'in-love-with-the-world',
+    title: 'In Love with the World',
+    author: 'Yongey Mingyur Rinpoche and Helen Tworkov',
+    status: 'finished',
+    tags: [],
+    notes: { summary: '', takeaways: [], thoughts: '', questions: [] },
+    reading: { started: '2026-08-25', finished: '2026-09-29', completionDates: ['2026-09-29'] },
+  },
 
 ];
 
