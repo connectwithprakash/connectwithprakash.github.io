@@ -16,10 +16,10 @@ export const books = [
     id: 'the-psychology-of-money',
     title: 'The Psychology of Money',
     author: 'Morgan Housel',
-    status: 'currently-reading',
+    status: 'finished',
     tags: ['Finance', 'Behavior', 'Decision-making'],
     notes: { summary: '', takeaways: [], thoughts: '', questions: [] },
-    reading: { started: '2026-08-23', finished: null },
+    reading: { started: '2026-08-23', finished: '2026-10-08', completionDates: ['2026-10-08'] },
   },
   {
     id: 'norwegian-wood',
