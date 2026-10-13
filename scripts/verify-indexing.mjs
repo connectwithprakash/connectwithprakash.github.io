@@ -17,7 +17,9 @@ for (const url of urls) {
   assert.equal((html.match(/rel="canonical"/g) || []).length, 1, `Expected one canonical: ${url}`);
   assert.ok(html.includes(`rel="canonical" href="${url}"`), `Canonical mismatch: ${url}`);
   assert.ok(html.includes('<meta name="description" content="'), `Missing description: ${url}`);
-  assert.ok(!html.includes('noindex'), `Indexable page contains noindex: ${url}`);
+  assert.ok(!/<meta[^>]+name="(?:robots|googlebot)"[^>]+content="[^"]*noindex/.test(html), `Indexable page contains noindex: ${url}`);
+  assert.ok(html.includes('id="prerender-content"'), `Missing static page body: ${url}`);
+  assert.ok(html.includes('<html lang="en" class="dark">'), `Missing static theme: ${url}`);
 }
 const notFound = await fs.readFile('dist/404.html', 'utf8');
 assert.ok(notFound.includes('name="robots" content="noindex, follow"'));

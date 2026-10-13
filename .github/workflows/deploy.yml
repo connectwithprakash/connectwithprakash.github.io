@@ -34,8 +34,14 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Install browser dependencies
+        run: npx playwright install --with-deps chromium
+
       - name: Build
         run: npm run build
+
+      - name: Verify static content and interactive handoff
+        run: npm run test:prerender
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
