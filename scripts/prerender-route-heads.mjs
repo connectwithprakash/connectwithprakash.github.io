@@ -36,7 +36,8 @@ const writeRouteHead = async ({ route, title, description, image, publishedTime 
     `<meta name="twitter:image" content="${escapeHtml(imageUrl)}" />`,
   ].join('\n    ');
   const output = template.replace('</head>', `    ${head}\n  </head>`);
-  const destination = path.join(distDir, route.slice(1), 'index.html');
+  // Flat HTML lets Netlify serve the existing slashless canonical URL directly.
+  const destination = path.join(distDir, `${route.slice(1)}.html`);
   await fs.mkdir(path.dirname(destination), { recursive: true });
   await fs.writeFile(destination, output);
 };

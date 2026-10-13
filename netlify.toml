@@ -2,6 +2,16 @@
   command = "npm run build"
   publish = "dist"
 
+[[redirects]]
+  from = "/projects/robocon/"
+  to = "/project/abu-robocon-2018"
+  status = 301
+
+[[redirects]]
+  from = "/projects/robocon"
+  to = "/project/abu-robocon-2018"
+  status = 301
+
 # SPA fallback for routes without a generated HTML file
 [[redirects]]
   from = "/*"
