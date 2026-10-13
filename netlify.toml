@@ -12,8 +12,8 @@
   to = "/project/abu-robocon-2018"
   status = 301
 
-# SPA fallback for routes without a generated HTML file
+# Known routes have generated HTML; unknown URLs must not become soft 404s.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
