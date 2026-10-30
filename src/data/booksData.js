@@ -7,10 +7,10 @@ export const books = [
     id: 'no-self-no-problem',
     title: 'No Self, No Problem',
     author: 'Chris Niebauer',
-    status: 'currently-reading',
+    status: 'finished',
     tags: ['Neuroscience', 'Buddhism', 'Self'],
     notes: { summary: '', takeaways: [], thoughts: '', questions: [] },
-    reading: { started: '2026-10-18', finished: null },
+    reading: { started: '2026-10-18', finished: '2026-10-29', completionDates: ['2026-10-29'] },
   },
   {
     id: 'our-pristine-mind',
